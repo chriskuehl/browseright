@@ -1,2 +1,8 @@
-# temporary files used in building/compiling
-src/CitizenTest/target/
+syntax: glob
+
+src/client/cordova/console.log
+src/client/ios/build/*
+src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/*
+src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/
+xcuserdata
+.DS_Store
