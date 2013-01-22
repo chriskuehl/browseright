@@ -41,6 +41,7 @@
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8368AC2516AEE9A30079D2E5 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368AC2416AEE9A30079D2E5 /* TabBar.m */; };
 		8368CAEC16A9A41B00338607 /* browseright-shield-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8368CAEB16A9A41B00338607 /* browseright-shield-72.png */; };
 		8368CAEE16A9A42300338607 /* browseright-shield-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8368CAED16A9A42300338607 /* browseright-shield-144.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
@@ -103,6 +104,8 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* BrowseRight-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrowseRight-Prefix.pch"; sourceTree = "<group>"; };
+		8368AC2316AEE9A30079D2E5 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		8368AC2416AEE9A30079D2E5 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
 		8368CAEB16A9A41B00338607 /* browseright-shield-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "browseright-shield-72.png"; sourceTree = "<group>"; };
 		8368CAED16A9A42300338607 /* browseright-shield-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "browseright-shield-144.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BrowseRight-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BrowseRight-Info.plist"; path = "../BrowseRight-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				8368AC2316AEE9A30079D2E5 /* TabBar.h */,
+				8368AC2416AEE9A30079D2E5 /* TabBar.m */,
 			);
 			name = Plugins;
 			path = BrowseRight/Plugins;
@@ -418,6 +423,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				8368AC2516AEE9A30079D2E5 /* TabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
