@@ -151,8 +151,12 @@ TabBar.prototype.updateItem = function(name, options) {
 
 cordova.addConstructor(function()
 {
+	console.log("here goes");
 	if(!window.plugins)
 		window.plugins = {};
 
     window.plugins.tabBar = new TabBar();
+    
+    console.log("PLUGINS: " + JSON.stringify(window.plugins));
+    
 });
