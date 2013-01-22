@@ -1,12 +1,31 @@
 var APP_VERSION = "1.0";
+var deviceReady = false;
+var domReady = false;
 
 // bootstrap the app
+document.addEventListener("deviceready", function() {
+	deviceReady = true;
+	attemptStart();
+});
+
 $(document).ready(function () {
+	domReady = true;
+	attemptStart();
+});
+
+function attemptStart() {
+	if (domReady && deviceReady) {
+		start();
+	}
+}
+
+function start() {
 	initialize();
+	
 	loadDefaultJavaScriptFiles(function() {
 		startApp();
 	});
-});
+}
 
 // set up the app to a working state
 function initialize() {
