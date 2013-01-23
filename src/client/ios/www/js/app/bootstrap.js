@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 function attemptStart() {
 	if (domReady && deviceReady) {
-		setTimeout(start, 1000);
+		start();
 	}
 }
 
