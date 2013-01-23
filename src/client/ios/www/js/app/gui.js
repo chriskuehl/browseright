@@ -1,5 +1,5 @@
 function initInterface() {
-	console.log("Initializing interface");
+	log("Initializing interface");
 	
 	applyInterfaceTweaks();
 	initTabBar();
