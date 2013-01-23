@@ -2,6 +2,15 @@ em {
 	font-style: italic;
 }
 
+#container {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
 #navBarContainer {
 	background-color: red;
 	
@@ -17,4 +26,15 @@ em {
 	font-size: 87px;
 	letter-spacing: 5px;
 	font-weight: bold;
+}
+
+#contentHolder {
+	position: fixed;
+	
+	top: 87px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	
+	background-color: green;
 }
