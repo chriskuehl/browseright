@@ -1,8 +1,12 @@
 function initInterface() {
 	console.log("Initializing interface");
 	
-	document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+	applyInterfaceTweaks();
 	initTabBar();
+}
+
+function applyInterfaceTweaks() {
+	document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
 }
 
 function initTabBar() {
