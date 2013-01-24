@@ -38,3 +38,15 @@ em {
 	
 	background-color: green;
 }
+
+.screenContainer {
+	background-color: blue;
+	
+	position: absolute;
+	top: 0px;
+	
+	font-size: 48px;
+	
+	width: 2048px;
+	height: 1409px;
+}
