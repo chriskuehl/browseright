@@ -1,4 +1,9 @@
 var APP_VERSION = "1.0";
+var PLATFORM; // not really a constant, but it acts like one for everyone else
+var PLATFORM_IOS = 0;
+var PLATFORM_ANDROID = 1;
+var PLATFORM_PC = 2;
+
 var deviceReady = false;
 var domReady = false;
 
@@ -9,12 +14,22 @@ document.addEventListener("deviceready", function() {
 });
 
 $(document).ready(function () {
+	PLATFORM = determinePlatform();
+	
 	domReady = true;
 	attemptStart();
 });
 
+function determinePlatform() {
+	if (navigator.userAgent.toLowerCase().indexOf('chrome') > (- 1)) {
+		return PLATFORM_PC;
+	}
+	
+	return PLATFORM_IOS;
+}
+
 function attemptStart() {
-	if (domReady && deviceReady) {
+	if (domReady && deviceReady || (domReady && ! deviceReady && PLATFORM == PLATFORM_PC)) {
 		start();
 	}
 }
