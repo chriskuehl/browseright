@@ -13,7 +13,6 @@ function initInterface() {
 	setScreen("test/1");
 	
 	setTimeout(function() {
-		alert("SWITCH SCREEN NOW");
 		setScreen("test/2");
 	}, 1500);
 }
@@ -47,7 +46,6 @@ function resetScreen() {
 }
 
 function setScreen(screenPath) {
-	alert(gui.oldScreen);
 	resetScreen();
 	
 	// create a new screen container
@@ -55,6 +53,9 @@ function setScreen(screenPath) {
 	
 	// set state
 	gui.currentScreen = {
+		data: {
+			
+		}, 
 		container: screenContainer
 	};
 	
@@ -66,8 +67,8 @@ function setScreen(screenPath) {
 
 function showNewScreen(callback) {
 	if (! gui.oldScreen) {
-		gui.currentScreen.show();
-		gui.currentScreen.css({
+		gui.currentScreen.container.show();
+		gui.currentScreen.container.css({
 			left: "0px"
 		});
 		
@@ -75,7 +76,41 @@ function showNewScreen(callback) {
 		return;
 	}
 	
-	alert("change screen!");
+	if (gui.oldScreen.data.parent && gui.oldScreen.data.parent == gui.currentScreen.data.id) {
+		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
+		gui.currentScreen.container.css({
+			left: "-" + gui.currentScreen.container.width() + "px",
+			backgroundColor: "purple"
+		});
+		
+		gui.currentScreen.container.animate({
+			left: "0px"
+		}, 500, "swing", null);
+
+		gui.oldScreen.container.animate({
+			left: (ui.screenContainer.width()) + "px"
+		}, 500, "swing", function() {
+			$(this).remove();
+			unblockTouchInput();
+		});
+	} else {
+		// slide in the new screen from the right
+		gui.currentScreen.container.css({
+			left: gui.currentScreen.container.width() + "px",
+			backgroundColor: "yellow"
+		});
+		
+		gui.currentScreen.container.animate({
+			left: "0px"
+		}, 500, "swing", null);
+
+		gui.oldScreen.container.animate({
+			left: "-" + (ui.screenContainer.width()) + "px"
+		}, 500, "swing", function() {
+			$(this).remove();
+			unblockTouchInput();
+		});
+	}
 }
 
 function createNewScreenContainer() {
