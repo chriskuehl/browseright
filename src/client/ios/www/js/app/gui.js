@@ -4,10 +4,18 @@ function initInterface() {
 	log("Initializing interface");
 	
 	applyInterfaceTweaks();
-	initTabBar();
+	
+	if (PLATFORM == PLATFORM_IOS) {
+		initTabBar();
+	}
 	
 	initScreenHolder();
-	setScreen("start/login");
+	setScreen("test/1");
+	
+	setTimeout(function() {
+		alert("SWITCH SCREEN NOW");
+		setScreen("test/2");
+	}, 1500);
 }
 
 function applyInterfaceTweaks() {
@@ -39,11 +47,18 @@ function resetScreen() {
 }
 
 function setScreen(screenPath) {
+	alert(gui.oldScreen);
 	resetScreen();
 	
 	// create a new screen container
 	var screenContainer = createNewScreenContainer();
 	
+	// set state
+	gui.currentScreen = {
+		container: screenContainer
+	};
+	
+	// display the new screen
 	showNewScreen(function() {
 		
 	});
@@ -59,6 +74,8 @@ function showNewScreen(callback) {
 		callback();
 		return;
 	}
+	
+	alert("change screen!");
 }
 
 function createNewScreenContainer() {
