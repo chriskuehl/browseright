@@ -9,7 +9,6 @@ var domReady = false;
 
 // bootstrap the app
 document.addEventListener("deviceready", function() {
-	alert("dready");
 	deviceReady = true;
 	attemptStart();
 });
