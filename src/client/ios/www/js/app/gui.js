@@ -1,5 +1,6 @@
 var gui = {
-	screens: {}
+	screens: {},
+	hasHiddenSplashScreen: false
 };
 
 function initInterface() {
@@ -91,7 +92,16 @@ function setScreenWithDataLoaded(screenPath) {
 	
 	// display the new screen
 	showNewScreen(function() {
-		
+		if (! gui.hasHiddenSplashScreen) {
+			log("Hiding splash screen for the first time.");
+			
+			if (PLATFORM == PLATFORM_IOS) {
+				gui.hasHiddenSplashScreen = true;
+				navigator.splashscreen.hide();
+			} else {
+				log("Not really hiding splash screen (not iOS).");
+			}
+		}
 	});
 }
 
