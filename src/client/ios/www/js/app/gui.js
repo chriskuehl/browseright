@@ -114,8 +114,7 @@ function showNewScreen(callback) {
 	if (gui.oldScreen.data.parents && gui.oldScreen.data.parents.indexOf(gui.currentScreen.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
 		gui.currentScreen.container.css({
-			left: "-" + gui.currentScreen.container.width() + "px",
-			backgroundColor: "purple"
+			left: "-" + gui.currentScreen.container.width() + "px"
 		});
 		
 		gui.currentScreen.container.animate({
@@ -131,8 +130,7 @@ function showNewScreen(callback) {
 	} else {
 		// slide in the new screen from the right
 		gui.currentScreen.container.css({
-			left: gui.currentScreen.container.width() + "px",
-			backgroundColor: "yellow"
+			left: gui.currentScreen.container.width() + "px"
 		});
 		
 		gui.currentScreen.container.animate({
