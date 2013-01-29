@@ -1,4 +1,6 @@
-var gui = {};
+var gui = {
+	screens: {}
+};
 
 function initInterface() {
 	log("Initializing interface");
@@ -10,11 +12,15 @@ function initInterface() {
 	}
 	
 	initScreenHolder();
-	setScreen("test/1");
+	setScreen("start/login");
 	
 	setTimeout(function() {
-		setScreen("test/2");
+		setScreen("test/one");
 	}, 1500);
+	
+	setTimeout(function() {
+		setScreen("start/login");
+	}, 4000);
 }
 
 function applyInterfaceTweaks() {
@@ -54,6 +60,24 @@ function resetScreen() {
 }
 
 function setScreen(screenPath) {
+	log("Changing screen to: " + screenPath);
+	var screenName = getScreenNameFromPath(screenPath);
+	
+	// load JS file if it hasn't already been loaded
+	if (! gui.screens[screenPath]) {
+		log("Loading data for screen: " + screenPath);
+		loadJavaScriptFiles(["screens/" + screenPath + "/" + screenName + ".js"], function() {
+			log("Loaded data for screen: " + screenPath);
+			setScreenWithDataLoaded(screenPath);
+		});
+	} else {
+		log("Already have data for screen: " + screenPath);
+		setScreenWithDataLoaded(screenPath);
+	}
+}
+
+function setScreenWithDataLoaded(screenPath) {
+	log("Finally changing screen for: " + screenPath);
 	resetScreen();
 	
 	// create a new screen container
@@ -61,9 +85,7 @@ function setScreen(screenPath) {
 	
 	// set state
 	gui.currentScreen = {
-		data: {
-			
-		}, 
+		data: gui.screens[screenPath], 
 		container: screenContainer
 	};
 	
@@ -71,6 +93,11 @@ function setScreen(screenPath) {
 	showNewScreen(function() {
 		
 	});
+}
+
+function getScreenNameFromPath(screenPath) {
+	var tokens = screenPath.split("/");
+	return tokens[tokens.length - 1];
 }
 
 function showNewScreen(callback) {
@@ -84,7 +111,7 @@ function showNewScreen(callback) {
 		return;
 	}
 	
-	if (gui.oldScreen.data.parent && gui.oldScreen.data.parent == gui.currentScreen.data.id) {
+	if (gui.oldScreen.data.parents && gui.oldScreen.data.parents.indexOf(gui.currentScreen.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
 		gui.currentScreen.container.css({
 			left: "-" + gui.currentScreen.container.width() + "px",
@@ -96,10 +123,10 @@ function showNewScreen(callback) {
 		}, 500, "swing", null);
 
 		gui.oldScreen.container.animate({
-			left: (ui.screenContainer.width()) + "px"
+			left: (gui.currentScreen.container.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
-			unblockTouchInput();
+		//	unblockTouchInput();
 		});
 	} else {
 		// slide in the new screen from the right
@@ -113,10 +140,10 @@ function showNewScreen(callback) {
 		}, 500, "swing", null);
 
 		gui.oldScreen.container.animate({
-			left: "-" + (ui.screenContainer.width()) + "px"
+			left: "-" + (gui.currentScreen.container.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
-			unblockTouchInput();
+		//	unblockTouchInput();
 		});
 	}
 }
