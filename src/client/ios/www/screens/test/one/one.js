@@ -1,4 +1,4 @@
-var screenTestOne = {
+gui.screens["test/one"] = {
 	id: "test/one",
 	parents: ["start/login"],
 	
