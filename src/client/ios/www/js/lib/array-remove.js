@@ -4,3 +4,14 @@ Array.prototype.remove = function(from, to) {
   this.length = from < 0 ? this.length + from : from;
   return this.push.apply(this, rest);
 };
+
+
+Array.prototype.removeElement = function(element) {
+	var idx = this.indexOf(element);
+	
+	if (idx <= (- 1)) {
+		return;
+	}
+	
+	return this.remove(idx);
+};

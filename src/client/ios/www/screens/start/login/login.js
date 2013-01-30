@@ -1,4 +1,4 @@
-gui.screens["start/login"] = {
+gui.screens["start/login"].data = {
 	id: "start/login",
 	
 	setup: function(contentManager) {

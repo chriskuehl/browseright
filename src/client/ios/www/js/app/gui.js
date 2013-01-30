@@ -62,22 +62,79 @@ function resetScreen() {
 
 function setScreen(screenPath) {
 	log("Changing screen to: " + screenPath);
-	var screenName = getScreenNameFromPath(screenPath);
 	
-	// load JS file if it hasn't already been loaded
-	if (! gui.screens[screenPath]) {
-		log("Loading data for screen: " + screenPath);
-		loadJavaScriptFiles(["screens/" + screenPath + "/" + screenName + ".js"], function() {
-			log("Loaded data for screen: " + screenPath);
-			setScreenWithDataLoaded(screenPath);
+	// load JS (and other files) if they haven't already been loaded
+	if (! gui.screens[screenPath] || ! gui.screens[screenPath].fullyLoaded) {
+		log("Data not loaded for screen \"" + screenPath + "\", requesting load...");
+		
+		loadScreen(screenPath, function() {
+			log("Screen load OK");
+			setScreenWithLoadedData(screenPath);
 		});
+		
+		
 	} else {
 		log("Already have data for screen: " + screenPath);
 		setScreenWithDataLoaded(screenPath);
 	}
 }
 
+function loadScreen(screenPath, callback) {
+	log("Loading data for screen: " + screenPath);
+	
+	// initialize screen storage
+	var screenName = getScreenNameFromPath(screenPath);
+	
+	gui.screens[screenPath] = {
+		fullyLoaded: false,
+		loaded: []
+	};
+	
+	var screenFilePath = "screens/" + screenPath + "/" + screenName;
+	log("File path: " + screenFilePath);
+	
+	// html
+	$.get(screenFilePath + ".html", function(data) {
+		log("Component loaded for screen: html");
+		gui.screens[screenPath].loaded.push("html");
+		checkScreenLoaded(screenPath);
+		
+	});
+	
+	// css
+	$.get(screenFilePath + ".css", function(data) {
+		log("Component loaded for screen: css");
+		gui.screens[screenPath].loaded.push("css");
+		checkScreenLoaded(screenPath);
+	});
+	
+	// js
+	loadJavaScriptFiles([screenFilePath + ".js"], function() {
+		log("Component loaded for screen: js");
+		gui.screens[screenPath]["loaded"].push("js");
+		checkScreenLoaded(screenPath);
+	});
+}
+
+function checkScreenLoaded(screenPath) {
+	var elementsToLoad = ["html", "css", "js"];
+	var currentlyLoaded = gui.screens[screenPath].loaded.slice(0);
+	
+	for (var i = 0; i < gui.screens[screenPath].loaded.length; i ++) {
+		var loadedElement = gui.screens[screenPath].loaded[i];
+		elementsToLoad.removeElement(loadedElement);
+	}
+	
+	if (elementsToLoad.length > 0) {
+		log("Still waiting for: " + JSON.stringify(elementsToLoad));
+	} else {
+		log("All data loaded for screen " + screenPath);
+	}
+}
+
 function setScreenWithDataLoaded(screenPath) {
+	var screenName = getScreenNameFromPath(screenPath);
+	
 	log("Finally changing screen for: " + screenPath);
 	resetScreen();
 	
