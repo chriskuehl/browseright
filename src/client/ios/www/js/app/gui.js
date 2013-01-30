@@ -97,6 +97,8 @@ function loadScreen(screenPath, callback) {
 	$.get(screenFilePath + ".html", function(data) {
 		log("Component loaded for screen: html");
 		gui.screens[screenPath].loaded.push("html");
+		gui.screens[screenPath].html = data;
+		
 		checkScreenLoaded(screenPath);
 		
 	});
@@ -105,6 +107,8 @@ function loadScreen(screenPath, callback) {
 	$.get(screenFilePath + ".css", function(data) {
 		log("Component loaded for screen: css");
 		gui.screens[screenPath].loaded.push("css");
+		gui.screens[screenPath].css = data;
+		
 		checkScreenLoaded(screenPath);
 	});
 	
@@ -149,6 +153,8 @@ function setScreenWithDataLoaded(screenPath) {
 		data: gui.screens[screenPath], 
 		container: screenContainer
 	};
+	
+	// fill screen with content
 	
 	// display the new screen
 	showNewScreen(function() {
