@@ -1,4 +1,7 @@
-var gui = {};
+var gui = {
+	screens: {},
+	hasHiddenSplashScreen: false
+};
 
 function initInterface() {
 	log("Initializing interface");
@@ -10,11 +13,15 @@ function initInterface() {
 	}
 	
 	initScreenHolder();
-	setScreen("test/1");
+	setScreen("start/login");
 	
 	setTimeout(function() {
-		setScreen("test/2");
+		setScreen("test/one");
 	}, 1500);
+	
+	setTimeout(function() {
+		setScreen("start/login");
+	}, 4000);
 }
 
 function applyInterfaceTweaks() {
@@ -25,8 +32,16 @@ function initTabBar() {
 	plugins.tabBar.init();
     plugins.tabBar.create();
 	
-    plugins.tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts");
-    plugins.tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents");
+    plugins.tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts", {
+	    onSelect: function() {
+		    setScreen("test/1");
+	    }
+    });
+    plugins.tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents", {
+	    onSelect: function() {
+		    setScreen("test/2");
+	    }
+    });
 	
 	plugins.tabBar.show();
 	plugins.tabBar.showItems("contacts", "recents");
@@ -46,6 +61,24 @@ function resetScreen() {
 }
 
 function setScreen(screenPath) {
+	log("Changing screen to: " + screenPath);
+	var screenName = getScreenNameFromPath(screenPath);
+	
+	// load JS file if it hasn't already been loaded
+	if (! gui.screens[screenPath]) {
+		log("Loading data for screen: " + screenPath);
+		loadJavaScriptFiles(["screens/" + screenPath + "/" + screenName + ".js"], function() {
+			log("Loaded data for screen: " + screenPath);
+			setScreenWithDataLoaded(screenPath);
+		});
+	} else {
+		log("Already have data for screen: " + screenPath);
+		setScreenWithDataLoaded(screenPath);
+	}
+}
+
+function setScreenWithDataLoaded(screenPath) {
+	log("Finally changing screen for: " + screenPath);
 	resetScreen();
 	
 	// create a new screen container
@@ -53,16 +86,28 @@ function setScreen(screenPath) {
 	
 	// set state
 	gui.currentScreen = {
-		data: {
-			
-		}, 
+		data: gui.screens[screenPath], 
 		container: screenContainer
 	};
 	
 	// display the new screen
 	showNewScreen(function() {
-		
+		if (! gui.hasHiddenSplashScreen) {
+			log("Hiding splash screen for the first time.");
+			
+			if (PLATFORM == PLATFORM_IOS) {
+				gui.hasHiddenSplashScreen = true;
+				navigator.splashscreen.hide();
+			} else {
+				log("Not really hiding splash screen (not iOS).");
+			}
+		}
 	});
+}
+
+function getScreenNameFromPath(screenPath) {
+	var tokens = screenPath.split("/");
+	return tokens[tokens.length - 1];
 }
 
 function showNewScreen(callback) {
@@ -76,11 +121,10 @@ function showNewScreen(callback) {
 		return;
 	}
 	
-	if (gui.oldScreen.data.parent && gui.oldScreen.data.parent == gui.currentScreen.data.id) {
+	if (gui.oldScreen.data.parents && gui.oldScreen.data.parents.indexOf(gui.currentScreen.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
 		gui.currentScreen.container.css({
-			left: "-" + gui.currentScreen.container.width() + "px",
-			backgroundColor: "purple"
+			left: "-" + gui.currentScreen.container.width() + "px"
 		});
 		
 		gui.currentScreen.container.animate({
@@ -88,16 +132,15 @@ function showNewScreen(callback) {
 		}, 500, "swing", null);
 
 		gui.oldScreen.container.animate({
-			left: (ui.screenContainer.width()) + "px"
+			left: (gui.currentScreen.container.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
-			unblockTouchInput();
+		//	unblockTouchInput();
 		});
 	} else {
 		// slide in the new screen from the right
 		gui.currentScreen.container.css({
-			left: gui.currentScreen.container.width() + "px",
-			backgroundColor: "yellow"
+			left: gui.currentScreen.container.width() + "px"
 		});
 		
 		gui.currentScreen.container.animate({
@@ -105,10 +148,10 @@ function showNewScreen(callback) {
 		}, 500, "swing", null);
 
 		gui.oldScreen.container.animate({
-			left: "-" + (ui.screenContainer.width()) + "px"
+			left: "-" + (gui.currentScreen.container.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
-			unblockTouchInput();
+		//	unblockTouchInput();
 		});
 	}
 }
