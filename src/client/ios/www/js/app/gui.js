@@ -159,6 +159,9 @@ function setScreenWithDataLoaded(screenPath) {
 	// fill screen with content
 	screenContainer.html("<style>" + screenData.css + "</style>" + screenData.html);
 	
+	// call JavaScript setup
+	screenData.data.setup(null); // TODO: contentManager
+	
 	// display the new screen
 	showNewScreen(function() {
 		if (! gui.hasHiddenSplashScreen) {
@@ -190,7 +193,7 @@ function showNewScreen(callback) {
 		return;
 	}
 	
-	if (gui.oldScreen.data.parents && gui.oldScreen.data.parents.indexOf(gui.currentScreen.data.id) > (- 1)) {
+	if (gui.oldScreen.data.data.parents && gui.oldScreen.data.data.parents.indexOf(gui.currentScreen.data.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
 		gui.currentScreen.container.css({
 			left: "-" + gui.currentScreen.container.width() + "px"
