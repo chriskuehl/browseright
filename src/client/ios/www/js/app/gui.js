@@ -129,6 +129,9 @@ function checkScreenLoaded(screenPath) {
 		log("Still waiting for: " + JSON.stringify(elementsToLoad));
 	} else {
 		log("All data loaded for screen " + screenPath);
+		gui.screens[screenPath].fullyLoaded = true;
+		
+		setScreenWithDataLoaded(screenPath);
 	}
 }
 
