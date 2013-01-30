@@ -97,6 +97,8 @@ function loadScreen(screenPath, callback) {
 	$.get(screenFilePath + ".html", function(data) {
 		log("Component loaded for screen: html");
 		gui.screens[screenPath].loaded.push("html");
+		gui.screens[screenPath].html = data;
+		
 		checkScreenLoaded(screenPath);
 		
 	});
@@ -105,6 +107,8 @@ function loadScreen(screenPath, callback) {
 	$.get(screenFilePath + ".css", function(data) {
 		log("Component loaded for screen: css");
 		gui.screens[screenPath].loaded.push("css");
+		gui.screens[screenPath].css = data;
+		
 		checkScreenLoaded(screenPath);
 	});
 	
@@ -129,6 +133,9 @@ function checkScreenLoaded(screenPath) {
 		log("Still waiting for: " + JSON.stringify(elementsToLoad));
 	} else {
 		log("All data loaded for screen " + screenPath);
+		gui.screens[screenPath].fullyLoaded = true;
+		
+		setScreenWithDataLoaded(screenPath);
 	}
 }
 
@@ -138,6 +145,8 @@ function setScreenWithDataLoaded(screenPath) {
 	log("Finally changing screen for: " + screenPath);
 	resetScreen();
 	
+	var screenData = gui.screens[screenPath];
+	
 	// create a new screen container
 	var screenContainer = createNewScreenContainer();
 	
@@ -146,6 +155,12 @@ function setScreenWithDataLoaded(screenPath) {
 		data: gui.screens[screenPath], 
 		container: screenContainer
 	};
+	
+	// fill screen with content
+	screenContainer.html("<style>" + screenData.css + "</style>" + screenData.html);
+	
+	// call JavaScript setup
+	screenData.data.setup(null); // TODO: contentManager
 	
 	// display the new screen
 	showNewScreen(function() {
@@ -178,7 +193,7 @@ function showNewScreen(callback) {
 		return;
 	}
 	
-	if (gui.oldScreen.data.parents && gui.oldScreen.data.parents.indexOf(gui.currentScreen.data.id) > (- 1)) {
+	if (gui.oldScreen.data.data.parents && gui.oldScreen.data.data.parents.indexOf(gui.currentScreen.data.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
 		gui.currentScreen.container.css({
 			left: "-" + gui.currentScreen.container.width() + "px"
