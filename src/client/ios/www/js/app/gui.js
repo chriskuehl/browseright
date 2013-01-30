@@ -145,6 +145,8 @@ function setScreenWithDataLoaded(screenPath) {
 	log("Finally changing screen for: " + screenPath);
 	resetScreen();
 	
+	var screenData = gui.screens[screenPath];
+	
 	// create a new screen container
 	var screenContainer = createNewScreenContainer();
 	
@@ -155,6 +157,7 @@ function setScreenWithDataLoaded(screenPath) {
 	};
 	
 	// fill screen with content
+	screenContainer.html("<style>" + screenData.css + "</style>" + screenData.html);
 	
 	// display the new screen
 	showNewScreen(function() {
