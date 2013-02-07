@@ -50,3 +50,7 @@ em {
 	width: 2048px;
 	height: 1409px;
 }
+
+#cssHolder { /* just for holding CSS rules, no actual content here */
+	display: none;
+}

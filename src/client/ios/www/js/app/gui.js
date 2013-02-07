@@ -1,6 +1,7 @@
 var gui = {
 	screens: {},
-	hasHiddenSplashScreen: false
+	hasHiddenSplashScreen: false,
+	screenContainerIndex: (- 1)
 };
 
 function initInterface() {
@@ -34,12 +35,12 @@ function initTabBar() {
 	
     plugins.tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts", {
 	    onSelect: function() {
-		    setScreen("test/1");
+		    setScreen("start/login");
 	    }
     });
     plugins.tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents", {
 	    onSelect: function() {
-		    setScreen("test/2");
+		    setScreen("test/one");
 	    }
     });
 	
@@ -120,6 +121,10 @@ function loadScreen(screenPath, callback) {
 	});
 }
 
+function updateCSSForScreenContainer(css, screenContainer) {
+	return css.replace("SCREEN", "#" + screenContainer.attr("id"));
+}
+
 function checkScreenLoaded(screenPath) {
 	var elementsToLoad = ["html", "css", "js"];
 	var currentlyLoaded = gui.screens[screenPath].loaded.slice(0);
@@ -149,15 +154,34 @@ function setScreenWithDataLoaded(screenPath) {
 	
 	// create a new screen container
 	var screenContainer = createNewScreenContainer();
+	var screenContainerID = "screenContainer-" + (++ gui.screenContainerIndex);
+	
+	screenContainer.attr({
+		id: screenContainerID
+	});
+	
+	// create the CSS container
+	var cssContainer = createNewCSSContainer();
+	var cssContainerID = "cssContainer-" + (++ gui.screenContainerIndex);
+	
+	cssContainer.attr({
+		id: cssContainerID
+	});
 	
 	// set state
 	gui.currentScreen = {
 		data: gui.screens[screenPath], 
-		container: screenContainer
+		container: {
+			screen: screenContainer,
+			css: cssContainer
+		}
 	};
 	
+	// fill CSS container with the rules we loaded
+	cssContainer.html("<style>" + updateCSSForScreenContainer(screenData.css, screenContainer) + "</style>");
+	
 	// fill screen with content
-	screenContainer.html("<style>" + screenData.css + "</style>" + screenData.html);
+	screenContainer.html(screenData.html);
 	
 	// call JavaScript setup
 	screenData.data.setup(null); // TODO: contentManager
@@ -184,8 +208,8 @@ function getScreenNameFromPath(screenPath) {
 
 function showNewScreen(callback) {
 	if (! gui.oldScreen) {
-		gui.currentScreen.container.show();
-		gui.currentScreen.container.css({
+		gui.currentScreen.container.screen.show();
+		gui.currentScreen.container.screen.css({
 			left: "0px"
 		});
 		
@@ -195,32 +219,32 @@ function showNewScreen(callback) {
 	
 	if (gui.oldScreen.data.data.parents && gui.oldScreen.data.data.parents.indexOf(gui.currentScreen.data.data.id) > (- 1)) {
 		// the new screen is the parent of the old one, so we need to slide in the new screen from the left
-		gui.currentScreen.container.css({
-			left: "-" + gui.currentScreen.container.width() + "px"
+		gui.currentScreen.container.screen.css({
+			left: "-" + gui.currentScreen.container.screen.width() + "px"
 		});
 		
-		gui.currentScreen.container.animate({
+		gui.currentScreen.container.screen.animate({
 			left: "0px"
 		}, 500, "swing", null);
 
-		gui.oldScreen.container.animate({
-			left: (gui.currentScreen.container.width()) + "px"
+		gui.oldScreen.container.screen.animate({
+			left: (gui.currentScreen.container.screen.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
 		//	unblockTouchInput();
 		});
 	} else {
 		// slide in the new screen from the right
-		gui.currentScreen.container.css({
-			left: gui.currentScreen.container.width() + "px"
+		gui.currentScreen.container.screen.css({
+			left: gui.currentScreen.container.screen.width() + "px"
 		});
 		
-		gui.currentScreen.container.animate({
+		gui.currentScreen.container.screen.animate({
 			left: "0px"
 		}, 500, "swing", null);
 
-		gui.oldScreen.container.animate({
-			left: "-" + (gui.currentScreen.container.width()) + "px"
+		gui.oldScreen.container.screen.animate({
+			left: "-" + (gui.currentScreen.container.screen.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
 		//	unblockTouchInput();
@@ -229,9 +253,21 @@ function showNewScreen(callback) {
 }
 
 function createNewScreenContainer() {
-	var container = $("<div />");
+	var container = createNewContainer();
 	container.addClass("screenContainer");
 	container.appendTo($("#contentHolder"));
 	
 	return container;
+}
+
+function createNewCSSContainer() {
+	var container = createNewContainer();
+	container.addClass("cssContainer");
+	container.appendTo($("#cssHolder"));
+	
+	return container;
+}
+
+function createNewContainer() {
+	return $("<div />");
 }
