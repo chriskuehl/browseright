@@ -121,6 +121,10 @@ function loadScreen(screenPath, callback) {
 	});
 }
 
+function updateCSSForScreenContainer(css, screenContainer) {
+	return css.replace("SCREEN", "#" + screenContainer.attr("id"));
+}
+
 function checkScreenLoaded(screenPath) {
 	var elementsToLoad = ["html", "css", "js"];
 	var currentlyLoaded = gui.screens[screenPath].loaded.slice(0);
@@ -174,7 +178,7 @@ function setScreenWithDataLoaded(screenPath) {
 	};
 	
 	// fill CSS container with the rules we loaded
-	cssContainer.html("<style>" + screenData.css + "</style>");
+	cssContainer.html("<style>" + updateCSSForScreenContainer(screenData.css, screenContainer) + "</style>");
 	
 	// fill screen with content
 	screenContainer.html(screenData.html);
