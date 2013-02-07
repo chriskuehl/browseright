@@ -34,12 +34,12 @@ function initTabBar() {
 	
     plugins.tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts", {
 	    onSelect: function() {
-		    setScreen("test/1");
+		    setScreen("start/login");
 	    }
     });
     plugins.tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents", {
 	    onSelect: function() {
-		    setScreen("test/2");
+		    setScreen("test/one");
 	    }
     });
 	
