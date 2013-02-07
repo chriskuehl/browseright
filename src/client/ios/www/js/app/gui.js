@@ -173,8 +173,11 @@ function setScreenWithDataLoaded(screenPath) {
 		}
 	};
 	
+	// fill CSS container with the rules we loaded
+	cssContainer.html("<style>" + screenData.css + "</style>");
+	
 	// fill screen with content
-	screenContainer.html("<style>" + screenData.css + "</style>" + screenData.html);
+	screenContainer.html(screenData.html);
 	
 	// call JavaScript setup
 	screenData.data.setup(null); // TODO: contentManager
