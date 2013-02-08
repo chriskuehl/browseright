@@ -1,3 +1,19 @@
-$SCREEN {
-	background-color: red;
+$SCREEN .paneHolder {
+	
+}
+
+$SCREEN .paneHolder .leftPane {
+	
+}
+
+$SCREEN .paneHolder .leftPane .logo {
+	width: 379px;
+	height: 340px;
+	
+	text-indent: -2000em;
+	background-image: url("$ASSETS/br.png");
+}
+
+$SCREEN .paneHolder .rightPane {
+	
 }
