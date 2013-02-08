@@ -113,7 +113,7 @@ function loadScreen(screenPath, callback) {
 }
 
 function updateCSSForScreenContainer(css, screenContainer) {
-	return css.replace("SCREEN", "#" + screenContainer.attr("id"));
+	return css.replace("$SCREEN", "#" + screenContainer.attr("id"));
 }
 
 function checkScreenLoaded(screenPath) {
