@@ -36,12 +36,10 @@ em {
 	right: 0px;
 	bottom: 0px;
 	
-	background-color: green;
+	background-color: #ff26db; /* we should never see this */
 }
 
 .screenContainer {
-	background-color: blue;
-	
 	position: absolute;
 	top: 0px;
 	
@@ -49,6 +47,8 @@ em {
 	
 	width: 2048px;
 	height: 1409px;
+	
+	background-color: white;
 }
 
 #cssHolder { /* just for holding CSS rules, no actual content here */
