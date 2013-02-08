@@ -14,15 +14,6 @@ function initInterface() {
 	}
 	
 	initScreenHolder();
-	setScreen("start/login");
-	
-	setTimeout(function() {
-		setScreen("test/one");
-	}, 1500);
-	
-	setTimeout(function() {
-		setScreen("start/login");
-	}, 4000);
 }
 
 function applyInterfaceTweaks() {
