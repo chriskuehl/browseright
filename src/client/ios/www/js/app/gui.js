@@ -112,8 +112,12 @@ function loadScreen(screenPath, callback) {
 	});
 }
 
-function updateCSSForScreenContainer(css, screenContainer) {
-	return css.replace("$SCREEN", "#" + screenContainer.attr("id"));
+function updateCSSForScreenContainer(css, screenContainer, path) {
+	css = css.replaceAll("$ASSETS", path + "assets");
+	css = css.replaceAll("$PATH", path);
+	css = css.replaceAll("$SCREEN", "#" + screenContainer.attr("id"));
+	
+	return css;
 }
 
 function checkScreenLoaded(screenPath) {
@@ -169,7 +173,8 @@ function setScreenWithDataLoaded(screenPath) {
 	};
 	
 	// fill CSS container with the rules we loaded
-	cssContainer.html("<style>" + updateCSSForScreenContainer(screenData.css, screenContainer) + "</style>");
+	var logicalPath = "screens/" + screenPath + "/";
+	cssContainer.html("<style>" + updateCSSForScreenContainer(screenData.css, screenContainer, logicalPath) + "</style>");
 	
 	// fill screen with content
 	screenContainer.html(screenData.html);
