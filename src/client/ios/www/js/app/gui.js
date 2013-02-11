@@ -115,6 +115,7 @@ function loadScreen(screenPath, callback) {
 function updateCSSForScreenContainer(css, screenContainer, path) {
 	css = css.replaceAll("$ASSETS", path + "assets");
 	css = css.replaceAll("$PATH", path);
+	css = css.replaceAll("$BOLD", "\"HelveticaNeue-Bold\"");
 	css = css.replaceAll("$SCREEN", "#" + screenContainer.attr("id"));
 	
 	return css;
