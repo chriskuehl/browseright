@@ -38,5 +38,6 @@ $SCREEN .paneHolder .rightPane {
 	right: 0px;
 	bottom: 0px;
 	
-	
+	background: -webkit-linear-gradient(top,  rgba(152,220,45,1) 0%,rgba(109,182,5,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  rgba(152,220,45,1) 0%,rgba(109,182,5,1) 100%); /* W3C */
 }
