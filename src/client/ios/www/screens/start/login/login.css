@@ -1,19 +1,42 @@
 $SCREEN .paneHolder {
+	position: absolute;
 	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 }
 
 $SCREEN .paneHolder .leftPane {
+	position: absolute;
 	
+	left: 0px;
+	width: 640px;
+	top: 0px;
+	bottom: 0px;
+	background-color: #333133;
 }
 
 $SCREEN .paneHolder .leftPane .logo {
 	width: 379px;
 	height: 340px;
 	
+	position: absolute;
+	
+	top: 264px;
+	left: 129px;
+	
 	text-indent: -2000em;
 	background-image: url("$ASSETS/br.png");
 }
 
 $SCREEN .paneHolder .rightPane {
+	position: absolute;
+	
+	left: 640px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	
 	
 }
