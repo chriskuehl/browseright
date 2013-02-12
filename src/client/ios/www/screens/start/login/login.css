@@ -65,7 +65,6 @@ $SCREEN .paneHolder .rightPane .container .box {
 	margin-left: -485px;
 	
 	width: 850px;
-	height: 300px;
 }
 
 $SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span{
@@ -84,9 +83,9 @@ $SCREEN .paneHolder .rightPane .container .box p {
 }
 
 .textBox {
-	background-color: #FAFCF6;
+	background-color: rgba(255, 255, 255, 0.8);
 	
-	border: solid 2px #797C76;
+	border: solid 1px #797C76;
 	border-radius: 10px;
 	
 	padding: 25px;
@@ -114,7 +113,6 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	background-color: rgba(0, 0, 0, 0.1);
 	
 	position: absolute;
-	left: 230px;
 	top: 20px;
 	bottom: 15px;
 	right: 20px;
