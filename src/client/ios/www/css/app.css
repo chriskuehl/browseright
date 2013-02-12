@@ -54,3 +54,7 @@ em {
 #cssHolder { /* just for holding CSS rules, no actual content here */
 	display: none;
 }
+
+p {
+    margin-bottom: 1.2em;
+}
