@@ -8,6 +8,11 @@ function initInterface() {
 	log("Initializing interface");
 	
 	applyInterfaceTweaks();
+	$("#navBarContainer").css("backgroundColor", "#" + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16));
+	
+	$("#navBarContainer").click(function() {
+		$("#navBarContainer").css("backgroundColor", "#" + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16) + Math.floor(Math.random() * 16).toString(16));
+	});
 	
 	if (PLATFORM == PLATFORM_IOS) {
 		initTabBar();
