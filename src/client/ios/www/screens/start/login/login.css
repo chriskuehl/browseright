@@ -52,8 +52,8 @@ $SCREEN .paneHolder .rightPane .container {
 }
 
 $SCREEN .paneHolder .rightPane .container .box {
-	background-color: #E2EFCF;
-	border-radius: 14px;
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: 6px;
 	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.4);
 	
 	padding: 60px;
@@ -67,7 +67,7 @@ $SCREEN .paneHolder .rightPane .container .box {
 	width: 850px;
 }
 
-$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span{
+$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span {
 	text-align: center;
 	
 	font-family: $BOLD !important;
@@ -82,6 +82,11 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	text-align: justify;
 }
 
+$SCREEN .paneHolder .rightPane .container .box .buttonHolder .button {
+	float: left;
+	width: 356px;
+}
+
 .textBox {
 	background-color: rgba(255, 255, 255, 0.8);
 	
@@ -91,7 +96,7 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	padding: 25px;
 	height: 32px;
 	
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	
 	position: relative;
 }
@@ -104,16 +109,16 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	
 	display: block;
 	position: absolute;
-	top: 25px;
+	top: 24px;
 	left: 25px;
 }
 
 .textBox input {
 	border: none;
-	background-color: rgba(0, 0, 0, 0.1);
+	/* background-color: rgba(0, 0, 0, 0.1); */
 	
 	position: absolute;
-	top: 20px;
+	top: 17px;
 	bottom: 15px;
 	right: 20px;
 	
@@ -121,4 +126,22 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	margin: 0px;
 	
 	font-size: 36px;
+}
+
+.button {
+	display: inline-block;
+	
+	border: solid 1px #797C76;
+	border-radius: 15px;
+	
+	padding: 25px;
+	text-align: center;
+	
+	font-family: $BOLD;
+	font-size: 36px;
+	
+	color: rgba(0, 0, 0, 0.9);
+	
+	background: -webkit-linear-gradient(top,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* W3C */
 }
