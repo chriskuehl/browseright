@@ -49,17 +49,9 @@ $SCREEN .paneHolder .leftPane .container p {
 	line-height: 1.2em;
 	text-align: justify;
 }
-    
+
 $SCREEN .paneHolder .rightPane ul.nav li {
-    font-size: 34px;
-    color: white;
-    font-family: $BOLD;
-    text-shadow: 0px 5px 2px #4B4F53;
-    
-    padding-top: 26px;
-    padding-bottom: 34px;
-    /* padding-left: 88px; */
-    float: left;
+    display: block;
     width: 640px;
     
     background-image: url("$ASSETS/itemBorder.png");
@@ -74,44 +66,35 @@ $SCREEN .paneHolder .rightPane ul.nav .current {
     background: -webkit-linear-gradient(top,  #C6FF5C 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #C6FF5C 0%, #8ED726 100%); /* W3C */
 }
-
-$SCREEN .paneHolder .rightPane ul.nav li.section .format {
-    font-size: 34px;
-    color: white;
-    font-family: $BOLD;
-    text-shadow: 0px 5px 2px #4B4F53;
-    
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 20px;
-}
     
 $SCREEN .paneHolder .rightPane ul.nav li.section {
-    float: left;
-    width: 640px;
-    
     background-image: url("$ASSETS/section.png");
     background-repeat: repeat-x;
     border-bottom: 2px solid #848B90;
 }
 
-$SCREEN .paneHolder .rightPane ul.nav .check {
-    width: 88px;
-    height: 36px;
-    float:left;
-    
-    background-image: url("$ASSETS/check.png");
-    background-repeat: no-repeat;
-    background-position: 18px -10px;
+$SCREEN .paneHolder .rightPane ul.nav li.section div {
+    background-image: none;
+    padding-left: 10px;
 }
 
-$SCREEN .paneHolder .rightPane ul.nav .uncheck {
-    width: 88px;
-    height: 36px;
-    float: left;
-    
+$SCREEN .paneHolder .rightPane ul.nav li div {
     background-image: url("$ASSETS/uncheck.png");
-    background-repeat: no-repeat;;
-    background-position: 18px -10px;
+    background-repeat: no-repeat;
+    background-position: 18px 0px;
+    
+    color: white;
+
+    font-size: 34px;
+    font-family: $BOLD;
+    text-shadow: 0px 5px 2px #4B4F53;
+    
+    padding-left: 100px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+$SCREEN .paneHolder .rightPane ul.nav li.completed div {
+    background-image: url("$ASSETS/check.png");
 }
     
