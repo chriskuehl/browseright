@@ -62,3 +62,62 @@ p {
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 36px;
 }
+
+.textBox {
+	background-color: rgba(255, 255, 255, 0.8);
+	
+	border: solid 1px #797C76;
+	border-radius: 10px;
+	
+	padding: 25px;
+	height: 32px;
+	
+	margin-bottom: 30px;
+	
+	position: relative;
+}
+
+.textBox label {
+	font-family: "HelveticaNeue-Bold";
+	font-size: 24px;
+	
+	color: #2B2728;
+	
+	display: block;
+	position: absolute;
+	top: 24px;
+	left: 25px;
+}
+
+.textBox input {
+	border: none;
+	/* background-color: rgba(0, 0, 0, 0.1); */
+	
+	position: absolute;
+	top: 17px;
+	bottom: 15px;
+	right: 20px;
+	
+	padding: 0px !important;
+	margin: 0px;
+	
+	font-size: 36px;
+}
+
+.button {
+	display: inline-block;
+	
+	border: solid 1px #797C76;
+	border-radius: 15px;
+	
+	padding: 25px;
+	text-align: center;
+	
+	font-family: "HelveticaNeue-Bold";
+	font-size: 36px;
+	
+	color: rgba(0, 0, 0, 0.9);
+	
+	background: -webkit-linear-gradient(top,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* W3C */
+}

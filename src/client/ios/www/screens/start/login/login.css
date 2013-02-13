@@ -52,8 +52,8 @@ $SCREEN .paneHolder .rightPane .container {
 }
 
 $SCREEN .paneHolder .rightPane .container .box {
-	background-color: #E2EFCF;
-	border-radius: 14px;
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: 6px;
 	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.4);
 	
 	padding: 60px;
@@ -67,7 +67,7 @@ $SCREEN .paneHolder .rightPane .container .box {
 	width: 850px;
 }
 
-$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span{
+$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span {
 	text-align: center;
 	
 	font-family: $BOLD !important;
@@ -82,43 +82,7 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	text-align: justify;
 }
 
-.textBox {
-	background-color: rgba(255, 255, 255, 0.8);
-	
-	border: solid 1px #797C76;
-	border-radius: 10px;
-	
-	padding: 25px;
-	height: 32px;
-	
-	margin-bottom: 20px;
-	
-	position: relative;
-}
-
-.textBox label {
-	font-family: $BOLD;
-	font-size: 36px;
-	
-	color: #2B2728;
-	
-	display: block;
-	position: absolute;
-	top: 25px;
-	left: 25px;
-}
-
-.textBox input {
-	border: none;
-	background-color: rgba(0, 0, 0, 0.1);
-	
-	position: absolute;
-	top: 20px;
-	bottom: 15px;
-	right: 20px;
-	
-	padding: 0px !important;
-	margin: 0px;
-	
-	font-size: 36px;
+$SCREEN .paneHolder .rightPane .container .box .buttonHolder .button {
+	float: left;
+	width: 356px;
 }
