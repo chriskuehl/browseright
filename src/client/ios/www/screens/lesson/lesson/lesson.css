@@ -1,0 +1,93 @@
+$SCREEN .paneHolder {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+$SCREEN .paneHolder .rightPane {
+	position: absolute;
+	
+	right: 0px;
+	width: 640px;
+	top: 0px;
+	bottom: 0px;
+    border-left: 2px solid #000;
+	background-color: #333133;
+}
+
+$SCREEN .paneHolder .leftPane {
+	position: absolute;
+	
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+    
+    overflow: scroll;
+}
+
+$SCREEN .paneHolder .leftPane .container {
+    overflow: scroll;
+}
+
+$SCREEN .container {
+    font-size: 40px;
+    padding-top: 50px;
+    padding-botton: 50px;
+    padding-left: 100px;
+    padding-right: 740px;
+}
+
+$SCREEN .paneHolder .leftPane .container h2, $SCREEN .paneHolder .leftPane .container h2 span{
+	font-size: 80px;
+}
+
+$SCREEN .paneHolder .leftPane .container p {
+	line-height: 1.2em;
+	text-align: justify;
+}
+    
+$SCREEN .paneHolder .rightPane ul.nav li {
+    font-size: 34px;
+    color: white;
+    font-family: $BOLD;
+    text-shadow: 0px 5px 2px #4B4F53;
+    
+    padding-top: 26px;
+    padding-bottom: 30px;
+    padding-left: 88px;
+    float: left;
+    width: 640px;
+    
+    background-image: url("$ASSETS/itemBorder.png");
+    background-repeat: repeat-x;
+    background-position: 0% 100%;
+}
+
+$SCREEN .paneHolder .rightPane ul.nav .current {
+    color: black;
+    text-shadow: 0px 2px 2px #E2FFB5;
+
+    background: -webkit-linear-gradient(top,  #C6FF5C 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #C6FF5C 0%, #8ED726 100%); /* W3C */
+}
+
+$SCREEN .paneHolder .rightPane ul.nav li.section {
+    font-size: 34px;
+    color: white;
+    font-family: $BOLD;
+    text-shadow: 0px 5px 2px #4B4F53;
+    
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    float: left;
+    width: 640px;
+    
+    background-image: url("$ASSETS/section.png");
+    background-repeat: repeat-x;
+    border-bottom: 2px solid #848B90;
+}
