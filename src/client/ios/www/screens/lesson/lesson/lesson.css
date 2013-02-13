@@ -54,15 +54,14 @@ $SCREEN .paneHolder .rightPane ul.nav li {
     display: block;
     width: 640px;
     
+    color: white;
+    
     background-image: url("$ASSETS/itemBorder.png");
     background-repeat: repeat-x;
     background-position: 0% 100%;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav .current {
-    color: black;
-    text-shadow: 0px 2px 2px #E2FFB5;
-
     background: -webkit-linear-gradient(top,  #C6FF5C 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #C6FF5C 0%, #8ED726 100%); /* W3C */
 }
@@ -75,23 +74,31 @@ $SCREEN .paneHolder .rightPane ul.nav li.section {
 
 $SCREEN .paneHolder .rightPane ul.nav li.section div {
     background-image: none;
+    
     padding-left: 10px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav li div {
     background-image: url("$ASSETS/uncheck.png");
     background-repeat: no-repeat;
-    background-position: 18px 0px;
-    
-    color: white;
-
-    font-size: 34px;
-    font-family: $BOLD;
-    text-shadow: 0px 5px 2px #4B4F53;
+    background-position: 18px 18px;
     
     padding-left: 100px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 26px;
+    padding-bottom: 40px;
+    
+    font-size: 34px;
+    font-family: $BOLD;
+    text-shadow: 0px 4px 2px #4B4F53;
+}
+
+$SCREEN .paneHolder .rightPane ul.nav li.current div {
+    padding-bottom: 30px;
+    
+    color: black;
+    text-shadow: 0px 2px 2px #E2FFB5;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav li.completed div {
