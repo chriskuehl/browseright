@@ -27,7 +27,6 @@ $SCREEN .paneHolder .leftPane .logo {
 	top: 264px;
 	left: 129px;
 	
-	text-indent: -2000em;
 	background-image: url("$ASSETS/br.png");
 }
 

@@ -12,7 +12,8 @@ em {
 }
 
 #navBarContainer {
-	background-color: red;
+	background-image: url("assets/navbar.png");
+	background-repeat: repeat-x;
 	
 	position: relative;
 	
@@ -37,6 +38,7 @@ em {
 	bottom: 0px;
 	
 	background-color: #ff26db; /* we should never see this */
+	overflow: visible;
 }
 
 .screenContainer {

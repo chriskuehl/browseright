@@ -1,7 +1,10 @@
 gui.screens["start/login"].data = {
 	id: "start/login",
-	
-	setup: function(contentManager) {
+	hideTabBar: true,
 		
+	setup: function(contentManager) {
+		$(".login").click(function() {
+			setScreen("test/one");
+		});
 	}
 };
