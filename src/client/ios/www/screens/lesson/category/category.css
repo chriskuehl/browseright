@@ -56,3 +56,15 @@ $SCREEN .categoryHolder .category .text h3 {
 	font-size: 60px;
 	font-family: $BOLD;
 }
+
+$SCREEN .categoryHolder .category .percentage {
+	display: block;
+
+	width: 210px;
+	float: right;
+	padding-top: 20px;
+	position-y: 50%;
+
+	font-size: 80px;
+	text-align: center;
+}
