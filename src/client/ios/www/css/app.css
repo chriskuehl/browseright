@@ -37,6 +37,7 @@ em {
 	bottom: 0px;
 	
 	background-color: #ff26db; /* we should never see this */
+	overflow: visible;
 }
 
 .screenContainer {
