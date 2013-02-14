@@ -40,7 +40,7 @@ function initTabBar() {
 	    }
     });
 	
-	plugins.tabBar.show();
+	gui.showingTabBar = false;
 	plugins.tabBar.showItems("contacts", "recents");
 }
 
@@ -206,7 +206,30 @@ function getScreenNameFromPath(screenPath) {
 	return tokens[tokens.length - 1];
 }
 
+function showTabBar() {
+	log("Showing tab bar");
+	gui.showingTabBar = true;
+	plugins.tabBar.show();
+}
+
+function hideTabBar() {
+	log("Hiding tab bar");
+	gui.showingTabBar = false;
+	plugins.tabBar.hide();
+}
+
 function showNewScreen(callback) {
+	if (PLATFORM == PLATFORM_IOS) {
+		var shouldShowTabBar = (! gui.currentScreen.data.data.hideTabBar);
+		log("shouldShow=" + shouldShowTabBar);
+		
+		if (shouldShowTabBar && ! gui.showingTabBar) {
+			showTabBar();
+		} else if (! shouldShowTabBar && gui.showingTabBar) {
+			hideTabBar();
+		}
+	}
+	
 	if (! gui.oldScreen) {
 		gui.currentScreen.container.screen.show();
 		gui.currentScreen.container.screen.css({
