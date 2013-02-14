@@ -68,8 +68,6 @@ function setScreen(screenPath) {
 			log("Screen load OK");
 			setScreenWithLoadedData(screenPath);
 		});
-		
-		
 	} else {
 		log("Already have data for screen: " + screenPath);
 		setScreenWithDataLoaded(screenPath);
