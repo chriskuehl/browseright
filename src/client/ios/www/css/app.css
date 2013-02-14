@@ -12,7 +12,8 @@ em {
 }
 
 #navBarContainer {
-	background-color: red;
+	background-image: url("assets/navbar.png");
+	background-repeat: repeat-x;
 	
 	position: relative;
 	
