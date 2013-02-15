@@ -24,7 +24,7 @@ function initTabBar() {
 	plugins.tabBar.init();
     plugins.tabBar.create();
 	
-    plugins.tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts", {
+    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/human.png", {
 	    onSelect: function() {
 		    setScreen("start/login");
 	    }
@@ -36,7 +36,7 @@ function initTabBar() {
     });
 	
 	gui.showingTabBar = false;
-	plugins.tabBar.showItems("contacts", "recents");
+	plugins.tabBar.showItems("account", "recents");
 }
 
 function initScreenHolder() {
