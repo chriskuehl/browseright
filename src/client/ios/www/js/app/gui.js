@@ -216,7 +216,6 @@ function hideTabBar() {
 function showNewScreen(callback) {
 	if (PLATFORM == PLATFORM_IOS) {
 		var shouldShowTabBar = (! gui.currentScreen.data.data.hideTabBar);
-		log("shouldShow=" + shouldShowTabBar);
 		
 		if (shouldShowTabBar && ! gui.showingTabBar) {
 			showTabBar();
