@@ -214,13 +214,41 @@ function hideTabBar() {
 }
 
 function showNewScreen(callback) {
+	// iOS changes (nav bar and tab bar)
 	if (PLATFORM == PLATFORM_IOS) {
+		// tab bar
 		var shouldShowTabBar = (! gui.currentScreen.data.data.hideTabBar);
 		
 		if (shouldShowTabBar && ! gui.showingTabBar) {
 			showTabBar();
 		} else if (! shouldShowTabBar && gui.showingTabBar) {
 			hideTabBar();
+		}
+		
+		// nav bar
+		var navBarContainer = createNewNavBarContainer();
+		
+		// add each new nav bar
+		if (gui.currentScreen.data.data.navBars) {
+			var navBars = gui.currentScreen.data.data.navBars;
+			var startX = 0;
+			
+			
+			for (var i = 0; i < navBars.length; i ++) {
+				var navBarData = navBars[i];
+				
+				if (i > 0) {
+					// add a separator
+					var sep = $("<div />");
+					sep.appendTo(navBarContainer);
+					sep.addClass("separator");
+					sep.css("left", (startX - 7) + "px");
+				}
+				
+				if (navBarData.width) {
+					startX += navBarData.width;
+				}
+			}
 		}
 	}
 	
@@ -267,6 +295,14 @@ function showNewScreen(callback) {
 		//	unblockTouchInput();
 		});
 	}
+}
+
+function createNewNavBarContainer() {
+	var container = createNewContainer();
+	container.addClass("navBarContainer");
+	container.appendTo($("#navBar"));
+	
+	return container;
 }
 
 function createNewScreenContainer() {
