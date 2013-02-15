@@ -245,8 +245,23 @@ function showNewScreen(callback) {
 					sep.css("left", (startX - 7) + "px");
 				}
 				
-				if (navBarData.width) {
-					startX += navBarData.width;
+				var fullWidth = i >= (navBars.length - 1); // is there anything to the right?
+				var width = fullWidth ? ($("#navBar").width() - startX) : navBarData.width; // ignore given width if full; otherwise, use it
+				
+				// add the title text
+				var title = $("<h1 />");
+				title.appendTo(navBarContainer);
+				title.css({
+					position: "absolute",
+					
+					left: startX + "px",
+					width: width + "px"
+				});
+				title.text(navBarData.title);
+				
+				// adjust start position for future bars
+				if (! fullWidth) {
+					startX += width;
 				}
 			}
 		}
