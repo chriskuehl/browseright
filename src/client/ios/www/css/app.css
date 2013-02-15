@@ -46,7 +46,7 @@ em {
 	right: 0px;
 	bottom: 0px;
 	
-	background-color: red;
+	/* background-color: rgba(255, 0, 0, 0.1); */
 }
 
 .navBarContainer .separator {
@@ -55,8 +55,6 @@ em {
 	top: 0px;
 	bottom: 0px;
 	width: 14px;
-	
-	background-color: blue;
 }
 
 #contentHolder {
