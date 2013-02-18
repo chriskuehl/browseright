@@ -50,6 +50,19 @@ $SCREEN .paneHolder .leftPane .container p {
 	text-align: justify;
 }
 
+$SCREEN .paneHolder .leftPane .title{
+	font-size: 60px;
+    font-family: $BOLD;
+	padding-top: 48px;
+	padding-bottom: 48px;
+    padding-left: 60px;
+    
+    border-bottom: 2px solid #6F6F6F;
+    
+    background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
+}
+
 $SCREEN .paneHolder .rightPane ul.nav li {
     display: block;
     width: 640px;
