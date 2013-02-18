@@ -224,45 +224,45 @@ function showNewScreen(callback) {
 		} else if (! shouldShowTabBar && gui.showingTabBar) {
 			hideTabBar();
 		}
+	}
+	
+	// nav bar
+	var navBarContainer = createNewNavBarContainer();
+	
+	// add each new nav bar
+	if (gui.currentScreen.data.data.navBars) {
+		var navBars = gui.currentScreen.data.data.navBars;
+		var startX = 0;
 		
-		// nav bar
-		var navBarContainer = createNewNavBarContainer();
 		
-		// add each new nav bar
-		if (gui.currentScreen.data.data.navBars) {
-			var navBars = gui.currentScreen.data.data.navBars;
-			var startX = 0;
+		for (var i = 0; i < navBars.length; i ++) {
+			var navBarData = navBars[i];
 			
+			if (i > 0) {
+				// add a separator
+				var sep = $("<div />");
+				sep.appendTo(navBarContainer);
+				sep.addClass("separator");
+				sep.css("left", (startX - 7) + "px");
+			}
 			
-			for (var i = 0; i < navBars.length; i ++) {
-				var navBarData = navBars[i];
+			var fullWidth = i >= (navBars.length - 1); // is there anything to the right?
+			var width = fullWidth ? ($("#navBar").width() - startX) : navBarData.width; // ignore given width if full; otherwise, use it
+			
+			// add the title text
+			var title = $("<h1 />");
+			title.appendTo(navBarContainer);
+			title.css({
+				position: "absolute",
 				
-				if (i > 0) {
-					// add a separator
-					var sep = $("<div />");
-					sep.appendTo(navBarContainer);
-					sep.addClass("separator");
-					sep.css("left", (startX - 7) + "px");
-				}
-				
-				var fullWidth = i >= (navBars.length - 1); // is there anything to the right?
-				var width = fullWidth ? ($("#navBar").width() - startX) : navBarData.width; // ignore given width if full; otherwise, use it
-				
-				// add the title text
-				var title = $("<h1 />");
-				title.appendTo(navBarContainer);
-				title.css({
-					position: "absolute",
-					
-					left: startX + "px",
-					width: width + "px"
-				});
-				title.text(navBarData.title);
-				
-				// adjust start position for future bars
-				if (! fullWidth) {
-					startX += width;
-				}
+				left: startX + "px",
+				width: width + "px"
+			});
+			title.text(navBarData.title);
+			
+			// adjust start position for future bars
+			if (! fullWidth) {
+				startX += width;
 			}
 		}
 	}
