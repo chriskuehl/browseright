@@ -238,7 +238,23 @@ function showNewScreen(callback) {
 	}
 	
 	// nav bar
+	var oldNavBarContainer = $(".navBarContainer").children();
+	
+	oldNavBarContainer.each(function() {
+		var n = $(this);
+		n.animate({
+			left: "-" + (n.width()) + "px",
+			opacity: 0
+		}, 500, "linear", function() {
+			$(this).remove();
+		});
+	});
+	
 	var navBarContainer = createNewNavBarContainer();
+	navBarContainer.css({
+		left: (navBarContainer.width() / 3) + "px",
+		opacity: 0
+	});
 	
 	// add each new nav bar
 	if (gui.currentScreen.data.data.navBars) {
@@ -276,6 +292,13 @@ function showNewScreen(callback) {
 				startX += width;
 			}
 		}
+		
+		setTimeout(function() {
+			navBarContainer.css({
+				left: "0px",
+				opacity: 1
+			});
+		}, 1000);
 	}
 	
 	if (! gui.oldScreen) {
