@@ -24,19 +24,30 @@ function initTabBar() {
 	plugins.tabBar.init();
     plugins.tabBar.create();
 	
-    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/human.png", {
+    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/accounticon.png", {
 	    onSelect: function() {
 		    setScreen("start/login");
 	    }
     });
-    plugins.tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents", {
+    plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
 	    onSelect: function() {
-		    setScreen("test/one");
+		    setScreen("lesson/category");
 	    }
     });
+    plugins.tabBar.createItem("progress", "Progress", "/www/css/assets/tabbar/progress.png", {
+		onSelect: function() {
+			setScreen("test/one");
+		}
+	});
+    plugins.tabBar.createItem("settings", "Settings", "/www/css/assets/tabbar/settings.png", {
+		onSelect: function() {
+			setScreen("test/one");
+		}
+	});
+    
 	
 	gui.showingTabBar = false;
-	plugins.tabBar.showItems("account", "recents");
+	plugins.tabBar.showItems("account", "lessons", "progress", "settings");
 }
 
 function initScreenHolder() {
