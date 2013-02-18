@@ -24,11 +24,6 @@ em {
 	height: 88px;
 	
 	text-align: center;
-	font-size: 88px;
-	letter-spacing: 5px;
-	font-weight: bold;
-    color: #71777F;
-    text-shadow: 0px 2px 2px rgba(255,255,255,0.9);
 }
 
 #navBar .separator {
@@ -47,6 +42,18 @@ em {
 	bottom: 0px;
 	
 	/* background-color: rgba(255, 0, 0, 0.1); */
+}
+
+.navBarContainer h1 {
+	color: #717880;
+	
+	font-family: "HelveticaNeue-Bold";
+	text-shadow: 0px 2px 0px rgba(255, 255, 255, 0.55);
+	font-size: 40px;
+	
+	letter-spacing: 1px;
+	
+	padding-top: 22px;
 }
 
 .navBarContainer .separator {
