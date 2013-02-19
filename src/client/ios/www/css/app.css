@@ -86,6 +86,7 @@ em {
 	height: 1409px;
 	
 	background-color: white;
+	-webkit-backface-visibility: hidden;
 }
 
 #cssHolder { /* just for holding CSS rules, no actual content here */
