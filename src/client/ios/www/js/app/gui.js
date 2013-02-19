@@ -26,7 +26,7 @@ function initTabBar() {
 	
     plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/accounticon.png", {
 	    onSelect: function() {
-		    setScreen("start/login");
+		    setScreen("user/account");
 	    }
     });
     plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
