@@ -41,7 +41,7 @@ function initTabBar() {
 	});
     plugins.tabBar.createItem("settings", "Settings", "/www/css/assets/tabbar/settings.png", {
 		onSelect: function() {
-			setScreen("lesson/lesson");
+			setScreen("test/one");
 		}
 	});
     
