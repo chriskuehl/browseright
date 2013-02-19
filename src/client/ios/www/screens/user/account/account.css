@@ -9,3 +9,7 @@ $SCREEN .description{
     
     background-color: #333133;
 }
+
+$SCREEN .description h1{
+    font-size: 60px;
+}
