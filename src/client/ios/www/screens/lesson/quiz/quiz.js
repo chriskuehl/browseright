@@ -2,7 +2,7 @@ gui.screens["lesson/quiz"].data = {
 	id: "lesson/quiz",
 	navBars: [
 		{
-			title: "Lesson One",
+			title: "Category One",
 			width: 1406
 		},
 		

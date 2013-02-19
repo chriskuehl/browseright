@@ -1,6 +1,11 @@
 gui.screens["start/login"].data = {
 	id: "start/login",
 	//hideTabBar: true,
+    navBars: [
+        {
+            title: "Login"
+        }
+    ],
 		
 	setup: function(contentManager) {
 		$(".login").click(function() {
