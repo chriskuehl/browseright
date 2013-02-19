@@ -252,9 +252,14 @@ function showNewScreen(callback) {
 	
 	var navBarContainer = createNewNavBarContainer();
 	navBarContainer.css({
-		left: (navBarContainer.width() / 3) + "px",
+		left: navBarContainer.width() + "px",
 		opacity: 0
 	});
+	
+	navBarContainer.animate({
+		left: "0x",
+		opacity: 1
+	}, 500, "swing");
 	
 	// add each new nav bar
 	if (gui.currentScreen.data.data.navBars) {
@@ -292,13 +297,6 @@ function showNewScreen(callback) {
 				startX += width;
 			}
 		}
-		
-		setTimeout(function() {
-			navBarContainer.css({
-				left: "0px",
-				opacity: 1
-			});
-		}, 1000);
 	}
 	
 	if (! gui.oldScreen) {
