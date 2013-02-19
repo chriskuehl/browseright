@@ -64,6 +64,16 @@ em {
 	width: 14px;
 }
 
+.nbutton {
+	position: absolute;
+	
+	background-color: red;
+	background-image: url("assets/navbar-back.png");
+	background-repeat: repeat-x;
+	
+	display: inline-block;
+}
+
 #contentHolder {
 	position: fixed;
 	

@@ -4,6 +4,9 @@ var gui = {
 	screenContainerIndex: (- 1)
 };
 
+var LEFT = 0;
+var RIGHT = 1;
+
 function initInterface() {
 	log("Initializing interface");
 	
@@ -224,6 +227,46 @@ function hideTabBar() {
 	plugins.tabBar.hide();
 }
 
+function populateNavBar(navBarContainer, startX, width, navBarData) {
+	// add the title text
+	var title = $("<h1 />");
+	title.appendTo(navBarContainer);
+	title.text(navBarData.title);
+	title.css({
+		position: "absolute",
+		
+		left: startX + "px",
+		width: width + "px"
+	});
+	
+	// add any buttons
+	if (navBarData.buttons) {
+		if (navBarData.buttons.left) {
+			addNavBarButton(LEFT, navBarData.buttons.left, navBarContainer, startX, width);
+		}
+		
+		if (navBarData.buttons.right) {
+			addNavBarButton(RIGHT, navBarData.buttons.right, navBarContainer, startX, width);
+		}
+	}
+}
+
+function addNavBarButton(position, data, container, startX, width) {
+	var button = $("<a />");
+	button.addClass("nbutton");
+	button.appendTo(container);
+	
+	var margin = 10;
+	
+	if (position == LEFT) {
+		button.css("left", (startX + margin) + "px");
+	} else if (position == RIGHT) {
+		button.css("right", (container.width() - startX - width + margin) + "px");
+	}
+	
+	button.text(data.title);
+}
+
 function showNewScreen(callback) {
 	// iOS changes (nav bar and tab bar)
 	if (PLATFORM == PLATFORM_IOS) {
@@ -261,16 +304,7 @@ function showNewScreen(callback) {
 			var fullWidth = i >= (navBars.length - 1); // is there anything to the right?
 			var width = fullWidth ? ($("#navBar").width() - startX) : navBarData.width; // ignore given width if full; otherwise, use it
 			
-			// add the title text
-			var title = $("<h1 />");
-			title.appendTo(navBarContainer);
-			title.css({
-				position: "absolute",
-				
-				left: startX + "px",
-				width: width + "px"
-			});
-			title.text(navBarData.title);
+			populateNavBar(navBarContainer, startX, width, navBarData);
 			
 			// adjust start position for future bars
 			if (! fullWidth) {
