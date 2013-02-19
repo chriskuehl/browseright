@@ -238,34 +238,14 @@ function showNewScreen(callback) {
 	}
 	
 	// nav bar
-	var oldNavBarContainer = $(".navBarContainer").children();
-	
-	oldNavBarContainer.each(function() {
-		var n = $(this);
-		n.animate({
-			left: "-" + (n.width()) + "px",
-			opacity: 0
-		}, 500, "linear", function() {
-			$(this).remove();
-		});
-	});
-	
+	var oldNavBarContainer = $("#navBar").children();
 	var navBarContainer = createNewNavBarContainer();
-	navBarContainer.css({
-		left: navBarContainer.width() + "px",
-		opacity: 0
-	});
-	
-	navBarContainer.animate({
-		left: "0x",
-		opacity: 1
-	}, 500, "swing");
+	var w = navBarContainer.width();
 	
 	// add each new nav bar
 	if (gui.currentScreen.data.data.navBars) {
 		var navBars = gui.currentScreen.data.data.navBars;
 		var startX = 0;
-		
 		
 		for (var i = 0; i < navBars.length; i ++) {
 			var navBarData = navBars[i];
@@ -325,6 +305,26 @@ function showNewScreen(callback) {
 			$(this).remove();
 		//	unblockTouchInput();
 		});
+		
+		navBarContainer.css({
+			left: (- navBarContainer.width()) + "px",
+			opacity: 0
+		});
+		
+		navBarContainer.animate({
+			left: "0x",
+			opacity: 1
+		}, 500, "swing");
+		
+		oldNavBarContainer.each(function() {
+			var n = $(this);
+			n.animate({
+				left: w + "px",
+				opacity: 0
+			}, 500, "linear", function() {
+				$(this).remove();
+			});
+		});
 	} else {
 		// slide in the new screen from the right
 		gui.currentScreen.container.screen.css({
@@ -340,6 +340,26 @@ function showNewScreen(callback) {
 		}, 500, "swing", function() {
 			$(this).remove();
 		//	unblockTouchInput();
+		});
+		
+		navBarContainer.css({
+			left: navBarContainer.width() + "px",
+			opacity: 0
+		});
+		
+		navBarContainer.animate({
+			left: "0x",
+			opacity: 1
+		}, 500, "swing");
+		
+		oldNavBarContainer.each(function() {
+			var n = $(this);
+			n.animate({
+				left: "-" + w + "px",
+				opacity: 0
+			}, 500, "linear", function() {
+				$(this).remove();
+			});
 		});
 	}
 }
