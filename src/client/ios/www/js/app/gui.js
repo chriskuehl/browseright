@@ -256,6 +256,10 @@ function addNavBarButton(position, data, container, startX, width) {
 	button.addClass("nbutton");
 	button.appendTo(container);
 	
+	var container = $("<div />").appendTo(button);
+	
+	container.append($("<div />").addClass("left"));
+	
 	var margin = 10;
 	
 	if (position == LEFT) {
@@ -264,7 +268,14 @@ function addNavBarButton(position, data, container, startX, width) {
 		button.css("right", (container.width() - startX - width + margin) + "px");
 	}
 	
-	button.text(data.title);
+	if (data.type == "back") {
+		button.addClass("nbuttonBack");
+	} else if (data.type == "action") {
+		button.addClass("nbuttonAction");
+	}
+	
+	container.append($("<div />").text(data.title).addClass("text"));
+	container.append($("<div />").addClass("right"));
 }
 
 function showNewScreen(callback) {
@@ -331,7 +342,7 @@ function showNewScreen(callback) {
 		
 		gui.currentScreen.container.screen.animate({
 			left: "0px"
-		}, 500, "swing", null);
+		}, 500, "swing");
 
 		gui.oldScreen.container.screen.animate({
 			left: (gui.currentScreen.container.screen.width()) + "px"
@@ -346,7 +357,7 @@ function showNewScreen(callback) {
 		});
 		
 		navBarContainer.animate({
-			left: "0x",
+			left: "0px",
 			opacity: 1
 		}, 500, "swing");
 		
@@ -355,7 +366,7 @@ function showNewScreen(callback) {
 			n.animate({
 				left: w + "px",
 				opacity: 0
-			}, 500, "linear", function() {
+			}, 500, "swing", function() {
 				$(this).remove();
 			});
 		});
@@ -382,7 +393,7 @@ function showNewScreen(callback) {
 		});
 		
 		navBarContainer.animate({
-			left: "0x",
+			left: "0px",
 			opacity: 1
 		}, 500, "swing");
 		
@@ -391,7 +402,7 @@ function showNewScreen(callback) {
 			n.animate({
 				left: "-" + w + "px",
 				opacity: 0
-			}, 500, "linear", function() {
+			}, 500, "swing", function() {
 				$(this).remove();
 			});
 		});
