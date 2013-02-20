@@ -67,7 +67,7 @@ em {
 .nbutton {
 	position: absolute;
 	
-	top: 16px;
+	top: 14px;
 	
 	display: inline-block;
 	-webkit-backface-visibility: hidden;
