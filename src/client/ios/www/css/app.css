@@ -79,22 +79,27 @@ em {
 }
 
 .nbutton .left {
-	position: absolute;
+	xposition: absolute;
 	
-	left: 0px;
-	top: 0px;
+	xleft: 0px;
+	xtop: 0px;
 	
 	width: 10px;
 	height: 59px;
+	
+	float: left;
 	
 	background-image: url("assets/navbar-back-l.png");
 }
 
 .nbutton .right {
-	position: absolute;
+	xposition: absolute;
 	
-	left: 100px;
-	top: 0px;
+	xleft: 100px;
+	xtop: 0px;
+	
+	
+	float: left;
 	
 	width: 10px;
 	height: 59px;
@@ -115,10 +120,12 @@ em {
 	background-image: url("assets/navbar-back.png");
 	background-repeat: repeat-x;
 	
-	position: absolute;
+	xposition: absolute;
 	
-	left: 10px;
-	top: 0px;
+	xleft: 10px;
+	xtop: 0px;
+	
+	float: left;
 }
 
 .nbuttonBack .left {
