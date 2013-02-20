@@ -256,7 +256,13 @@ function addNavBarButton(position, data, container, startX, width) {
 	button.addClass("nbutton");
 	button.appendTo(container);
 	
-	var margin = 10;
+	var container = $("<div />").appendTo(button);
+	
+	container.append($("<div />").addClass("left"));
+	
+	var margin = 14;
+	var leftWidth = 10;
+	var textLeftWidthAdjust = 16;
 	
 	if (position == LEFT) {
 		button.css("left", (startX + margin) + "px");
@@ -264,7 +270,26 @@ function addNavBarButton(position, data, container, startX, width) {
 		button.css("right", (container.width() - startX - width + margin) + "px");
 	}
 	
-	button.text(data.title);
+	if (data.type == "back") {
+		button.addClass("nbuttonBack");
+		leftWidth = 28;
+		textLeftWidthAdjust = 0;
+	} else if (data.type == "action") {
+		button.addClass("nbuttonAction");
+	}
+	
+	var t = $("<div />").text(data.title).addClass("text").css("left", leftWidth + "px");
+	t.css("padding-left", textLeftWidthAdjust + "px");
+	container.append(t);
+	
+	var metrics = $.textMetrics(t);
+	var w = metrics.width - (16 - textLeftWidthAdjust) + 6;
+	
+	t.css("width", w + "px");
+	
+	
+	
+	container.append($("<div />").addClass("right").css("left", (w + 16 + textLeftWidthAdjust + leftWidth) + "px"));
 }
 
 function showNewScreen(callback) {
@@ -331,7 +356,7 @@ function showNewScreen(callback) {
 		
 		gui.currentScreen.container.screen.animate({
 			left: "0px"
-		}, 500, "swing", null);
+		}, 500, "swing");
 
 		gui.oldScreen.container.screen.animate({
 			left: (gui.currentScreen.container.screen.width()) + "px"
@@ -346,7 +371,7 @@ function showNewScreen(callback) {
 		});
 		
 		navBarContainer.animate({
-			left: "0x",
+			left: "0px",
 			opacity: 1
 		}, 500, "swing");
 		
@@ -355,7 +380,7 @@ function showNewScreen(callback) {
 			n.animate({
 				left: w + "px",
 				opacity: 0
-			}, 500, "linear", function() {
+			}, 500, "swing", function() {
 				$(this).remove();
 			});
 		});
@@ -382,7 +407,7 @@ function showNewScreen(callback) {
 		});
 		
 		navBarContainer.animate({
-			left: "0x",
+			left: "0px",
 			opacity: 1
 		}, 500, "swing");
 		
@@ -391,7 +416,7 @@ function showNewScreen(callback) {
 			n.animate({
 				left: "-" + w + "px",
 				opacity: 0
-			}, 500, "linear", function() {
+			}, 500, "swing", function() {
 				$(this).remove();
 			});
 		});
