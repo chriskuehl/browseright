@@ -67,11 +67,63 @@ em {
 .nbutton {
 	position: absolute;
 	
-	background-color: red;
+	top: 16px;
+	
+	display: inline-block;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
+.nbutton .container {
+	position: relative;
+}
+
+.nbutton .left {
+	position: absolute;
+	
+	left: 0px;
+	top: 0px;
+	
+	width: 10px;
+	height: 59px;
+	
+	background-image: url("assets/navbar-back-l.png");
+}
+
+.nbutton .right {
+	position: absolute;
+	
+	left: 100px;
+	top: 0px;
+	
+	width: 10px;
+	height: 59px;
+	
+	background-image: url("assets/navbar-back-r.png");
+}
+
+.nbutton .text {
+	padding: 16px;
+	height: 27px;
+	
+	color: white;
+	
+	font-size: 24px;
+	font-family: "HelveticaNeue-Bold";
+	text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45);
+	
 	background-image: url("assets/navbar-back.png");
 	background-repeat: repeat-x;
 	
-	display: inline-block;
+	position: absolute;
+	
+	left: 10px;
+	top: 0px;
+}
+
+.nbuttonBack .left {
+	/*width: 28px;
+	background-image: url("assets/navbar-back-back-l.png");*/
 }
 
 #contentHolder {
