@@ -117,13 +117,12 @@ em {
 	
 	position: absolute;
 	
-	left: 10px;
 	top: 0px;
 }
 
 .nbuttonBack .left {
-	/*width: 28px;
-	background-image: url("assets/navbar-back-back-l.png");*/
+	width: 28px;
+	background-image: url("assets/navbar-back-back-l.png");
 }
 
 #contentHolder {
