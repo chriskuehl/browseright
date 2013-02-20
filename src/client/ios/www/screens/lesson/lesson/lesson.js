@@ -3,19 +3,7 @@ gui.screens["lesson/lesson"].data = {
 	navBars: [
 		{
 			title: "Category One",
-			width: 1406,
-			
-			buttons: {
-				left: {
-					type: "back",
-					title: "Categories"
-				},
-				
-				right: {
-					type: "action",
-					title: "Do not tap!"
-				}
-			}
+			width: 1406
 		},
 		
 		{

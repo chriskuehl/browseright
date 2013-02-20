@@ -10,6 +10,17 @@ $SCREEN .description{
     background-color: #333133;
 }
 
-$SCREEN .description h1{
+$SCREEN .description h1, $SCREEN .description span {
     font-size: 60px;
+    font-family: $BOLD;
+}
+
+$SCREEN .description .button {
+	float: right;
+	width: 356px;
+}
+
+.signout {
+	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
 }
