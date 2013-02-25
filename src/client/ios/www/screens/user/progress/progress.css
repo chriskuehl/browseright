@@ -32,7 +32,7 @@ $SCREEN {
 	background-image: url("$ASSETS/brback.png");
 	background-repeat: no-repeat;
 	background-position-x: -260px;
-	background-position-y: 340px;
+	background-position-y: 300px;
 }
 
 $SCREEN .category {
@@ -41,6 +41,9 @@ $SCREEN .category {
 	margin-top: 60px;
 	margin-left: 60px;
 	width: 602px;
+	height: 720px;
+	
+	overflow: scroll;
 }
 $SCREEN .category .title {
 	width: 602px;
@@ -60,24 +63,12 @@ $SCREEN .category .title {
 $SCREEN .category ul.progress li {
     display: block;
     width: 640px;
-    
-    
-    background-image: url("$ASSETS/itemBorder.png");
-    background-repeat: repeat-x;
-    background-position: 0% 100%;
-}
-    
-$SCREEN .category ul.progress li.section {
-    background-image: url("$ASSETS/section.png");
-    background-repeat: repeat-x;
-    border-bottom: 2px solid #848B90;
 }
 
 $SCREEN .category ul.progress li.section div {
-    background-image: none;
-    
+    font-size: 40px;
     padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 24px;
     padding-bottom: 14px;
 }
 
