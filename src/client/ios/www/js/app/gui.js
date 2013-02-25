@@ -39,12 +39,12 @@ function initTabBar() {
     });
     plugins.tabBar.createItem("progress", "Progress", "/www/css/assets/tabbar/progress.png", {
 		onSelect: function() {
-			setScreen("lesson/quiz");
+			setScreen("user/progress");
 		}
 	});
     plugins.tabBar.createItem("settings", "Settings", "/www/css/assets/tabbar/settings.png", {
 		onSelect: function() {
-			setScreen("test/one");
+			setScreen("lesson/quiz");
 		}
 	});
     

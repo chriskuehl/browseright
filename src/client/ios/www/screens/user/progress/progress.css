@@ -1,0 +1,99 @@
+$SCREEN .description {
+    font-size: 40px;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 230px;
+    
+    background-color: #333133;
+}
+
+$SCREEN .description h1, $SCREEN .description span {
+    font-size: 60px;
+    font-family: $BOLD;
+}
+
+$SCREEN .description .button {
+	float: right;
+	width: 356px;
+}
+
+.signout {
+	color: white;
+	border: none;
+	
+	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
+}
+
+$SCREEN {
+	background-image: url("$ASSETS/brback.png");
+	background-repeat: no-repeat;
+	background-position-x: -260px;
+	background-position-y: 340px;
+}
+
+$SCREEN .category {
+	display: block;
+	float: left;
+	margin-top: 60px;
+	margin-left: 60px;
+	width: 602px;
+}
+$SCREEN .category .title {
+	width: 602px;
+	height: 64px;
+	padding-top: 24px;
+	
+	font-size: 40px;
+	font-family: $BOLD;
+	text-align: center;
+	
+	color: #B2F848;
+	
+	background-color: #333133;
+}
+
+
+$SCREEN .category ul.progress li {
+    display: block;
+    width: 640px;
+    
+    
+    background-image: url("$ASSETS/itemBorder.png");
+    background-repeat: repeat-x;
+    background-position: 0% 100%;
+}
+    
+$SCREEN .category ul.progress li.section {
+    background-image: url("$ASSETS/section.png");
+    background-repeat: repeat-x;
+    border-bottom: 2px solid #848B90;
+}
+
+$SCREEN .category ul.progress li.section div {
+    background-image: none;
+    
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 14px;
+}
+
+$SCREEN .category ul.progress li div {
+    background-image: url("$ASSETS/uncheck.png");
+    background-repeat: no-repeat;
+    background-position: 18px 14px;
+    
+    padding-left: 100px;
+    padding-top: 24px;
+    padding-bottom: 32px;
+    
+    font-size: 34px;
+    font-family: $BOLD;
+}
+
+$SCREEN .category ul.progress li.completed div {
+    background-image: url("$ASSETS/check.png");
+}
