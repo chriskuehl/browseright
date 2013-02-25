@@ -7,9 +7,8 @@ gui.screens["user/progress"].data = {
 	],
     
     setup: function(contentManager) {
-        $(".signout").click(function() {
-			setScreen("start/login");
-		});
-
+    	// TODO: use contentManager for this
+    	// TODO: incorporate JS magic tokens
+    	registerScrollContainers($(".scroll"));
     }
 };
