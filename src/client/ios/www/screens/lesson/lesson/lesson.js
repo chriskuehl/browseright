@@ -8,12 +8,18 @@ gui.screens["lesson/lesson"].data = {
 			buttons: {
 				left: {
 					type: "back",
-					title: "Categories"
+					title: "Categories",
+					action: function() {
+						setScreen("lesson/category");
+					}
 				},
 				
 				right: {
 					type: "action",
-					title: "Do not tap!"
+					title: "Do not tap!",
+					action: function() {
+						alert("I asked you not to tap me!");
+					}
 				}
 			}
 		},
