@@ -256,6 +256,26 @@ function addNavBarButton(position, data, container, startX, width) {
 	button.addClass("nbutton");
 	button.appendTo(container);
 	
+	button.bind((PLATFORM == PLATFORM_IOS ? "touchstart" : "mousedown"), function() {
+		$(this).addClass("active");
+		$(this).addClass("touchdown");
+	});
+	
+	button.bind((PLATFORM == PLATFORM_IOS ? "touchend" : "mouseup"), function() {
+		if (! $(this).hasClass("touchdown")) {
+			return;
+		}
+		
+		$(this).removeClass("touchdown");
+		var f = $(this);
+		
+		setTimeout(function() {
+			if (! f.hasClass("touchdown")) {
+				f.removeClass("active");
+			}
+		}, 100);
+	});
+	
 	var container = $("<div />").appendTo(button);
 	
 	container.append($("<div />").addClass("left"));
