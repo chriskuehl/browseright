@@ -104,7 +104,6 @@ function loadScreen(screenPath, callback) {
 		gui.screens[screenPath].html = data;
 		
 		checkScreenLoaded(screenPath);
-		
 	});
 	
 	// css
