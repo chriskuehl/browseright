@@ -104,7 +104,6 @@ function loadScreen(screenPath, callback) {
 		gui.screens[screenPath].html = data;
 		
 		checkScreenLoaded(screenPath);
-		
 	});
 	
 	// css
@@ -251,10 +250,41 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 	}
 }
 
+// WARNING: back buttons on the right side don't work (but who cares?)
 function addNavBarButton(position, data, container, startX, width) {
 	var button = $("<a />");
 	button.addClass("nbutton");
 	button.appendTo(container);
+	
+	if (data.action) {
+		button.data("action", data.action);
+	}
+	
+	button.bind((PLATFORM == PLATFORM_IOS ? "touchstart" : "mousedown"), function() {
+		$(this).addClass("active");
+		$(this).addClass("touchdown");
+	});
+	
+	button.bind((PLATFORM == PLATFORM_IOS ? "touchend" : "mouseup"), function() {
+		if (! $(this).hasClass("touchdown")) {
+			return;
+		}
+		
+		$(this).removeClass("touchdown");
+		var f = $(this);
+		
+		if (f.data("action")) {
+			setTimeout(function() {
+				f.data("action")();
+			}, 0);
+		}
+		
+		setTimeout(function() {
+			if (! f.hasClass("touchdown")) {
+				f.removeClass("active");
+			}
+		}, 100);
+	});
 	
 	var container = $("<div />").appendTo(button);
 	
@@ -263,12 +293,6 @@ function addNavBarButton(position, data, container, startX, width) {
 	var margin = 14;
 	var leftWidth = 10;
 	var textLeftWidthAdjust = 16;
-	
-	if (position == LEFT) {
-		button.css("left", (startX + margin) + "px");
-	} else if (position == RIGHT) {
-		button.css("right", (container.width() - startX - width + margin) + "px");
-	}
 	
 	if (data.type == "back") {
 		button.addClass("nbuttonBack");
@@ -284,6 +308,12 @@ function addNavBarButton(position, data, container, startX, width) {
 	
 	var metrics = $.textMetrics(t);
 	var w = metrics.width - (16 - textLeftWidthAdjust) + 6;
+	
+	if (position == LEFT) {
+		button.css("left", (startX + margin) + "px");
+	} else if (position == RIGHT) {
+		button.css("left", (startX + width - margin - w - 20 - 16 - textLeftWidthAdjust) + "px");
+	}
 	
 	t.css("width", w + "px");
 	
