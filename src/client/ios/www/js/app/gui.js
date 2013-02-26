@@ -480,3 +480,12 @@ function createNewCSSContainer() {
 function createNewContainer() {
 	return $("<div />");
 }
+
+function registerScrollContainers(containers) {
+	containers.each(function() {
+		var j = Math.floor(Math.random() * 100000000000).toString(16);
+		$(this).attr("id", j);
+		new iScroll(j);
+		//new TouchScroll($(this)[0], {elastic: true});
+	});
+}
