@@ -485,7 +485,7 @@ function registerScrollContainers(containers) {
 	containers.each(function() {
 		var j = Math.floor(Math.random() * 100000000000).toString(16);
 		$(this).attr("id", j);
-		new iScroll(j, {bounce: false});
+		new iScroll(j, {bounce: false, hScrollbar: false, vScrollbar: false});
 		 
 	});
 }
