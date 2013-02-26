@@ -20,6 +20,21 @@ $SCREEN .description .button {
 	width: 356px;
 }
 
+$SCREEN .description p {
+	width: 1264px;
+}
+
+$SCREEN .description .percent {
+	display: block;
+	width: auto;
+	float: right;
+	
+	font-size: 160px;
+	color: #98DC2D;
+	font-family: $BOLD;
+	text-align: center;
+}
+
 .signout {
 	color: white;
 	border: none;
