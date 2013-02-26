@@ -45,7 +45,7 @@ $SCREEN .category {
 	
 	border: solid 1px red;
 	
-	overflow: scroll;
+	overflow: auto;
 }
 $SCREEN .category .title {
 	width: 602px;
