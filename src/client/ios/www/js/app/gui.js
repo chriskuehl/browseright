@@ -485,7 +485,13 @@ function registerScrollContainers(containers) {
 	containers.each(function() {
 		var j = Math.floor(Math.random() * 100000000000).toString(16);
 		$(this).attr("id", j);
-		new iScroll(j);
+		new iScroll(j, {bounce: false});
 		//new TouchScroll($(this)[0], {elastic: true});
+		 
+		//$(this).addClass("touchScroll");
+		 
+		//$(this).css("overflow-y", "scroll");
+		//$(this).css("-webkit-overflow-scrolling", "touch");
+		 
 	});
 }
