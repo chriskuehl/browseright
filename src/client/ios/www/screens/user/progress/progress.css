@@ -21,7 +21,9 @@ $SCREEN .description .button {
 }
 
 $SCREEN .description p {
+	display: block;
 	width: 1264px;
+	float: left;
 }
 
 $SCREEN .description .percent {
