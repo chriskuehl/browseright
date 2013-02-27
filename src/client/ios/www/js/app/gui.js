@@ -32,28 +32,31 @@ function initTabBar() {
 		    setScreen("user/account");
 	    }
     });
+    
     plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
 	    onSelect: function() {
 		    setScreen("lesson/category");
 	    }
     });
+    
     plugins.tabBar.createItem("progress", "Progress", "/www/css/assets/tabbar/progress.png", {
 		onSelect: function() {
 			setScreen("user/progress");
 		}
 	});
+	
     plugins.tabBar.createItem("settings", "Settings", "/www/css/assets/tabbar/settings.png", {
 		onSelect: function() {
 			setScreen("lesson/quiz");
 		}
 	});
+	
     plugins.tabBar.createItem("console", "Console", "/www/css/assets/tabbar/console.png", {
 		onSelect: function() {
 			setScreen("dev/console");
 		}
 	});
     
-	
 	gui.showingTabBar = false;
 	plugins.tabBar.showItems("account", "lessons", "progress", "settings", "console");
 }
