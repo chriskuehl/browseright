@@ -27,7 +27,7 @@ function initTabBar() {
 	plugins.tabBar.init();
     plugins.tabBar.create();
 	
-    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/accounticon.png", {
+    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
 	    onSelect: function() {
 		    setScreen("user/account");
 	    }
@@ -47,10 +47,15 @@ function initTabBar() {
 			setScreen("lesson/quiz");
 		}
 	});
+    plugins.tabBar.createItem("console", "Console", "/www/css/assets/tabbar/console.png", {
+		onSelect: function() {
+			setScreen("dev/console");
+		}
+	});
     
 	
 	gui.showingTabBar = false;
-	plugins.tabBar.showItems("account", "lessons", "progress", "settings");
+	plugins.tabBar.showItems("account", "lessons", "progress", "settings", "console");
 }
 
 function initScreenHolder() {
