@@ -26,7 +26,11 @@ $SCREEN .paneHolder .leftPane {
 	right: 0px;
 	bottom: 0px;
     
-    overflow: scroll;
+
+}
+
+$SCREEN .paneHolder .leftPane .scroll {
+	    overflow: auto;
 }
 
 $SCREEN .paneHolder .leftPane .container {

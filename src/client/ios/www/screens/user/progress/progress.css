@@ -59,11 +59,13 @@ $SCREEN .category {
 	margin-left: 60px;
 	width: 602px;
 	height: 720px;
-	
-	border: solid 1px red;
-	
+}
+
+$SCREEN .category .scroll {	
+	height: 632px;
 	overflow: auto;
 }
+
 $SCREEN .category .title {
 	width: 602px;
 	height: 64px;
@@ -84,14 +86,14 @@ $SCREEN .category ul.progress li {
     width: 640px;
 }
 
-$SCREEN .category ul.progress li.section div {
+$SCREEN .category ul.progress li.section {
     font-size: 40px;
     padding-left: 10px;
     padding-top: 24px;
     padding-bottom: 14px;
 }
 
-$SCREEN .category ul.progress li div {
+$SCREEN .category ul.progress li {
     background-image: url("$ASSETS/uncheck.png");
     background-repeat: no-repeat;
     background-position: 18px 14px;
