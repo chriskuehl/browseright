@@ -34,6 +34,7 @@ gui.screens["lesson/lesson"].data = {
 		$(".lessonTitle").click(function() {
 			setScreen("lesson/category");
 		});
+		
 		// TODO: Fix this
 		registerScrollContainers($(".scroll"));
 	}
