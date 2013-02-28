@@ -12,10 +12,13 @@ $SCREEN .paneHolder .rightPane {
 	
 	right: 0px;
 	width: 640px;
+	height: auto;
 	top: 0px;
 	bottom: 0px;
     border-left: 2px solid #000;
 	background-color: #333133;
+	
+	overflow: auto;
 }
 
 $SCREEN .paneHolder .leftPane {
@@ -30,7 +33,7 @@ $SCREEN .paneHolder .leftPane {
 }
 
 $SCREEN .paneHolder .leftPane .scroll {
-	height: 1140px;
+	height: 1170px;
 	overflow: auto;
 }
 
@@ -41,7 +44,7 @@ $SCREEN .paneHolder .leftPane .container {
 $SCREEN .container {
     font-size: 40px;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     padding-left: 100px;
     padding-right: 740px;
 }
