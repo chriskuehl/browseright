@@ -1,8 +1,6 @@
 package org.browseright.api.category
 
-class BetaInterfaceService {
-    def emailService
-    
+class TestInterfaceService {
     def report = { response, action, params, user ->
         def email = params.email
         def name = params.name
