@@ -1,4 +1,4 @@
-package stocksim.api
+package org.browseright.api
 
 class LyricService {
     def cacheService

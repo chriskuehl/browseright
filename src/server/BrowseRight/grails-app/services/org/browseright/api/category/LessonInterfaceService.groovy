@@ -1,4 +1,4 @@
-package stocksim.api.category
+package org.browseright.api.category
 
 import stocksim.api.*
 

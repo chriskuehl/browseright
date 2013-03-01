@@ -1,7 +1,6 @@
-package stocksim.api
+package org.browseright.api
 
-import stocksim.*
-import stocksim.api.category.*
+import org.browseright.api.category.*
 
 class AppInterfaceService {
     def lyricService
