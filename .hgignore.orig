@@ -1,9 +1,0 @@
-syntax: glob
-
-src/client/cordova/console.log
-src/client/ios/build/*
-src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/*
-src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/
-xcuserdata
-.DS_Store
-src/server/BrowseRight/target/
