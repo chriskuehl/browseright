@@ -1,17 +1,13 @@
 package org.browseright.api
 
+import org.browseright.*
 import org.browseright.api.category.*
 
 class AppInterfaceService {
     def lyricService
     def userService
     
-    def betaInterfaceService
-    def classroomInterfaceService
-    def userInterfaceService
-    def portfolioInterfaceService
-    def infoInterfaceService
-    def lessonInterfaceService
+    def testInterfaceService
     
     def generateResponse(def request, def category, def item, def action, def params) {
         def response = [:]
@@ -28,7 +24,7 @@ class AppInterfaceService {
         def user = null
         def sessionToken = params.token
         
-        if (sessionToken) {
+        if (sessionToken) { // TODO: user service
             user = userService.getUserForSessionToken(sessionToken)
         }
         
