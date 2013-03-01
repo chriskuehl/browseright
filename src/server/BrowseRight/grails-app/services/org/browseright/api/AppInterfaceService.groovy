@@ -76,12 +76,7 @@ class AppInterfaceService {
     
     def getCategoryService(def category) {
         def categories = [
-            beta: betaInterfaceService,
-            classroom: classroomInterfaceService,
-            user: userInterfaceService,
-            portfolio: portfolioInterfaceService,
-            info: infoInterfaceService,
-            lesson: lessonInterfaceService
+            test: testInterfaceService
         ]
         
         categories[category]
