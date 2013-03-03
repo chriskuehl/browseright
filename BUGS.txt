@@ -1,0 +1,30 @@
+BROWSERIGHT BUGS DATABASE
+
+This database is meant for holding bugs that are mostly "wishlist"
+priority and not immediate blockers, since those will probably take
+longer to enter than they will take to fix.
+
+The goal is to keep track of things that need to be fixed before the
+app is released onto the app store.
+=======================================================================
+Bug #1: App icon not centered
+
+The icon for the iPad app appears to not be centered, plus the colors
+could use some work.
+
+Status: WAITING
+=======================================================================
+Bug #2: Magenta color appears when starting app
+
+At least when starting to the login screen, a flash of magenta is shown
+prior to the screen loading.
+
+Status: WAITING
+=======================================================================
+Bug #3: Loading screen needs work
+
+The loading screen layout is reasonable, but it doesn't quite feel
+solid enough to be release-quality.
+
+Status: WAITING
+=======================================================================
