@@ -497,3 +497,14 @@ function registerScrollContainers(containers) {
 		 
 	});
 }
+
+// dialogs
+function dialog(title, question, buttons, callback) {
+	if (PLATFORM != PLATFORM_PC) {
+		navigator.notification.confirm(question, function(resp) {
+			callback(resp == 2);
+		}, title, buttons.join(","));
+	} else {
+		callback(confirm("[" + title + "]\n" + question + "\n[" + buttons.join(", ") + "]"));
+	}
+}
