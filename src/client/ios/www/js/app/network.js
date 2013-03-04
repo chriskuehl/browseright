@@ -34,6 +34,7 @@ function api(command, params, acceptableResponses, callback) {
 			if (acceptableResponses.indexOf(data.apiCode) > (- 1)) {
 				// everything is normal
 				log("Received acceptable response for command \"" + command + "\", executing callback...");
+				callback(data.apiCode, data);
 			} else {
 				// soft error: something really weird, this really should not happen!
 				log("!! Received unacceptable response for command \"" + command + "\", trying to recover...");
