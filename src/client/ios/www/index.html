@@ -25,6 +25,14 @@
 		
 		<div id="cssHolder"></div>
 		
+		<!-- error handling -->
+		<script>
+		// http://stackoverflow.com/a/14939891/450164
+		window.onerror = function(message, url, lineNumber) {
+	        console.log("!!!! ERROR: "+message+" in "+url+" at line "+lineNumber);
+	    }
+		</script>
+		
 		<!-- libraries -->
 		<script src="js/lib/cordova-2.3.0.js"></script>
 		<script src="js/lib/tabbar-20130122.js"></script>
