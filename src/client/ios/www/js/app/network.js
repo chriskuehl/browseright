@@ -44,9 +44,18 @@ function api(command, params, acceptableResponses, callback) {
 		error: function() {
 			log("Encountered network error for command \"" + command + "\".");
 			// hard error: internal server error, network down, etc.
-			dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(resp) {
-				alert(resp);
+			dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(tryAgain) {
+				if (tryAgain) {
+					// recurse
+					api(command, params, acceptableResponses, callback);
+				} else {
+					networkReset();
+				}
 			});
 		}
 	});
+}
+
+function networkReset() {
+	alert("TODO: reset everything");
 }
