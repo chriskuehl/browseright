@@ -8,6 +8,7 @@ var deviceReady = false;
 var domReady = false;
 
 // bootstrap the app
+
 document.addEventListener("deviceready", function() {
 	deviceReady = true;
 	attemptStart();
