@@ -23,7 +23,7 @@ function api(command, params, acceptableResponses, callback) {
 	}
 	
 	$.ajax({
-		url: "https://browseright2.org/api/" + command,
+		url: "https://browseright.org/api/" + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
@@ -38,6 +38,7 @@ function api(command, params, acceptableResponses, callback) {
 			} else {
 				// soft error: something really weird, this really should not happen!
 				log("!! Received unacceptable response for command \"" + command + "\", trying to recover...");
+				networkReset();
 			}
 		},
 		
