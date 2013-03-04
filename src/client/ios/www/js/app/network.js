@@ -22,8 +22,10 @@ function api(command, params, acceptableResponses, callback) {
 		params.token = localStorage.token;
 	}
 	
+	// "https://browseright.org/api/" + command,
+	
 	$.ajax({
-		url: "http://chris-mba.local:8080/BrowseRight/api/" + command, // "https://browseright.org/api/" + command,
+		url: "http://techxonline.net:6500/BrowseRight/api/" + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
@@ -43,8 +45,9 @@ function api(command, params, acceptableResponses, callback) {
 		},
 		
 		error: function() {
-			log("Encountered network error for command \"" + command + "\".");
 			// hard error: internal server error, network down, etc.
+			log("Encountered network error for command \"" + command + "\".");
+			
 			dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(tryAgain) {
 				if (tryAgain) {
 					// recurse
