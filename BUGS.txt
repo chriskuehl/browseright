@@ -28,3 +28,13 @@ solid enough to be release-quality.
 
 Status: WAITING
 =======================================================================
+Bug #4: Initialization scripts need some work.
+
+In the initialization scripts (meant for PhoneGap) that were ported
+from trenders, some bugs appear to exist. On load, the following
+error presents itself in the console:
+
+core.js:47: Uncaught ReferenceError: PLATFORM is not defined 
+
+Status: WAITING
+=======================================================================
