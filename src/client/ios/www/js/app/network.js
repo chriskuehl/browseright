@@ -23,7 +23,7 @@ function api(command, params, acceptableResponses, callback) {
 	}
 	
 	$.ajax({
-		url: "https://browseright.org/api/" + command,
+		url: "http://chris-mba.local:8080/BrowseRight/api/" + command, // "https://browseright.org/api/" + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
