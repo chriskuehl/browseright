@@ -22,10 +22,10 @@ function api(command, params, acceptableResponses, callback) {
 		params.token = localStorage.token;
 	}
 	
-	// "https://browseright.org/api/" + command,
+	// 
 	
 	$.ajax({
-		url: "http://techxonline.net:6500/BrowseRight/api/" + command,
+		url: (DEVELOPER ? "http://techxonline.net:6500/BrowseRight/api/" : "https://browseright.org/api/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
