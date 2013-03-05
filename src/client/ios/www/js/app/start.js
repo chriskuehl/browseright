@@ -7,7 +7,7 @@ function startApp() {
 	}
 	
 	api("test/test", {fromApp: true}, [RESP_OK], function(status, data) {
-		alert("Status [" + status + "], data: " + JSON.stringify(data));
+	//	alert("Status [" + status + "], data: " + JSON.stringify(data));
 	});
 	
 	// setScreen("dev/console");
