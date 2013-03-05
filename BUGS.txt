@@ -38,3 +38,16 @@ core.js:47: Uncaught ReferenceError: PLATFORM is not defined
 
 Status: WAITING
 =======================================================================
+Bug #5: Tab bar icon needs to reflect current page.
+
+The tab bar does not reflect the current page. This is especially 
+noticeable on switching from the login page to the portal page.
+
+Status: WAITING
+=======================================================================
+Bug #6: Remove sliding between tab bar pages.
+
+Tab bar pages should not transition with a slide between each other.
+
+Status: WAITING
+=======================================================================
