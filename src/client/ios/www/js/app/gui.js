@@ -38,7 +38,6 @@ function initTabBar() {
 			setScreen("user/progress");
 		}
 	});
-	
 		
     plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
 	    onSelect: function() {
@@ -343,9 +342,7 @@ function addNavBarButton(position, data, container, startX, width) {
 	}
 	
 	t.css("width", w + "px");
-	
-	
-	
+		
 	container.append($("<div />").addClass("right").css("left", (w + 16 + textLeftWidthAdjust + leftWidth) + "px"));
 }
 
