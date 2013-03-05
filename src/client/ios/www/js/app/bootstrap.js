@@ -3,6 +3,7 @@ var PLATFORM; // not really a constant, but it acts like one for everyone else
 var PLATFORM_IOS = 0;
 var PLATFORM_ANDROID = 1;
 var PLATFORM_PC = 2;
+var DEVELOPER = localStorage.developer;
 
 var deviceReady = false;
 var domReady = false;

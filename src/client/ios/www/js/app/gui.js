@@ -246,6 +246,19 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 		width: width + "px"
 	});
 	
+	// TODO: remove this
+	if (! navBarData.buttons) navBarData.buttons = {};
+	
+	navBarData.buttons.right = {
+		type: "action",
+		title: DEVELOPER ? "Turn OFF developer" : "Turn ON developer",
+		action: function() {
+			localStorage.developer = ! DEVELOPER;
+			alert("You are now " + (DEVELOPER ? "NOT IN" : "IN") + " developer mode.");
+			networkReset();
+		}
+	};
+	
 	// add any buttons
 	if (navBarData.buttons) {
 		if (navBarData.buttons.left) {
