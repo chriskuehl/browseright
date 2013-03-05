@@ -1,0 +1,89 @@
+$SCREEN .paneHolder {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+$SCREEN .paneHolder .leftPane {
+	position: absolute;
+	
+	left: 0px;
+	width: 638px;
+	top: 0px;
+	bottom: 0px;
+    border-right: 2px solid black;
+	background-color: #333133;
+}
+
+$SCREEN .paneHolder .leftPane .logo {
+	width: 379px;
+	height: 340px;
+	
+	position: absolute;
+	
+	top: 264px;
+	left: 129px;
+	
+	background-image: url("$ASSETS/br.png");
+}
+
+$SCREEN .paneHolder .rightPane {
+	position: absolute;
+	
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+
+    border-left: 2px solid #C6F68B;
+	background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
+}
+
+$SCREEN .paneHolder .rightPane .container {
+	position: relative;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box {
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: 6px;
+	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.4);
+	
+	padding: 60px;
+	
+	position: absolute;
+	
+	top: 200px;
+	left: 50%;
+	margin-left: -744px;
+	
+	width: 1488px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span {
+	text-align: center;
+	
+	font-family: $BOLD !important;
+	font-size: 96px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box p {
+	font-size: 28px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	line-height: 1.3em;
+	text-align: justify;
+}
+
+$SCREEN .paneHolder .rightPane .container .box .buttonHolder .button {
+	float: left;
+	width: 356px;
+}

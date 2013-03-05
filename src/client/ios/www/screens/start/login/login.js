@@ -11,5 +11,9 @@ gui.screens["start/login"].data = {
 		$(".login").click(function() {
 			setScreen("user/portal");
 		});
+		
+		$(".createAccount").click(function() {
+			setScreen("start/register");
+		});
 	}
 };
