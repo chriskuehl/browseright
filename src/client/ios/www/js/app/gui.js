@@ -59,10 +59,11 @@ function initTabBar() {
 	});
     
 	gui.showingTabBar = false;
-	plugins.tabBar.showItems("account", "lessons", "progress", "settings");
 	
 	if (DEVELOPER) {
-		plugins.tabBar.showItems("console");
+		plugins.tabBar.showItems("lessons", "progress", "account", "portal", "console");
+	} else {
+		plugins.tabBar.showItems("lessons", "progress", "account", "portal");
 	}
 }
 
