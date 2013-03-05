@@ -2,8 +2,12 @@ package org.browseright
 
 abstract class User {
     static constraints = {
-
+	email(email: true, unique: true)
+	school(nullable: true)
+	lastPasswordChangeTime(nullable: true)
     }
+    
+    static hasMany = [sessions: UserSession]
 
     // basic user properties
     String firstName
@@ -11,7 +15,6 @@ abstract class User {
     String email
     String passwordHash
     Date lastPasswordChangeTime
-    List<UserSession> sessions
 
     // registration
     String registerIP
