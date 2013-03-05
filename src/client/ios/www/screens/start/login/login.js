@@ -9,7 +9,7 @@ gui.screens["start/login"].data = {
 		
 	setup: function(contentManager) {
 		$(".login").click(function() {
-			setScreen("lesson/category");
+			setScreen("user/portal");
 		});
 	}
 };

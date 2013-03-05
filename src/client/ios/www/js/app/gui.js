@@ -26,12 +26,6 @@ function applyInterfaceTweaks() {
 function initTabBar() {
 	plugins.tabBar.init();
     plugins.tabBar.create();
-	
-    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
-	    onSelect: function() {
-		    setScreen("user/account");
-	    }
-    });
     
     plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
 	    onSelect: function() {
@@ -45,9 +39,16 @@ function initTabBar() {
 		}
 	});
 	
-    plugins.tabBar.createItem("settings", "Settings", "/www/css/assets/tabbar/settings.png", {
+		
+    plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
+	    onSelect: function() {
+		    setScreen("user/account");
+	    }
+    });
+	
+    plugins.tabBar.createItem("portal", "Portal", "/www/css/assets/tabbar/portal.png", {
 		onSelect: function() {
-			setScreen("lesson/quiz");
+			setScreen("user/portal");
 		}
 	});
 	
