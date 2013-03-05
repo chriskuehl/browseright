@@ -8,14 +8,14 @@ abstract class User {
     }
     
     static hasMany = [sessions: UserSession]
-
+    
     // basic user properties
     String firstName
     String lastName
     String email
     String passwordHash
     Date lastPasswordChangeTime
-
+    
     // registration
     String registerIP
     String registerUserAgent
