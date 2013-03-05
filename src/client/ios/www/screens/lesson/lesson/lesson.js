@@ -12,14 +12,6 @@ gui.screens["lesson/lesson"].data = {
 					action: function() {
 						setScreen("lesson/category");
 					}
-				},
-				
-				right: {
-					type: "action",
-					title: "Do not tap!",
-					action: function() {
-						alert("I asked you not to tap me!");
-					}
 				}
 			}
 		},
