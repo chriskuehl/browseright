@@ -4,6 +4,8 @@ class School {
     static constraints = {
 	registerCode(unique: true)
 	helpEmail(email: true)
+	announcementText(maxSize: 8192)
+	helpText(maxSize: 8192)
     }
     
     static hasMany = [teachers: Teacher, students: Student, requiredCategories: Category]
