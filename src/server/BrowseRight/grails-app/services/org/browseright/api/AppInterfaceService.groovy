@@ -8,6 +8,7 @@ class AppInterfaceService {
     def userService
     
     def testInterfaceService
+    def teacherInterfaceService
     
     def generateResponse(def request, def category, def item, def action, def params) {
         def response = [:]
@@ -25,7 +26,7 @@ class AppInterfaceService {
         def sessionToken = params.token
         
         if (sessionToken) { // TODO: user service
-            user = userService.getUserForSessionToken(sessionToken)
+        //    user = userService.getUserForSessionToken(sessionToken)
         }
         
         // process for a response
@@ -76,7 +77,8 @@ class AppInterfaceService {
     
     def getCategoryService(def category) {
         def categories = [
-            test: testInterfaceService
+            test: testInterfaceService,
+	    teacher: teacherInterfaceService
         ]
         
         categories[category]
