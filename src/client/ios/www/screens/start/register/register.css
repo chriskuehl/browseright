@@ -63,9 +63,9 @@ $SCREEN .paneHolder .rightPane .container .box {
 	
 	top: 200px;
 	left: 50%;
-	margin-left: -744px;
+	margin-left: -654px;
 	
-	width: 1488px;
+	width: 1188px;
 }
 
 $SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span {

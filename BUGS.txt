@@ -51,3 +51,10 @@ Tab bar pages should not transition with a slide between each other.
 
 Status: WAITING
 =======================================================================
+Bug #7: Impossible to register student and teacher under same email
+address.
+
+Self-explanatory: database issue.
+
+Status: WAITING
+=======================================================================
