@@ -57,7 +57,7 @@ class AppInterfaceService {
                     // mark the response as "ok" (API methods can override this later if
                     // they want)
                     response.apiCode = AppInterface.codes.OK
-                    method(response, action, params, user)
+                    method(response, action, params, user, request)
                 } else {
                     response.apiCode = AppInterface.codes.LOGIN_FIRST
                 }
