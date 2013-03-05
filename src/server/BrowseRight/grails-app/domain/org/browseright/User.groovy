@@ -3,6 +3,10 @@ package org.browseright
 abstract class User {
     def hashingService
     
+    static mapping = { 
+        tablePerHierarchy false
+    }
+    
     static constraints = {
 	email(email: true, unique: true)
 	school(nullable: true)
