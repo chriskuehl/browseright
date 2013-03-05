@@ -61,9 +61,9 @@ function initTabBar() {
 	gui.showingTabBar = false;
 	
 	if (DEVELOPER) {
-		plugins.tabBar.showItems("lessons", "progress", "account", "portal", "console");
+		plugins.tabBar.showItems( "portal", "lessons", "progress", "account", "console");
 	} else {
-		plugins.tabBar.showItems("lessons", "progress", "account", "portal");
+		plugins.tabBar.showItems("portal", "lessons", "progress", "account");
 	}
 }
 
