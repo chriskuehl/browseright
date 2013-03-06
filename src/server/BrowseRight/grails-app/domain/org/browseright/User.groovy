@@ -15,6 +15,7 @@ abstract class User {
 	lastPasswordChangeTime(nullable: true)
     }
     
+    static transients = ["hashingService"]
     static hasMany = [sessions: UserSession]
     
     // basic user properties
