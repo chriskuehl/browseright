@@ -10,6 +10,7 @@ class School {
 	helpText(maxSize: 8192)
     }
     
+    static transients = ["schoolService"]
     static hasMany = [teachers: Teacher, students: Student, requiredCategories: Category]
     
     String name
@@ -30,10 +31,6 @@ class School {
     String helpEmail
     String announcementText = "Welcome to BrowseRight!"
     String helpText = "For help, please contact your school."
-    
-    def School() {
-        generateNewRegisterCode()
-    }
     
     def setLocation(def street, def city, def zipCode, def state) {
         // TODO: find latitude and longitude for location
