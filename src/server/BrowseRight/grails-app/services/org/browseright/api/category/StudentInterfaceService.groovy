@@ -13,7 +13,7 @@ class StudentInterfaceService {
 	
 	if (password.length() < 5) {
 	    response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	    response.error = "Please use a password with at least five characters."
+	    response.error = "PASSWORD_SIZE.TOOSMALL"
 	    return
 	}
 	
@@ -25,7 +25,11 @@ class StudentInterfaceService {
 	
 	if (! student.validate()) {
 	    response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	    response.error = "Please use valid information to sign up."
+	    response.error = "UNKNOWN"
+            
+            student.errors.allErrors.each { error ->
+                response.error = "${error.field}_${error.codes[-1]}".toUpperCase()
+            }
 	} else {
 	    student.save()
 	}
