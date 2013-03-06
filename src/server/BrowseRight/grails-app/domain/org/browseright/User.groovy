@@ -8,6 +8,8 @@ abstract class User {
     }
     
     static constraints = {
+        firstName(size: 1..255, nullable: false, blank: false)
+        lastName(size: 1..255, nullable: false, blank: false)
 	email(email: true, unique: true)
 	school(nullable: true)
 	lastPasswordChangeTime(nullable: true)
