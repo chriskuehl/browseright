@@ -5,70 +5,70 @@
     <title>BrowseRight</title>
     <style type="text/css" media="screen">
 #status {
-background-color: #eee;
-border: .2em solid #fff;
-margin: 2em 2em 1em;
-padding: 1em;
-width: 12em;
-float: left;
--moz-box-shadow: 0px 0px 1.25em #ccc;
--webkit-box-shadow: 0px 0px 1.25em #ccc;
-box-shadow: 0px 0px 1.25em #ccc;
--moz-border-radius: 0.6em;
--webkit-border-radius: 0.6em;
-border-radius: 0.6em;
+  background-color: #eee;
+  border: .2em solid #fff;
+  margin: 2em 2em 1em;
+  padding: 1em;
+  width: 12em;
+  float: left;
+  -moz-box-shadow: 0px 0px 1.25em #ccc;
+  -webkit-box-shadow: 0px 0px 1.25em #ccc;
+  box-shadow: 0px 0px 1.25em #ccc;
+  -moz-border-radius: 0.6em;
+  -webkit-border-radius: 0.6em;
+  border-radius: 0.6em;
 }
 
 .ie6 #status {
-display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
+  display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
 }
 
 #status ul {
-font-size: 0.9em;
-list-style-type: none;
-margin-bottom: 0.6em;
-padding: 0;
+  font-size: 0.9em;
+  list-style-type: none;
+  margin-bottom: 0.6em;
+  padding: 0;
 }
 
 #status li {
-line-height: 1.3;
+  line-height: 1.3;
 }
 
 #status h1 {
-text-transform: uppercase;
-font-size: 1.1em;
-margin: 0 0 0.3em;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  margin: 0 0 0.3em;
 }
 
 #page-body {
-margin: 2em 1em 1.25em 18em;
+  margin: 2em 1em 1.25em 18em;
 }
 
 h2 {
-margin-top: 1em;
-margin-bottom: 0.3em;
-font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  font-size: 1em;
 }
 
 p {
-line-height: 1.5;
-margin: 0.25em 0;
+  line-height: 1.5;
+  margin: 0.25em 0;
 }
 
 #controller-list ul {
-list-style-position: inside;
+  list-style-position: inside;
 }
 
 #controller-list li {
-line-height: 1.3;
-list-style-position: inside;
-margin: 0.25em 0;
+  line-height: 1.3;
+  list-style-position: inside;
+  margin: 0.25em 0;
 }
 
 @media screen and (max-width: 480px) {
-#status {
-display: none;
-}
+  #status {
+    display: none;
+    }
 
       #page-body {
         margin: 0 1em 1em;
@@ -120,14 +120,19 @@ display: none;
         <ul>
           <g:each var="c" in="${a}">
             <g:set var="p" value="" />
-            
+
             <g:each var="j" in="${c.params.entrySet()}">
               <g:set var="p" value="${p}${j.key}=${j.value.encodeAsURL()}&" />
             </g:each>
-  
-  
+
+
             <li class="controller"><g:link uri="/api/${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}?${p}">${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}</g:link><br />${c.params}</li>
           </g:each>
+        </ul>
+
+        <h2>Useful Links:</h2>
+        <ul>
+          <li class="controller"><g:link uri="/dbconsole">Database Console</g:link></li>
         </ul>
       </div>
     </div>
