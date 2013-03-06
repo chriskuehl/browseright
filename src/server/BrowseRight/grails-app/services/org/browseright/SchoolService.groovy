@@ -2,9 +2,9 @@ package org.browseright
 
 class SchoolService {
     def generateUniqueCode() {
-        def code
+        def code = null
         
-        while (code == null || School.findByCode(code) != null) {
+        while (code == null || School.findByRegisterCode(code) != null) {
             code = generateCode(5)
         }
         
@@ -16,7 +16,7 @@ class SchoolService {
         def str = ""
         
         (0..len).each {
-            str += chars.charAt(Math.floor(Math.rand() * chars.size()))
+            str += chars.charAt((int) Math.floor(Math.random() * chars.size()))
         }
         
         str
