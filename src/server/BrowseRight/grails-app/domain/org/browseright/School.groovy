@@ -2,6 +2,7 @@ package org.browseright
 
 class School {
     def schoolService
+    def geolocationService
     
     static constraints = {
 	registerCode(unique: true)
@@ -10,7 +11,7 @@ class School {
 	helpText(maxSize: 8192)
     }
     
-    static transients = ["schoolService"]
+    static transients = ["schoolService", "geolocationService"]
     static hasMany = [teachers: Teacher, students: Student, requiredCategories: Category]
     
     String name
@@ -32,12 +33,12 @@ class School {
     String announcementText = "Welcome to BrowseRight!"
     String helpText = "For help, please contact your school."
     
-    def setLocation(def street, def city, def zipCode, def state) {
+    def setLocation(def street, def city, def zipCode) {
         // TODO: find latitude and longitude for location
         this.street = street
         this.city = city
         this.zipCode = zipCode
-        this.state = state
+        this.state = geolocationService.findStateByZipCode(zipCode)
     }
     
     def updateProgress() {
@@ -45,7 +46,7 @@ class School {
     }
     
     def generateNewRegisterCode() {
-        registerCode = schoolService.generateUnqiueCode()
+        registerCode = schoolService.generateUniqueCode()
     }
     
     def addStudent(Student student) {
