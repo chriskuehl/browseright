@@ -110,7 +110,7 @@ p {
         click on each to execute its default action:</p>
 
       <div id="controller-list" role="navigation">
-        <h2>Example API Commands:</h2>
+        <h2>List of API Commands:</h2>
 
         <g:set var="a" value="${[
     [category: "student", item: "create", action: "", params: [firstName: "John", lastName: "Student", email: "student@wchs.browseright.org", password: "student"]],
