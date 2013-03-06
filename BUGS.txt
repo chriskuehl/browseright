@@ -54,7 +54,10 @@ Status: WAITING
 Bug #7: Impossible to register student and teacher under same email
 address.
 
-Self-explanatory: database issue.
+Status: WAITING
+=======================================================================
+Bug #8: It's not possible to scroll in the white area to the left or
+right of an article.
 
 Status: WAITING
 =======================================================================
