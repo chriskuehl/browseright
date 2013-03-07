@@ -8,11 +8,7 @@ gui.screens["start/register"].data = {
     ],
 		
 	setup: function(contentManager) {
-		$(".createAccount").click(function() {
-			setScreen("start/login");
-		});
-		
-		$(".login").click(function() {
+		$(".create").click(function() {
 			setScreen("user/portal");
 		});
 	}

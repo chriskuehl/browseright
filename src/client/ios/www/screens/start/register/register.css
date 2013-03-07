@@ -7,29 +7,6 @@ $SCREEN .paneHolder {
 	bottom: 0px;
 }
 
-$SCREEN .paneHolder .leftPane {
-	position: absolute;
-	
-	left: 0px;
-	width: 638px;
-	top: 0px;
-	bottom: 0px;
-    border-right: 2px solid black;
-	background-color: #333133;
-}
-
-$SCREEN .paneHolder .leftPane .logo {
-	width: 379px;
-	height: 340px;
-	
-	position: absolute;
-	
-	top: 264px;
-	left: 129px;
-	
-	background-image: url("$ASSETS/br.png");
-}
-
 $SCREEN .paneHolder .rightPane {
 	position: absolute;
 	
@@ -61,18 +38,25 @@ $SCREEN .paneHolder .rightPane .container .box {
 	
 	position: absolute;
 	
-	top: 200px;
+	top: 140px;
 	left: 50%;
 	margin-left: -654px;
 	
 	width: 1188px;
 }
 
-$SCREEN .paneHolder .rightPane .container .box h1, $SCREEN .paneHolder .rightPane .container .box h1 span {
+$SCREEN .paneHolder .rightPane .container .box h1 {
 	text-align: center;
 	
 	font-family: $BOLD !important;
 	font-size: 96px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box h3 {
+	text-align: center;
+	
+	font-family: $BOLD;
+	font-size: 40px;
 }
 
 $SCREEN .paneHolder .rightPane .container .box p {
@@ -83,7 +67,8 @@ $SCREEN .paneHolder .rightPane .container .box p {
 	text-align: justify;
 }
 
-$SCREEN .paneHolder .rightPane .container .box .buttonHolder .button {
-	float: left;
+$SCREEN .paneHolder .rightPane .container .box .button {
+	margin-left: auto;
+	margin-right: auto;
 	width: 356px;
 }
