@@ -18,8 +18,8 @@ class AppInterfaceService {
         
         // add additional helper info to params
         params.info = [
-            userAgent: request.getHeader("User-Agent"),
-            ip: request.getRemoteAddr()
+            userAgent: request ? request.getHeader("User-Agent") : "none",
+            ip: request ? request.getRemoteAddr() : "none"
         ]
         
         // see if the request has an appropriate token, and if so, find the user

@@ -43,14 +43,26 @@ abstract class User {
     }
     
     def setLastSeen(request) {
-	lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
-	lastSeenUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+	if (request != null) {
+	    lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
+	    lastSeenUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+	} else {
+	    lastSeenIP = "none"
+	    lastSeenUserAgent = "none"
+	}
+	
 	lastSeenTime = new Date()
     }
     
     def setRegistration(request) {
-	registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
-	registerUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+	if (request != null) {
+	    registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
+	    registerUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+	} else {
+	    registerIP = "none"
+	    registerUserAgent = "none"
+	}
+	
 	registerTime = new Date()
     }
 }
