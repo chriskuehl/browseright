@@ -10,8 +10,15 @@ class GeolocationService {
 	println "Initialization zip code database..."
 	
 	def resourcePath = grailsApplication.parentContext.getResource(File.separator).file.getAbsolutePath()
+	
+	println "resourcePath=$resourcePath"
+	
 	def appPath = resourcePath.substring(0, resourcePath.lastIndexOf(File.separator)) + File.separator + "grails-app" + File.separator
+	
+	println "appPath=$appPath"
 	def zipCodeFile = new File(appPath + "conf" + File.separator + "geo" + File.separator + "zipcodes.csv")
+	
+	println "file=$zipCodeFile"
 	
 	def reader = new CSVReader(new FileReader(zipCodeFile))
 	
