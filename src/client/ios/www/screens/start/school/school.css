@@ -1,0 +1,84 @@
+$SCREEN .paneHolder {
+	position: absolute;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+$SCREEN .paneHolder .rightPane {
+	position: absolute;
+	
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+
+    border-left: 2px solid #C6F68B;
+	background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
+}
+
+$SCREEN .paneHolder .rightPane .container {
+	position: relative;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box {
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: 6px;
+	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.4);
+	
+	padding: 60px;
+	
+	position: absolute;
+	
+	top: 140px;
+	left: 50%;
+	margin-left: -654px;
+	
+	width: 1188px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box h1 {
+	text-align: center;
+	
+	font-family: $BOLD !important;
+	font-size: 96px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box h3 {
+	text-align: center;
+	
+	font-family: $BOLD;
+	font-size: 40px;
+}
+
+$SCREEN .paneHolder .rightPane .container .box p {
+	font-size: 28px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	line-height: 1.3em;
+	text-align: justify;
+}
+
+$SCREEN .paneHolder .rightPane .container .box .button {
+	margin-left: auto;
+	margin-right: auto;
+	width: 356px;
+}
+
+$SCREEN .schools {
+	height: 560px;
+	
+	background-color: rgba(255, 255, 255, 0.8);
+	
+	border: solid 1px #797C76;
+	border-radius: 10px;
+	margin-bottom: 30px;
+}

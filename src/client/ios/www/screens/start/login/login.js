@@ -13,7 +13,7 @@ gui.screens["start/login"].data = {
 		});
 		
 		$(".createAccount").click(function() {
-			setScreen("start/register");
+			setScreen("start/school");
 		});
 	}
 };
