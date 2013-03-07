@@ -46,9 +46,18 @@ abstract class User {
 	hashingService.matches(passwordHash, password)
     }
     
+    // this creates a new session
+    def getSessionToken(request) {
+	def session = new UserSession()
+	session.setLastSeen(request)
+	addToSessions(session)
+	
+	session.generateNewToken()
+    }
+    
     def setLastSeen(request) {
 	if (request != null) {
-	    lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
+	    lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
 	    lastSeenUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
 	} else {
 	    lastSeenIP = "none"
@@ -60,7 +69,7 @@ abstract class User {
     
     def setRegistration(request) {
 	if (request != null) {
-	    registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
+	    registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
 	    registerUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
 	} else {
 	    registerIP = "none"
