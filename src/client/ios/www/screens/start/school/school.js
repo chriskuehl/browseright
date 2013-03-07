@@ -3,7 +3,17 @@ gui.screens["start/school"].data = {
 	hideTabBar: true,
     navBars: [
         {
-            title: "Select Your School"
+            title: "Select Your School",
+            
+            buttons: {
+				left: {
+					type: "back",
+					title: "Login",
+					action: function() {
+						setScreen("start/login");
+					}
+				}
+			}
         }
     ],
 		

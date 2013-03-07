@@ -3,7 +3,17 @@ gui.screens["start/register"].data = {
 	hideTabBar: true,
     navBars: [
         {
-            title: "Create an Account"
+            title: "Create an Account",
+            
+            buttons: {
+				left: {
+					type: "back",
+					title: "Select school",
+					action: function() {
+						setScreen("start/school");
+					}
+				}
+			}
         }
     ],
 		
