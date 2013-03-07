@@ -42,6 +42,10 @@ abstract class User {
 	passwordHash = hashingService.hash(password)
     }
     
+    def passwordMatches(def password) {
+	hashingService.matches(passwordHash, password)
+    }
+    
     def setLastSeen(request) {
 	if (request != null) {
 	    lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : "none"
