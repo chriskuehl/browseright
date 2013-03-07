@@ -33,4 +33,30 @@ class TeacherInterfaceService {
 	    teacher.save()
 	}
     }
+    
+    def login = { response, action, params, user, request ->
+	def email = params.email
+	def password = params.password
+	
+	def teacher = Teacher.findByEmail(email)
+	
+	if (teacher == null) {
+	    response.apiCode = AppInterface.codes.BAD_LOGIN_INFO
+	    response.error = "EMAIL"
+	    
+	    return
+	}
+	
+	if (! teacher.passwordMatches(password)) {
+	    response.apiCode = AppInterface.codes.BAD_LOGIN_INFO
+	    response.error = "PASSWORD"
+	    
+	    return
+	}
+	
+	def token = teacher.getSessionToken(request)
+	teacher.save()
+	
+	response.token = token
+    }
 }
