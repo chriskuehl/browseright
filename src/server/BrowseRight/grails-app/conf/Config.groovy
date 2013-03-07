@@ -66,8 +66,8 @@ environments {
     
     production {
         grails.logging.jul.usebridge = false
+	
 	grails.dbconsole.enabled = true
-	grails.dbconsole.urlRoot = '/dbconsole'
         grails.serverURL = "https://browseright.org"
     }
 }
