@@ -4,7 +4,6 @@ import org.browseright.*
 import org.browseright.api.*
 
 class TeacherInterfaceService {
-    // http://localhost:8080/BrowseRight/api/teacher/create?firstName=Chris&lastName=Kuehl&email=chris%40techxonline.net&password=w00df0rd
     def create = { response, action, params, user, request ->
         def firstName = params.firstName
 	def lastName = params.lastName
