@@ -18,12 +18,10 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "CDVAvailability.h"
 
-@class CDVViewController;
-
-@interface CDVURLProtocol : NSURLProtocol {}
-
-+ (void)registerViewController:(CDVViewController*)viewController;
-+ (void)unregisterViewController:(CDVViewController*)viewController;
+@interface CDVUserAgentUtil : NSObject
++ (NSString*)originalUserAgent;
++ (void)acquireLock:(void (^)(NSInteger lockToken))block;
++ (void)releaseLock:(NSInteger*)lockToken;
++ (void)setUserAgent:(NSString*)value lockToken:(NSInteger)lockToken;
 @end
