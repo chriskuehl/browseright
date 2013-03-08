@@ -8,9 +8,13 @@ class TestInterfaceService {
     }
     
     def whoami = { response, action, params, user, request ->
-	response.youare = [
-	    teacher: (user instanceof Teacher),
-	    email: user.email
-	]
+	if (user) {
+	    response.youare = [
+		teacher: (user instanceof Teacher),
+		email: user.email
+	    ]
+	} else {
+	    response.youare = null
+	}
     }
 }
