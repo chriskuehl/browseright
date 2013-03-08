@@ -524,3 +524,12 @@ function dialog(title, question, buttons, callback) {
 		callback(confirm("[" + title + "]\n" + question + "\n[" + buttons.join(", ") + "]"));
 	}
 }
+
+// loading screen
+function showLoading(text) {
+	var parent = gui.currentScreen.container.screen;
+	var container = createNewContainer();
+	
+	container.addClass("loadingBack");
+	container.appendTo(parent);
+}

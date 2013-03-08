@@ -60,6 +60,16 @@ function api(command, params, acceptableResponses, callback) {
 	});
 }
 
+// convenience function for API requests with a loading screen
+function apiWithLoading(text, command, params, acceptableResponses, callback) {
+	showLoading(text);
+	
+	api(command, params, acceptableResponses, function(code, data) {
+		hideLoading();
+		callback(code, data);
+	});
+}
+
 function networkReset() {
 	alert("TODO: reset everything");
 }
