@@ -61,3 +61,10 @@ right of an article.
 
 Status: WAITING
 =======================================================================
+Bug #9: Session tokens should be hashed since they're password
+equivalents. The difficult in this is that we need some other piece of
+information since we can't possibly check the hash against every single
+session token (bcrypt w/ unique salts -> takes too long)
+
+Status: WAITING
+=======================================================================
