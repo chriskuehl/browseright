@@ -124,7 +124,11 @@ p {
             </g:each>
 
 
-            <li class="controller"><g:link uri="/api/${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}?${p}">${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}</g:link><br />${c.params}</li>
+            <li class="controller">
+	      <g:link uri="/api/${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}?${p}">${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}</g:link>
+	      <% if (c.params.token) c.params.token = c.params.token.substring(0, 5) + "..." %>
+	      <br />${c.params}
+	    </li>
           </g:each>
         </ul>
 
