@@ -9,6 +9,7 @@ class BootStrap {
 	appInterfaceService.generateResponse(null, "teacher", "create", null, [firstName: "Some", lastName: "Teacher", email: "teacher.test@browseright.org", password: "teacher"])
 	appInterfaceService.generateResponse(null, "school", "create", null, [name: "Fake High School", street: "127 Lemon Drive", city: "Iowa City", zipCode: "52246", helpEmail: "help@browseright.org"])
 	
+	appInterfaceService.generateResponse(null, "student", "create", null, [firstName: "Some", lastName: "Student", email: "student.test@browseright.org", password: "student"])
     }
     def destroy = {
     }
