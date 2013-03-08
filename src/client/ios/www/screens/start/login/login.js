@@ -8,13 +8,18 @@ gui.screens["start/login"].data = {
     ],
 		
 	setup: function(contentManager) {
+		setTimeout(function() {
+			showLoading("Loading user data...");
+		}, 1000);
+		
 		$(".login").click(function() {
 			var email = $(".email").val();
 			var password = $(".password").val();
 			
 			api("student/login", {email: email, password: password}, [RESP_OK, RESP_BAD_LOGIN_INFO], function(code, data) {
 				if (code == RESP_OK) {
-					alert(JSON.stringify(data));
+					localStorage["userToken"] = data.token;
+					loadStudentData();					
 				} else if (code == RESP_BAD_LOGIN_INFO) {
 					if (data.error == "PASSWORD") {
 						dialog("Incorrect Password", "Your email is right, but that's the wrong password! Try again?", ["Oops!"]);
