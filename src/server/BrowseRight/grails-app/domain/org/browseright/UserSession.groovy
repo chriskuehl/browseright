@@ -7,14 +7,14 @@ class UserSession {
 	lastSeenIP(nullable: true)
 	lastSeenTime(nullable: true)
 	lastSeenUserAgent(nullable: true)
-	sessionToken(size: 255..255)
+	token(size: 255..255)
     }
     
     static belongsTo = [user: User]
     static transients = ["hashingService"]
     
     User user
-    String sessionToken
+    String token
 
     // last seen info
     String lastSeenIP
@@ -31,7 +31,7 @@ class UserSession {
 	
 	// TODO: session tokens are basically password equivalents, so they get
 	// hashed like passwords
-	sessionToken = str
+	token = str
         
 	// return the non-hashed token, which is then given to the user
         str
