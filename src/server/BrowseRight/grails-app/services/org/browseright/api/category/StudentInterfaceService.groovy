@@ -34,6 +34,34 @@ class StudentInterfaceService {
 	}
     }
     
+    
+    
+    def login = { response, action, params, user, request ->
+	def email = params.email
+	def password = params.password
+	
+	def student = Student.findByEmail(email)
+	
+	if (student == null) {
+	    response.apiCode = AppInterface.codes.BAD_LOGIN_INFO
+	    response.error = "EMAIL"
+	    
+	    return
+	}
+	
+	if (! student.passwordMatches(password)) {
+	    response.apiCode = AppInterface.codes.BAD_LOGIN_INFO
+	    response.error = "PASSWORD"
+	    
+	    return
+	}
+	
+	def token = student.getSessionToken(request)
+	student.save()
+	
+	response.token = token
+    }
+    
     def setSchool = { response, action, params, user, request ->
     
     }
