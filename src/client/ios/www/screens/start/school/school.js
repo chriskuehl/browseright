@@ -16,6 +16,8 @@ gui.screens["start/school"].data = {
 			}
         }
     ],
+    
+    parents: ["start/login"],
 		
 	setup: function(contentManager) {
 		$(".next").click(function() {

@@ -16,6 +16,8 @@ gui.screens["start/register"].data = {
 			}
         }
     ],
+    
+    parents: ["start/school"],
 		
 	setup: function(contentManager) {
 		$(".create").click(function() {
