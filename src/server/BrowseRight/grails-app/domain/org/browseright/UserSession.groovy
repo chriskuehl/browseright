@@ -7,13 +7,14 @@ class UserSession {
 	lastSeenIP(nullable: true)
 	lastSeenTime(nullable: true)
 	lastSeenUserAgent(nullable: true)
+	sessionToken(size: 255..255)
     }
     
     static belongsTo = [user: User]
     static transients = ["hashingService"]
     
     User user
-    String sessionTokenHash
+    String sessionToken
 
     // last seen info
     String lastSeenIP
@@ -24,13 +25,13 @@ class UserSession {
         def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#%^&*()-=+_[]{}|,./?><`~"
 	def str = ""
         
-        (0..255).each {
+        (0..254).each {
             str += chars.charAt((int) Math.floor(Math.random() * chars.size()))
         }
 	
-	// session tokens are basically password equivalents, so they get hashed
-	// like passwords
-	sessionTokenHash = hashingService.hash(str)
+	// TODO: session tokens are basically password equivalents, so they get
+	// hashed like passwords
+	sessionToken = str
         
 	// return the non-hashed token, which is then given to the user
         str
