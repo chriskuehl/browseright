@@ -27,8 +27,8 @@ class AppInterfaceService {
         def user = null
         def sessionToken = params.token
         
-        if (sessionToken) { // TODO: user service
-        //    user = userService.getUserForSessionToken(sessionToken)
+        if (sessionToken) {
+            user = userService.getUserForSessionToken(sessionToken)
         }
         
         // process for a response
