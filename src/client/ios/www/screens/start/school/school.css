@@ -49,7 +49,7 @@ $SCREEN .paneHolder .rightPane .container .box h1 {
 	text-align: center;
 	
 	font-family: $BOLD !important;
-	font-size: 96px;
+	font-size: 88px;
 }
 
 $SCREEN .paneHolder .rightPane .container .box h3 {
@@ -68,8 +68,7 @@ $SCREEN .paneHolder .rightPane .container .box p {
 }
 
 $SCREEN .paneHolder .rightPane .container .box .button {
-	margin-left: auto;
-	margin-right: auto;
+	float: right;
 	width: 356px;
 }
 
