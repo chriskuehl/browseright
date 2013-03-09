@@ -30,4 +30,22 @@ class SchoolInterfaceService {
 	    school.save()
 	}
     }
+    
+    def list = { response, action, params, user, request ->
+        def schools = []
+        
+        School.findAll().each { school ->
+            schools.add([
+                    name: school.name,
+                    street: school.street,
+                    city: school.city,
+                    zipCode: school.zipCode,
+                    state: school.state,
+                    latitude: school.latitude,
+                    longitude: school.longitude
+            ])
+        }
+        
+        response.schools = schools
+    }
 }
