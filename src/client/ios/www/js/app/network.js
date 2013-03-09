@@ -65,9 +65,8 @@ function apiWithLoading(text, command, params, acceptableResponses, callback) {
 	showLoading(text);
 	
 	api(command, params, acceptableResponses, function(code, data) {
-		hideLoading(function() {
-			callback(code, data);
-		});
+		callback(code, data);
+		hideLoading();
 	});
 }
 

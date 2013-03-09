@@ -527,27 +527,35 @@ function dialog(title, question, buttons, callback) {
 
 // loading screen
 function showLoading(text) {
-	$(".loadingBack").remove();
+	var container = $(".loadingBack");
+	var msg = $(".loadingText");
+	var currentOpacity = 0;
 	
-	var parent = gui.currentScreen.container.screen;
-	var container = createNewContainer();
+	if (container.length <= 0) {
+		var parent = gui.currentScreen.container.screen;
+		var container = createNewContainer();
 	
-	container.addClass("loadingBack");
-	container.appendTo(parent);
+		container.addClass("loadingBack");
+		container.appendTo(parent);
 	
-	var window = $("<div />");
-	window.addClass("loadingWindow");
-	window.appendTo(container);
+		var window = $("<div />");
+		window.addClass("loadingWindow");
+		window.appendTo(container);
 	
-	var p = $("<p />");
-	p.append($("<img />").attr("src", "css/assets/spinners/loading.gif"));
-	p.appendTo(window);
+		var p = $("<p />");
+		p.append($("<img />").attr("src", "css/assets/spinners/loading.gif"));
+		p.appendTo(window);
 	
-	var msg = $("<p />");
+		var msg = $("<p />");
+		msg.addClass("loadingText");
+		msg.appendTo(window);
+	} else {
+		container.stop(true);
+		currentOpacity = container.css("opacity");
+	}
+	
 	msg.text(text);
-	msg.appendTo(window);
-	
-	container.fadeIn(250);
+	container.fadeIn(250 * (1 - currentOpacity));
 }
 
 function hideLoading(callback) {
