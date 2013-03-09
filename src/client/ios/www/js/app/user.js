@@ -6,9 +6,9 @@ function loadStudentData() {
 }
 
 function isLoggedIn() {
-	return localStorage["token"] ? true : false;
+	return localStorage["userToken"] ? true : false;
 }
 
 function logOut() {
-	delete localStorage["token"];
+	delete localStorage["userToken"];
 }

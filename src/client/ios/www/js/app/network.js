@@ -17,9 +17,9 @@ RESP_SERVER_ERROR = 500;
 function api(command, params, acceptableResponses, callback) {
 	log("Making API request for \"" + command + "\".");
 	
-	if (localStorage.token) {
+	if (localStorage["userToken"]) {
 		log("Adding user token to request because user is logged in.");
-		params.token = localStorage.token;
+		params.token = localStorage["userToken"];
 	}
 	
 	// 
@@ -65,8 +65,9 @@ function apiWithLoading(text, command, params, acceptableResponses, callback) {
 	showLoading(text);
 	
 	api(command, params, acceptableResponses, function(code, data) {
-		hideLoading();
-		callback(code, data);
+		hideLoading(function() {
+			callback(code, data);
+		});
 	});
 }
 
