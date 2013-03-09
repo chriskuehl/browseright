@@ -527,6 +527,8 @@ function dialog(title, question, buttons, callback) {
 
 // loading screen
 function showLoading(text) {
+	$(".loadingBack").remove();
+	
 	var parent = gui.currentScreen.container.screen;
 	var container = createNewContainer();
 	
@@ -549,5 +551,11 @@ function showLoading(text) {
 }
 
 function hideLoading(callback) {
-	$(".loadingBack").fadeOut(250, callback);
+	$(".loadingBack").fadeOut(250, function() {
+		$(".loadingBack").remove();
+		
+		if (callback) {
+			callback();
+		}
+	});
 }
