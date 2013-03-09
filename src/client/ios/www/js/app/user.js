@@ -8,6 +8,10 @@ function isLoggedIn() {
 	return localStorage["userToken"] ? true : false;
 }
 
-function logOut() {
+function logOut(dontChangeScreen) {
 	delete localStorage["userToken"];
+	
+	if (! dontChangeScreen) {
+		setScreen("start/login");
+	}
 }

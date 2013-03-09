@@ -9,9 +9,6 @@ gui.screens["user/account"].data = {
 	parents: ["start/login"],
     
     setup: function(contentManager) {
-        $(".signout").click(function() {
-			setScreen("start/login");
-		});
-
+        $(".signout").click(logOut);
     }
 };
