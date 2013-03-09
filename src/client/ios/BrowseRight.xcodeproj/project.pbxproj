@@ -152,7 +152,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8368FC5316EAC12400DA6EEA /* AssetsLibrary.framework */,
 				8368AC2816B036060079D2E5 /* Default-Landscape@2x~ipad.png */,
 				8368AC2616B036040079D2E5 /* Default-Landscape~ipad.png */,
 				8368CAED16A9A42300338607 /* browseright-shield-144.png */,
@@ -194,6 +193,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8368FC5316EAC12400DA6EEA /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
