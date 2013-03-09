@@ -8,10 +8,6 @@ gui.screens["start/login"].data = {
     ],
 		
 	setup: function(contentManager) {
-		setTimeout(function() {
-			showLoading("Loading user data...");
-		}, 1000);
-		
 		$(".login").click(function() {
 			var email = $(".email").val();
 			var password = $(".password").val();
