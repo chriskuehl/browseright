@@ -36,6 +36,7 @@ class SchoolInterfaceService {
         
         School.findAll().each { school ->
             schools.add([
+                    id: school.id,
                     name: school.name,
                     street: school.street,
                     city: school.city,
