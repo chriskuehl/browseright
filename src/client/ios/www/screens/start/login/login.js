@@ -29,6 +29,17 @@ gui.screens["start/login"].data = {
 				}
 			});
 		});
+		
+		// login by enter on input fields
+		$(".email, .password").keypress(function (e) {
+			if (e.which == 13) {
+				$(".login").click();
+				$(this).blur(); // hide the iPad keyboard
+
+				e.preventDefault();
+				return false;
+			}
+		});
 
 		$(".createAccount").click(function () {
 			setScreen("start/school");
