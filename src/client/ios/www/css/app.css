@@ -247,5 +247,33 @@ h1, h2, h3, h4, h5, h6 {
 	
 	z-index: 99999999999;
 	
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.6);
+	
+	display: none;
+}
+
+.loadingWindow {
+	position: absolute;
+	
+	top: 50%;
+	left: 50%;
+	
+	padding: 40px;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-radius: 20px;
+	
+	box-shadow: 0px 5px 30px 10px rgba(0, 0, 0, 0.2);
+	
+	width: 400px;
+	height: 180px;
+	
+	margin-top: -90px;
+	margin-left: -200px;
+}
+
+.loadingWindow p {
+	text-align: center;
+	font-size: 38px;
+	font-family: "HelveticaNeue-Medium";
+	color: rgba(0, 0, 0, 0.8);
 }

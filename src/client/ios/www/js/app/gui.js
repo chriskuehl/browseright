@@ -532,4 +532,22 @@ function showLoading(text) {
 	
 	container.addClass("loadingBack");
 	container.appendTo(parent);
+	
+	var window = $("<div />");
+	window.addClass("loadingWindow");
+	window.appendTo(container);
+	
+	var p = $("<p />");
+	p.append($("<img />").attr("src", "css/assets/spinners/loading.gif"));
+	p.appendTo(window);
+	
+	var msg = $("<p />");
+	msg.text(text);
+	msg.appendTo(window);
+	
+	container.fadeIn(250);
+}
+
+function hideLoading(callback) {
+	$(".loadingBack").fadeOut(250, callback);
 }
