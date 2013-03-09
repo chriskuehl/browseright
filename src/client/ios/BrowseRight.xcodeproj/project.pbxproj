@@ -34,6 +34,7 @@
 		8368AC2916B036060079D2E5 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8368AC2816B036060079D2E5 /* Default-Landscape@2x~ipad.png */; };
 		8368CAEC16A9A41B00338607 /* browseright-shield-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8368CAEB16A9A41B00338607 /* browseright-shield-72.png */; };
 		8368CAEE16A9A42300338607 /* browseright-shield-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8368CAED16A9A42300338607 /* browseright-shield-144.png */; };
+		8368FC5416EAC12400DA6EEA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8368FC5316EAC12400DA6EEA /* AssetsLibrary.framework */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +64,7 @@
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "../../../../../phonegap-2.4.0/lib/ios/CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "../../../../../phonegap-2.5.0/lib/ios/CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		301BF5B4109A6A2B0062928A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		301BF5B6109A6A2B0062928A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -87,6 +88,7 @@
 		8368AC2816B036060079D2E5 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		8368CAEB16A9A41B00338607 /* browseright-shield-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "browseright-shield-72.png"; sourceTree = "<group>"; };
 		8368CAED16A9A42300338607 /* browseright-shield-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "browseright-shield-144.png"; sourceTree = "<group>"; };
+		8368FC5316EAC12400DA6EEA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* BrowseRight-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BrowseRight-Info.plist"; path = "../BrowseRight-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = BrowseRight/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8368FC5416EAC12400DA6EEA /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -149,6 +152,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8368FC5316EAC12400DA6EEA /* AssetsLibrary.framework */,
 				8368AC2816B036060079D2E5 /* Default-Landscape@2x~ipad.png */,
 				8368AC2616B036040079D2E5 /* Default-Landscape~ipad.png */,
 				8368CAED16A9A42300338607 /* browseright-shield-144.png */,
