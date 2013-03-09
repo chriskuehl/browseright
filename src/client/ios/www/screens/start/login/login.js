@@ -1,21 +1,22 @@
 gui.screens["start/login"].data = {
 	id: "start/login",
 	hideTabBar: true,
-    navBars: [
-        {
-            title: "Login"
-        }
-    ],
-		
-	setup: function(contentManager) {
-		$(".login").click(function() {
+	navBars: [{
+		title: "Login"
+	}],
+
+	setup: function (contentManager) {
+		$(".login").click(function () {
 			var email = $(".email").val();
 			var password = $(".password").val();
-			
-			apiWithLoading("Logging in...", "student/login", {email: email, password: password}, [RESP_OK, RESP_BAD_LOGIN_INFO], function(code, data) {
+
+			apiWithLoading("Logging in...", "student/login", {
+				email: email,
+				password: password
+			}, [RESP_OK, RESP_BAD_LOGIN_INFO], function (code, data) {
 				if (code == RESP_OK) {
 					localStorage["userToken"] = data.token;
-					loadStudentData();					
+					loadStudentData();
 				} else if (code == RESP_BAD_LOGIN_INFO) {
 					if (data.error == "PASSWORD") {
 						dialog("Incorrect Password", "Your email is right, but that's the wrong password! Make sure you're using a student account (not a teacher account). Try again?", ["Oops!"]);
@@ -28,8 +29,8 @@ gui.screens["start/login"].data = {
 				}
 			});
 		});
-		
-		$(".createAccount").click(function() {
+
+		$(".createAccount").click(function () {
 			setScreen("start/school");
 		});
 	}

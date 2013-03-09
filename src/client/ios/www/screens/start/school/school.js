@@ -1,27 +1,25 @@
-gui.screens["start/school"].data = {
-	id: "start/school",
+gui.screens["start/register"].data = {
+	id: "start/register",
 	hideTabBar: true,
-    navBars: [
-        {
-            title: "Select Your School",
-            
-            buttons: {
-				left: {
-					type: "back",
-					title: "Login",
-					action: function() {
-						setScreen("start/login");
-					}
+	navBars: [{
+		title: "Create an Account",
+
+		buttons: {
+			left: {
+				type: "back",
+				title: "Select school",
+				action: function () {
+					setScreen("start/school");
 				}
 			}
-        }
-    ],
-    
-    parents: ["start/login"],
-		
-	setup: function(contentManager) {
-		$(".next").click(function() {
-			setScreen("start/register");
+		}
+	}],
+
+	parents: ["start/school"],
+
+	setup: function (contentManager) {
+		$(".create").click(function () {
+			setScreen("user/portal");
 		});
 	}
 };
