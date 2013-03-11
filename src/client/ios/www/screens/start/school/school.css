@@ -73,6 +73,7 @@ $SCREEN .paneHolder .rightPane .container .box .button {
 }
 
 $SCREEN .schools {
+	width: 1188px;
 	height: 560px;
 	
 	background-color: rgba(255, 255, 255, 0.8);
@@ -82,20 +83,18 @@ $SCREEN .schools {
 	margin-bottom: 30px;
 }
 
-$SCREEN .name {
-	display: block;
-	float: left;
-	width: 700px;
-	
-	background-color: red;
-}
-
-$SCREEN ul li {
+$SCREEN .schools li {
 	display: block;
 	
 	margin-top: 30px;
 	margin-left: 30px;
 	margin-right: 30px;
+}
+
+$SCREEN .schools a {
+	display: block;
+	position: relative;
+	
 	padding: 30px;
 	
 	background-color: rgba(184, 252, 77, 0.08);
@@ -104,13 +103,24 @@ $SCREEN ul li {
 	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.05);
 }
 
-$SCREEN span .name {
+$SCREEN .schools h2 {
 	font-family: $BOLD;
+	margin: 0px;
+	margin-bottom: 6px;
 }
 
-$SCREEN .address {
-	width: 500px;
+$SCREEN .schools .address {
+	margin: 0px !important;
 }
-$SCREEEN .arrow {
-	float: right;
+
+$SCREEN .schools .arrow {
+	position: absolute;
+	
+	right: 60px;
+	top: 50%;
+	
+	color: rgba(0, 0, 0, 0.3);
+	
+	font-size: 80px;
+	margin-top: -46px;
 }
