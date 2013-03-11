@@ -4,7 +4,7 @@ function startApp() {
 		loadStudentData();
 	//	setScreen("lesson/category");
 	} else {
-		setScreen("start/login");
+		setScreen("start/school");
 	}
 	
 	//api("test/test", {fromApp: true}, [RESP_OK], function(status, data) {

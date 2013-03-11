@@ -44,15 +44,3 @@ function addSchool(i, name, street1, street2) {
 	
 	li.appendTo(ul);
 }
-
-/* 
-
-<a>
-	<h2>Woodford County High School</h2>
-	<p class="address">180 Frankfort Street</p>
-	<p class="address">Versailles, KY 40383</p>
-	
-	<div class="arrow">&gt;</div>
-</a>
-
-*/
