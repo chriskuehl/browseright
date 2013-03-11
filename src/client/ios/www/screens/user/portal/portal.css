@@ -1,16 +1,13 @@
-$SCREEN .description {
-    font-size: 40px;
-    color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 60px;
-    padding-right: 60px;
-    height: 260px;
-    
-    background-color: #333133;
+$SCREEN {
+	text-align: center;
 }
 
-$SCREEN .description h1, $SCREEN .description span {
-    font-size: 60px;
+$SCREEN .header {
+	padding-top: 40px;
+	font-size: 40px;
+}
+
+$SCREEN .header h1 {
+    font-size: 80px;
     font-family: $BOLD;
 }
