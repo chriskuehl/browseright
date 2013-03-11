@@ -82,6 +82,14 @@ $SCREEN .schools {
 	margin-bottom: 30px;
 }
 
+$SCREEN .name {
+	display: block;
+	float: left;
+	width: 700px;
+	
+	background-color: red;
+}
+
 $SCREEN ul li {
 	display: block;
 	
