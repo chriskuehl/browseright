@@ -106,6 +106,10 @@ $SCREEN .schools a {
 	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.05);
 }
 
+$SCREEN .schools a.selected {
+	border: solid 8px rgba(190, 230, 190, 1);
+}
+
 $SCREEN .schools h2 {
 	font-family: $BOLD;
 	margin: 0px;

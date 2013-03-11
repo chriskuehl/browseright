@@ -42,5 +42,10 @@ function addSchool(i, name, street1, street2) {
 	$("<p />").addClass("address").text(street2).appendTo(a);
 	$("<div />").addClass("arrow").html("&gt;").appendTo(a);
 	
+	a.click(function() {
+		$(this).parent().parent().find("a").removeClass("selected");
+		$(this).addClass("selected");
+	});
+	
 	li.appendTo(ul);
 }
