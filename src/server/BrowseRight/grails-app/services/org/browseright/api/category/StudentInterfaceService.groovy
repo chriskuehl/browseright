@@ -62,7 +62,17 @@ class StudentInterfaceService {
 	response.token = token
     }
     
-    def setSchool = { response, action, params, user, request ->
+    def joinSchool = { response, action, params, user, request ->
+        if (user.school != null) {
+            response.apiCode = AppInterface.codes.UNABLE_TO_PERFORM_ACTION
+            response.error = "ALREADY_IN_SCHOOL"
+            return
+        }
+        
+        
+    }
     
+    def leaveSchool = { response, action, params, user, request ->
+        
     }
 }
