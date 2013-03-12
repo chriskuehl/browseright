@@ -5,7 +5,8 @@ $SCREEN {
 }
 
 $SCREEN .header {
-	padding-top: 40px;
+	padding-top: 60px;
+	padding-bottom: 20px;
 	font-size: 40px;
 }
 
@@ -18,10 +19,19 @@ $SCREEN .logo {
 	margin-left: auto;
 	margin-right: auto;
 	
-	background-image: url("$ASSETS/logo.png");
+	background-image: url("$ASSETS/full logo.png");
 	background-position-x: 0;
 	background-position-y: 0;
 	
 	width: 1600px;
-	height: 300px;
+	height: 330px;
+	
+	margin-bottom: 50px;
+}
+
+$SCREEN .box {
+	background-color: rgba(255, 255, 255, 0.92);
+	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.4);
+	
+	padding: 60px;
 }
