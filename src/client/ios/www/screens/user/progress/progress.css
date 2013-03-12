@@ -32,7 +32,7 @@ $SCREEN .description .percent {
 	float: right;
 	
 	font-size: 160px;
-	color: #7979A7;
+	color: #9CDD56;
 	font-family: $BOLD;
 	text-align: center;
 }
@@ -43,13 +43,6 @@ $SCREEN .description .percent {
 	
 	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
-}
-
-$SCREEN {
-	background-image: url("$ASSETS/brback.png");
-	background-repeat: no-repeat;
-	background-position-x: -260px;
-	background-position-y: 300px;
 }
 
 $SCREEN .category {
@@ -75,11 +68,10 @@ $SCREEN .category .title {
 	font-family: $BOLD;
 	text-align: center;
 	
-	background-color: #F1F1F1;
-	border: solid 2px rgba(150, 150, 150, 0.5);
-	box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
-	box-shadow: inset 0px 0px 20px rgba(100, 100, 100, 0.05);
+	background-color: rgba(184, 252, 77, 0.08);
+	border: solid 1px #797C76;
 	border-radius: 6px;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 
