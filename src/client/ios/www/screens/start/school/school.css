@@ -101,13 +101,16 @@ $SCREEN .schools a {
 	padding: 30px;
 	
 	background-color: rgba(184, 252, 77, 0.08);
-	border: solid 1px #797C76;
+	/* outline: solid 1px #797C76; */
+	/* border-radius: 6px; */
 	border-radius: 6px;
-	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 0px 0px 4pt rgba(0, 0, 0, 0.2);
+	/* box-shadow: 0px 10px 26px #797C76; */
 }
 
 $SCREEN .schools a.selected {
-	border: solid 8px rgba(190, 230, 190, 1);
+	/* outline: solid 8px rgba(190, 230, 190, 1); */
+	box-shadow: 0px 0px 0px 4pt rgba(190, 230, 190, 1);
 }
 
 $SCREEN .schools h2 {
