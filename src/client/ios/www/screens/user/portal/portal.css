@@ -1,5 +1,7 @@
 $SCREEN {
 	text-align: center;
+	background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
 }
 
 $SCREEN .header {
