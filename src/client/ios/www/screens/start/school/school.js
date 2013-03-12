@@ -18,7 +18,7 @@ gui.screens["start/school"].data = {
     ],
     
     parents: ["start/login"],
-		
+	
 	setup: function(contentManager) {
 		apiWithLoading("Loading schools...", "school/list", {}, [RESP_OK], function(code, data) {
 			
