@@ -20,6 +20,16 @@ gui.screens["start/register"].data = {
     parents: ["start/school"],
 		
 	setup: function(contentManager) {
+		if (selectedSchool == null) {
+			dialog("School Not Selected", "Please select a school first!", ["OK"], function() {
+				setScreen("start/login");
+			});
+			
+			return;
+		}
+		
+		$(".schoolUN").val(selectedSchool.name);
+		
 		$(".create").click(function() {
 				
 			var first = $(".first").val();

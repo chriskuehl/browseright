@@ -38,7 +38,7 @@ $SCREEN .paneHolder .rightPane .container .box {
 	
 	position: absolute;
 	
-	top: 140px;
+	top: 180px;
 	left: 50%;
 	margin-left: -654px;
 	
@@ -130,4 +130,8 @@ $SCREEN .schools .arrow {
 	
 	font-size: 80px;
 	margin-top: -46px;
+}
+
+$SCREEN .next.disabled {
+	opacity: 0.4;
 }
