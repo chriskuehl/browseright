@@ -18,8 +18,12 @@ gui.screens["start/school"].data = {
     ],
     
     parents: ["start/login"],
-		
+	
 	setup: function(contentManager) {
+		apiWithLoading("Loading schools...", "school/list", {}, [RESP_OK], function(code, data) {
+			
+		});
+		
 		for (var i = 0; i < 20; i ++) {
 			addSchool(i, "School #" + i, i + " Some Street", "Middle of Nowhere, IA 52246");
 		}
