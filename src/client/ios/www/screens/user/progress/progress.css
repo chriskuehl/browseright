@@ -7,12 +7,17 @@ $SCREEN .description {
     padding-right: 60px;
     height: 230px;
     
+    position: relative;
+    
     background-color: #333133;
 }
 
-$SCREEN .description h1, $SCREEN .description span {
+$SCREEN .description h1 {
+	display: block;
     font-size: 60px;
     font-family: $BOLD;
+    float: left;
+    width: 1400px;
 }
 
 $SCREEN .description .button {
@@ -22,19 +27,20 @@ $SCREEN .description .button {
 
 $SCREEN .description p {
 	display: block;
-	width: 1264px;
+	width: 1400px;
 	float: left;
 }
 
 $SCREEN .description .percent {
 	display: block;
-	width: auto;
-	float: right;
+	position: absolute;
+	right: 80px;
+	top: 50px;
+	width: 300px;
 	
 	font-size: 160px;
-	color: #9CDD56;
+	color: #8ED726;
 	font-family: $BOLD;
-	text-align: center;
 }
 
 .signout {
@@ -55,7 +61,7 @@ $SCREEN .category {
 }
 
 $SCREEN .category .scroll {	
-	height: 632px;
+	height: 652px;
 	overflow: auto;
 }
 
@@ -68,7 +74,7 @@ $SCREEN .category .title {
 	font-family: $BOLD;
 	text-align: center;
 	
-	background-color: rgba(184, 252, 77, 0.08);
+	background-color: rgba(184, 252, 77, 0.12);
 	border: solid 1px #797C76;
 	border-radius: 6px;
 	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
