@@ -131,3 +131,7 @@ $SCREEN .schools .arrow {
 	font-size: 80px;
 	margin-top: -46px;
 }
+
+$SCREEN .next.disabled {
+	opacity: 0.4;
+}
