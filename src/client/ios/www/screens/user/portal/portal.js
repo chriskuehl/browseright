@@ -9,7 +9,8 @@ gui.screens["user/portal"].data = {
 	parents: ["start/login"],
     
     setup: function(contentManager) {
-        
-
+        $(".next").click(function() {
+			setScreen("lesson/category");
+		});
     }
 };

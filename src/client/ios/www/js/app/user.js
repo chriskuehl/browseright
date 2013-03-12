@@ -1,3 +1,5 @@
+var selectedSchool = null;
+
 function loadStudentData() {
 	apiWithLoading("Loading student data...", "test/whoami", {}, [RESP_OK], function(code, data) {
 		setScreen("user/portal");

@@ -62,7 +62,7 @@ function initTabBar() {
 	if (DEVELOPER) {
 		plugins.tabBar.showItems( "portal", "lessons", "progress", "account", "console");
 	} else {
-		plugins.tabBar.showItems("portal", "lessons", "progress", "account");
+		plugins.tabBar.showItems("lessons", "progress", "account");
 	}
 }
 

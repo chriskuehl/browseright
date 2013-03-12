@@ -68,3 +68,8 @@ session token (bcrypt w/ unique salts -> takes too long)
 
 Status: WAITING
 =======================================================================
+Bug #10: School selection screen needs some padding at the bottom when
+the number of schools exceeds the two that actually fit in the screen.
+
+Status: WAITING
+=======================================================================
