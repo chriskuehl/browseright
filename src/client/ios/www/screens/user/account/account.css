@@ -39,7 +39,7 @@ $SCREEN .signout {
 	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
 }
 
-$SCREEN .anouncement {
+$SCREEN .announcement {
     font-size: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
