@@ -5,11 +5,11 @@ $SCREEN .description {
     padding-bottom: 50px;
     padding-left: 60px;
     padding-right: 60px;
-    height: 230px;
     
     position: relative;
     
     background-color: #333133;
+    box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.2);
 }
 
 $SCREEN .description h1 {
@@ -61,7 +61,7 @@ $SCREEN .category {
 }
 
 $SCREEN .category .scroll {	
-	height: 652px;
+	height: 660px;
 	overflow: auto;
 }
 
@@ -75,8 +75,6 @@ $SCREEN .category .title {
 	text-align: center;
 	
 	background-color: rgba(184, 252, 77, 0.12);
-	border: solid 1px #797C76;
-	border-radius: 6px;
 	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 }
 
