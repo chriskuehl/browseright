@@ -31,10 +31,20 @@ $SCREEN .description .button {
 	width: 356px;
 }
 
-.signout {
+$SCREEN .signout {
 	color: white;
 	border: none;
 	
 	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
+}
+
+$SCREEN .content ul li {
+	display: block;
+	margin-top: 50px;
+	margin-left: 60px;
+}
+
+$SCREEN .content ul li .field {
+	font-family: $BOLD;
 }
