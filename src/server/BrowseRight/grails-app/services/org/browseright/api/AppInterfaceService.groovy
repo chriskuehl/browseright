@@ -81,10 +81,10 @@ class AppInterfaceService {
     def getCategoryService(def category) {
         def categories = [
             test: testInterfaceService,
-	    teacher: teacherInterfaceService,
-	    student: studentInterfaceService,
-	    school: schoolInterfaceService,
-	    user: userInterfaceService
+	   teacher: teacherInterfaceService,
+	   student: studentInterfaceService,
+	   school: schoolInterfaceService,
+	   user: userInterfaceService
         ]
         
         categories[category]
