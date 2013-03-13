@@ -9,7 +9,6 @@ var deviceReady = false;
 var domReady = false;
 
 // bootstrap the app
-
 document.addEventListener("deviceready", function() {
 	deviceReady = true;
 	attemptStart();
@@ -17,6 +16,19 @@ document.addEventListener("deviceready", function() {
 
 $(document).ready(function () {
 	PLATFORM = determinePlatform();
+	
+	preload([
+		"css/assets/navbar-back-active.png",
+		"css/assets/navbar-back-back-l-active.png",
+		"css/assets/navbar-back-back-l.png",
+		"css/assets/navbar-back-l-active.png",
+		"css/assets/navbar-back-l.png",
+		"css/assets/navbar-back-r-active.png",
+		"css/assets/navbar-back-r.png",
+		"css/assets/navbar-back.png",
+		"css/assets/navbar-separator.png",
+		"css/assets/navbar.png"
+	]);
 	
 	domReady = true;
 	attemptStart();
