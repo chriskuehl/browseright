@@ -39,12 +39,27 @@ $SCREEN .signout {
 	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important; /* W3C */
 }
 
-$SCREEN .content ul li {
+$SCREEN .anouncement {
+    font-size: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+$SCREEN .content table tr {
 	display: block;
 	margin-top: 50px;
 	margin-left: 60px;
 }
 
-$SCREEN .content ul li .field {
-	font-family: $BOLD;
+$SCREEN .content table {
+	text-align: left;
+}
+
+$SCREEN .content .field {
+	width: 400px;
+	padding-right: 10px;
+	text-align: right !important;
+	font-family: $BOLD !important;
 }
