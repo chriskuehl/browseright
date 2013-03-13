@@ -68,8 +68,6 @@ class StudentInterfaceService {
             response.error = "ALREADY_IN_SCHOOL"
             return
         }
-        
-        
     }
     
     def leaveSchool = { response, action, params, user, request ->
