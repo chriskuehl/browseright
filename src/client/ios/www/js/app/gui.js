@@ -536,5 +536,5 @@ function showLoading(text) {
 }
 
 function hideLoading(callback) {
-	$(".loadingBack").fadeOut(250, callback);
+	$("#loading").fadeOut(250, callback);
 }
