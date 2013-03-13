@@ -13,6 +13,11 @@ class BootStrap {
 	
 	appInterfaceService.generateResponse(null, "student", "create", null, [firstName: "Some", lastName: "Student", email: "student.test@browseright.org", password: "student"])
 	
+	// create some categories
+	def reputation = new Category(title: "Your Online Reputation", shortDescription: "rep", longDescription: "repppppp").save()
+	def health = new Category(title: "Technology and Your Health", shortDescription: "stay healthy", longDescription: "healthh").save()
+	def peers = new Category(title: "Online Relationships", shortDescription: "how 2 relate online", longDescription: "onlineeeee").save()
+	
 	// login once, then change the token to something we can easily test with
 	def resp = appInterfaceService.generateResponse(null, "student", "login", null, [email: "student.test@browseright.org", password: "student"])
 	def session = UserSession.findByToken(resp.token)
