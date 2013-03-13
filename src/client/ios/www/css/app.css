@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 	background: linear-gradient(to bottom,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* W3C */
 }
 
-.loadingBack {
+#loadingBack {
 	position: fixed;
 	
 	top: 0px;
@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: none;
 }
 
-.loadingWindow {
+#loadingWindow {
 	position: absolute;
 	
 	top: 50%;
@@ -271,7 +271,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-left: -200px;
 }
 
-.loadingWindow p {
+#loadingWindow p {
 	text-align: center;
 	font-size: 38px;
 	font-family: "HelveticaNeue-Medium";

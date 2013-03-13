@@ -21,6 +21,13 @@
 		<div id="container">
 			<div id="navBar"></div>
 			<div id="contentHolder"></div>
+			<div id="loading"></div>
+			<div id="loadingBack">
+				<div id="loadingWindow">
+					<p><img src="css/assets/spinners/loading.gif" /></p>
+					<p id="loadingText"></p>
+				</div>
+			</div>
 		</div>
 		
 		<div id="cssHolder"></div>
@@ -29,7 +36,7 @@
 		<script>
 		// http://stackoverflow.com/a/14939891/450164
 		window.onerror = function(message, url, lineNumber) {
-	        console.log("!!!! ERROR: "+message+" in "+url+" at line "+lineNumber);
+	        console.log("!!!! ERROR: " + message + " in " + url + " at line " + lineNumber);
 	    }
 		</script>
 		
