@@ -1,11 +1,22 @@
 package org.browseright.api.category
 
 import org.browseright.*
+import org.browseright.api.*
 
 class SchoolInterfaceService {
-    // TODO: require a teacher to be authenticated in order to create a new school
-    // and check tha they aren't already a member of a different school
     def _create = { response, action, params, user, request ->
+        if (! user.isTeacher()) {
+            response.apiCode = AppInterface.codes.UNABLE_TO_PERFORM_ACTION
+            response.error = "BAD_USER_TYPE"
+            return
+        }
+        
+        if (user.school != null) {
+            response.apiCode = AppInterface.codes.UNABLE_TO_PERFORM_ACTION
+            response.error = "ALREADY_IN_SCHOOL"
+            return
+        }
+        
         def name = params.name
     
         def street = params.street
