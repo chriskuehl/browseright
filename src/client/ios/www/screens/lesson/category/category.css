@@ -28,7 +28,6 @@ $SCREEN .categoryHolder .category, $SCREEN .categoryHolder .category2, $SCREEN .
 	padding-top: 30px !important;
 	padding-left: 290px;
 
-	background-image: url("$ASSETS/Socialicon.png");
 	background-position: 30px 0px;
 	background-repeat: no-repeat;
 
@@ -42,15 +41,19 @@ $SCREEN .categoryHolder .category, $SCREEN .categoryHolder .category2, $SCREEN .
 	border-radius: 6px;
 }
 
-$SCREEN .categoryHolder .category2 {
+$SCREEN .categoryHolder .category-0 {
+	background-image: url("$ASSETS/Socialicon.png");
+}
+
+$SCREEN .categoryHolder .category-1 {
 	background-image: url("$ASSETS/Healthicon.png");
 }
 
-$SCREEN .categoryHolder .category3 {
+$SCREEN .categoryHolder .category-2 {
 	background-image: url("$ASSETS/Othersicon.png");
 }
 
-$SCREEN .categoryHolder .text{
+$SCREEN .categoryHolder .text {
 	display: block;
 	width: 940px;
 	height: 168px;
