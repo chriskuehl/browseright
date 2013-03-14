@@ -23,37 +23,38 @@ function applyInterfaceTweaks() {
 	document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
 }
 
+// TODO: clean up this function
 function initTabBar() {
 	plugins.tabBar.init();
-    plugins.tabBar.create();
+	plugins.tabBar.create();
     
     plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
 	    onSelect: function() {
-		    setScreen("lesson/category");
+		    setScreen("lesson/category", true);
 	    }
     });
     
     plugins.tabBar.createItem("progress", "Progress", "/www/css/assets/tabbar/progress.png", {
 		onSelect: function() {
-			setScreen("user/progress");
+			setScreen("user/progress", true);
 		}
 	});
 		
     plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
 	    onSelect: function() {
-		    setScreen("user/account");
+		    setScreen("user/account", true);
 	    }
     });
 	
     plugins.tabBar.createItem("portal", "Portal", "/www/css/assets/tabbar/portal.png", {
 		onSelect: function() {
-			setScreen("user/portal");
+			setScreen("user/portal", true);
 		}
 	});
 	
     plugins.tabBar.createItem("console", "Console", "/www/css/assets/tabbar/console.png", {
 		onSelect: function() {
-			setScreen("dev/console");
+			setScreen("dev/console", true);
 		}
 	});
     
@@ -79,24 +80,29 @@ function resetScreen() {
 	gui.currentScreen = null;
 }
 
-function setScreen(screenPath) {
+function setScreen(screenPath, dontSlide) {
+	if (! dontSlide) {
+		dontSlide = false;
+	}
+	
 	log("Changing screen to: " + screenPath);
 	
 	// load JS (and other files) if they haven't already been loaded
 	if (! gui.screens[screenPath] || ! gui.screens[screenPath].fullyLoaded) {
 		log("Data not loaded for screen \"" + screenPath + "\", requesting load...");
 		
-		loadScreen(screenPath, function() {
+		loadScreen(screenPath, dontSlide, function() {
 			log("Screen load OK");
-			setScreenWithLoadedData(screenPath);
+			setScreenWithLoadedData(screenPath, dontSlide);
 		});
 	} else {
 		log("Already have data for screen: " + screenPath);
-		setScreenWithDataLoaded(screenPath);
+		setScreenWithDataLoaded(screenPath, dontSlide);
 	}
 }
 
-function loadScreen(screenPath, callback) {
+// TODO: this callback never gets executed
+function loadScreen(screenPath, dontSlide, callback) {
 	log("Loading data for screen: " + screenPath);
 	
 	// initialize screen storage
@@ -116,7 +122,7 @@ function loadScreen(screenPath, callback) {
 		gui.screens[screenPath].loaded.push("html");
 		gui.screens[screenPath].html = data;
 		
-		checkScreenLoaded(screenPath);
+		checkScreenLoaded(screenPath, dontSlide);
 	});
 	
 	// css
@@ -125,14 +131,14 @@ function loadScreen(screenPath, callback) {
 		gui.screens[screenPath].loaded.push("css");
 		gui.screens[screenPath].css = data;
 		
-		checkScreenLoaded(screenPath);
+		checkScreenLoaded(screenPath, dontSlide);
 	});
 	
 	// js
 	loadJavaScriptFiles([screenFilePath + ".js"], function() {
 		log("Component loaded for screen: js");
 		gui.screens[screenPath]["loaded"].push("js");
-		checkScreenLoaded(screenPath);
+		checkScreenLoaded(screenPath, dontSlide);
 	});
 }
 
@@ -145,7 +151,7 @@ function updateCSSForScreenContainer(css, screenContainer, path) {
 	return css;
 }
 
-function checkScreenLoaded(screenPath) {
+function checkScreenLoaded(screenPath, dontSlide) {
 	var elementsToLoad = ["html", "css", "js"];
 	var currentlyLoaded = gui.screens[screenPath].loaded.slice(0);
 	
@@ -160,11 +166,11 @@ function checkScreenLoaded(screenPath) {
 		log("All data loaded for screen " + screenPath);
 		gui.screens[screenPath].fullyLoaded = true;
 		
-		setScreenWithDataLoaded(screenPath);
+		setScreenWithDataLoaded(screenPath, dontSlide);
 	}
 }
 
-function setScreenWithDataLoaded(screenPath) {
+function setScreenWithDataLoaded(screenPath, dontSlide) {
 	var screenName = getScreenNameFromPath(screenPath);
 	
 	log("Finally changing screen for: " + screenPath);
@@ -208,7 +214,7 @@ function setScreenWithDataLoaded(screenPath) {
 	screenData.data.setup(null); // TODO: contentManager
 	
 	// display the new screen
-	showNewScreen(function() {
+	showNewScreen(dontSlide, function() {
 		if (! gui.hasHiddenSplashScreen) {
 			log("Hiding splash screen for the first time.");
 			
@@ -346,7 +352,7 @@ function addNavBarButton(position, data, container, startX, width) {
 	container.append($("<div />").addClass("right").css("left", (w + 16 + textLeftWidthAdjust + leftWidth) + "px"));
 }
 
-function showNewScreen(callback) {
+function showNewScreen(dontSlide, callback) {
 	// iOS changes (nav bar and tab bar)
 	if (PLATFORM == PLATFORM_IOS) {
 		// tab bar
@@ -392,11 +398,15 @@ function showNewScreen(callback) {
 		}
 	}
 	
-	if (! gui.oldScreen) {
+	if (! gui.oldScreen || dontSlide) {
 		gui.currentScreen.container.screen.show();
 		gui.currentScreen.container.screen.css({
 			left: "0px"
 		});
+		
+		if (gui.oldScreen) {
+			gui.oldScreen.container.screen.hide();
+		}
 		
 		callback();
 		return;
