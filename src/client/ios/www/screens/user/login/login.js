@@ -16,7 +16,11 @@ gui.screens["user/login"].data = {
 			}, [RESP_OK, RESP_BAD_LOGIN_INFO], function(code, data) {
 				if (code == RESP_OK) {
 					localStorage["userToken"] = data.token;
-					loadStudentData();
+					loadStudentData(function(success) {
+						if (success) {
+							setScreen("user/portal");
+						}
+					});
 				} else if (code == RESP_BAD_LOGIN_INFO) {
 					if (data.error == "PASSWORD") {
 						dialog("Incorrect Password", "Your email is right, but that's the wrong password! Make sure you're using a student account (not a teacher account). Try again?", ["Oops!"]);

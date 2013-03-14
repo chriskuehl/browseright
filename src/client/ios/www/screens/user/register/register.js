@@ -64,8 +64,8 @@ gui.screens["user/register"].data = {
 				password: password
 			}, [RESP_OK, RESP_MISSING_BAD_PARAMS], function(code, data) {
 				if (code == RESP_OK) {
-					// now log in temporarily
-					log("User created, now logging in temporarily...");
+					// now log in
+					log("User created, now logging in...");
 					
 					apiWithLoading("Logging in...", "student/login", {
 						email: email,
@@ -78,9 +78,16 @@ gui.screens["user/register"].data = {
 						apiWithLoading("Joining school...", "user/joinSchool", {
 							school: selectedSchool.id
 						}, [RESP_OK], function(code3, data3) {
-							// all good, now log them in the right way
-							log("Joined school successfully, now ready to do an actual log in.");
-							setScreen("user/portal");
+							// all good
+							log("Joined school successfully, now loading user data...");
+							
+							loadStudentData(function(success) {
+								if (success) {
+									setScreen("user/portal");
+								} else {
+									setScreen("user/login");
+								}
+							});
 						});
 					});
 				} else if (code == RESP_MISSING_BAD_PARAMS) {

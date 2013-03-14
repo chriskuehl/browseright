@@ -4,8 +4,10 @@ function startApp() {
 	if (isLoggedIn()) {
 		setScreen("user/login");
 		
-		loadStudentData(function() {
-			setScreen("lesson/categories");
+		loadStudentData(function(success) {
+			if (success) {
+				setScreen("lesson/category");
+			}
 		});
 	} else {
 		setScreen("user/login");
