@@ -1,8 +1,29 @@
 var selectedSchool = null;
+var userInfo = null;
 
-function loadStudentData() {
-	apiWithLoading("Loading student data...", "test/whoami", {}, [RESP_OK], function(code, data) {
-		setScreen("user/portal");
+function loadStudentData(callback) {
+	log("Loading student data...");
+	
+	apiWithLoading("Loading student data...", "user/info", {}, [RESP_OK, RESP_LOGIN_FIRST], function(code, data) {
+		if (code == RESP_OK) {
+			log("Successfully loaded student data.");
+			
+			userInfo = data.info;
+			
+			if (callback) {
+				callback(true);
+			}
+		} else {
+			// something went wrong, so reset the user token
+			log("Failed to load student data, code: " + code);
+			log("    (this usually means the token expired)");
+			
+			delete localStorage["userToken"];
+			
+			if (callback) {
+				callback(false);
+			}
+		}
 	});
 }
 
