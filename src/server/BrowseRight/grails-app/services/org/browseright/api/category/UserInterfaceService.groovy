@@ -40,4 +40,31 @@ class UserInterfaceService {
         
         response.info = info
     }
+    
+    def _joinSchool = { response, action, params, user, request ->
+        if (user.school != null) {
+            response.apiCode = AppInterface.codes.UNABLE_TO_PERFORM_ACTION
+            response.error = "ALREADY_IN_SCHOOL"
+            return
+        }
+        
+        def newSchoolID
+        
+        try {
+            newSchoolID = params.school.toInteger()
+        } catch (Exception ex) {
+            newSchoolID = 0
+        }
+        
+        def school = School.findById(newSchoolID)
+        
+        if (school == null) {
+            response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+            response.error = "NO_SCHOOL_EXISTS"
+            return
+        }
+        
+        // TODO: support teachers
+        school.addToStudents(user)
+    }
 }
