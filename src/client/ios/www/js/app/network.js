@@ -41,7 +41,9 @@ function api(command, params, acceptableResponses, callback) {
 				callback(data.apiCode, data);
 			} else {
 				// soft error: something really weird, this really should not happen!
-				log("!! Received unacceptable response for command \"" + command + "\", trying to recover...");
+				log("!!!! Received unacceptable response for command \"" + command + "\", trying to recover...");
+				log("     response code: " + data.apiCode);
+				log("     error (if any): " + (data.error ? data.error : "(none)"));
 				networkReset();
 			}
 		},
