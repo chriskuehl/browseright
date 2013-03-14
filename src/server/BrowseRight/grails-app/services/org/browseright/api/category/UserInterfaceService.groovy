@@ -64,7 +64,15 @@ class UserInterfaceService {
             return
         }
         
-        // TODO: support teachers
-        school.addToStudents(user)
+        if (user.isStudent()) {
+            school.addToStudents(user)
+        } else if (user.isTeacher()) {
+            school.addToTeachers(user)
+        } else {
+            // ??? who are they
+            response.apiCode = AppInterface.codes.UNABLE_TO_PERFORM_ACTION
+            response.error = "BAD_USER_TYPE"
+            return
+        }
     }
 }
