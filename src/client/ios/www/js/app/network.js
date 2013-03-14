@@ -31,7 +31,8 @@ function api(command, params, acceptableResponses, callback) {
 		crossDomain: false,
 		cache: false,
 		timeout: 5000,
-
+		type: "POST",
+		
 		success: function(data) {
 			log("Received response for command \"" + command + "\".");
 
