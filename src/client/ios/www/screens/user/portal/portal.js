@@ -6,7 +6,7 @@ gui.screens["user/portal"].data = {
 		}
 	],
 	
-	parents: ["start/login"],
+	parents: ["user/login"],
     
     setup: function(contentManager) {
         $(".next").click(function() {

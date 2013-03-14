@@ -1,5 +1,5 @@
-gui.screens["start/login"].data = {
-	id: "start/login",
+gui.screens["user/login"].data = {
+	id: "user/login",
 	hideTabBar: true,
 	navBars: [{
 		title: "Login"
@@ -42,7 +42,7 @@ gui.screens["start/login"].data = {
 		});
 
 		$(".createAccount").click(function () {
-			setScreen("start/school");
+			setScreen("user/school");
 		});
 	}
 };

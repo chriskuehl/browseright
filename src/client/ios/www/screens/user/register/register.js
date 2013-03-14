@@ -1,5 +1,5 @@
-gui.screens["start/register"].data = {
-	id: "start/register",
+gui.screens["user/register"].data = {
+	id: "user/register",
 	hideTabBar: true,
     navBars: [
         {
@@ -10,19 +10,19 @@ gui.screens["start/register"].data = {
 					type: "back",
 					title: "Select school",
 					action: function() {
-						setScreen("start/school");
+						setScreen("user/school");
 					}
 				}
 			}
         }
     ],
     
-    parents: ["start/school"],
+    parents: ["user/school"],
 		
 	setup: function(contentManager) {
 		if (selectedSchool == null) {
 			dialog("School Not Selected", "Please select a school first!", ["OK"], function() {
-				setScreen("start/login");
+				setScreen("user/login");
 			});
 			
 			return;

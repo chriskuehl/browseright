@@ -1,5 +1,5 @@
-gui.screens["start/school"].data = {
-	id: "start/school",
+gui.screens["user/school"].data = {
+	id: "user/school",
 	hideTabBar: true,
     navBars: [
         {
@@ -10,14 +10,14 @@ gui.screens["start/school"].data = {
 					type: "back",
 					title: "Login",
 					action: function() {
-						setScreen("start/login");
+						setScreen("user/login");
 					}
 				}
 			}
         }
     ],
     
-    parents: ["start/login"],
+    parents: ["user/login"],
 	
 	setup: function(contentManager) {
 		apiWithLoading("Loading schools...", "school/list", {}, [RESP_OK], function(code, data) {
@@ -35,7 +35,7 @@ gui.screens["start/school"].data = {
 				return;
 			}
 			
-			setScreen("start/register");
+			setScreen("user/register");
 		});
 	}
 };
