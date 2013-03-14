@@ -49,7 +49,7 @@ Bug #6: Remove sliding between tab bar pages.
 
 Tab bar pages should not transition with a slide between each other.
 
-Status: WAITING
+Status: FIXED
 =======================================================================
 Bug #7: Impossible to register student and teacher under same email
 address.
