@@ -34,8 +34,6 @@ class StudentInterfaceService {
 	}
     }
     
-    
-    
     def login = { response, action, params, user, request ->
 	def email = params.email
 	def password = params.password
