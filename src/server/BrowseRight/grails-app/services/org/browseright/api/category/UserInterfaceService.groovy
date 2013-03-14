@@ -4,7 +4,7 @@ import org.browseright.*
 import org.browseright.api.*
 
 class UserInterfaceService {
-    def info = { response, action, params, user, request ->
+    def _info = { response, action, params, user, request ->
         def info = [
 	   firstName: user.firstName,
 	   lastName: user.lastName,

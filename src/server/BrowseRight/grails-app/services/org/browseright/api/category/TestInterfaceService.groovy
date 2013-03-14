@@ -7,7 +7,7 @@ class TestInterfaceService {
         response.itworked = true
     }
     
-    def whoami = { response, action, params, user, request ->
+    def _whoami = { response, action, params, user, request ->
 	if (user) {
 	    response.youare = [
 		teacher: (user instanceof Teacher),

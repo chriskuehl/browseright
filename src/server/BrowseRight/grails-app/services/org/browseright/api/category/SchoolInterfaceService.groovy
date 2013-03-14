@@ -5,7 +5,7 @@ import org.browseright.*
 class SchoolInterfaceService {
     // TODO: require a teacher to be authenticated in order to create a new school
     // and check tha they aren't already a member of a different school
-    def create = { response, action, params, user, request ->
+    def _create = { response, action, params, user, request ->
         def name = params.name
     
         def street = params.street
