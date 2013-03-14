@@ -19,6 +19,6 @@ gui.screens["user/account"].data = {
 		$(".email").text(userInfo.school.helpEmail);
 		
 		//fill in school message
-		$(".announcement").text(userInfo.school.announcementText);
+		$(".message").text(userInfo.school.announcementText);
 	}
 };
