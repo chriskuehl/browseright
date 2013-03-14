@@ -8,6 +8,12 @@ gui.screens["user/progress"].data = {
 		// TODO: use contentManager for this
 		// TODO: incorporate JS magic tokens
 		registerScrollContainers($(".scroll"));
+		
+		//calculate category and lesson percentages
+		var thresholdLesson = (userInfo.school.quizPassThreshold * 100);
+		var thresholdCat = (userInfo.school.reviewPassThreshold * 100);
+		$(".percentageLesson").text(thresholdLesson + "%");
+		$(".percentageCategory").text(thresholdCat + "%");
 	}
 };
 
