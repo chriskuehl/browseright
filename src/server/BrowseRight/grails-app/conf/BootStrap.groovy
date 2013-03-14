@@ -23,6 +23,12 @@ class BootStrap {
         def session = UserSession.findByToken(resp.token)
         session.setToken("0" * 255)
         session.save(flush: true)
+        
+        // login once, then change the token to something we can easily test with
+        resp = appInterfaceService.generateResponse(null, "teacher", "login", null, [email: "teacher.test@browseright.org", password: "teacher"])
+        session = UserSession.findByToken(resp.token)
+        session.setToken("1" * 255)
+        session.save(flush: true)
     }
     
     def destroy = {
