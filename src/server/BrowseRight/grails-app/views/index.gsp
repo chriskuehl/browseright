@@ -116,7 +116,8 @@ p {
     [category: "school", item: "list", action: "", params: [:]],
     [category: "user", item: "_info", action: "", params: [token: ("0" * 255)]],
     [category: "user", item: "_joinSchool", action: "", params: [school: 1, token: ("0" * 255)]],
-    [category: "test", item: "_whoami", action: "", params: [token: ("0" * 255)]]
+    [category: "test", item: "_whoami", action: "", params: [token: ("0" * 255)]],
+    [category: "content", item: "_categories", action: "", params: [token: ("0" * 255)]]
   ]}" />
         <ul>
           <g:each var="c" in="${a}">

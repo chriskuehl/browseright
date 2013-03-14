@@ -12,6 +12,7 @@ class AppInterfaceService {
     def studentInterfaceService
     def schoolInterfaceService
     def userInterfaceService
+    def contentInterfaceService
     
     def generateResponse(def request, def category, def item, def action, def params) {
         def response = [:]
@@ -84,7 +85,8 @@ class AppInterfaceService {
 	   teacher: teacherInterfaceService,
 	   student: studentInterfaceService,
 	   school: schoolInterfaceService,
-	   user: userInterfaceService
+	   user: userInterfaceService,
+	   content: contentInterfaceService
         ]
         
         categories[category]
