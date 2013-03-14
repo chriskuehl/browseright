@@ -9,8 +9,6 @@ class BootStrap {
 	
         // execute some API methods to add some data for testing
         appInterfaceService.generateResponse(null, "teacher", "create", null, [firstName: "Some", lastName: "Teacher", email: "teacher.test@browseright.org", password: "teacher"])
-        appInterfaceService.generateResponse(null, "school", "create", null, [name: "Fake High School", street: "127 Lemon Drive", city: "Iowa City", zipCode: "52246", helpEmail: "help@browseright.org"])
-	
         appInterfaceService.generateResponse(null, "student", "create", null, [firstName: "Some", lastName: "Student", email: "student.test@browseright.org", password: "student"])
 	
         // create some categories
@@ -24,11 +22,14 @@ class BootStrap {
         session.setToken("0" * 255)
         session.save(flush: true)
         
-        // login once, then change the token to something we can easily test with
         resp = appInterfaceService.generateResponse(null, "teacher", "login", null, [email: "teacher.test@browseright.org", password: "teacher"])
         session = UserSession.findByToken(resp.token)
         session.setToken("1" * 255)
         session.save(flush: true)
+        
+        // create school and add student
+        appInterfaceService.generateResponse(null, "school", "create", null, [token: "1" * 255, name: "Fake High School", street: "127 Lemon Drive", city: "Iowa City", zipCode: "52246", helpEmail: "help@browseright.org"])
+	appInterfaceService.generateResponse(null, "user", "joinSchool", null, [token: "0" * 255, school: 1])
     }
     
     def destroy = {
