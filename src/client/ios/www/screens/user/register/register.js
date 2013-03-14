@@ -54,7 +54,9 @@ gui.screens["user/register"].data = {
 			if (password != passwordC) {
 				return dialog("Confirm Password", "Make sure your password matches.", ["OK"]);
 			}
-
+			
+			log("Creating user...");
+			
 			apiWithLoading("Registering account...", "student/create", {
 				firstName: first,
 				lastName: last,
@@ -62,7 +64,25 @@ gui.screens["user/register"].data = {
 				password: password
 			}, [RESP_OK, RESP_MISSING_BAD_PARAMS], function(code, data) {
 				if (code == RESP_OK) {
-					setScreen("user/portal");
+					// now log in temporarily
+					log("User created, now logging in temporarily...");
+					
+					apiWithLoading("Logging in...", "student/login", {
+						email: email,
+						password: password
+					}, [RESP_OK], function(code2, data2) {
+						// now join the student to their school
+						log("Logged in, now joining school...");
+						localStorage["userToken"] = data2.token;
+						
+						apiWithLoading("Joining school...", "user/joinSchool", {
+							school: selectedSchool.id
+						}, [RESP_OK], function(code3, data3) {
+							// all good, now log them in the right way
+							log("Joined school successfully, now ready to do an actual log in.");
+							setScreen("user/portal");
+						});
+					});
 				} else if (code == RESP_MISSING_BAD_PARAMS) {
 					dialog("Registration Error", "The " + errorToEnglish(data.error, " you entered") + ".", ["OK"]);
 				}
