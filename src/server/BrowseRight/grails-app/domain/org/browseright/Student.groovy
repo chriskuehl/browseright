@@ -8,4 +8,8 @@ class Student extends User {
     static hasMany = [quizAttempts: QuizAttempt]
     
     ProgressCache progressCache
+    
+    def isStudent() {
+        true
+    }
 }

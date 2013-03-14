@@ -10,7 +10,7 @@ class TestInterfaceService {
     def _whoami = { response, action, params, user, request ->
 	if (user) {
 	    response.youare = [
-		teacher: (user instanceof Teacher),
+		teacher: user.isTeacher(),
 		email: user.email
 	    ]
 	} else {

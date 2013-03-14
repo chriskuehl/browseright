@@ -78,4 +78,14 @@ abstract class User {
 	
 	registerTime = new Date()
     }
+    
+    // student will override this
+    def isStudent() {
+        false
+    }
+    
+    // teacher will override this
+    def isTeacher() {
+        false
+    }
 }

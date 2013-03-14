@@ -4,4 +4,8 @@ class Teacher extends User {
     static constraints = {
 	
     }
+    
+    def isTeacher() {
+        true
+    }
 }
