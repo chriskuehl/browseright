@@ -51,7 +51,7 @@ gui.screens["user/register"].data = {
 				if (code == RESP_OK) {
 					setScreen("user/portal");					
 				} else if (code == RESP_MISSING_BAD_PARAMS) {
-					dialog("Bad Parameters", data.error, ["OK"]);
+					dialog("Registration Error", "The " + errorToEnglish(data.error, " you entered") + ".", ["OK"]);
 				}
 			});
 		});
