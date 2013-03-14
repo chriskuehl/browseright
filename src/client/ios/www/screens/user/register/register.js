@@ -28,6 +28,17 @@ gui.screens["user/register"].data = {
 			return;
 		}
 		
+		// login by enter on input fields
+		$("input").keypress(function (e) {
+			if (e.which == 13) {
+				$(".create").click();
+				$(this).blur(); // hide the iPad keyboard
+
+				e.preventDefault();
+				return false;
+			}
+		});
+		
 		$(".schoolUN").val(selectedSchool.name);
 		
 		$(".create").click(function() {
