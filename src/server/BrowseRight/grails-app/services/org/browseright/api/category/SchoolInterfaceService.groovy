@@ -38,6 +38,7 @@ class SchoolInterfaceService {
                 response.error = "${error.field}_${error.codes[-1]}".toUpperCase()
             }
 	} else {
+            school.addToTeachers(user)
 	    school.save()
 	}
     }
