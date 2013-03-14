@@ -114,8 +114,8 @@ p {
     [category: "teacher", item: "login", action: "", params: [email: "teacher.test@browseright.org", password: "teacher"]],
     [category: "school", item: "create", action: "", params: [name: "Woodford County High School", street: "180 Frankfort Street", city: "Versailles", zipCode: "40383", helpEmail: "help@wchs.browseright.org"]],
     [category: "school", item: "list", action: "", params: [:]],
-    [category: "user", item: "info", action: "", params: [token: ("0" * 255)]],
-    [category: "test", item: "whoami", action: "", params: [token: ("0" * 255)]]
+    [category: "user", item: "_info", action: "", params: [token: ("0" * 255)]],
+    [category: "test", item: "_whoami", action: "", params: [token: ("0" * 255)]]
   ]}" />
         <ul>
           <g:each var="c" in="${a}">
@@ -127,7 +127,7 @@ p {
 
 
             <li class="controller">
-	      <g:link uri="/api/${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}?${p}">${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}</g:link>
+	      <g:link uri="/api/${c.category}/${c.item.startsWith("_") ? c.item.substring(1) : c.item}${c.action ? ("/" + c.action) : ""}?${p}">${c.category}/${c.item}${c.action ? ("/" + c.action) : ""}</g:link>
 	      <% if (c.params.token) c.params.token = c.params.token.substring(0, 5) + "..." %>
 	      <br />${c.params}
 	    </li>
