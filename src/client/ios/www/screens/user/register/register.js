@@ -8,7 +8,7 @@ gui.screens["user/register"].data = {
             buttons: {
 				left: {
 					type: "back",
-					title: "Select school",
+					title: "Select a School",
 					action: function() {
 						setScreen("user/school");
 					}
@@ -21,7 +21,7 @@ gui.screens["user/register"].data = {
 		
 	setup: function(contentManager) {
 		if (selectedSchool == null) {
-			dialog("School Not Selected", "Please select a school first!", ["OK"], function() {
+			dialog("Select a School", "Please select a school first!", ["OK"], function() {
 				setScreen("user/login");
 			});
 			
@@ -40,11 +40,11 @@ gui.screens["user/register"].data = {
 			var passwordC = $(".confirmPassword").val();
 
 			if (email != emailC) {
-				return dialog("Your Email Doesn't Match", "Make sure your email matches.", ["OK"]);
+				return dialog("Confirm Email", "Make sure your email matches.", ["OK"]);
 			}
 			
 			if (password != passwordC) {
-				return dialog("Your Password Doesn't Match", "Make sure your password matches.", ["OK"]);
+				return dialog("Confirm Password", "Make sure your password matches.", ["OK"]);
 			}
 			
 			apiWithLoading("Registering account...", "student/create", {firstName: first, lastName: last, email: email, password: password}, [RESP_OK, RESP_MISSING_BAD_PARAMS], function(code, data) {
