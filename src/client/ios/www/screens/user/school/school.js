@@ -21,14 +21,13 @@ gui.screens["user/school"].data = {
 	
 	setup: function(contentManager) {
 		apiWithLoading("Loading schools...", "school/list", {}, [RESP_OK], function(code, data) {
+			for (var i = 0; i < data.schools.length; i ++) {
+				var school = data.schools[i];
+				addSchool(school.id, school.name, school.street, school.city + ", " + school.state + " " + school.zipCode);
+			}
 			
+			registerScrollContainers($(".scroll"));
 		});
-		
-		for (var i = 0; i < 20; i ++) {
-			addSchool(i, "School #" + i, i + " Some Street", "Middle of Nowhere, IA 52246");
-		}
-		
-		registerScrollContainers($(".scroll"));
 		
 		$(".next").click(function() {
 			if ($(this).hasClass("disabled")) {
