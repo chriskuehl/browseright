@@ -1,16 +1,14 @@
 gui.screens["user/account"].data = {
 	id: "user/account",
-	navBars: [
-		{
-			title: "Account"
-		}
-	],
-	
+	navBars: [{
+		title: "Account"
+	}],
+
 	parents: ["start/login"],
-    
-    setup: function(contentManager) {
-        $(".signout").click(function() {
-        	logOut(false);
-        });
-    }
+
+	setup: function (contentManager) {
+		$(".signout").click(function () {
+			logOut(false);
+		});
+	}
 };
