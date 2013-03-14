@@ -14,6 +14,6 @@ function logOut(dontChangeScreen) {
 	delete localStorage["userToken"];
 	
 	if (! dontChangeScreen) {
-		setScreen("start/login");
+		setScreen("user/login");
 	}
 }
