@@ -14,9 +14,9 @@ document.addEventListener("deviceready", function() {
 	attemptStart();
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
 	PLATFORM = determinePlatform();
-	
+
 	preload([
 		"css/assets/navbar-back-active.png",
 		"css/assets/navbar-back-back-l-active.png",
@@ -27,49 +27,51 @@ $(document).ready(function () {
 		"css/assets/navbar-back-r.png",
 		"css/assets/navbar-back.png",
 		"css/assets/navbar-separator.png",
-		"css/assets/navbar.png"
-	]);
-	
+		"css/assets/navbar.png"]);
+
 	domReady = true;
 	attemptStart();
 });
 
 function determinePlatform() {
-	if (navigator.userAgent.toLowerCase().indexOf('chrome') > (- 1)) {
+	if (navigator.userAgent.toLowerCase().indexOf('chrome') > (-1)) {
 		return PLATFORM_PC;
 	}
-	
+
 	return PLATFORM_IOS;
 }
 
 function attemptStart() {
-	if (domReady && deviceReady || (domReady && ! deviceReady && PLATFORM == PLATFORM_PC)) {
+	if (domReady && deviceReady || (domReady && !deviceReady && PLATFORM == PLATFORM_PC)) {
 		start();
 	}
 }
 
 function start() {
 	initialize();
-	
+
 	loadDefaultJavaScriptFiles(function() {
 		startApp();
 	});
 }
 
 // set up the app to a working state
+
 function initialize() {
 	initInterface();
 }
 
 // handle JS loading
+
 function loadDefaultJavaScriptFiles(callback) {
 	var files = [
-		"js/app/start.js"
-	];
-	
+		"js/app/start.js"];
+
 	loadJavaScriptFiles(files, callback);
 }
 
 function loadJavaScriptFiles(files, callback) {
-	Loader.script(files, {complete: callback});
+	Loader.script(files, {
+		complete: callback
+	});
 }

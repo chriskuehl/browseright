@@ -6,8 +6,8 @@ gui.screens["user/account"].data = {
 
 	parents: ["user/login"],
 
-	setup: function (contentManager) {
-		$(".signout").click(function () {
+	setup: function(contentManager) {
+		$(".signout").click(function() {
 			logOut(false);
 		});
 	}

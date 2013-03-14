@@ -224,7 +224,7 @@ Changelog:
 	// ----------
 	// Plugin variables
 	// ----------
-	var	cssTransitionProperties = ['top', 'right', 'bottom', 'left', 'opacity', 'height', 'width'],
+	var cssTransitionProperties = ['top', 'right', 'bottom', 'left', 'opacity', 'height', 'width'],
 		directions = ['top', 'right', 'bottom', 'left'],
 		cssPrefixes = ['-webkit-', '-moz-', '-o-', ''],
 		pluginOptions = ['avoidTransforms', 'useTranslate3d', 'leaveTransforms'],
@@ -233,10 +233,10 @@ Changelog:
 		defaultEnhanceData = {
 			secondary: {},
 			meta: {
-				top : 0,
-				right : 0,
-				bottom : 0,
-				left : 0
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0
 			}
 		},
 		valUnit = 'px',
@@ -264,7 +264,7 @@ Changelog:
 	// ----------
 	// Extended :animated filter
 	// ----------
-	if ( jQuery.expr && jQuery.expr.filters ) {
+	if (jQuery.expr && jQuery.expr.filters) {
 		originalAnimatedFilter = jQuery.expr.filters.animated;
 		jQuery.expr.filters.animated = function(elem) {
 			return jQuery(elem).data('events') && jQuery(elem).data('events')[transitionEndEvent] ? true : originalAnimatedFilter.call(this, elem);
@@ -279,7 +279,7 @@ Changelog:
 		@description Return unit value ("px", "%", "em" for re-use correct one when translating)
 		@param {variant} [val] Target value
 	*/
-	function _getUnit(val){
+	function _getUnit(val) {
 		return val.match(/\D+$/);
 	}
 
@@ -298,7 +298,7 @@ Changelog:
 		// this is a nasty fix, but we check for prop == 'd' to see if we're dealing with SVG, and abort
 		if (prop == "d") return;
 		if (!_isValidElement(e)) return;
-		
+
 		var parts = rfxnum.exec(val),
 			start = e.css(prop) === 'auto' ? 0 : e.css(prop),
 			cleanCSSStart = typeof start == 'string' ? _cleanValue(start) : start,
@@ -315,7 +315,10 @@ Changelog:
 		// deal with shortcuts
 		if (!parts && val == 'show') {
 			cleanStart = 1;
-			if (hidden) e.css({'display': (e.context.tagName == 'LI') ? 'list-item' : 'block', 'opacity': 0});
+			if (hidden) e.css({
+				'display': (e.context.tagName == 'LI') ? 'list-item' : 'block',
+				'opacity': 0
+			});
 		} else if (!parts && val == "hide") {
 			cleanStart = 0;
 		}
@@ -487,7 +490,7 @@ Changelog:
 
 
 	function _isValidElement(element) {
-		var allValid=true;
+		var allValid = true;
 		element.each(function(index, el) {
 			allValid = allValid && el.ownerDocument;
 			return allValid;
@@ -524,8 +527,8 @@ Changelog:
 		toggle3DByDefault: function() {
 			return use3DByDefault = !use3DByDefault;
 		},
-		
-		
+
+
 		/**
 			@public
 			@name toggleEnabledByDefault
@@ -549,7 +552,7 @@ Changelog:
 			return null;
 		}
 
-		var	elem = this[0],
+		var elem = this[0],
 			cStyle = window.getComputedStyle(elem, null),
 			translation = {
 				x: 0,
@@ -607,15 +610,17 @@ Changelog:
 			return originalAnimateMethod.apply(this, arguments);
 		}
 
-		return this[ optall.queue === true ? 'queue' : 'each' ](function() {
+		return this[optall.queue === true ? 'queue' : 'each'](function() {
 			var self = jQuery(this),
 				opt = jQuery.extend({}, optall),
 				cssCallback = function(e) {
-					var selfCSSData = self.data(DATA_KEY) || { original: {} },
-						restore = {};
+					var selfCSSData = self.data(DATA_KEY) || {
+						original: {}
+					},
+					restore = {};
 
-					if (e.eventPhase != 2)  // not at dispatching target (thanks @warappa issue #58)
-						return;
+					if (e.eventPhase != 2) // not at dispatching target (thanks @warappa issue #58)
+					return;
 
 					// convert translations to left & top for layout
 					if (prop.leaveTransforms !== true) {
@@ -623,7 +628,8 @@ Changelog:
 							restore[cssPrefixes[i] + 'transform'] = '';
 						}
 						if (isTranslatable && typeof selfCSSData.meta !== 'undefined') {
-							for (var j = 0, dir; (dir = directions[j]); ++j) {
+							for (var j = 0, dir;
+							(dir = directions[j]); ++j) {
 								restore[dir] = selfCSSData.meta[dir + '_o'] + valUnit;
 								jQuery(this).css(dir, restore[dir]);
 							}
@@ -632,14 +638,17 @@ Changelog:
 
 					// remove transition timing functions
 					self.
-						unbind(transitionEndEvent).
-						css(selfCSSData.original).
-						css(restore).
-						data(DATA_KEY, null);
+					unbind(transitionEndEvent).
+					css(selfCSSData.original).
+					css(restore).
+					data(DATA_KEY, null);
 
 					// if we used the fadeOut shortcut make sure elements are display:none
 					if (prop.opacity === 'hide') {
-						self.css({'display': 'none', 'opacity': ''});
+						self.css({
+							'display': 'none',
+							'opacity': ''
+						});
 					}
 
 					// run the main callback function
@@ -651,30 +660,30 @@ Changelog:
 					swing: 'ease-in-out',
 
 					// Penner equation approximations from Matthew Lein's Ceaser: http://matthewlein.com/ceaser/
-					easeInQuad:     CUBIC_BEZIER_OPEN + '0.550, 0.085, 0.680, 0.530' + CUBIC_BEZIER_CLOSE,
-					easeInCubic:    CUBIC_BEZIER_OPEN + '0.550, 0.055, 0.675, 0.190' + CUBIC_BEZIER_CLOSE,
-					easeInQuart:    CUBIC_BEZIER_OPEN + '0.895, 0.030, 0.685, 0.220' + CUBIC_BEZIER_CLOSE,
-					easeInQuint:    CUBIC_BEZIER_OPEN + '0.755, 0.050, 0.855, 0.060' + CUBIC_BEZIER_CLOSE,
-					easeInSine:     CUBIC_BEZIER_OPEN + '0.470, 0.000, 0.745, 0.715' + CUBIC_BEZIER_CLOSE,
-					easeInExpo:     CUBIC_BEZIER_OPEN + '0.950, 0.050, 0.795, 0.035' + CUBIC_BEZIER_CLOSE,
-					easeInCirc:     CUBIC_BEZIER_OPEN + '0.600, 0.040, 0.980, 0.335' + CUBIC_BEZIER_CLOSE,
-					easeInBack:     CUBIC_BEZIER_OPEN + '0.600, -0.280, 0.735, 0.045' + CUBIC_BEZIER_CLOSE,
-					easeOutQuad:    CUBIC_BEZIER_OPEN + '0.250, 0.460, 0.450, 0.940' + CUBIC_BEZIER_CLOSE,
-					easeOutCubic:   CUBIC_BEZIER_OPEN + '0.215, 0.610, 0.355, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutQuart:   CUBIC_BEZIER_OPEN + '0.165, 0.840, 0.440, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutQuint:   CUBIC_BEZIER_OPEN + '0.230, 1.000, 0.320, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutSine:    CUBIC_BEZIER_OPEN + '0.390, 0.575, 0.565, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutExpo:    CUBIC_BEZIER_OPEN + '0.190, 1.000, 0.220, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutCirc:    CUBIC_BEZIER_OPEN + '0.075, 0.820, 0.165, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeOutBack:    CUBIC_BEZIER_OPEN + '0.175, 0.885, 0.320, 1.275' + CUBIC_BEZIER_CLOSE,
-					easeInOutQuad:  CUBIC_BEZIER_OPEN + '0.455, 0.030, 0.515, 0.955' + CUBIC_BEZIER_CLOSE,
+					easeInQuad: CUBIC_BEZIER_OPEN + '0.550, 0.085, 0.680, 0.530' + CUBIC_BEZIER_CLOSE,
+					easeInCubic: CUBIC_BEZIER_OPEN + '0.550, 0.055, 0.675, 0.190' + CUBIC_BEZIER_CLOSE,
+					easeInQuart: CUBIC_BEZIER_OPEN + '0.895, 0.030, 0.685, 0.220' + CUBIC_BEZIER_CLOSE,
+					easeInQuint: CUBIC_BEZIER_OPEN + '0.755, 0.050, 0.855, 0.060' + CUBIC_BEZIER_CLOSE,
+					easeInSine: CUBIC_BEZIER_OPEN + '0.470, 0.000, 0.745, 0.715' + CUBIC_BEZIER_CLOSE,
+					easeInExpo: CUBIC_BEZIER_OPEN + '0.950, 0.050, 0.795, 0.035' + CUBIC_BEZIER_CLOSE,
+					easeInCirc: CUBIC_BEZIER_OPEN + '0.600, 0.040, 0.980, 0.335' + CUBIC_BEZIER_CLOSE,
+					easeInBack: CUBIC_BEZIER_OPEN + '0.600, -0.280, 0.735, 0.045' + CUBIC_BEZIER_CLOSE,
+					easeOutQuad: CUBIC_BEZIER_OPEN + '0.250, 0.460, 0.450, 0.940' + CUBIC_BEZIER_CLOSE,
+					easeOutCubic: CUBIC_BEZIER_OPEN + '0.215, 0.610, 0.355, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutQuart: CUBIC_BEZIER_OPEN + '0.165, 0.840, 0.440, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutQuint: CUBIC_BEZIER_OPEN + '0.230, 1.000, 0.320, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutSine: CUBIC_BEZIER_OPEN + '0.390, 0.575, 0.565, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutExpo: CUBIC_BEZIER_OPEN + '0.190, 1.000, 0.220, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutCirc: CUBIC_BEZIER_OPEN + '0.075, 0.820, 0.165, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeOutBack: CUBIC_BEZIER_OPEN + '0.175, 0.885, 0.320, 1.275' + CUBIC_BEZIER_CLOSE,
+					easeInOutQuad: CUBIC_BEZIER_OPEN + '0.455, 0.030, 0.515, 0.955' + CUBIC_BEZIER_CLOSE,
 					easeInOutCubic: CUBIC_BEZIER_OPEN + '0.645, 0.045, 0.355, 1.000' + CUBIC_BEZIER_CLOSE,
 					easeInOutQuart: CUBIC_BEZIER_OPEN + '0.770, 0.000, 0.175, 1.000' + CUBIC_BEZIER_CLOSE,
 					easeInOutQuint: CUBIC_BEZIER_OPEN + '0.860, 0.000, 0.070, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeInOutSine:  CUBIC_BEZIER_OPEN + '0.445, 0.050, 0.550, 0.950' + CUBIC_BEZIER_CLOSE,
-					easeInOutExpo:  CUBIC_BEZIER_OPEN + '1.000, 0.000, 0.000, 1.000' + CUBIC_BEZIER_CLOSE,
-					easeInOutCirc:  CUBIC_BEZIER_OPEN + '0.785, 0.135, 0.150, 0.860' + CUBIC_BEZIER_CLOSE,
-					easeInOutBack:  CUBIC_BEZIER_OPEN + '0.680, -0.550, 0.265, 1.550' + CUBIC_BEZIER_CLOSE
+					easeInOutSine: CUBIC_BEZIER_OPEN + '0.445, 0.050, 0.550, 0.950' + CUBIC_BEZIER_CLOSE,
+					easeInOutExpo: CUBIC_BEZIER_OPEN + '1.000, 0.000, 0.000, 1.000' + CUBIC_BEZIER_CLOSE,
+					easeInOutCirc: CUBIC_BEZIER_OPEN + '0.785, 0.135, 0.150, 0.860' + CUBIC_BEZIER_CLOSE,
+					easeInOutBack: CUBIC_BEZIER_OPEN + '0.680, -0.550, 0.265, 1.550' + CUBIC_BEZIER_CLOSE
 				},
 				domProperties = {},
 				cssEasing = easings[opt.easing || 'swing'] ? easings[opt.easing || 'swing'] : opt.easing || 'swing';
@@ -687,17 +696,16 @@ Changelog:
 
 					if (prop.avoidTransforms !== true && _appropriateProperty(p, cleanVal, self)) {
 						_applyCSSTransition(
-							self,
-							p,
-							opt.duration,
-							cssEasing,
-							isDirection && prop.avoidTransforms === true ? cleanVal + valUnit : cleanVal,
-							isDirection && prop.avoidTransforms !== true,
-							isTranslatable,
-							prop.useTranslate3d === true);
+						self,
+						p,
+						opt.duration,
+						cssEasing,
+						isDirection && prop.avoidTransforms === true ? cleanVal + valUnit : cleanVal,
+						isDirection && prop.avoidTransforms !== true,
+						isTranslatable,
+						prop.useTranslate3d === true);
 
-					}
-					else {
+					} else {
 						domProperties[p] = prop[p];
 					}
 				}
@@ -719,8 +727,7 @@ Changelog:
 				setTimeout(function() {
 					self.bind(transitionEndEvent, cssCallback).css(secondary);
 				});
-			}
-			else {
+			} else {
 				// it won't get fired otherwise
 				opt.queue = false;
 			}
@@ -741,7 +748,7 @@ Changelog:
 		});
 	};
 
-    jQuery.fn.animate.defaults = {};
+	jQuery.fn.animate.defaults = {};
 
 
 	/**
@@ -778,7 +785,7 @@ Changelog:
 
 						// remove the transformations
 						for (i = cssPrefixes.length - 1; i >= 0; i--) {
-							restore[cssPrefixes[i]+'transform'] = '';
+							restore[cssPrefixes[i] + 'transform'] = '';
 						}
 					}
 				} else if (!_isEmptyObject(selfCSSData.secondary)) {
@@ -786,7 +793,7 @@ Changelog:
 					if (cStyle) {
 						// grab current properties
 						for (var prop in selfCSSData.secondary) {
-							if(selfCSSData.secondary.hasOwnProperty(prop)) {
+							if (selfCSSData.secondary.hasOwnProperty(prop)) {
 								prop = prop.replace(rupper, '-$1').toLowerCase();
 								restore[prop] = cStyle.getPropertyValue(prop);
 
@@ -800,7 +807,7 @@ Changelog:
 
 									// remove the transformations
 									for (i = cssPrefixes.length - 1; i >= 0; i--) {
-										restore[cssPrefixes[i]+'transform'] = '';
+										restore[cssPrefixes[i] + 'transform'] = '';
 									}
 								}
 							}
@@ -812,11 +819,10 @@ Changelog:
 				// Moving to seperate thread (re: Animation reverts when finished in Android - issue #91)
 				self.unbind(transitionEndEvent);
 				self.
-					css(selfCSSData.original).
-					css(restore).
-					data(DATA_KEY, null);
-			}
-			else {
+				css(selfCSSData.original).
+				css(restore).
+				data(DATA_KEY, null);
+			} else {
 				// dom transition
 				originalStopMethod.apply(self, [clearQueue, gotoEnd]);
 			}

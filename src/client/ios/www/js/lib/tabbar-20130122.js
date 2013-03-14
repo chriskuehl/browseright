@@ -8,9 +8,9 @@
 */
 
 function TabBar() {
-    this.tag = 0;
-    this.callbacks = {};
-    this.selectedItem = null;
+	this.tag = 0;
+	this.callbacks = {};
+	this.selectedItem = null;
 }
 
 /**
@@ -22,7 +22,7 @@ function TabBar() {
  *   - tintColorRgba: Tint color for the bar itself (value as above)
  */
 TabBar.prototype.create = function(options) {
-    cordova.exec("TabBar.create", options || {});
+	cordova.exec("TabBar.create", options || {});
 };
 
 /**
@@ -53,12 +53,15 @@ TabBar.prototype.create = function(options) {
 TabBar.prototype.createItem = function(name, label, image, options) {
 
 	var tag = this.tag++;
-    if (options && 'onSelect' in options && typeof(options['onSelect']) == 'function') {
-        this.callbacks[tag] = {'onSelect':options.onSelect,'name':name};
-        //delete options.onSelect;
-    }
+	if (options && 'onSelect' in options && typeof(options['onSelect']) == 'function') {
+		this.callbacks[tag] = {
+			'onSelect': options.onSelect,
+			'name': name
+		};
+		//delete options.onSelect;
+	}
 
-    cordova.exec("TabBar.createItem", name, label, image, tag, options);
+	cordova.exec("TabBar.createItem", name, label, image, tag, options);
 };
 
 /**
@@ -67,39 +70,37 @@ TabBar.prototype.createItem = function(name, label, image, options) {
  * @see showItems
  */
 TabBar.prototype.getSelectedItem = function() {
-    return this.selectedItem;
+	return this.selectedItem;
 };
 
 /**
  * Hide a tab bar.  The tab bar has to be created first.
  */
 TabBar.prototype.hide = function(animate) {
-    if (animate === undefined || animate === null)
-        animate = true;
-    cordova.exec("TabBar.hide", {animate: animate});
+	if (animate === undefined || animate === null) animate = true;
+	cordova.exec("TabBar.hide", {
+		animate: animate
+	});
 };
 
 /**
  * Must be called before any other method in order to initialize the plugin.
  */
-TabBar.prototype.init = function()
-{
-    cordova.exec("TabBar.init");
+TabBar.prototype.init = function() {
+	cordova.exec("TabBar.init");
 };
 
 /**
  * Internal function called when a tab bar item has been selected.
  * @param {Number} tag the tag number for the item that has been selected
  */
-TabBar.prototype.onItemSelected = function(tag)
-{
+TabBar.prototype.onItemSelected = function(tag) {
 	this.selectedItem = tag;
-    if (typeof(this.callbacks[tag].onSelect) == 'function')
-        this.callbacks[tag].onSelect(this.callbacks[tag].name);
+	if (typeof(this.callbacks[tag].onSelect) == 'function') this.callbacks[tag].onSelect(this.callbacks[tag].name);
 };
 
 TabBar.prototype.resize = function() {
-    cordova.exec("TabBar.resize");
+	cordova.exec("TabBar.resize");
 };
 
 /**
@@ -109,7 +110,7 @@ TabBar.prototype.resize = function() {
  * @see showItems
  */
 TabBar.prototype.selectItem = function(tab) {
-    cordova.exec("TabBar.selectItem", tab);
+	cordova.exec("TabBar.selectItem", tab);
 };
 
 /**
@@ -119,7 +120,7 @@ TabBar.prototype.selectItem = function(tab) {
  * - \c position specifies whether the tab bar will be placed at the \c top or \c bottom of the screen (default: \c bottom)
  */
 TabBar.prototype.show = function(options) {
-    cordova.exec("TabBar.show", options || {});
+	cordova.exec("TabBar.show", options || {});
 };
 
 /**
@@ -131,11 +132,11 @@ TabBar.prototype.show = function(options) {
  * @see create
  */
 TabBar.prototype.showItems = function() {
-    var parameters = [ "TabBar.showItems" ];
-    for (var i = 0; i < arguments.length; i++) {
-        parameters.push(arguments[i]);
-    }
-    cordova.exec.apply(this, parameters);
+	var parameters = ["TabBar.showItems"];
+	for (var i = 0; i < arguments.length; i++) {
+		parameters.push(arguments[i]);
+	}
+	cordova.exec.apply(this, parameters);
 };
 
 /**
@@ -145,15 +146,13 @@ TabBar.prototype.showItems = function() {
  *  - \c badge value to display in the optional circular badge on the item; if null or unspecified, the badge will be hidden
  */
 TabBar.prototype.updateItem = function(name, options) {
-    if (!options) options = {};
-    cordova.exec("TabBar.updateItem", name, options);
+	if (!options) options = {};
+	cordova.exec("TabBar.updateItem", name, options);
 };
 
-cordova.addConstructor(function()
-{
-	if(!window.plugins)
-		window.plugins = {};
+cordova.addConstructor(function() {
+	if (!window.plugins) window.plugins = {};
 
-    window.plugins.tabBar = new TabBar();
-    
+	window.plugins.tabBar = new TabBar();
+
 });

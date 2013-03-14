@@ -8,7 +8,7 @@ gui.screens["user/register"].data = {
 			left: {
 				type: "back",
 				title: "Select a School",
-				action: function () {
+				action: function() {
 					setScreen("user/school");
 				}
 			}
@@ -17,9 +17,9 @@ gui.screens["user/register"].data = {
 
 	parents: ["user/school"],
 
-	setup: function (contentManager) {
+	setup: function(contentManager) {
 		if (selectedSchool == null) {
-			dialog("Select a School", "Please select a school first!", ["OK"], function () {
+			dialog("Select a School", "Please select a school first!", ["OK"], function() {
 				setScreen("user/login");
 			});
 
@@ -27,7 +27,7 @@ gui.screens["user/register"].data = {
 		}
 
 		// login by enter on input fields
-		$("input").keypress(function (e) {
+		$("input").keypress(function(e) {
 			if (e.which == 13) {
 				$(".create").click();
 				$(this).blur(); // hide the iPad keyboard
@@ -39,7 +39,7 @@ gui.screens["user/register"].data = {
 
 		$(".schoolUN").val(selectedSchool.name);
 
-		$(".create").click(function () {
+		$(".create").click(function() {
 			var first = $(".first").val();
 			var last = $(".last").val();
 			var email = $(".email").val();
@@ -60,7 +60,7 @@ gui.screens["user/register"].data = {
 				lastName: last,
 				email: email,
 				password: password
-			}, [RESP_OK, RESP_MISSING_BAD_PARAMS], function (code, data) {
+			}, [RESP_OK, RESP_MISSING_BAD_PARAMS], function(code, data) {
 				if (code == RESP_OK) {
 					setScreen("user/portal");
 				} else if (code == RESP_MISSING_BAD_PARAMS) {

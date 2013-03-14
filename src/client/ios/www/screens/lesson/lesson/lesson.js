@@ -8,7 +8,7 @@ gui.screens["lesson/lesson"].data = {
 			left: {
 				type: "back",
 				title: "Categories",
-				action: function () {
+				action: function() {
 					setScreen("lesson/category");
 				}
 			}
@@ -20,8 +20,8 @@ gui.screens["lesson/lesson"].data = {
 	}],
 	parents: ["lesson/category"],
 
-	setup: function (contentManager) {
-		$(".lessonTitle").click(function () {
+	setup: function(contentManager) {
+		$(".lessonTitle").click(function() {
 			setScreen("lesson/category");
 		});
 

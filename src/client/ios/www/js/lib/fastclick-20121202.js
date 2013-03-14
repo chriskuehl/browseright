@@ -17,6 +17,7 @@
  * @constructor
  * @param {Element} layer The layer to listen on
  */
+
 function FastClick(layer) {
 	'use strict';
 	var oldOnClick, self = this;
@@ -58,11 +59,21 @@ function FastClick(layer) {
 	}
 
 	// Bind handlers to this instance
-	this.onClick = function() { FastClick.prototype.onClick.apply(self, arguments); };
-	this.onTouchStart = function() { FastClick.prototype.onTouchStart.apply(self, arguments); };
-	this.onTouchMove = function() { FastClick.prototype.onTouchMove.apply(self, arguments); };
-	this.onTouchEnd = function() { FastClick.prototype.onTouchEnd.apply(self, arguments); };
-	this.onTouchCancel = function() { FastClick.prototype.onTouchCancel.apply(self, arguments); };
+	this.onClick = function() {
+		FastClick.prototype.onClick.apply(self, arguments);
+	};
+	this.onTouchStart = function() {
+		FastClick.prototype.onTouchStart.apply(self, arguments);
+	};
+	this.onTouchMove = function() {
+		FastClick.prototype.onTouchMove.apply(self, arguments);
+	};
+	this.onTouchEnd = function() {
+		FastClick.prototype.onTouchEnd.apply(self, arguments);
+	};
+	this.onTouchCancel = function() {
+		FastClick.prototype.onTouchCancel.apply(self, arguments);
+	};
 
 	// Devices that don't support touch don't need FastClick
 	if (typeof window.ontouchstart === 'undefined') {
@@ -109,11 +120,11 @@ FastClick.prototype.deviceIsAndroid = navigator.userAgent.indexOf('Android') > 0
 FastClick.prototype.needsClick = function(target) {
 	'use strict';
 	switch (target.nodeName.toLowerCase()) {
-	case 'label':
-	case 'video':
-		return true;
-	default:
-		return (/\bneedsclick\b/).test(target.className);
+		case 'label':
+		case 'video':
+			return true;
+		default:
+			return (/\bneedsclick\b/).test(target.className);
 	}
 };
 
@@ -127,22 +138,22 @@ FastClick.prototype.needsClick = function(target) {
 FastClick.prototype.needsFocus = function(target) {
 	'use strict';
 	switch (target.nodeName.toLowerCase()) {
-	case 'textarea':
-	case 'select':
-		return true;
-	case 'input':
-		switch (target.type) {
-		case 'button':
-		case 'checkbox':
-		case 'file':
-		case 'image':
-		case 'radio':
-		case 'submit':
-			return false;
-		}
-		return true;
-	default:
-		return (/\bneedsfocus\b/).test(target.className);
+		case 'textarea':
+		case 'select':
+			return true;
+		case 'input':
+			switch (target.type) {
+				case 'button':
+				case 'checkbox':
+				case 'file':
+				case 'image':
+				case 'radio':
+				case 'submit':
+					return false;
+			}
+			return true;
+		default:
+			return (/\bneedsfocus\b/).test(target.className);
 	}
 };
 

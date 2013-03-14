@@ -14,27 +14,28 @@ RESP_UNABLE_TO_PERFORM_command = 450;
 RESP_SERVER_ERROR = 500;
 
 // helper methods
+
 function api(command, params, acceptableResponses, callback) {
 	log("Making API request for \"" + command + "\".");
-	
+
 	if (localStorage["userToken"]) {
 		log("Adding user token to request because user is logged in.");
 		params.token = localStorage["userToken"];
 	}
-	
+
 	// 
-	
+
 	$.ajax({
 		url: (DEVELOPER ? "http://techxonline.net:6500/BrowseRight/api/" : "https://browseright.org/api/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
 		timeout: 5000,
-		
+
 		success: function(data) {
 			log("Received response for command \"" + command + "\".");
-			
-			if (acceptableResponses.indexOf(data.apiCode) > (- 1)) {
+
+			if (acceptableResponses.indexOf(data.apiCode) > (-1)) {
 				// everything is normal
 				log("Received acceptable response for command \"" + command + "\", executing callback...");
 				callback(data.apiCode, data);
@@ -44,11 +45,11 @@ function api(command, params, acceptableResponses, callback) {
 				networkReset();
 			}
 		},
-		
+
 		error: function() {
 			// hard error: internal server error, network down, etc.
 			log("Encountered network error for command \"" + command + "\".");
-			
+
 			dialog("Network Error", "We encountered a network error. Please make sure your internet is working properly. Would you like to try again?", ["Cancel", "Try Again"], function(tryAgain) {
 				if (tryAgain) {
 					// recurse
@@ -62,9 +63,10 @@ function api(command, params, acceptableResponses, callback) {
 }
 
 // convenience function for API requests with a loading screen
+
 function apiWithLoading(text, command, params, acceptableResponses, callback) {
 	showLoading(text);
-	
+
 	api(command, params, acceptableResponses, function(code, data) {
 		callback(code, data);
 		hideLoading();

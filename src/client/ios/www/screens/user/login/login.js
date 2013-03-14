@@ -5,15 +5,15 @@ gui.screens["user/login"].data = {
 		title: "Login"
 	}],
 
-	setup: function (contentManager) {
-		$(".login").click(function () {
+	setup: function(contentManager) {
+		$(".login").click(function() {
 			var email = $(".email").val();
 			var password = $(".password").val();
 
 			apiWithLoading("Logging in...", "student/login", {
 				email: email,
 				password: password
-			}, [RESP_OK, RESP_BAD_LOGIN_INFO], function (code, data) {
+			}, [RESP_OK, RESP_BAD_LOGIN_INFO], function(code, data) {
 				if (code == RESP_OK) {
 					localStorage["userToken"] = data.token;
 					loadStudentData();
@@ -29,9 +29,9 @@ gui.screens["user/login"].data = {
 				}
 			});
 		});
-		
+
 		// login by enter on input fields
-		$(".email, .password").keypress(function (e) {
+		$(".email, .password").keypress(function(e) {
 			if (e.which == 13) {
 				$(".login").click();
 				$(this).blur(); // hide the iPad keyboard
@@ -41,7 +41,7 @@ gui.screens["user/login"].data = {
 			}
 		});
 
-		$(".createAccount").click(function () {
+		$(".createAccount").click(function() {
 			setScreen("user/school");
 		});
 	}

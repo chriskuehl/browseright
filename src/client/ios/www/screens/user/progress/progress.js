@@ -1,16 +1,14 @@
 gui.screens["user/progress"].data = {
 	id: "user/progress",
-	navBars: [
-		{
-			title: "Progress"
-		}
-	],
-    
-    setup: function(contentManager) {
-    	// TODO: use contentManager for this
-    	// TODO: incorporate JS magic tokens
-    	registerScrollContainers($(".scroll"));
-    }
+	navBars: [{
+		title: "Progress"
+	}],
+
+	setup: function(contentManager) {
+		// TODO: use contentManager for this
+		// TODO: incorporate JS magic tokens
+		registerScrollContainers($(".scroll"));
+	}
 };
 
 function addSection(category, completed, street1, street2) {
@@ -20,6 +18,6 @@ function addSection(category, completed, street1, street2) {
 	var li = $("<li />");
 	$("<li />").addClass("section").text(street1).appendTo(a);
 	$("<p />").addClass("address").text(street2).appendTo(a);
-	
+
 	li.appendTo(ul);
 }

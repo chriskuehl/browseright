@@ -1,39 +1,37 @@
 gui.screens["user/school"].data = {
 	id: "user/school",
 	hideTabBar: true,
-    navBars: [
-        {
-            title: "Select Your School",
-            
-            buttons: {
-				left: {
-					type: "back",
-					title: "Login",
-					action: function() {
-						setScreen("user/login");
-					}
+	navBars: [{
+		title: "Select Your School",
+
+		buttons: {
+			left: {
+				type: "back",
+				title: "Login",
+				action: function() {
+					setScreen("user/login");
 				}
 			}
-        }
-    ],
-    
-    parents: ["user/login"],
-	
+		}
+	}],
+
+	parents: ["user/login"],
+
 	setup: function(contentManager) {
 		apiWithLoading("Loading schools...", "school/list", {}, [RESP_OK], function(code, data) {
-			for (var i = 0; i < data.schools.length; i ++) {
+			for (var i = 0; i < data.schools.length; i++) {
 				var school = data.schools[i];
 				addSchool(school.id, school.name, school.street, school.city + ", " + school.state + " " + school.zipCode);
 			}
-			
+
 			registerScrollContainers($(".scroll"));
 		});
-		
+
 		$(".next").click(function() {
 			if ($(this).hasClass("disabled")) {
 				return;
 			}
-			
+
 			setScreen("user/register");
 		});
 	}
@@ -41,7 +39,7 @@ gui.screens["user/school"].data = {
 
 function addSchool(id, name, street1, street2) {
 	var ul = $(".schools").find("ul");
-	
+
 	// TODO: clean this up
 	var li = $("<li />");
 	var a = $("<a />").appendTo(li).data("schoolID", id).data("schoolName", name);
@@ -49,18 +47,18 @@ function addSchool(id, name, street1, street2) {
 	$("<p />").addClass("address").text(street1).appendTo(a);
 	$("<p />").addClass("address").text(street2).appendTo(a);
 	$("<div />").addClass("arrow").html("&gt;").appendTo(a);
-	
+
 	a.click(function() {
 		$(this).parent().parent().find("a").removeClass("selected");
 		$(this).addClass("selected");
-		
+
 		selectedSchool = {
 			id: $(this).data("schoolID"),
 			name: $(this).data("schoolName")
 		};
-		
+
 		$(".next").removeClass("disabled");
 	});
-	
+
 	li.appendTo(ul);
 }

@@ -4,7 +4,7 @@ gui.screens["dev/console"].data = {
 		title: "Developer Console"
 	}],
 
-	setup: function (contentManager) {
+	setup: function(contentManager) {
 		var logs = $(".logContainer");
 
 		logs.html(logRecord);

@@ -8,7 +8,7 @@ gui.screens["lesson/quiz"].data = {
 			left: {
 				type: "back",
 				title: "Categories",
-				action: function () {
+				action: function() {
 					setScreen("lesson/category");
 				}
 			},
@@ -23,7 +23,7 @@ gui.screens["lesson/quiz"].data = {
 	parents: ["lesson/category"],
 
 
-	setup: function (contentManager) {
+	setup: function(contentManager) {
 
 	}
 };

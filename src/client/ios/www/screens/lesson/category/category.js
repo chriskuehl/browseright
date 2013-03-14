@@ -4,8 +4,8 @@ gui.screens["lesson/category"].data = {
 		title: "Categories"
 	}],
 
-	setup: function (contentManager) {
-		$($(".category")[0]).click(function () {
+	setup: function(contentManager) {
+		$($(".category")[0]).click(function() {
 			setScreen("lesson/lesson");
 		});
 	}
