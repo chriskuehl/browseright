@@ -115,6 +115,7 @@ p {
     [category: "school", item: "_create", action: "", params: [token: ("1" * 255), name: "Woodford County High School", street: "180 Frankfort Street", city: "Versailles", zipCode: "40383", helpEmail: "help@wchs.browseright.org"]],
     [category: "school", item: "list", action: "", params: [:]],
     [category: "user", item: "_info", action: "", params: [token: ("0" * 255)]],
+    [category: "user", item: "_joinSchool", action: "", params: [school: 1, token: ("0" * 255)]],
     [category: "test", item: "_whoami", action: "", params: [token: ("0" * 255)]]
   ]}" />
         <ul>
