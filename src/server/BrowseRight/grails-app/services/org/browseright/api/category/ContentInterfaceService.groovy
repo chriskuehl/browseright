@@ -18,4 +18,21 @@ class ContentInterfaceService {
         
         response.categories = categories
     }
+    
+    def _sections = { response, action, params, user, request ->
+        def category = Category.findById(params.id)
+        
+        if (category != null) {
+	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+	   response.error = "NO_CATEGORY_EXISTS"
+	   return
+        }
+        
+        
+        def sections = []
+        
+        category.sections.each { section ->
+	   
+        }
+    }
 }
