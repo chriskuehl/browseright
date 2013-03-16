@@ -21,6 +21,12 @@ class ContentInterfaceService {
     }
     
     def _category = { response, action, params, user, request ->
+		if (! params.uid) {
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "SPECIFY_UID"
+			return
+        }
+		
         def category = Category.findByUid(params.uid)
         
         if (category == null) {
@@ -47,12 +53,6 @@ class ContentInterfaceService {
 					title: item.title
 				]
 				
-				if (isQuiz) {
-					// quiz
-				} else {
-					// article
-				}
-				
 				sectionData.items.add(itemData)
 			}
 			
@@ -61,4 +61,38 @@ class ContentInterfaceService {
 		
 		response.sections = sections
     }
+	
+	def _item = { response, action, params, user, request ->
+		if (! params.id) {
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "SPECIFY_ID"
+			return
+        }
+		
+		def item = SectionItem.findById(params.id)
+		def isQuiz = (item instanceof Quiz)
+		
+		def itemInfo = [
+			id: item.id,
+			type: isQuiz ? "QUIZ" : "ARTICLE",
+			title: item.title
+		]
+		
+		if (isQuiz) {
+			itemInfo.questionsToShow = item.questionsToShow
+			itemInfo.questions = []
+			
+			item.questions.each { question ->
+				itemInfo.questions.add([
+					text: question.text,
+					correctAnswer: question.correctAnswer,
+					incorrectAnswers: question.incorrectAnswers
+				])
+			}
+		} else {
+			itemInfo.text = item.text
+		}
+		
+		response.item = itemInfo
+	}
 }
