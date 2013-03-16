@@ -1,6 +1,6 @@
 package org.browseright
 
-class Article {
+class Article extends SectionItem {
     static constraints = {
 	text (maxSize: 8192)
     }

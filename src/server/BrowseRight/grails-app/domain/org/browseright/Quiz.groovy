@@ -1,6 +1,6 @@
 package org.browseright
 
-class Quiz {
+class Quiz extends SectionItem {
     static constraints = {
 	
     }
