@@ -1,0 +1,16 @@
+{
+	"type": "quiz",
+	"questions": [
+		{
+			question: "What is `3 + 2`?",
+			correct: "5",
+			incorrect: [
+				"2",
+				"3",
+				"4",
+				"6"
+			]
+		}
+	
+	]
+}
