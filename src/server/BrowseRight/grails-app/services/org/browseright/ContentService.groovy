@@ -78,7 +78,6 @@ class ContentService {
             def question = new Question(text: questionInfo.question, correctAnswer: questionInfo.correct)
             
             questionInfo.incorrect.each { incorrectAnswer ->
-                println incorrectAnswer
                 question.addToIncorrectAnswers(incorrectAnswer)
             }
             
