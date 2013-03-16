@@ -20,6 +20,8 @@ class ContentService {
         contentDirectory.eachFile (FileType.DIRECTORIES) { file ->
             initCategory(file)
         }
+        
+        println "Initialized content database from files."
     }
     
     def initCategory(directory) {
@@ -66,7 +68,24 @@ class ContentService {
     }
     
     def initQuiz(info, section) {
+        def quiz = new Quiz(title: info.title, questionsToShow: info.questionsToShow)
         
+        section.addToItems(quiz)
+        section.save()
+        
+        // create questions
+        info.questions.each { questionInfo ->
+            def question = new Question(text: questionInfo.question, correctAnswer: questionInfo.correct)
+            
+            questionInfo.incorrect.each { incorrectAnswer ->
+                println incorrectAnswer
+                question.addToIncorrectAnswers(incorrectAnswer)
+            }
+            
+            quiz.addToQuestions(question)
+        }
+        
+        quiz.save()
     }
     
     def parseJSON(file) {
