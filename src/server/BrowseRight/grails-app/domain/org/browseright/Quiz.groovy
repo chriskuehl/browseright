@@ -5,6 +5,7 @@ class Quiz {
 	
     }
     
+    static belongsTo = [section: Section]
     static hasMany = [questions: Question]
     
     int questionsToShow
