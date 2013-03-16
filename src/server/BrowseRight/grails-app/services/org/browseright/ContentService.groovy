@@ -26,7 +26,47 @@ class ContentService {
         def categoryInfo = parseJSON(new File(directory.toString() + File.separator + "category.json"))
         def category = new Category(uid: categoryInfo.uid, title: categoryInfo.title, shortDescription: categoryInfo.shortDescription, longDescription: categoryInfo.longDescription).save()
         
-        // now add 
+        // now add sections to the category
+        directory.eachFile (FileType.DIRECTORIES) { file ->
+            initSection(file, category)
+        }
+    }
+    
+    def initSection(directory, category) {
+        def sectionInfo = parseJSON(new File(directory.toString() + File.separator + "section.json"))
+        def section = new Section(uid: sectionInfo.uid, title: sectionInfo.title, description: sectionInfo.description)
+        
+        category.addToSections(section)
+        category.save()
+        section.save()
+        
+        directory.eachFile (FileType.FILES) { file ->
+            if (file.name != "section.json") {
+                initSectionItem(file, section)
+            }
+        }
+    }
+    
+    def initSectionItem(file, section) {
+        def itemInfo = parseJSON(file)
+        
+        if (itemInfo.type == "article") {
+            initArticle(itemInfo, section)
+        } else if (itemInfo.type == "quiz") {
+            initQuiz(itemInfo, section)
+        }
+    }
+    
+    def initArticle(info, section) {
+        def article = new Article(title: info.title, text: info.text)
+        
+        section.addToItems(article)
+        section.save()
+        article.save()
+    }
+    
+    def initQuiz(info, section) {
+        
     }
     
     def parseJSON(file) {
