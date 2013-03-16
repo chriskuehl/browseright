@@ -6,6 +6,7 @@ class Question {
     }
     
     static hasMany = [incorrectAnswers: String]
+    static belongsTo = [quiz: Quiz]
     
     String text
     String correctAnswer
