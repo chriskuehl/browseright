@@ -1,5 +1,6 @@
 {
 	"type": "quiz",
+        "title": "Quiz 2",
 	"questions": [
 		{
 			"question": "What is `3 + 2`?",

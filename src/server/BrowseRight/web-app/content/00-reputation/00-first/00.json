@@ -1,4 +1,5 @@
 {
 	"type": "article",
-	"content": "a\nb"
+        "title": "Article 0",
+	"text": "a\nb"
 }

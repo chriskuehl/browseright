@@ -1,4 +1,5 @@
 {
 	"type": "article",
-	"content": "lorem ipsum"
+        "title": "Article 1",
+	"text": "lorem ipsum"
 }
