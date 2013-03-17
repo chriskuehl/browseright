@@ -96,9 +96,9 @@ function loadItem(id) {
 		h2.appendTo(content);
 			
 		if (item.type == "ARTICLE") {
-			var p = $("<p />");
-			p.text(item.text);
-			p.appendTo(content);
+			var d = $("<div />");
+			d.html(markdown(item.text));
+			d.appendTo(content);
 		} else if (item.type == "QUIZ") {
 			
 		}
