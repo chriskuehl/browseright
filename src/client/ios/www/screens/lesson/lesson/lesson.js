@@ -21,18 +21,15 @@ gui.screens["lesson/lesson"].data = {
 	parents: ["lesson/category"],
 
 	setup: function(contentManager) {
+		$(".nav").empty();
 		apiWithLoading("Loading lessons...", "content/category", {uid: selectedCategory}, [RESP_OK], function(code, data) {
-			$(".nav").empty();
-			
 			for (var i = 0; i < data.sections.length; i ++) {
 				addSection(data.sections[i]);
 			}
-			
-			$(".categoryHolder").fadeIn(250);
 		});
 
 		// TODO: Fix this
-		registerScrollContainers($(".scroll"));
+		//registerScrollContainers($(".scroll"));
 	}
 };
 
@@ -43,4 +40,23 @@ function addSection(section) {
 	var d = $("<div />");
 	d.appendTo(header);
 	d.text(section.title);
+	
+	// now add the items
+	for (var i = 0; i < section.items.length; i ++) {
+		var item = section.items[i];
+		
+		var li = $("<li />");
+		li.appendTo($(".nav"));
+		var d = $("<div />");
+		d.appendTo(li);
+		d.text(item.title);
+		
+		li.data("itemID", item.id);
+		
+		li.click(function() {
+			var id = $(this).data("itemID");
+			$(".nav").find("li").removeClass("current");
+			$(this).addClass("current");
+		});
+	}
 }
