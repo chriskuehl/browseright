@@ -36,8 +36,10 @@ gui.screens["lesson/lesson"].data = {
 				addSectionLesson(data.sections[i]);
 			}
 			
-			// load the first item
-			loadItem(data.sections[0].items[0].id);
+			if (data.sections.length > 0) {
+				// load the first item
+				loadItem(data.sections[0].items[0].id);
+			}
 		});
 		
 		// TODO: Fix this
