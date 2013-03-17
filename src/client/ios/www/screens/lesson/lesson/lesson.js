@@ -59,26 +59,39 @@ function addSectionLesson(section) {
 		d.appendTo(li);
 		d.text(item.title);
 		
-		li.data("itemID", item.id);
+		li.data("id", item.id);
 		
 		li.click(function() {
-			var id = $(this).data("itemID");
-			$(".nav").find("li").removeClass("current");
-			$(this).addClass("current");
-			
+			var id = $(this).data("id");
 			loadItem(id);
 		});
 	}
+	
+	// load the first item
+	loadItem(section.items[0].id);
 }
 
 function loadItem(id) {
+	// update nav bar selection
+	$(".nav").find("li").removeClass("current");
+	$.each($(".nav").find("li"), function(idx, e) { // ugly way to add current to selected one
+		var f = $(e);
+		
+		if (f.data("id") == id) {
+			f.addClass("current");
+		}
+	});
+	
+	// clear existing content
 	var content = $(".content");
 	content.empty();
 	
+	// load new content
 	apiWithLoading("Loading lesson...", "content/item", {id: id}, [RESP_OK], function(code, data) {
 		var item = data.item;
 		
 		var h2 = $("<h2 />");
+		h2.addClass("lessonTitle");
 		h2.text(item.title);
 		h2.appendTo(content);
 			
