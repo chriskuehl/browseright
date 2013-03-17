@@ -21,6 +21,14 @@ gui.screens["lesson/lesson"].data = {
 	parents: ["lesson/category"],
 
 	setup: function(contentManager) {
+		if (selectedCategory == null) {
+			dialog("Select a Category", "Please select a category first!", ["OK"], function() {
+				setScreen("lesson/category");
+			});
+
+			return;
+		}
+		
 		$(".nav").empty();
 		apiWithLoading("Loading lessons...", "content/category", {uid: selectedCategory}, [RESP_OK], function(code, data) {
 			for (var i = 0; i < data.sections.length; i ++) {
