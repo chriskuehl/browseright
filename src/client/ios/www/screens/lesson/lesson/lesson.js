@@ -70,11 +70,11 @@ function loadItem(id) {
 	apiWithLoading("Loading lesson...", "content/item", {id: id}, [RESP_OK], function(code, data) {
 		var item = data.item;
 		
-		if (item.type == "ARTICLE") {
-			var h2 = $("<h2 />");
-			h2.text(item.title);
-			h2.appendTo(content);
+		var h2 = $("<h2 />");
+		h2.text(item.title);
+		h2.appendTo(content);
 			
+		if (item.type == "ARTICLE") {
 			var p = $("<p />");
 			p.text(item.text);
 			p.appendTo(content);
