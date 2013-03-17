@@ -1,5 +1,6 @@
 var selectedSchool = null;
 var currentCategory = null;
+var currentCategoryTitle = null;
 var currentLesson = null;
 var userInfo = null;
 

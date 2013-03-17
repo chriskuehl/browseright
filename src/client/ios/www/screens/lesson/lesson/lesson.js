@@ -42,6 +42,10 @@ gui.screens["lesson/lesson"].data = {
 		
 		// TODO: Fix this
 		//registerScrollContainers($(".scroll"));
+	},
+	
+	navBarReady: function() {
+		gui.currentScreen.navBarTitles[0].text(currentCategoryTitle);
 	}
 };
 

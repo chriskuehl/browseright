@@ -8,6 +8,7 @@ function startApp() {
 			if (success) {
 				// temp:
 				currentCategory = "reputation";
+				currentCategoryTitle = "Your Online Reputation";
 				setScreen("lesson/lesson");
 			}
 		});

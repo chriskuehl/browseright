@@ -285,6 +285,8 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 			addNavBarButton(RIGHT, navBarData.buttons.right, navBarContainer, startX, width);
 		}
 	}
+	
+	return title;
 }
 
 // WARNING: back buttons on the right side don't work (but who cares?)
@@ -376,6 +378,7 @@ function showNewScreen(dontSlide, callback) {
 	var navBarContainer = createNewNavBarContainer();
 	var w = navBarContainer.width();
 
+	gui.currentScreen.navBarTitles = [];
 	// add each new nav bar
 	if (gui.currentScreen.data.data.navBars) {
 		var navBars = gui.currentScreen.data.data.navBars;
@@ -395,13 +398,18 @@ function showNewScreen(dontSlide, callback) {
 			var fullWidth = i >= (navBars.length - 1); // is there anything to the right?
 			var width = fullWidth ? ($("#navBar").width() - startX) : navBarData.width; // ignore given width if full; otherwise, use it
 
-			populateNavBar(navBarContainer, startX, width, navBarData);
-
+			var title = populateNavBar(navBarContainer, startX, width, navBarData);
+			gui.currentScreen.navBarTitles.push(title);
+	
 			// adjust start position for future bars
 			if (!fullWidth) {
 				startX += width;
 			}
 		}
+	}
+	
+	if (gui.currentScreen.data.data.navBarReady) {
+		gui.currentScreen.data.data.navBarReady();
 	}
 
 	if (!gui.oldScreen || dontSlide) {
