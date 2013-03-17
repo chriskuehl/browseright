@@ -21,7 +21,7 @@ gui.screens["lesson/lesson"].data = {
 	parents: ["lesson/category"],
 
 	setup: function(contentManager) {
-		if (selectedCategory == null) {
+		if (currentCategory == null) {
 			dialog("Select a Category", "Please select a category first!", ["OK"], function() {
 				setScreen("lesson/category");
 			});
