@@ -1,4 +1,6 @@
 var selectedSchool = null;
+var currentCategory = null;
+var currentLesson = null;
 var userInfo = null;
 
 function loadStudentData(callback) {

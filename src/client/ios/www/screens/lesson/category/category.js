@@ -9,6 +9,8 @@ gui.screens["lesson/category"].data = {
 			for (var i = 0; i < data.categories.length; i ++) {
 				addCategory(i, data.categories[i]);
 			}
+			
+			$(".categoryHolder").fadeIn(250);
 		});
 	}
 };
@@ -26,12 +28,15 @@ gui.screens["lesson/category"].data = {
 function addCategory(i, category) {
 	$(".categoryHolder").hide();
 	
-	var div = $("<div />").addClass("category").addClass("category-" + i);
+	var div = $("<div />").addClass("category").addClass("category-" + i).data("uid", category.uid);
 	var text = $("<div />").addClass("text").appendTo(div);
 	$("<h3 />").text(category.title).appendTo(text);
 	$("<p />").text(category.shortDescription).appendTo(text);
 	
 	div.appendTo($(".categoryHolder"));
 	
-	$(".categoryHolder").fadeIn(250);
+	div.click(function() {
+		currentCategory = $(this).data("uid");
+		setScreen("lesson/lesson");
+	});
 }
