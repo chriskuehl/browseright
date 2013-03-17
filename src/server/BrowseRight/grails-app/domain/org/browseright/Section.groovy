@@ -11,4 +11,6 @@ class Section {
     String uid
     String title
     String description
+	
+	int ordering
 }
