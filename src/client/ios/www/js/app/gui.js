@@ -411,7 +411,7 @@ function showNewScreen(dontSlide, callback) {
 		});
 
 		if (gui.oldScreen) {
-			gui.oldScreen.container.screen.hide();
+			gui.oldScreen.container.screen.remove();
 
 			navBarContainer.css({
 				left: "0px",
