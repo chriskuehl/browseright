@@ -262,6 +262,7 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 	});
 
 	// TODO: remove this
+	/*
 	if (!navBarData.buttons) navBarData.buttons = {};
 
 	navBarData.buttons.right = {
@@ -272,7 +273,7 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 			alert("You are now " + (DEVELOPER ? "NOT IN" : "IN") + " developer mode.");
 			networkReset();
 		}
-	};
+	}; */
 
 	// add any buttons
 	if (navBarData.buttons) {
