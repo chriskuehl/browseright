@@ -32,7 +32,7 @@ gui.screens["lesson/lesson"].data = {
 		$(".nav").empty();
 		apiWithLoading("Loading lessons...", "content/category", {uid: selectedCategory}, [RESP_OK], function(code, data) {
 			for (var i = 0; i < data.sections.length; i ++) {
-				addSection(data.sections[i]);
+				addSectionLesson(data.sections[i]);
 			}
 		});
 
@@ -41,7 +41,7 @@ gui.screens["lesson/lesson"].data = {
 	}
 };
 
-function addSection(section) {
+function addSectionLesson(section) {
 	var header = $("<li />");
 	header.addClass("section");
 	header.appendTo($(".nav"));

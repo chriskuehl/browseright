@@ -17,7 +17,7 @@ gui.screens["user/progress"].data = {
 	}
 };
 
-function addSection(category, completed, street1, street2) {
+function addSectionProgress(category, completed, street1, street2) {
 	$("<div />").addClass(".category");
 	$("<div />").addClass(".title").text(category);
 	var ul = $(".category").find("ul");
