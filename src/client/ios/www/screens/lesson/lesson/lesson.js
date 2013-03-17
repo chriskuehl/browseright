@@ -57,6 +57,29 @@ function addSection(section) {
 			var id = $(this).data("itemID");
 			$(".nav").find("li").removeClass("current");
 			$(this).addClass("current");
+			
+			loadItem(id);
 		});
 	}
+}
+
+function loadItem(id) {
+	var content = $(".content");
+	content.empty();
+	
+	apiWithLoading("Loading lesson...", "content/item", {id: id}, [RESP_OK], function(code, data) {
+		var item = data.item;
+		
+		if (item.type == "ARTICLE") {
+			var h2 = $("<h2 />");
+			h2.text(item.title);
+			h2.appendTo(content);
+			
+			var p = $("<p />");
+			p.text(item.text);
+			p.appendTo(content);
+		} else if (item.type == "QUIZ") {
+			
+		}
+	});
 }
