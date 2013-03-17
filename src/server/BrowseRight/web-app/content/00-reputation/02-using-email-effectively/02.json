@@ -1,0 +1,34 @@
+{
+	"type": "quiz",
+        "title": "Checkpoint Quiz",
+        "questionsToShow": 3,
+	"questions": [
+		{
+			"question": "What does `CC` do in an email?",
+			"correct": "Sends a copy of an email, while letting the recipient know",
+			"incorrect": [
+				"Sends a copy of an email, without letting the recipient know",
+				"Marks an email as important so it gets delivered faster",
+				"Stores a copy of the email in your inbox after sending it",
+				"Prevents the receiver from saving the email indefinitely"
+			]
+		},
+                
+                {
+			"question": "Are there cases where using `BCC` is acceptable?",
+			"correct": "Yes, but it must be used with care",
+			"incorrect": [
+				"No, it's always better not to be deceitful"
+			]
+		},
+		
+		{
+			"question": "Are the contents of an email secure during transfer over the internet?",
+			"correct": "Maybe; it depends on both you and the receiver, so you shouldn't assume it will be",
+			"incorrect": [
+				"No; email is transferred as plain text over the internet and is not encrypted",
+				"Yes; email is encrypted during transfer using SSL (also known as HTTPS)"
+			]
+		}
+	]
+}
