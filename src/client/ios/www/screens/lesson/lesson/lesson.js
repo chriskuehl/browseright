@@ -30,12 +30,16 @@ gui.screens["lesson/lesson"].data = {
 		}
 		
 		$(".nav").empty();
+
 		apiWithLoading("Loading lessons...", "content/category", {uid: currentCategory}, [RESP_OK], function(code, data) {
 			for (var i = 0; i < data.sections.length; i ++) {
 				addSectionLesson(data.sections[i]);
 			}
+			
+			// load the first item
+			loadItem(data.sections[0].items[0].id);
 		});
-
+		
 		// TODO: Fix this
 		//registerScrollContainers($(".scroll"));
 	}
@@ -66,9 +70,6 @@ function addSectionLesson(section) {
 			loadItem(id);
 		});
 	}
-	
-	// load the first item
-	loadItem(section.items[0].id);
 }
 
 function loadItem(id) {
