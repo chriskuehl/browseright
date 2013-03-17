@@ -6,6 +6,19 @@ strong {
 	font-weight: bold;
 }
 
+.content ul {
+	margin: 1em;
+}
+.content ul {
+	margin-left: 2em;
+}
+
+.content ul li {
+	list-style: disc outside;
+	margin-bottom: 0.5em;
+	line-height: 1.2em;
+}
+
 #container {
 	position: absolute;
 	
