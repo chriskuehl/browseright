@@ -1,0 +1,35 @@
+{
+	"type": "quiz",
+        "title": "Checkpoint Quiz",
+        "questionsToShow": 3,
+	"questions": [
+		{
+			"question": "Which is an example of information that, once posted online, could be most damaging to your offline life?",
+			"correct": "A post about your plans for the weekend",
+			"incorrect": [
+				"Pictures of the sandwich you ate for lunch",
+				"A post describing a funny situation in class",
+				"A post asking your classmates for help with a homework problem",
+				"A link to a video you found on YouTube"
+			]
+		},
+                
+                {
+			"question": "If you receive an email from your friend, can you be sure that it really came from the address shown?",
+			"correct": "No. Standard email does not provide message authentication",
+			"incorrect": [
+				"Yes, because the 'from' header will always show the true address"
+			]
+		},
+		
+		{
+			"question": "Which of the following is not a good way to verify that an email is authentic?",
+			"correct": "Click the link in the email and make sure it takes you to the right site.",
+			"incorrect": [
+				"Call the company to verify they sent the email.",
+				"Log in to the website by typing the address into your browser.",
+				"Look for misspellings or inconsistent information in the message."
+			]
+		}
+	]
+}
