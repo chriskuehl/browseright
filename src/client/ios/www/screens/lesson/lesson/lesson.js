@@ -30,7 +30,7 @@ gui.screens["lesson/lesson"].data = {
 		}
 		
 		$(".nav").empty();
-		apiWithLoading("Loading lessons...", "content/category", {uid: selectedCategory}, [RESP_OK], function(code, data) {
+		apiWithLoading("Loading lessons...", "content/category", {uid: currentCategory}, [RESP_OK], function(code, data) {
 			for (var i = 0; i < data.sections.length; i ++) {
 				addSectionLesson(data.sections[i]);
 			}

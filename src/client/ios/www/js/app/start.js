@@ -7,7 +7,7 @@ function startApp() {
 		loadStudentData(function(success) {
 			if (success) {
 				// temp:
-				selectedCategory = "reputation";
+				currentCategory = "reputation";
 				setScreen("lesson/lesson");
 			}
 		});
