@@ -103,12 +103,19 @@ function loadItem(id) {
 		h2.appendTo(content);
 			
 		if (item.type == "ARTICLE") {
+			content.css("padding", "60px");
+			
 			var d = $("<div />");
 			d.html(markdown(item.text));
 			d.appendTo(content);
 		} else if (item.type == "QUIZ") {
+			content.css("padding", "0px");
 			var p = $("<p />");
 			p.html("For each question, choose the best answer. Don't worry&mdash;if you get it wrong, you can try again.");
+			p.css({
+				marginLeft: "60px",
+				marginRight: "60px"
+			});
 			p.appendTo(content);
 			
 			var questions = shuffleQuestions(item.questions, item.questionsToShow);
@@ -119,6 +126,10 @@ function loadItem(id) {
 				// display the question
 				var c = $("<div />");
 				c.addClass("question");
+				c.css({
+					marginLeft: "60px",
+					marginRight: "60px"
+				});
 				c.appendTo(content);
 				
 				var p = $("<p />");
