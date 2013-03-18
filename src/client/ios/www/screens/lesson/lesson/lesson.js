@@ -108,7 +108,7 @@ function loadItem(id) {
 			d.appendTo(content);
 		} else if (item.type == "QUIZ") {
 			var p = $("<p />");
-			p.html("For each question, choose the best answer. Don't worry&ndash;if you get it wrong, you can try again.");
+			p.html("For each question, choose the best answer. Don't worry&mdash;if you get it wrong, you can try again.");
 			p.appendTo(content);
 			
 			var questions = shuffleQuestions(item.questions, item.questionsToShow);
