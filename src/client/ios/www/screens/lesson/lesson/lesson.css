@@ -131,3 +131,16 @@ $SCREEN .question .answer.odd {
 $SCREEN .question {
 	margin-bottom: 40px;
 }
+
+$SCREEN h2.quizTitle {
+	border: solid 2px #6F6F6F;
+	font-family: $BOLD;
+	font-size: 60px !important;
+	padding: 40px;
+	margin-bottom: 20px;
+	
+	color: #373437;
+	
+	background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
+}

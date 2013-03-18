@@ -109,6 +109,7 @@ function loadItem(id) {
 			d.html(markdown(item.text));
 			d.appendTo(content);
 		} else if (item.type == "QUIZ") {
+			h2.addClass("quizTitle");
 			content.css("padding", "0px");
 			var p = $("<p />");
 			p.html("For each question, choose the best answer. Don't worry&mdash;if you get it wrong, you can try again.");
