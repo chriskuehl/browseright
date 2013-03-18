@@ -26,27 +26,17 @@ $SCREEN .paneHolder .leftPane {
 	
 	left: 0px;
 	top: 0px;
-	right: 0px;
+	right: 640px;
 	bottom: 0px;
-    
-
 }
 
 $SCREEN .paneHolder .leftPane .scroll {
-	height: 1170px;
+	height: 1310px;
 	overflow: auto;
-}
-
-$SCREEN .paneHolder .leftPane .container {
-    overflow: auto;
 }
 
 $SCREEN .container {
     font-size: 40px;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    padding-left: 100px;
-    padding-right: 740px;
 }
 
 $SCREEN .paneHolder .leftPane .container h2, $SCREEN .paneHolder .leftPane .container h2 span{
