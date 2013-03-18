@@ -29,6 +29,7 @@ gui.screens["lesson/lesson"].data = {
 			return;
 		}
 		
+		registerScrollContainers($(".scroll"));
 		$(".nav").empty();
 
 		apiWithLoading("Loading lessons...", "content/category", {uid: currentCategory}, [RESP_OK], function(code, data) {
@@ -41,9 +42,6 @@ gui.screens["lesson/lesson"].data = {
 				loadItem(data.sections[0].items[3].id);
 			}
 		});
-		
-		// TODO: Fix this
-		//registerScrollContainers($(".scroll"));
 	},
 	
 	navBarReady: function() {
@@ -159,6 +157,8 @@ function loadItem(id) {
 				}
 			}
 		}
+		
+		updateScrollContainers($(".scroll"));
 	});
 }
 
