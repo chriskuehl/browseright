@@ -156,6 +156,15 @@ function loadItem(id) {
 					});
 				}
 			}
+			
+			var button = $("<a />");
+			button.addClass("button");
+			button.html("Submit and Grade Quiz");
+			button.appendTo(c);
+			
+			button.click(function() {
+				
+			});
 		}
 		
 		updateScrollContainers($(".scroll"));

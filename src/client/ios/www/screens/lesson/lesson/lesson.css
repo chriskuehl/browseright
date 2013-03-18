@@ -146,3 +146,8 @@ $SCREEN h2.quizTitle {
 	background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
 }
+
+$SCREEN a.button {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
