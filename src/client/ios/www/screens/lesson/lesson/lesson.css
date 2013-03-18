@@ -114,8 +114,10 @@ $SCREEN .question .answer {
 	padding-left: 88px;
 	
 	background-image: url("$ASSETS/uncheck.png");
-	background-position: 18px 20px;
+	background-position: 18px 28px;
 	background-repeat: no-repeat;
+	
+	line-height: 1.5em;
 }
 
 $SCREEN .question .answer.selected {
