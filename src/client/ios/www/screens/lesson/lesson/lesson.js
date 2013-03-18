@@ -163,7 +163,36 @@ function loadItem(id) {
 			button.appendTo(c);
 			
 			button.click(function() {
-				
+				dialog("Confirm Submission", "Are you sure you want to submit the quiz?", ["Cancel", "Submit Quiz"], function(submit) {
+					if (submit) {
+						// prepare data to send to the server
+						var questions = [];
+						
+						$(".content").find(".question").each(function() {
+							var q = {
+								selectedAnswer: null,
+								
+								notSelectedAnswers: []
+							};
+							
+							$(this).find(".answer").each(function() {
+								if ($(this).hasClass("selected")) {
+									q.selectedAnswer = {
+										text: $(this).text(),
+										correct: $(this).data("isCorrect")
+									};
+								} else {
+									q.notSelectedAnswers.push({
+										text: $(this).text(),
+										correct: $(this).data("isCorrect")
+									});
+								}
+							});
+							
+							console.log(JSON.stringify(q));
+						});
+					}
+				});
 			});
 		}
 		
