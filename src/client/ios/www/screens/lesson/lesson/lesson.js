@@ -112,7 +112,30 @@ function loadItem(id) {
 			p.appendTo(content);
 			
 			var questions = shuffleQuestions(item.questions, item.questionsToShow);
-			console.log(JSON.stringify(questions));
+			
+			for (var i = 0; i < questions.length; i ++) {
+				var question = questions[i];
+				
+				// display the question
+				var c = $("<div />");
+				c.addClass("question");
+				c.appendTo(content);
+				
+				var p = $("<p />");
+				p.addClass("title");
+				p.text(question.text);
+				p.appendTo(c);
+				
+				// answers
+				for (var j = 0; j < question.displayAnswers.length; j ++) {
+					var displayAnswer = question.displayAnswers[j];
+					var a = $("<a />");
+					a.addClass("answer");
+					a.text(displayAnswer[0] + " (correct=" + displayAnswer[1] + ")");
+					a.data("isCorrect", displayAnswer[1]);
+					a.appendTo(c);
+				}
+			}
 		}
 	});
 }
