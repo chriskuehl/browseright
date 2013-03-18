@@ -189,7 +189,7 @@ function loadItem(id) {
 								}
 							});
 							
-							console.log(JSON.stringify(q));
+							questions.push(q);
 						});
 					}
 				});
