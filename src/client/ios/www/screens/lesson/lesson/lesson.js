@@ -107,7 +107,34 @@ function loadItem(id) {
 			d.html(markdown(item.text));
 			d.appendTo(content);
 		} else if (item.type == "QUIZ") {
+			var p = $("<p />");
+			p.html("For each question, choose the best answer. Don't worry&ndash;if you get it wrong, you can try again.");
+			p.appendTo(content);
 			
+			var questions = shuffleQuestions(item.questions, item.questionsToShow);
 		}
 	});
+}
+
+
+function shuffleQuestions(questions, numQuestions) {
+	return shuffleAnswers(pickQuestions(questions, numQuestions));
+}
+
+function pickQuestions(questions, numQuestions) {
+	var pickedQuestions = [];
+	numQuestions = Math.min(questions.length, numQuestions);
+	
+	for (var i = 0; i < numQuestions; i ++) {
+		var j = Math.floor(Math.random() * questions.length);
+		
+		pickedQuestions.push(questions[j]);
+		questions.remove(j);
+	}
+	
+	return pickedQuestions;
+}
+
+function shuffleAnswers(questions) {
+	console.log(JSON.stringify(questions));
 }
