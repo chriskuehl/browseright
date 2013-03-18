@@ -112,3 +112,32 @@ $SCREEN .paneHolder .rightPane ul.nav li.current div {
 $SCREEN .paneHolder .rightPane ul.nav li.completed div {
     background-image: url("$ASSETS/check.png");
 }
+
+$SCREEN .question .title {
+	font-family: $BOLD;
+	margin-bottom: 10px;
+}
+
+$SCREEN .question .answer {
+	display: block;
+	padding: 26px;
+	padding-left: 88px;
+	
+	background-image: url("$ASSETS/uncheck.png");
+	background-position: 18px 20px;
+	background-repeat: no-repeat;
+}
+
+$SCREEN .question .answer.selected {
+	background-image: url("$ASSETS/check.png") !important;
+	background-color: #E6FDC4 !important;
+	
+}
+
+$SCREEN .question .answer.odd {
+	background-color: #F8F8F8;
+}
+
+$SCREEN .question {
+	margin-bottom: 40px;
+}

@@ -131,9 +131,19 @@ function loadItem(id) {
 					var displayAnswer = question.displayAnswers[j];
 					var a = $("<a />");
 					a.addClass("answer");
+					
+					if ((j % 2) == 1) {
+						a.addClass("odd");
+					}
+					
 					a.text(displayAnswer[0] + " (correct=" + displayAnswer[1] + ")");
 					a.data("isCorrect", displayAnswer[1]);
 					a.appendTo(c);
+					
+					a.click(function() {
+						$(this).parent().find("a").removeClass("selected");
+						$(this).addClass("selected");
+					});
 				}
 			}
 		}
