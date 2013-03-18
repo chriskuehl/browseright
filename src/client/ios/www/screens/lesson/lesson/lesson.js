@@ -112,6 +112,7 @@ function loadItem(id) {
 			p.appendTo(content);
 			
 			var questions = shuffleQuestions(item.questions, item.questionsToShow);
+			console.log(JSON.stringify(questions));
 		}
 	});
 }
@@ -136,5 +137,17 @@ function pickQuestions(questions, numQuestions) {
 }
 
 function shuffleAnswers(questions) {
-	console.log(JSON.stringify(questions));
+	for (var i = 0; i < questions.length; i ++) {
+		var question = questions[i];
+		question.displayAnswers = [];
+		question.displayAnswers.push([question.correctAnswer, true]);
+		
+		for (var j = 0; j < question.incorrectAnswers.length; j ++) {
+			question.displayAnswers.push([question.incorrectAnswers[j], false]);
+		}
+		
+		question.displayAnswers.shuffle();
+	}
+	
+	return questions;
 }
