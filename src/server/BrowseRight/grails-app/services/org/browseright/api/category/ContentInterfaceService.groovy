@@ -109,10 +109,9 @@ class ContentInterfaceService {
         }
         
         def quizAttempt = new QuizAttempt(quiz: quiz, student: user, quizType: (quizType == "QUIZ" ? QuizAttempt.QUIZ : QuizAttempt.REVIEW))
+        def questions = contentService.parseJSON(params.questions)
         
-        println params.questions
-        
-        params.questions.each { question ->
+        questions.each { question ->
 	   def questionAttempt = new QuestionAttempt()
 	   
 	   // add selected answer
