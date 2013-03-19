@@ -108,6 +108,6 @@ class ContentService {
     }
     
     def parseJSONString(str) {
-        jsonSlurper.parse(str)
+        jsonSlurper.parseText(str)
     }
 }
