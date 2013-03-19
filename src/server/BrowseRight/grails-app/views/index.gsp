@@ -110,6 +110,7 @@ p {
         <g:set var="a" value="${[
     [category: "student", item: "create", action: "", params: [firstName: "John", lastName: "Student", email: "student@wchs.browseright.org", password: "student"]],
     [category: "student", item: "login", action: "", params: [email: "student.test@browseright.org", password: "student"]],
+    [category: "student", item: "updateProgress", action: "", params: [token: ("0" * 255)]],
     [category: "teacher", item: "create", action: "", params: [firstName: "John", lastName: "Teacher", email: "teacher@wchs.browseright.org", password: "teacher"]],
     [category: "teacher", item: "login", action: "", params: [email: "teacher.test@browseright.org", password: "teacher"]],
     [category: "school", item: "_create", action: "", params: [token: ("1" * 255), name: "Woodford County High School", street: "180 Frankfort Street", city: "Versailles", zipCode: "40383", helpEmail: "help@wchs.browseright.org"]],
