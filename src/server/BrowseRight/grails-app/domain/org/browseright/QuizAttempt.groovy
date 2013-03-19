@@ -29,6 +29,10 @@ class QuizAttempt {
     }
     
     double getPercentCorrect() {
+        if (questions == null || questions.size() <= 0) {
+	   return 0 // infinity
+        }
+        
         ((double) getNumberCorrect()) / ((double) questions.size())
     }
 }
