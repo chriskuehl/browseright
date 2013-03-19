@@ -2,21 +2,26 @@ package org.browseright
 
 class ProgressCache {
     static constraints = {
-		bestScores(nullable: false)
+		quizzes(nullable: false)
     }
 	static belongsTo = [student: Student]
+	static hasMany = [quizzes: QuizScore]
 	
-	Map bestScores
+	Map quizzes = [:]
 	
 	def recalculateProgress() {
-		bestScores = [:]
-		
 		Quiz.findAll().each { quiz ->
 			def uid = quiz.getFullUID()
 			def bestScore = calculateBestScore(quiz)
-			def passed = (bestScore >= student.school.quizPassThreshold)
 			
-			println "Best attempt (\"$uid\" (${quiz.id})): score=$bestScore passed=$passed"
+			if (bestScore != null) {
+				def passed = (bestScore >= student.school.quizPassThreshold)
+				quizzes[uid] = new QuizScore(score: bestScore, passed: passed, cache: this)
+				
+				println "Best attempt (\"$uid\" (${quiz.id})): score=$bestScore passed=$passed"
+			} else {
+				println "No attempt found for \"$uid\" (${quiz.id})"
+			}
 		}
 	}
 	
