@@ -280,21 +280,20 @@ h1, h2, h3, h4, h5, h6 {
 	left: 50%;
 	
 	padding: 40px;
-	background-color: rgba(255, 255, 255, 0.95);
-	border-radius: 20px;
-	
-	box-shadow: 0px 5px 30px 10px rgba(0, 0, 0, 0.2);
+	background-image: url("assets/loadingImage.png");
+	background-repeat: no-repeat;
 	
 	width: 400px;
-	height: 180px;
+	height: 468px;
 	
-	margin-top: -90px;
+	margin-top: -230px;
 	margin-left: -200px;
 }
 
 #loadingWindow p {
+	margin-top: 80px;
 	text-align: center;
 	font-size: 38px;
 	font-family: "HelveticaNeue-Medium";
-	color: rgba(0, 0, 0, 0.8);
+	color: white;
 }
