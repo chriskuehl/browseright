@@ -135,6 +135,16 @@ class ContentInterfaceService {
 			quizAttempt.save()
 	   
 			response.quizScore = quizAttempt.getPercentCorrect()
+			
+			// did they pass?
+			def threshold = user.school.quizPassThreshold
+			
+			if (quizType == "REVIEW") {
+				threshold = user.school.reviewPassThreshold
+			}
+			
+			response.threshold = threshold
+			response.passed = (response.quizScore >= threshold)
         } else {
 			if (! params.id) {
 				response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
