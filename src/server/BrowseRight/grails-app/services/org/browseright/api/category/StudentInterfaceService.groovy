@@ -59,4 +59,22 @@ class StudentInterfaceService {
 	
 		response.token = token
     }
+	
+	def updateProgress = { response, action, params, user, request ->
+		def cache = user.progressCache
+		
+		if (user.progressCache == null) {
+			println "creating"
+			cache = new ProgressCache(student: user)
+		}
+		
+		cache.recalculateProgress()
+		
+
+		if (! cache.validate()) {
+			println cache.errors.allErrors
+		}
+
+		user.save()
+	}
 }
