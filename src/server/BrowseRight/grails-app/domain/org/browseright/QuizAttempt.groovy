@@ -5,16 +5,17 @@ class QuizAttempt {
     final static int REVIEW = 1
     
     static constraints = {
-	
+		
     }
     
-    static transients = ["numberCorrect", "percentCorrect"]
+    static transients = ["numberCorrect"]
     static belongsTo = [student: Student]
     static hasMany = [questions: QuestionAttempt]
     
     Quiz quiz
     Student student
     int quizType
+	double percentCorrect
     
     int getNumberCorrect() {
 		int correct = 0
@@ -28,11 +29,11 @@ class QuizAttempt {
 		correct
     }
     
-    double getPercentCorrect() {
+    double calculatePercentCorrect() {
         if (questions == null || questions.size() <= 0) {
 			return 0 // infinity
         }
         
-        ((double) getNumberCorrect()) / ((double) questions.size())
+        percentCorrect = ((double) getNumberCorrect()) / ((double) questions.size())
     }
 }
