@@ -5,7 +5,7 @@ $SCREEN .description {
     padding-bottom: 50px;
     padding-left: 60px;
     padding-right: 60px;
-    height: 320px;
+    height: 340px;
     
     position: relative;
     
@@ -54,6 +54,7 @@ $SCREEN .totalLabel {
 	font-size: 40px;
 	color: white;
 	font-family: $BOLD;
+	text-align: center;
 }
 
 .signout {
@@ -67,7 +68,7 @@ $SCREEN .totalLabel {
 $SCREEN .category {
 	display: block;
 	float: left;
-	margin-top: 60px;
+	margin-top: 40px;
 	margin-left: 60px;
 	width: 602px;
 	height: 720px;
