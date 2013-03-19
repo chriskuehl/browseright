@@ -11,12 +11,12 @@ class ContentInterfaceService {
         
         // groovy.lang.Category exists therefore use full name for our Category
         org.browseright.Category.findAll().each { category ->
-	   categories.add([
-		  uid: category.uid,
-		  title: category.title,
-		  shortDescription: category.shortDescription,
-		  longDescription: category.longDescription
-	       ])
+			categories.add([
+					uid: category.uid,
+					title: category.title,
+					shortDescription: category.shortDescription,
+					longDescription: category.longDescription
+				])
         }
         
         response.categories = categories
@@ -24,41 +24,41 @@ class ContentInterfaceService {
     
     def _category = { response, action, params, user, request ->
         if (! params.uid) {
-	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	   response.error = "SPECIFY_UID"
-	   return
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "SPECIFY_UID"
+			return
         }
 		
         def category = Category.findByUid(params.uid)
         
         if (category == null) {
-	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	   response.error = "NO_CATEGORY_EXISTS"
-	   return
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "NO_CATEGORY_EXISTS"
+			return
         }
         
         def sections = []
         
         category.sections.each { section ->
-	   def sectionData = [
-	       uid: section.uid,
-	       title: section.title,
-	       description: section.description,
-	       items: []
-	   ]
+			def sectionData = [
+				uid: section.uid,
+				title: section.title,
+				description: section.description,
+				items: []
+			]
 			
-	   section.items.each { item ->
-	       def isQuiz = (item instanceof Quiz)
-	       def itemData = [
-		  id: item.id,
-		  type: isQuiz ? "QUIZ" : "ARTICLE",
-		  title: item.title
-	       ]
+			section.items.each { item ->
+				def isQuiz = (item instanceof Quiz)
+				def itemData = [
+					id: item.id,
+					type: isQuiz ? "QUIZ" : "ARTICLE",
+					title: item.title
+				]
 				
-	       sectionData.items.add(itemData)
-	   }
+				sectionData.items.add(itemData)
+			}
 			
-	   sections.add(sectionData)
+			sections.add(sectionData)
         }
 		
         response.sections = sections
@@ -66,33 +66,33 @@ class ContentInterfaceService {
 	
     def _item = { response, action, params, user, request ->
         if (! params.id) {
-	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	   response.error = "SPECIFY_ID"
-	   return
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "SPECIFY_ID"
+			return
         }
 		
         def item = SectionItem.findById(params.id)
         def isQuiz = (item instanceof Quiz)
 		
         def itemInfo = [
-	   id: item.id,
-	   type: isQuiz ? "QUIZ" : "ARTICLE",
-	   title: item.title
+			id: item.id,
+			type: isQuiz ? "QUIZ" : "ARTICLE",
+			title: item.title
         ]
 		
         if (isQuiz) {
-	   itemInfo.questionsToShow = item.questionsToShow
-	   itemInfo.questions = []
+			itemInfo.questionsToShow = item.questionsToShow
+			itemInfo.questions = []
 			
-	   item.questions.each { question ->
-	       itemInfo.questions.add([
-		      text: question.text,
-		      correctAnswer: question.correctAnswer,
-		      incorrectAnswers: question.incorrectAnswers
-		  ])
-	   }
+			item.questions.each { question ->
+				itemInfo.questions.add([
+						text: question.text,
+						correctAnswer: question.correctAnswer,
+						incorrectAnswers: question.incorrectAnswers
+					])
+			}
         } else {
-	   itemInfo.text = item.text
+			itemInfo.text = item.text
         }
 		
         response.item = itemInfo
@@ -105,47 +105,42 @@ class ContentInterfaceService {
         def quiz = Quiz.findById(quizID)
         
         if (quiz == null) {
-	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	   response.error = "BAD_QUIZ_ID"
-	   return
+			response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+			response.error = "BAD_QUIZ_ID"
+			return
         }
         
         def quizAttempt = new QuizAttempt(quiz: quiz, student: user, quizType: (quizType == "QUIZ" ? QuizAttempt.QUIZ : QuizAttempt.REVIEW))
         def questions = contentService.parseJSONString(params.questions)
         
         questions.each { question ->
-	   def questionAttempt = new QuestionAttempt()
+			def questionAttempt = new QuestionAttempt()
 	   
-	   println "q="
-	   println question
+			// add selected answer
+			def ansswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
+			ansswer.save()
+			questionAttempt.selectedAnswer = ansswer
 	   
-	   // add selected answer
-	   def ansswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
-	   questionAttempt.selectedAnswer = ansswer
+			// add not-selected answers
+			question.notSelectedAnswers.each { nonSelectedAnswer ->
+				def answer = new QuestionAttemptAnswer(text: nonSelectedAnswer.text, correct: nonSelectedAnswer.correct)
+				answer.save()
+				questionAttempt.addToNotSelectedAnswers(answer)
+			}
 	   
-	   println "valid? " + ansswer.validate()
-	   println "errors: " + ansswer.errors.allErrors
-	   
-	   // add not-selected answers
-	   question.notSelectedAnswers.each { nonSelectedAnswer ->
-	       def answer = new QuestionAttemptAnswer(text: nonSelectedAnswer.text, correct: nonSelectedAnswer.correct)
-	       questionAttempt.addToNotSelectedAnswers(answer)
-	   }
-	   
-	   quizAttempt.addToQuestions(questionAttempt)
+			quizAttempt.addToQuestions(questionAttempt)
         }
         
         if (quizAttempt.validate()) {
-	   quizAttempt.save()
+			quizAttempt.save()
 	   
-	   response.quizScore = quizAttempt.getPercentCorrect()
-	   println response.quizScore
+			response.quizScore = quizAttempt.getPercentCorrect()
         } else {
-	   if (! params.id) {
-	       response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
-	       response.error = "UNKNOWN_ERROR"
-	       return
-	   }
+			if (! params.id) {
+				response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+				response.error = "UNKNOWN_ERROR"
+				return
+			}
         }
     }
 }
