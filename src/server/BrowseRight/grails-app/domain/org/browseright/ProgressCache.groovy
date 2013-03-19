@@ -2,7 +2,7 @@ package org.browseright
 
 class ProgressCache {
     static constraints = {
-		quizzes(nullable: false)
+		quizzes(nullable: false, cascade: "all")
     }
 	static belongsTo = [student: Student]
 	static hasMany = [quizzes: QuizScore]
