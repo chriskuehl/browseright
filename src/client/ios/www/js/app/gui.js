@@ -553,6 +553,7 @@ function registerScrollContainers(containers) {
 function updateScrollContainers(containers) {
 	containers.each(function() {
 		$(this).data("scroll").refresh();
+		$(this).data("scroll").scrollTo(0, 0, 0);
 	});
 }
 
