@@ -27,4 +27,8 @@ class QuizAttempt {
 	
 	correct
     }
+    
+    double getPercentCorrect() {
+        ((double) getNumberCorrect()) / ((double) questions.size())
+    }
 }
