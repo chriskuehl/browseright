@@ -11,25 +11,25 @@ class JSObjectAPIController {
         def item = params.apiItem
         def action = params.apiAction
 		
+		// handle the request
+        def response = appInterfaceService.generateResponse(request, category, item, action, params)
+		
+        if (params.xml) {
+            render response as XML
+        } else {
+            render response as JSON
+        }
+		
 		// log the API request
-		def str = "[" + (new Date()).toString() + "]: \""
+		def str = "[" + (new Date()).toString() + " \""
         str += category + "/" + item
 		
 		if (action) {
 			str += "/" + action
 		}
 		
-		str += "\" " + request.getRemoteAddr()
+		str += "\" " + response.apiCode + "]: " + request.getRemoteAddr()
 		
 		println str
-		
-		// handle the request
-        def response = appInterfaceService.generateResponse(request, category, item, action, params)
-        
-        if (params.xml) {
-            render response as XML
-        } else {
-            render response as JSON
-        }
     }
 }
