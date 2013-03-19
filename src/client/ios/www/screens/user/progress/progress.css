@@ -5,7 +5,7 @@ $SCREEN .description {
     padding-bottom: 50px;
     padding-left: 60px;
     padding-right: 60px;
-    height: 300px;
+    height: 320px;
     
     position: relative;
     
@@ -41,6 +41,18 @@ $SCREEN .description .percent {
 	
 	font-size: 160px;
 	color: #8ED726;
+	font-family: $BOLD;
+}
+
+$SCREEN .totalLabel {
+	display: block;
+	position: absolute;
+	right: 80px;
+	top: 220px;
+	width: 300px;
+	
+	font-size: 40px;
+	color: white;
 	font-family: $BOLD;
 }
 
