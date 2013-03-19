@@ -199,7 +199,8 @@ function loadItem(id) {
 								});
 							} else {
 								dialog("Quiz Failed!", "Uh oh! You failed with a score of " + Math.floor(data.quizScore * 100) + "% (you need " + Math.floor(data.threshold * 100) + "% to pass).", ["Try Again"], function() {
-									alert("t");
+									// start a new attempt
+									loadItem(id);
 								});
 							}
 						});
