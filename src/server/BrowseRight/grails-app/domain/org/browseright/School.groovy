@@ -5,10 +5,10 @@ class School {
     def geolocationService
     
     static constraints = {
-	registerCode(unique: true)
-	helpEmail(email: true)
-	announcementText(maxSize: 8192)
-	helpText(maxSize: 8192)
+		registerCode(unique: true)
+		helpEmail(email: true)
+		announcementText(maxSize: 8192)
+		helpText(maxSize: 8192)
     }
     
     static transients = ["schoolService", "geolocationService"]
