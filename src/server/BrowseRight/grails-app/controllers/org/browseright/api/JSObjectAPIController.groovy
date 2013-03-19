@@ -11,6 +11,7 @@ class JSObjectAPIController {
         def item = params.apiItem
         def action = params.apiAction
 		
+		// log the API request
 		def str = "[" + (new Date()).toString() + "]: \""
         str += category + "/" + item
 		
@@ -22,6 +23,7 @@ class JSObjectAPIController {
 		
 		println str
 		
+		// handle the request
         def response = appInterfaceService.generateResponse(request, category, item, action, params)
         
         if (params.xml) {
