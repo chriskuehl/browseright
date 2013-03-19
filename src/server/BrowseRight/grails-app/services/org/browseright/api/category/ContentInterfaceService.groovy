@@ -117,7 +117,11 @@ class ContentInterfaceService {
 	   def questionAttempt = new QuestionAttempt()
 	   
 	   // add selected answer
-	   questionAttempt.selectedAnswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
+	   def ansswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
+	   questionAttempt.selectedAnswer = ansswer
+	   
+	   println "valid? " + ansswer.validate()
+	   println "errors: " + ansswer.errors.allErrors
 	   
 	   // add not-selected answers
 	   question.notSelectedAnswers.each { nonSelectedAnswer ->
