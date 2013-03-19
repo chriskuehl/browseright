@@ -61,13 +61,14 @@ class StudentInterfaceService {
     }
 	
 	def updateProgress = { response, action, params, user, request ->
-		def cache = user.progressCache
-		
-		if (user.progressCache == null) {
-			cache = new ProgressCache(student: user)
+		if (user.progressCache != null) {
+			user.progressCache.delete()
 		}
 		
+		def cache = new ProgressCache(student: user)
 		cache.recalculateProgress()
+		
+		user.progressCache = cache
 		user.save()
 	}
 }
