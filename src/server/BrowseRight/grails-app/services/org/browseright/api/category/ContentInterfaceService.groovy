@@ -116,6 +116,9 @@ class ContentInterfaceService {
         questions.each { question ->
 	   def questionAttempt = new QuestionAttempt()
 	   
+	   println "q="
+	   println question
+	   
 	   // add selected answer
 	   def ansswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
 	   questionAttempt.selectedAnswer = ansswer

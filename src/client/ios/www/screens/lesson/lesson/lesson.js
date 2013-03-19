@@ -181,6 +181,8 @@ function loadItem(id) {
 										text: $(this).text(),
 										correct: $(this).data("isCorrect")
 									};
+									
+									console.log("selected: " + JSON.stringify(q.selectedAnswer));
 								} else {
 									q.notSelectedAnswers.push({
 										text: $(this).text(),
