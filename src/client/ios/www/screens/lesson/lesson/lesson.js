@@ -181,8 +181,6 @@ function loadItem(id) {
 										text: $(this).text(),
 										correct: $(this).data("isCorrect")
 									};
-									
-									console.log("selected: " + JSON.stringify(q.selectedAnswer));
 								} else {
 									q.notSelectedAnswers.push({
 										text: $(this).text(),
@@ -195,7 +193,15 @@ function loadItem(id) {
 						});
 						
 						apiWithLoading("Grading quiz...", "content/gradeQuiz", {quizID: id, quizType: "QUIZ", questions: JSON.stringify(questions)}, [RESP_OK], function(code, data) {
-							console.log("OK: " + JSON.stringify(data));
+							if (data.passed) {
+								dialog("Quiz Passed!", "Congratulations! You passed with a score of " + Math.floor(data.quizScore * 100) + "%!", ["Great!"], function() {
+									alert("ok");
+								});
+							} else {
+								dialog("Quiz Failed!", "Uh oh! You failed with a score of " + Math.floor(data.quizScore * 100) + "% (you need " + Math.floor(data.threshold * 100) + "% to pass).", ["Try Again"], function() {
+									alert("t");
+								});
+							}
 						});
 					}
 				});
