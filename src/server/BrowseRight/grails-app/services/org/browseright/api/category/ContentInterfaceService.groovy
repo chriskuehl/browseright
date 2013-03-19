@@ -100,7 +100,7 @@ class ContentInterfaceService {
         def quizID = params.quizID
         def quizType = params.quizType
         
-        def quiz = Quiz.findByid(quizID)
+        def quiz = Quiz.findById(quizID)
         
         if (quiz == null) {
 	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
