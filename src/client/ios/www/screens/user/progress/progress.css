@@ -89,7 +89,8 @@ $SCREEN .category .title {
 	text-align: center;
 	
 	background-color: rgba(184, 252, 77, 0.12);
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.1);
+	border: 1px solid gray;
 }
 
 
