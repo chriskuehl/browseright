@@ -95,4 +95,44 @@ class ContentInterfaceService {
 		
         response.item = itemInfo
     }
+    
+    def _gradeQuiz = { response, action, params, user, request ->
+        def quizID = params.quizID
+        def quizType = params.quizType
+        
+        def quiz = Quiz.findByid(quizID)
+        
+        if (quiz == null) {
+	   response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+	   response.error = "BAD_QUIZ_ID"
+	   return
+        }
+        
+        def quizAttempt = new QuizAttempt(quiz: quiz, student: user, quizType: (quizType == "QUIZ" ? QuizAttempt.QUIZ : QuizAttempt.REVIEW))
+        
+        params.questions.each { question ->
+	   def questionAttempt = new QuestionAttempt()
+	   
+	   // add selected answer
+	   questionAttempt.selectedAnswer = new QuestionAttemptAnswer(text: question.selectedAnswer.text, correct: question.selectedAnswer.correct)
+	   
+	   // add not-selected answers
+	   question.notSelectedAnswers.each { nonSelectedAnswer ->
+	       def answer = new QuestionAttemptAnswer(text: nonSelectedAnswer.text, correct: nonSelectedAnswer.correct)
+	       questionAttempt.addToNotSelectedAnswers(answer)
+	   }
+	   
+	   quizAttempt.addToQuestions(questionAttempt)
+        }
+        
+        if (quizAttempt.validate()) {
+	   quizAttempt.save()
+        } else {
+	   if (! params.id) {
+	       response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
+	       response.error = "UNKNOWN_ERROR"
+	       return
+	   }
+        }
+    }
 }
