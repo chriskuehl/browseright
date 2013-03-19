@@ -14,8 +14,9 @@ class ProgressCache {
 		Quiz.findAll().each { quiz ->
 			def uid = quiz.getFullUID()
 			def bestScore = calculateBestScore(quiz)
+			def passed = (bestScore >= student.school.quizPassThreshold)
 			
-			println "Best score (\"$uid\" (${quiz.id})): $bestScore"
+			println "Best attempt (\"$uid\" (${quiz.id})): score=$bestScore passed=$passed"
 		}
 	}
 	
