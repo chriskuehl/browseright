@@ -36,7 +36,7 @@ $SCREEN .description .percent {
 	display: block;
 	position: absolute;
 	right: 80px;
-	top: 50px;
+	top: 110px;
 	width: 300px;
 	
 	font-size: 160px;
@@ -48,7 +48,7 @@ $SCREEN .totalLabel {
 	display: block;
 	position: absolute;
 	right: 80px;
-	top: 220px;
+	top: 280px;
 	width: 300px;
 	
 	font-size: 40px;
