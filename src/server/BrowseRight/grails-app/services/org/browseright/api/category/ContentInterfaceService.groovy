@@ -127,6 +127,9 @@ class ContentInterfaceService {
         
         if (quizAttempt.validate()) {
 	   quizAttempt.save()
+	   
+	   response.quizScore = quizAttempt.getPercentCorrect()
+	   println response.quizScore
         } else {
 	   if (! params.id) {
 	       response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
