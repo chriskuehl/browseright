@@ -191,6 +191,10 @@ function loadItem(id) {
 							
 							questions.push(q);
 						});
+						
+						apiWithLoading("Grading quiz...", "content/gradeQuiz", {quizID: id, quizType: "QUIZ", questions: questions}, [RESP_OK], function(code, data) {
+							console.log("OK: " + JSON.stringify(data));
+						});
 					}
 				});
 			});

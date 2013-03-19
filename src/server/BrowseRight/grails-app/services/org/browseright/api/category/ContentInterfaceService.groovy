@@ -110,6 +110,8 @@ class ContentInterfaceService {
         
         def quizAttempt = new QuizAttempt(quiz: quiz, student: user, quizType: (quizType == "QUIZ" ? QuizAttempt.QUIZ : QuizAttempt.REVIEW))
         
+        println params.questions
+        
         params.questions.each { question ->
 	   def questionAttempt = new QuestionAttempt()
 	   

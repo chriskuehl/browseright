@@ -22,8 +22,8 @@ function api(command, params, acceptableResponses, callback) {
 		log("Adding user token to request because user is logged in.");
 		params.token = localStorage["userToken"];
 	}
-
-	// 
+	
+	params.temp = Math.floor(Math.random() * 10000000);
 
 	$.ajax({
 		url: (DEVELOPER ? "http://techxonline.net:6500/BrowseRight/api/" : "https://browseright.org/api/") + command,
