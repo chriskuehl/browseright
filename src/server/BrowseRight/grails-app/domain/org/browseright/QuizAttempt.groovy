@@ -12,6 +12,7 @@ class QuizAttempt {
     
     static hasMany = [questions: QuestionAttempt]
     
+    Quiz quiz
     Student student
     int quizType
     
