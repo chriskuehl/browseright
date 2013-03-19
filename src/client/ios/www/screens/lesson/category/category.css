@@ -55,11 +55,15 @@ $SCREEN .categoryHolder .category-2 {
 
 $SCREEN .categoryHolder .text {
 	display: block;
-	width: 940px;
+	width: 1340px;
 	height: 168px;
 	float: left;
 	
 	font-size: 38px;
+}
+
+$SCREEN .categoryHolder p {
+	margin-top: -20px;
 }
 
 $SCREEN .categoryHolder .text h3 {
