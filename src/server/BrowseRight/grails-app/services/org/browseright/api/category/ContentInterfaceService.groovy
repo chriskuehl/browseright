@@ -4,6 +4,8 @@ import org.browseright.*
 import org.browseright.api.*
 
 class ContentInterfaceService {
+    def contentService
+    
     def _categories = { response, action, params, user, request ->
         def categories = []
         
