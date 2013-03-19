@@ -114,7 +114,7 @@ $SCREEN .category ul.progress li.section {
 }
 
 $SCREEN .category ul.progress li {
-    background-image: url("$ASSETS/uncheck.png");
+    background-image: none;
     background-repeat: no-repeat;
     background-position: 18px 14px;
     
