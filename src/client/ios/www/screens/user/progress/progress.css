@@ -72,11 +72,16 @@ $SCREEN .category {
 	margin-left: 60px;
 	width: 602px;
 	height: 720px;
+	
+	background-color: rgba(184, 252, 77, 0.12);
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+
 }
 
 $SCREEN .category .scroll {	
-	height: 660px;
+	height: 600px;
 	overflow: auto;
+	margin-left: 20px;
 }
 
 $SCREEN .category .title {
@@ -87,9 +92,10 @@ $SCREEN .category .title {
 	font-size: 40px;
 	font-family: $BOLD;
 	text-align: center;
+	text-shadow: 0px 2px 2px #E2FFB5;
 	
-	background-color: rgba(184, 252, 77, 0.12);
-	box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.1);
+	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important;
 	border: 1px solid gray;
 }
 
@@ -97,6 +103,7 @@ $SCREEN .category .title {
 $SCREEN .category ul.progress li {
     display: block;
     width: 640px;
+    margin-left: 20px;
 }
 
 $SCREEN .category ul.progress li.section {
@@ -119,6 +126,10 @@ $SCREEN .category ul.progress li {
     font-family: $BOLD;
 }
 
-$SCREEN .category ul.progress li.completed div {
+$SCREEN .category ul.progress li.completed {
     background-image: url("$ASSETS/check.png");
+}
+
+.bold {
+	font-family: $BOLD;
 }

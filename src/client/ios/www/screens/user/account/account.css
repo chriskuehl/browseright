@@ -50,10 +50,6 @@ $SCREEN .announcement {
 	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-$SCREEN .bold {
-	font-family: $BOLD;
-}
-
 $SCREEN .content table tr {
 	display: block;
 	margin-top: 50px;
@@ -69,4 +65,8 @@ $SCREEN .content .field {
 	padding-right: 10px;
 	text-align: right !important;
 	font-family: $BOLD !important;
+}
+
+.bold {
+	font-family: $BOLD;
 }
