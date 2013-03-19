@@ -8,7 +8,7 @@ class QuizAttempt {
 	
     }
     
-    static transients = ["numberCorrect"]
+    static transients = ["numberCorrect", "percentCorrect"]
     static belongsTo = [student: Student]
     static hasMany = [questions: QuestionAttempt]
     
