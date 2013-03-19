@@ -26,7 +26,7 @@ function api(command, params, acceptableResponses, callback) {
 	params.temp = Math.floor(Math.random() * 10000000);
 
 	$.ajax({
-		url: (DEVELOPER ? "http://techxonline.net:6500/BrowseRight/api/" : "https://browseright.org/api/") + command,
+		url: (true ? "http://10.0.0.10:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
