@@ -106,4 +106,8 @@ class ContentService {
     def parseJSON(file) {
         jsonSlurper.parse(new FileReader(file))
     }
+    
+    def parseJSONString(str) {
+        jsonSlurper.parse(str)
+    }
 }

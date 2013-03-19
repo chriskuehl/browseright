@@ -111,7 +111,7 @@ class ContentInterfaceService {
         }
         
         def quizAttempt = new QuizAttempt(quiz: quiz, student: user, quizType: (quizType == "QUIZ" ? QuizAttempt.QUIZ : QuizAttempt.REVIEW))
-        def questions = contentService.parseJSON(params.questions)
+        def questions = contentService.parseJSONString(params.questions)
         
         questions.each { question ->
 	   def questionAttempt = new QuestionAttempt()
