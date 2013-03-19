@@ -1,9 +1,7 @@
 package org.browseright
 
 class QuestionAttemptAnswer {
-    static constraints = {
-	
-    }
+    static belongsTo = [question: QuestionAttempt]
     
     String text
     boolean correct

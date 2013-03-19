@@ -5,6 +5,7 @@ class QuestionAttempt {
 	
     }
     
+    static belongsTo = [quiz: QuizAttempt]
     static hasMany = [notSelectedAnswers: QuestionAttemptAnswer]
     static transients = ["correct"]
     
