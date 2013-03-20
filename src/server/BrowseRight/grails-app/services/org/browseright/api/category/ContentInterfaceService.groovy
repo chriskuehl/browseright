@@ -92,7 +92,15 @@ class ContentInterfaceService {
 					])
 			}
         } else {
+			def uid = item.getFullUID(item.id)
+			
+			itemInfo.uid = uid
 			itemInfo.text = item.text
+			
+			// mark the article as read
+			if (! user.articlesRead.contains(uid)) {
+				user.addToArticlesRead(uid)
+			}
         }
 		
         response.item = itemInfo
