@@ -138,7 +138,7 @@ function loadItem(id) {
 			d.appendTo(content);
 			
 			var q = $("<a />");
-			q.addClass("next");
+			q.addClass("button");
 			q.text("Next Lesson");
 			q.appendTo(content);
 			
