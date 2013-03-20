@@ -73,20 +73,25 @@ $SCREEN .category {
 	width: 602px;
 	height: 720px;
 	
-	background-color: rgba(184, 252, 77, 0.12);
+	background-color: #F5F5F5;
 	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
 
 }
 
 $SCREEN .category .scroll {	
-	height: 600px;
+	height: 602px;
 	overflow: auto;
 	margin-left: 20px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
 }
 
 $SCREEN .category .title {
 	width: 602px;
 	height: 64px;
+	border-bottom: 1px solid #797C76;
 	padding-top: 24px;
 	
 	font-size: 40px;
@@ -94,15 +99,16 @@ $SCREEN .category .title {
 	text-align: center;
 	text-shadow: 0px 2px 2px #E2FFB5;
 	
-	background: -webkit-linear-gradient(top,  #9CDD56, #82D11C) !important; /* Chrome10+,Safari5.1+ */
-	background: linear-gradient(to bottom,  #9CDD56, #82D11C) !important;
-	border: 1px solid gray;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	background: -webkit-linear-gradient(top,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  rgba(245, 245, 245, 0.75) 0%,rgba(206, 206, 206, 0.75) 100%); /* W3C */
 }
 
 
 $SCREEN .category ul.progress li {
     display: block;
-    width: 640px;
+    width: 600px;
     margin-left: 20px;
 }
 
