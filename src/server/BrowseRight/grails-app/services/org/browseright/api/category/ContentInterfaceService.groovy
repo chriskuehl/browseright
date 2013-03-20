@@ -166,6 +166,8 @@ class ContentInterfaceService {
 			
 			response.threshold = threshold
 			response.passed = (response.quizScore >= threshold)
+			
+			user.updateProgress()
         } else {
 			if (! params.id) {
 				response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS
