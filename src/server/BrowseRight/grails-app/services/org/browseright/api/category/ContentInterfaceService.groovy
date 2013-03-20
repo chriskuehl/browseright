@@ -48,11 +48,23 @@ class ContentInterfaceService {
 			]
 			
 			section.items.each { item ->
+				def uid = item.getFullUID(item.id)
 				def isQuiz = (item instanceof Quiz)
+				
+				def completed
+				
+				if (isQuiz) {
+					completed = user.hasCompletedQuiz(uid)
+				} else {
+					completed = user.articlesRead.contains(uid)
+				}
+				
 				def itemData = [
 					id: item.id,
 					type: isQuiz ? "QUIZ" : "ARTICLE",
-					title: item.title
+					title: item.title,
+					uid: uid,
+					completed: completed
 				]
 				
 				sectionData.items.add(itemData)
@@ -80,6 +92,9 @@ class ContentInterfaceService {
 			title: item.title
         ]
 		
+		def uid = item.getFullUID(item.id)
+		itemInfo.uid = uid
+		
         if (isQuiz) {
 			itemInfo.questionsToShow = item.questionsToShow
 			itemInfo.questions = []
@@ -93,6 +108,11 @@ class ContentInterfaceService {
 			}
         } else {
 			itemInfo.text = item.text
+			
+			// mark the article as read
+			if (! user.articlesRead.contains(uid)) {
+				user.addToArticlesRead(uid)
+			}
         }
 		
         response.item = itemInfo
@@ -146,6 +166,8 @@ class ContentInterfaceService {
 			
 			response.threshold = threshold
 			response.passed = (response.quizScore >= threshold)
+			
+			user.updateProgress()
         } else {
 			if (! params.id) {
 				response.apiCode = AppInterface.codes.MISSING_BAD_PARAMS

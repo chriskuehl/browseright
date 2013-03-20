@@ -4,8 +4,7 @@ class Student extends User {
     static constraints = {
 		progressCache (nullable: true)
     }
-    
-    static hasMany = [quizAttempts: QuizAttempt]
+    static hasMany = [quizAttempts: QuizAttempt, articlesRead: String]
     
     ProgressCache progressCache
     
@@ -16,11 +15,21 @@ class Student extends User {
 	def updateProgress() {
 		if (progressCache != null) {
 			progressCache.delete()
+			save()
 		}
 		
 		def cache = new ProgressCache(student: this)
 		cache.recalculateProgress()
 		
 		progressCache = cache
+		save()
+	}
+	
+	def hasCompletedQuiz(quiz) {
+		if (! progressCache) {
+			return false
+		}
+		
+		return progressCache.hasCompletedQuiz(quiz)
 	}
 }

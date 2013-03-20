@@ -37,4 +37,12 @@ class ProgressCache {
 			return attempts[0].percentCorrect
 		}
 	}
+	
+	def hasCompletedQuiz(quiz) {
+		if (! quizzes[quiz]) {
+			return false
+		}
+		
+		return quizzes[quiz].passed
+	}
 }

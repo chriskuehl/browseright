@@ -10,9 +10,9 @@ abstract class User {
     static constraints = {
         firstName(size: 1..255, nullable: false, blank: false)
         lastName(size: 1..255, nullable: false, blank: false)
-	email(email: true, unique: true, blank: false)
-	school(nullable: true)
-	lastPasswordChangeTime(nullable: true)
+		email(email: true, unique: true, blank: false)
+		school(nullable: true)
+		lastPasswordChangeTime(nullable: true)
     }
     
     static transients = ["hashingService"]
@@ -39,44 +39,44 @@ abstract class User {
     School school
     
     def setPassword(def password) {
-	passwordHash = hashingService.hash(password)
+		passwordHash = hashingService.hash(password)
     }
     
     def passwordMatches(def password) {
-	hashingService.matches(passwordHash, password)
+		hashingService.matches(passwordHash, password)
     }
     
     // this creates a new session
     def getSessionToken(request) {
-	def session = new UserSession()
-	session.setLastSeen(request)
-	addToSessions(session)
+		def session = new UserSession()
+		session.setLastSeen(request)
+		addToSessions(session)
 	
-	session.generateNewToken()
+		session.generateNewToken()
     }
     
     def setLastSeen(request) {
-	if (request != null) {
-	    lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
-	    lastSeenUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
-	} else {
-	    lastSeenIP = "none"
-	    lastSeenUserAgent = "none"
-	}
+		if (request != null) {
+			lastSeenIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
+			lastSeenUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+		} else {
+			lastSeenIP = "none"
+			lastSeenUserAgent = "none"
+		}
 	
-	lastSeenTime = new Date()
+		lastSeenTime = new Date()
     }
     
     def setRegistration(request) {
-	if (request != null) {
-	    registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
-	    registerUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
-	} else {
-	    registerIP = "none"
-	    registerUserAgent = "none"
-	}
+		if (request != null) {
+			registerIP = request.getHeader("X-Forwarded-For") ? request.getHeader("X-Forwarded-For") : request.getRemoteAddr()
+			registerUserAgent = request.getHeader("User-Agent") ? request.getHeader("User-Agent") : "none"
+		} else {
+			registerIP = "none"
+			registerUserAgent = "none"
+		}
 	
-	registerTime = new Date()
+		registerTime = new Date()
     }
     
     // student will override this
