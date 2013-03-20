@@ -25,49 +25,55 @@ function applyInterfaceTweaks() {
 	});
 }
 
-// TODO: clean up this function
+var tabBarItems = {
+	lessons: {
+		text: "Lessons",
+		image: "/www/css/assets/tabbar/lessons.png",
+		screen: "lesson/category"
+	},
+	
+	progress: {
+		text: "Progress",
+		image: "/www/css/assets/tabbar/progress.png",
+		screen: "user/progress"
+	},
+	
+	account: {
+		text: "Account",
+		image: "/www/css/assets/tabbar/account.png",
+		screen: "user/account"
+	}
+};
+
+function checkTabBarForScreen(screen) {
+	for (var id in tabBarItems) {
+		var tabBarItem = tabBarItems[id];
+		
+		if (tabBarItem.screen == screen) {
+			plugins.tabBar.selectItem(id);
+		}
+	}
+}
 
 function initTabBar() {
 	plugins.tabBar.init();
 	plugins.tabBar.create();
 
-	plugins.tabBar.createItem("lessons", "Lessons", "/www/css/assets/tabbar/lessons.png", {
-		onSelect: function() {
-			setScreen("lesson/category", true);
-		}
-	});
-
-	plugins.tabBar.createItem("progress", "Progress", "/www/css/assets/tabbar/progress.png", {
-		onSelect: function() {
-			setScreen("user/progress", true);
-		}
-	});
-
-	plugins.tabBar.createItem("account", "Account", "/www/css/assets/tabbar/account.png", {
-		onSelect: function() {
-			setScreen("user/account", true);
-		}
-	});
-
-	plugins.tabBar.createItem("portal", "Portal", "/www/css/assets/tabbar/portal.png", {
-		onSelect: function() {
-			setScreen("user/portal", true);
-		}
-	});
-
-	plugins.tabBar.createItem("console", "Console", "/www/css/assets/tabbar/console.png", {
-		onSelect: function() {
-			setScreen("dev/console", true);
-		}
-	});
-
 	gui.showingTabBar = false;
-
-	if (DEVELOPER) {
-		plugins.tabBar.showItems("portal", "lessons", "progress", "account", "console");
-	} else {
-		plugins.tabBar.showItems("lessons", "progress", "account");
+	var allItems = [];
+	
+	for (var id in tabBarItems) {
+		var tabBarItem = tabBarItems[id];
+		allItems.push(id);
+		
+		plugins.tabBar.createItem(id, tabBarItem.text, tabBarItem.image, {
+			onSelect: function(id) {
+				setScreen(tabBarItems[id].screen, true);
+			}
+		});
 	}
+	
+	plugins.tabBar["showItems"].apply(this, allItems);
 }
 
 function initScreenHolder() {
@@ -84,6 +90,10 @@ function resetScreen() {
 }
 
 function setScreen(screenPath, dontSlide) {
+	if (gui.currentScreen && gui.currentScreen.data.data.id == screenPath) {
+		return;
+	}
+	
 	if (!dontSlide) {
 		dontSlide = false;
 	}
@@ -175,6 +185,7 @@ function checkScreenLoaded(screenPath, dontSlide) {
 }
 
 function setScreenWithDataLoaded(screenPath, dontSlide) {
+	checkTabBarForScreen(screenPath);
 	var screenName = getScreenNameFromPath(screenPath);
 
 	log("Finally changing screen for: " + screenPath);
