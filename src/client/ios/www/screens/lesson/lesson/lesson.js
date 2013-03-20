@@ -107,10 +107,14 @@ function loadItem(id) {
 			d.html(markdown(item.text));
 			d.appendTo(content);
 			
-			var e = $("<a />");
-			e.addClass("next");
-			e.text("Next Lesson");
-			e.appendTo(content);
+			var q = $("<a />");
+			q.addClass("next");
+			q.text("Next Lesson");
+			q.appendTo(content);
+			
+			q.click(function() {
+				loadItem((id+1));
+			});
 			
 		} else if (item.type == "QUIZ") {
 			h2.addClass("quizTitle");

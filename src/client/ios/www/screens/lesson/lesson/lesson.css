@@ -153,8 +153,7 @@ $SCREEN a.button {
 }
 
 $SCREEN .next {
-	display: block;
-	margin-left: auto;
+	display: inline-block;
 	padding: 25px;
 	text-align: center;
 	
