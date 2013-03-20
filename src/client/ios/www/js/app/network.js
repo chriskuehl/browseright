@@ -19,6 +19,7 @@ function api(command, params, acceptableResponses, callback) {
 	log("Making API request for \"" + command + "\".");
 	
 	// TODO: remove this
+	/*
 	var str = "";
 	
 	for (var i = 0; i < 255; i ++) str += "0";
@@ -28,12 +29,12 @@ function api(command, params, acceptableResponses, callback) {
 	if (localStorage["userToken"]) {
 		log("Adding user token to request because user is logged in.");
 		params.token = localStorage["userToken"];
-	}
+	} */
 	
 	params.temp = Math.floor(Math.random() * 10000000);
 
 	$.ajax({
-		url: (true ? "http://10.0.0.10:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
+		url: (false ? "http://10.0.0.10:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
