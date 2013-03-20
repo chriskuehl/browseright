@@ -1,5 +1,6 @@
 gui.screens["user/portal"].data = {
 	id: "user/portal",
+	hideTabBar: true,
 	navBars: [{
 		title: "Welcome"
 	}],
