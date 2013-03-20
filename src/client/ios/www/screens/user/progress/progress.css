@@ -5,7 +5,7 @@ $SCREEN .description {
     padding-bottom: 50px;
     padding-left: 60px;
     padding-right: 60px;
-    height: 340px;
+    height: 300px;
     
     position: relative;
     
@@ -28,7 +28,7 @@ $SCREEN .description .button {
 
 $SCREEN .description p {
 	display: block;
-	width: 1400px;
+	width: 1580px;
 	float: left;
 }
 
@@ -36,7 +36,7 @@ $SCREEN .description .percent {
 	display: block;
 	position: absolute;
 	right: 80px;
-	top: 110px;
+	top: 90px;
 	width: 300px;
 	
 	font-size: 160px;
@@ -48,7 +48,7 @@ $SCREEN .totalLabel {
 	display: block;
 	position: absolute;
 	right: 80px;
-	top: 280px;
+	top: 260px;
 	width: 300px;
 	
 	font-size: 40px;
@@ -68,7 +68,7 @@ $SCREEN .totalLabel {
 $SCREEN .category {
 	display: block;
 	float: left;
-	margin-top: 40px;
+	margin-top: 60px;
 	margin-left: 60px;
 	width: 602px;
 	height: 720px;
