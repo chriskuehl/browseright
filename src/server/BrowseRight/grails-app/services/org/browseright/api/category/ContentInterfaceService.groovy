@@ -48,7 +48,7 @@ class ContentInterfaceService {
 			]
 			
 			section.items.each { item ->
-				def uid = item.getFullUID(item.id)
+				def uid = item.getFullUID(item.section, item.id)
 				def isQuiz = (item instanceof Quiz)
 				
 				def completed
@@ -92,7 +92,7 @@ class ContentInterfaceService {
 			title: item.title
         ]
 		
-		def uid = item.getFullUID(item.id)
+		def uid = item.getFullUID(item.section, item.id)
 		itemInfo.uid = uid
 		
         if (isQuiz) {

@@ -10,7 +10,7 @@ abstract class SectionItem {
     String title
 	int ordering
 	
-	def getFullUID(idd) {
-		section.category.uid + "/" + section.uid + "/" + (idd ? idd : id)
+	def getFullUID(sectionn, idd) {
+		(sectionn ? sectionn : section).category.uid + "/" + (sectionn ? sectionn : section).uid + "/" + (idd ? idd : id)
 	}
 }
