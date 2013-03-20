@@ -6,10 +6,7 @@ function startApp() {
 		
 		loadStudentData(function(success) {
 			if (success) {
-				// temp:
-				currentCategory = "reputation";
-				currentCategoryTitle = "Your Online Reputation";
-				setScreen("lesson/lesson");
+				setScreen("lesson/category");
 			}
 		});
 	} else {
