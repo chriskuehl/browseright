@@ -12,4 +12,15 @@ class Student extends User {
     def isStudent() {
         true
     }
+	
+	def updateProgress() {
+		if (progressCache != null) {
+			progressCache.delete()
+		}
+		
+		def cache = new ProgressCache(student: this)
+		cache.recalculateProgress()
+		
+		progressCache = cache
+	}
 }
