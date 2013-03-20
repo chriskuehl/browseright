@@ -15,12 +15,14 @@ class Student extends User {
 	def updateProgress() {
 		if (progressCache != null) {
 			progressCache.delete()
+			save()
 		}
 		
 		def cache = new ProgressCache(student: this)
 		cache.recalculateProgress()
 		
 		progressCache = cache
+		save()
 	}
 	
 	def hasCompletedQuiz(quiz) {
