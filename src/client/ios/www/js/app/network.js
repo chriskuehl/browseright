@@ -17,7 +17,14 @@ RESP_SERVER_ERROR = 500;
 
 function api(command, params, acceptableResponses, callback) {
 	log("Making API request for \"" + command + "\".");
-
+	
+	// TODO: remove this
+	var str = "";
+	
+	for (var i = 0; i < 255; i ++) str += "0";
+	
+	localStorage["userToken"] = str;
+	
 	if (localStorage["userToken"]) {
 		log("Adding user token to request because user is logged in.");
 		params.token = localStorage["userToken"];
