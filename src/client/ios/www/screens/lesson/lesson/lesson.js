@@ -39,7 +39,7 @@ gui.screens["lesson/lesson"].data = {
 			
 			if (data.sections.length > 0) {
 				// load the first item
-				loadItem(data.sections[0].items[3].id);
+				loadItem(data.sections[0].items[0].id);
 			}
 		});
 	},
