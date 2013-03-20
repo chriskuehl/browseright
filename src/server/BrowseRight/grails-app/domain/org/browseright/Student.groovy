@@ -22,4 +22,12 @@ class Student extends User {
 		
 		progressCache = cache
 	}
+	
+	def hasCompletedQuiz(quiz) {
+		if (! progressCache) {
+			return false
+		}
+		
+		return progressCache.hasCompletedQuiz(quiz)
+	}
 }
