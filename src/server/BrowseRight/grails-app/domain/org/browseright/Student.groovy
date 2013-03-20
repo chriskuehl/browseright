@@ -4,8 +4,7 @@ class Student extends User {
     static constraints = {
 		progressCache (nullable: true)
     }
-    
-    static hasMany = [quizAttempts: QuizAttempt]
+    static hasMany = [quizAttempts: QuizAttempt, articlesRead: String]
     
     ProgressCache progressCache
     
