@@ -48,11 +48,23 @@ class ContentInterfaceService {
 			]
 			
 			section.items.each { item ->
+				def uid = item.getFullUID(item.id)
 				def isQuiz = (item instanceof Quiz)
+				
+				def completed
+				
+				if (isQuiz) {
+					
+				} else {
+					completed = user.articlesRead.contains(uid)
+				}
+				
 				def itemData = [
 					id: item.id,
 					type: isQuiz ? "QUIZ" : "ARTICLE",
-					title: item.title
+					title: item.title,
+					uid: uid,
+					completed: completed
 				]
 				
 				sectionData.items.add(itemData)
