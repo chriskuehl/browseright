@@ -106,6 +106,12 @@ function loadItem(id) {
 			var d = $("<div />");
 			d.html(markdown(item.text));
 			d.appendTo(content);
+			
+			var e = $("<a />");
+			e.addClass("next");
+			e.text("Next Lesson");
+			e.appendTo(content);
+			
 		} else if (item.type == "QUIZ") {
 			h2.addClass("quizTitle");
 			content.css("padding", "0px");
