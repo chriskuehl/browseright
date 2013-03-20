@@ -1,3 +1,6 @@
+var lessonSections = null;
+var currentItem = null;
+
 gui.screens["lesson/lesson"].data = {
 	id: "lesson/lesson",
 	navBars: [{
@@ -34,12 +37,15 @@ gui.screens["lesson/lesson"].data = {
 
 		apiWithLoading("Loading lessons...", "content/category", {uid: currentCategory}, [RESP_OK], function(code, data) {
 			for (var i = 0; i < data.sections.length; i ++) {
-				addSectionLesson(data.sections[i]);
+				addSectionLesson(data.sections[i], i);
 			}
+			
+			lessonSections = data.sections;
 			
 			if (data.sections.length > 0) {
 				// load the first item
-				loadItem(data.sections[0].items[0].id);
+				currentItem = [(- 1), (- 1)];
+				loadNextItem(true);
 			}
 		});
 	},
@@ -49,7 +55,7 @@ gui.screens["lesson/lesson"].data = {
 	}
 };
 
-function addSectionLesson(section) {
+function addSectionLesson(section, sectionIndex) {
 	var header = $("<li />");
 	header.addClass("section");
 	header.appendTo($(".nav"));
@@ -67,10 +73,16 @@ function addSectionLesson(section) {
 		d.appendTo(li);
 		d.text(item.title);
 		
-		li.data("id", item.id);
+		li.data({
+			id: item.id,
+			sectionIndex: sectionIndex,
+			itemIndex: i
+		});
 		
 		li.click(function() {
 			var id = $(this).data("id");
+			currentItem = [$(this).data("sectionIndex"), $(this).data("itemIndex")];
+			
 			loadItem(id);
 		});
 	}
@@ -113,7 +125,7 @@ function loadItem(id) {
 			q.appendTo(content);
 			
 			q.click(function() {
-				loadItem((id+1));
+				loadNextItem(false);
 			});
 			
 		} else if (item.type == "QUIZ") {
@@ -205,7 +217,7 @@ function loadItem(id) {
 						apiWithLoading("Grading quiz...", "content/gradeQuiz", {quizID: id, quizType: "QUIZ", questions: JSON.stringify(questions)}, [RESP_OK], function(code, data) {
 							if (data.passed) {
 								dialog("Quiz Passed!", "Congratulations! You passed with a score of " + Math.floor(data.quizScore * 100) + "%!", ["Great!"], function() {
-									alert("ok");
+									loadNextItem(true);
 								});
 							} else {
 								dialog("Quiz Failed!", "Uh oh! You failed with a score of " + Math.floor(data.quizScore * 100) + "% (you need " + Math.floor(data.threshold * 100) + "% to pass).", ["Try Again"], function() {
@@ -221,6 +233,37 @@ function loadItem(id) {
 		
 		updateScrollContainers($(".scroll"));
 	});
+}
+
+function loadNextItem(skipCompleted) { // TODO: implement skipCompleted
+	while (true) {
+		// increment current item
+		if (currentItem[0] <= (- 1)) { // no current lesson
+			currentItem = [0, 0]; // start at the first
+		} else {
+			currentItem = [currentItem[0], currentItem[1] + 1];
+		}
+		
+		// does this section even exist?
+		if (currentItem[0] > (lessonSections.length - 1)) {
+			break; // we ran out of sections to check; there is no next item
+		}
+		
+		// does this item exist?
+		if (currentItem[1] > (lessonSections[currentItem[0]].items.length - 1)) {
+			// no, so go to the next section
+			currentItem = [currentItem[0] + 1, (- 1)];
+			continue;
+		}
+		
+		// item DOES exist, so load it
+		log(currentItem);
+		log(JSON.stringify(lessonSections));
+		return loadItem(lessonSections[currentItem[0]].items[currentItem[1]].id);
+	}
+	
+	// there is no next item, so just load the first item
+	loadItem(lessonSections[0].items[0].id);
 }
 
 
