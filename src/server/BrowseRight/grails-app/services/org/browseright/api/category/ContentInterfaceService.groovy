@@ -80,6 +80,9 @@ class ContentInterfaceService {
 			title: item.title
         ]
 		
+		def uid = item.getFullUID(item.id)
+		itemInfo.uid = uid
+		
         if (isQuiz) {
 			itemInfo.questionsToShow = item.questionsToShow
 			itemInfo.questions = []
@@ -92,9 +95,6 @@ class ContentInterfaceService {
 					])
 			}
         } else {
-			def uid = item.getFullUID(item.id)
-			
-			itemInfo.uid = uid
 			itemInfo.text = item.text
 			
 			// mark the article as read
