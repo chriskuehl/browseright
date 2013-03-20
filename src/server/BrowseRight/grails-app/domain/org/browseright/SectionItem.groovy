@@ -13,4 +13,8 @@ abstract class SectionItem {
 	def getFullUID(sectionn, idd) {
 		(sectionn ? sectionn : section).category.uid + "/" + (sectionn ? sectionn : section).uid + "/" + (idd ? idd : id)
 	}
+	
+	def getFullUID() {
+		getFullUID(null, null)
+	}
 }
