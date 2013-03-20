@@ -73,6 +73,14 @@ function addSectionLesson(section, sectionIndex) {
 		d.appendTo(li);
 		d.text(item.title);
 		
+		if (item.completed) {
+			li.addClass("completed");
+		}
+		
+		if (item.type == "ARTICLE") {
+			li.data("isArticle", true);
+		}
+		
 		li.data({
 			id: item.id,
 			sectionIndex: sectionIndex,
@@ -88,16 +96,25 @@ function addSectionLesson(section, sectionIndex) {
 	}
 }
 
-function loadItem(id) {
-	// update nav bar selection
-	$(".nav").find("li").removeClass("current");
-	$.each($(".nav").find("li"), function(idx, e) { // ugly way to add current to selected one
+function addClassToItem(id, cl) {
+	var ff;
+	
+	$.each($(".nav").find("li"), function(idx, e) {
 		var f = $(e);
 		
 		if (f.data("id") == id) {
-			f.addClass("current");
+			f.addClass(cl);
+			ff = f;
 		}
 	});
+	
+	return ff;
+}
+
+function loadItem(id) {
+	// update nav bar selection
+	$(".nav").find("li").removeClass("current");
+	var li = addClassToItem(id, "current");
 	
 	// clear existing content
 	var content = $(".content");
@@ -113,6 +130,7 @@ function loadItem(id) {
 		h2.appendTo(content);
 			
 		if (item.type == "ARTICLE") {
+			li.addClass("completed");
 			content.css("padding", "60px");
 			
 			var d = $("<div />");
@@ -235,7 +253,7 @@ function loadItem(id) {
 	});
 }
 
-function loadNextItem(skipCompleted) { // TODO: implement skipCompleted
+function loadNextItem(skipCompleted) {
 	while (true) {
 		// increment current item
 		if (currentItem[0] <= (- 1)) { // no current lesson
@@ -257,9 +275,13 @@ function loadNextItem(skipCompleted) { // TODO: implement skipCompleted
 		}
 		
 		// item DOES exist, so load it
-		log(currentItem);
-		log(JSON.stringify(lessonSections));
-		return loadItem(lessonSections[currentItem[0]].items[currentItem[1]].id);
+		var item = lessonSections[currentItem[0]].items[currentItem[1]];
+		
+		if (item.completed && skipCompleted) {
+			continue;
+		}
+		
+		return loadItem(item.id);
 	}
 	
 	// there is no next item, so just load the first item
