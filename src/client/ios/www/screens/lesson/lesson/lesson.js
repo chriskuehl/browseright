@@ -234,6 +234,7 @@ function loadItem(id) {
 						
 						apiWithLoading("Grading quiz...", "content/gradeQuiz", {quizID: id, quizType: "QUIZ", questions: JSON.stringify(questions)}, [RESP_OK], function(code, data) {
 							if (data.passed) {
+								addClassToItem(id, "completed");
 								dialog("Quiz Passed!", "Congratulations! You passed with a score of " + Math.floor(data.quizScore * 100) + "%!", ["Great!"], function() {
 									loadNextItem(true);
 								});
