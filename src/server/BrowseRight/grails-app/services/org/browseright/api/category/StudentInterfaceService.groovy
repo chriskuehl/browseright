@@ -59,4 +59,9 @@ class StudentInterfaceService {
 	
 		response.token = token
     }
+	
+	def updateProgress = { response, action, params, user, request ->
+		user.updateProgress()
+		user.save()
+	}
 }

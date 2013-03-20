@@ -5,7 +5,12 @@ abstract class SectionItem {
 	static mapping = {
 		sort "ordering"
 	}
+	static transients = ["fullUID"]
     
     String title
 	int ordering
+	
+	def getFullUID() {
+		section.category.uid + "/" + section.uid + "/" + id
+	}
 }

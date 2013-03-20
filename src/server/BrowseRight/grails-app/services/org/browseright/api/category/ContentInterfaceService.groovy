@@ -133,8 +133,9 @@ class ContentInterfaceService {
         
         if (quizAttempt.validate()) {
 			quizAttempt.save()
-	   
-			response.quizScore = quizAttempt.getPercentCorrect()
+			
+			quizAttempt.calculatePercentCorrect()
+			response.quizScore = quizAttempt.percentCorrect
 			
 			// did they pass?
 			def threshold = user.school.quizPassThreshold

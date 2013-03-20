@@ -2,7 +2,7 @@ package org.browseright
 
 class Student extends User {
     static constraints = {
-	progressCache (nullable: true)
+		progressCache (nullable: true)
     }
     
     static hasMany = [quizAttempts: QuizAttempt]
@@ -12,4 +12,15 @@ class Student extends User {
     def isStudent() {
         true
     }
+	
+	def updateProgress() {
+		if (progressCache != null) {
+			progressCache.delete()
+		}
+		
+		def cache = new ProgressCache(student: this)
+		cache.recalculateProgress()
+		
+		progressCache = cache
+	}
 }

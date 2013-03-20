@@ -110,6 +110,7 @@ p {
         <g:set var="a" value="${[
     [category: "student", item: "create", action: "", params: [firstName: "John", lastName: "Student", email: "student@wchs.browseright.org", password: "student"]],
     [category: "student", item: "login", action: "", params: [email: "student.test@browseright.org", password: "student"]],
+    [category: "student", item: "updateProgress", action: "", params: [token: ("0" * 255)]],
     [category: "teacher", item: "create", action: "", params: [firstName: "John", lastName: "Teacher", email: "teacher@wchs.browseright.org", password: "teacher"]],
     [category: "teacher", item: "login", action: "", params: [email: "teacher.test@browseright.org", password: "teacher"]],
     [category: "school", item: "_create", action: "", params: [token: ("1" * 255), name: "Woodford County High School", street: "180 Frankfort Street", city: "Versailles", zipCode: "40383", helpEmail: "help@wchs.browseright.org"]],
@@ -119,7 +120,8 @@ p {
     [category: "test", item: "_whoami", action: "", params: [token: ("0" * 255)]],
     [category: "content", item: "_categories", action: "", params: [token: ("0" * 255)]],
     [category: "content", item: "_category", action: "", params: [uid: "reputation", token: ("0" * 255)]],
-    [category: "content", item: "_item", action: "", params: [id: "3", token: ("0" * 255)]]
+    [category: "content", item: "_item", action: "", params: [id: "3", token: ("0" * 255)]],
+    [category: "content", item: "_gradeQuiz", action: "", params: [quizID: "3", quizType: "QUIZ", questions: "[{\"selectedAnswer\": {\"text\": \"1\", \"correct\": true}, \"notSelectedAnswers\": [{\"text\": \"2\", \"correct\": false}]}, {\"selectedAnswer\": {\"text\": \"3\", \"correct\": false}, \"notSelectedAnswers\": [{\"text\": \"4\", \"correct\": true}]}, {\"selectedAnswer\": {\"text\": \"5\", \"correct\": false}, \"notSelectedAnswers\": [{\"text\": \"6\", \"correct\": true}]}]", token: ("0" * 255)]]
   ]}" />
         <ul>
           <g:each var="c" in="${a}">
