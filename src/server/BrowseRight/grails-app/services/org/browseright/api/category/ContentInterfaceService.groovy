@@ -54,7 +54,7 @@ class ContentInterfaceService {
 				def completed
 				
 				if (isQuiz) {
-					
+					completed = user.hasCompletedQuiz(uid)
 				} else {
 					completed = user.articlesRead.contains(uid)
 				}
