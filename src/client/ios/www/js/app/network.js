@@ -24,12 +24,12 @@ function api(command, params, acceptableResponses, callback) {
 	
 	for (var i = 0; i < 255; i ++) str += "0";
 	
-	localStorage["userToken"] = str;
+	localStorage["userToken"] = str; */
 	
 	if (localStorage["userToken"]) {
 		log("Adding user token to request because user is logged in.");
 		params.token = localStorage["userToken"];
-	} */
+	} 
 	
 	params.temp = Math.floor(Math.random() * 10000000);
 
