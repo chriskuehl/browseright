@@ -6,4 +6,9 @@ class Article extends SectionItem {
     }
     
     String text
+	
+	def getFullUID() {
+		println "id: " + this.id
+		section.category.uid + "/" + section.uid + "/" + id
+	}
 }
