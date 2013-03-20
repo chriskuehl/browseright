@@ -36,7 +36,7 @@ class ContentService {
     
     def initSection(directory, category) {
         def sectionInfo = parseJSON(new File(directory.toString() + File.separator + "section.json"))
-        def section = new Section(uid: sectionInfo.uid, title: sectionInfo.title, description: sectionInfo.description, ordering: getOrder(directory))
+        def section = new Section(uid: sectionInfo.uid, title: sectionInfo.title, description: sectionInfo.description, ordering: getOrder(directory), category: category)
         
         category.addToSections(section)
         category.save()
@@ -61,7 +61,7 @@ class ContentService {
     }
     
     def initArticle(info, order, section) {
-        def article = new Article(title: info.title, text: info.text, ordering: order)
+        def article = new Article(title: info.title, text: info.text, ordering: order, section: section)
         
         section.addToItems(article)
         section.save()
@@ -69,7 +69,7 @@ class ContentService {
     }
     
     def initQuiz(info, order, section) {
-        def quiz = new Quiz(title: info.title, questionsToShow: info.questionsToShow, ordering: order)
+        def quiz = new Quiz(title: info.title, questionsToShow: info.questionsToShow, ordering: order, section: section)
         
         section.addToItems(quiz)
         section.save()
