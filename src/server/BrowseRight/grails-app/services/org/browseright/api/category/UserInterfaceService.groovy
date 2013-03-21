@@ -37,6 +37,11 @@ class UserInterfaceService {
 					])
 			}
         }
+		
+		if (user.isStudent()) {
+			info.totalProgress = user.progressCache ? user.progressCache.totalProgress : 0
+			info.categoryProgress = user.progressCache ? user.progressCache.categories : [:]
+		}
         
         response.info = info
     }
