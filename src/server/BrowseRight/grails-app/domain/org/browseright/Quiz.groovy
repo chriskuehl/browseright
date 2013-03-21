@@ -6,7 +6,6 @@ class Quiz extends SectionItem {
     int questionsToShow
 	
 	def getFullUID() {
-		println "id: " + this.id
 		section.category.uid + "/" + section.uid + "/" + id
 	}
 }
