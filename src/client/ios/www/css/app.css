@@ -291,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #loadingWindow p {
-	margin-top: 30px;
+	margin-top: 10px;
 	text-align: center;
 	font-size: 38px;
 	font-family: "HelveticaNeue-Medium";
