@@ -135,7 +135,7 @@ $SCREEN .question {
 }
 
 $SCREEN h2.quizTitle {
-	border: solid 2px #6F6F6F;
+	border-bottom: solid 2px #6F6F6F;
 	font-family: $BOLD;
 	font-size: 60px !important;
 	padding: 40px;
