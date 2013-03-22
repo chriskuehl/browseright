@@ -4,6 +4,7 @@ $SCREEN .title{
 	padding-top: 48px;
 	padding-bottom: 48px;
     padding-left: 60px;
+    border-bottom: 2px solid #a7e249;
     
     background: -webkit-linear-gradient(top,  #B8FC4D 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #B8FC4D 0%, #8ED726 100%); /* W3C */
@@ -17,7 +18,9 @@ $SCREEN .description{
     padding-left: 60px;
     padding-right: 60px;
     
-    background-color: #333133;
+    /*background-color: #333133;*/
+    background: -webkit-linear-gradient(top,  #333133 0%, #464347 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #333133 0%, #464347 100%);
 }
 
 $SCREEN .categoryHolder .category, $SCREEN .categoryHolder .category2, $SCREEN .categoryHolder .category3 {
