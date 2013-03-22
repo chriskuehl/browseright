@@ -7,7 +7,8 @@ $SCREEN .description {
     padding-right: 60px;
     height: 230px;
     
-    background-color: #333133;
+    background: -webkit-linear-gradient(top,  #333133 0%, #464347 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #333133 0%, #464347 100%);
 }
 
 $SCREEN h1 {
