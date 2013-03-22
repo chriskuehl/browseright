@@ -7,3 +7,4 @@ src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/
 xcuserdata
 .DS_Store
 src/server/BrowseRight/target/
+*.idlk
