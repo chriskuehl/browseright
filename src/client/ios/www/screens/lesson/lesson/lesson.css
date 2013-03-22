@@ -53,10 +53,8 @@ $SCREEN .paneHolder .rightPane ul.nav li {
     width: 640px;
     
     color: white;
-    
-    background-image: url("$ASSETS/itemBorder.png");
-    background-repeat: repeat-x;
-    background-position: 0% 100%;
+    border-bottom: 2px solid #1f1f1f;
+    border-top: 2px solid #3e3e3e;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav .current {
@@ -67,6 +65,7 @@ $SCREEN .paneHolder .rightPane ul.nav .current {
 $SCREEN .paneHolder .rightPane ul.nav li.section {
     background-image: url("$ASSETS/section.png");
     background-repeat: repeat-x;
+    border: none;
     border-bottom: 2px solid #848B90;
 }
 
