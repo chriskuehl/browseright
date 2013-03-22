@@ -93,6 +93,8 @@ $SCREEN .paneHolder .rightPane ul.nav li div {
 
 $SCREEN .paneHolder .rightPane ul.nav li.current div {
     padding-bottom: 30px;
+    border-bottom: none !important;
+    border-top: none !important;
     
     color: black;
     text-shadow: 0px 2px 2px #E2FFB5;
