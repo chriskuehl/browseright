@@ -15,5 +15,11 @@ gui.screens["user/progress"].data = {
 		var thresholdCat = (userInfo.school.reviewPassThreshold * 100);
 		$(".percentageLesson").text(thresholdLesson + "%");
 		$(".percentageCategory").text(thresholdCat + "%");
+		
+		//calculate and insert total progress
+		
+		var totalProgressPercent = ((0 + userInfo.totalProgress) * 100);
+		totalProgressPercent = Math.floor(totalProgressPercent);
+		$(".percent").text(totalProgressPercent + "%");
 	}
 };
