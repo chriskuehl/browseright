@@ -36,6 +36,7 @@ gui.screens["user/progress"].data = {
 				
 				
 				registerScrollContainers($(".scroll"));
+				updateScrollContainers($(".scroll"));
 			});
 		});
 	}
