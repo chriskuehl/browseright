@@ -18,6 +18,9 @@ $SCREEN .description{
     padding-left: 60px;
     padding-right: 60px;
     
+    line-height: 1.3em;
+    text-align: center;
+    
     /*background-color: #333133;*/
     background: -webkit-linear-gradient(top,  #333133 0%, #464347 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #333133 0%, #464347 100%);
@@ -54,6 +57,10 @@ $SCREEN .categoryHolder .category-1 {
 
 $SCREEN .categoryHolder .category-2 {
 	background-image: url("$ASSETS/Othersicon.png");
+}
+
+.categoryHolder .disabled {
+	opacity: 0.3;
 }
 
 $SCREEN .categoryHolder .text {
