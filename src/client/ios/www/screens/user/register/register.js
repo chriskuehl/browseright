@@ -7,7 +7,7 @@ gui.screens["user/register"].data = {
 		buttons: {
 			left: {
 				type: "back",
-				title: "Select a School",
+				title: "School Selection",
 				action: function() {
 					setScreen("user/school");
 				}
