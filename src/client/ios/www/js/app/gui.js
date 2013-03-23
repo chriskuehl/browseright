@@ -113,6 +113,7 @@ function setScreen(screenPath, dontSlide) {
 		return;
 	}
 	
+	blockTouchInput();
 	transitioning = true;
 	
 	if (!dontSlide) {
@@ -252,6 +253,7 @@ function setScreenWithDataLoaded(screenPath, dontSlide) {
 	// display the new screen
 	showNewScreen(dontSlide, function() {
 		transitioning = false;
+		unblockTouchInput();
 		
 		if (!gui.hasHiddenSplashScreen) {
 			log("Hiding splash screen for the first time.");
@@ -485,7 +487,6 @@ function showNewScreen(dontSlide, callback) {
 		}, 500, "swing", function() {
 			$(this).remove();
 			callback();
-			//	unblockTouchInput();
 		});
 
 		navBarContainer.css({
@@ -522,7 +523,6 @@ function showNewScreen(dontSlide, callback) {
 		}, 500, "swing", function() {
 			$(this).remove();
 			callback();
-			//	unblockTouchInput();
 		});
 
 		navBarContainer.css({
@@ -624,4 +624,29 @@ function showLoading(text) {
 
 function hideLoading(callback) {
 	$("#loading").fadeOut(250, callback);
+}
+
+// input blocking
+var blocker;
+
+function blockTouchInput() {
+	unblockTouchInput();
+	
+	blocker = $("<div />");
+	blocker.appendTo($("body"));
+	blocker.css({
+		position: "fixed",
+		top: "0px",
+		left: "0px",
+		bottom: "0px",
+		right: "0px",
+		zIndex: "99999"
+		//backgroundColor: "rgba(255, 0, 0, 0.6)"
+	});
+}
+
+function unblockTouchInput() {
+	if (blocker) {
+		blocker.remove();
+	}
 }
