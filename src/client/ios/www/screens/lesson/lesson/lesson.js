@@ -76,6 +76,7 @@ function addSectionLesson(section, sectionIndex) {
 		
 		if (item.completed) {
 			li.addClass("completed");
+			li.addClass("ready");
 		}
 		
 		if (item.type == "ARTICLE") {
@@ -89,7 +90,7 @@ function addSectionLesson(section, sectionIndex) {
 		});
 		
 		li.click(function() {
-			if ($(this).hasClass("disabled") || (currentItem[0] == $(this).data("sectionIndex") && currentItem[1] == $(this).data("itemIndex"))) {
+			if (! $(this).hasClass("ready") || (currentItem[0] == $(this).data("sectionIndex") && currentItem[1] == $(this).data("itemIndex"))) {
 				return;
 			}
 			

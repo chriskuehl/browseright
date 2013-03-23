@@ -100,8 +100,16 @@ $SCREEN .paneHolder .rightPane ul.nav li.current div {
     text-shadow: 0px 2px 2px #E2FFB5;
 }
 
+$SCREEN .paneHolder .rightPane ul.nav li div {
+	opacity: 0.3;
+}
+
+$SCREEN .paneHolder .rightPane ul.nav li.ready div {
+	opacity: 1;
+}
+
 $SCREEN .paneHolder .rightPane ul.nav li.completed div {
-    background-image: url("$ASSETS/check.png");
+	background-image: url("$ASSETS/check.png");
 }
 
 $SCREEN .question .title {
