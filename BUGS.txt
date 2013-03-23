@@ -19,7 +19,10 @@ Bug #2: Magenta color appears when starting app
 At least when starting to the login screen, a flash of magenta is shown
 prior to the screen loading.
 
-Status: WAITING
+Status: TEMPORARILY FIXED
+
+Delay added to avoid this, but the root cause needs more investigation
+and a permanent fix should be applied.
 =======================================================================
 Bug #3: Loading screen needs work
 
