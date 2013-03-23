@@ -7,6 +7,8 @@ var gui = {
 var LEFT = 0;
 var RIGHT = 1;
 var transitioning = false;
+var oldTabBarID = "lessons";
+var ignoreNextSelect = false;
 
 function initInterface() {
 	log("Initializing interface");
@@ -51,6 +53,8 @@ function checkTabBarForScreen(screen) {
 		var tabBarItem = tabBarItems[id];
 		
 		if (tabBarItem.screen == screen) {
+			oldTabBarID = id;
+			ignoreNextSelect = true;
 			plugins.tabBar.selectItem(id);
 		}
 	}
@@ -69,8 +73,14 @@ function initTabBar() {
 		
 		plugins.tabBar.createItem(id, tabBarItem.text, tabBarItem.image, {
 			onSelect: function(id) {
+				if (ignoreNextSelect) {
+					return ignoreNextSelect = false;
+				}
+				
 				if (transitioning) {
-					return;				
+					ignoreNextSelect = true;
+					plugins.tabBar.selectItem(oldTabBarID);
+					return;
 				}
 				
 				setScreen(tabBarItems[id].screen, true);
