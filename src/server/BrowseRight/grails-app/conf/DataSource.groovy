@@ -24,7 +24,7 @@ environments {
             dbCreate = "update"
 			
 			// TODO: move this stuff to an external config file (and change the password!)
-            url = "jdbc:mysql://localhost/browsright?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/browseright?useUnicode=yes&characterEncoding=UTF-8"
             username = "browseright"
             password = "vZUCQQpQsenNxGzc"
 			
