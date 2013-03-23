@@ -235,7 +235,9 @@ function setScreenWithDataLoaded(screenPath, dontSlide) {
 
 			if (PLATFORM == PLATFORM_IOS) {
 				gui.hasHiddenSplashScreen = true;
-				navigator.splashscreen.hide();
+				setTimeout(function() {
+					navigator.splashscreen.hide();
+				}, 200);
 			} else {
 				log("Not really hiding splash screen (not iOS).");
 			}
