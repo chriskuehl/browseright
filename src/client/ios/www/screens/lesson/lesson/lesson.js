@@ -90,7 +90,7 @@ function addSectionLesson(section, sectionIndex) {
 		});
 		
 		li.click(function() {
-			if (! $(this).hasClass("ready") || (currentItem[0] == $(this).data("sectionIndex") && currentItem[1] == $(this).data("itemIndex"))) {
+			if (! ($(this).hasClass("ready") || $(this).hasClass("completed")) || (currentItem[0] == $(this).data("sectionIndex") && currentItem[1] == $(this).data("itemIndex"))) {
 				return;
 			}
 			
