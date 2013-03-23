@@ -75,6 +75,8 @@ $SCREEN .paneHolder .rightPane ul.nav li.section div {
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 14px;
+    
+    opacity: 1 !important;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav li div {
