@@ -60,6 +60,7 @@ $SCREEN .paneHolder .rightPane ul.nav li {
 $SCREEN .paneHolder .rightPane ul.nav .current {
     background: -webkit-linear-gradient(top,  #C6FF5C 0%, #8ED726 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(to bottom,  #C6FF5C 0%, #8ED726 100%); /* W3C */
+	
 }
     
 $SCREEN .paneHolder .rightPane ul.nav li.section {
@@ -102,6 +103,7 @@ $SCREEN .paneHolder .rightPane ul.nav li.current div {
     
     color: black;
     text-shadow: 0px 2px 2px #E2FFB5;
+	opacity: 1 !important;
 }
 
 $SCREEN .paneHolder .rightPane ul.nav li div {
