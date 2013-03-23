@@ -94,9 +94,23 @@ function addSectionLesson(section, sectionIndex) {
 			}
 			
 			var id = $(this).data("id");
-			currentItem = [$(this).data("sectionIndex"), $(this).data("itemIndex")];
+			var sectionIndex = $(this).data("sectionIndex");
+			var itemIndex = $(this).data("itemIndex");
 			
-			loadItem(id);
+			var change = function() {
+				currentItem = [sectionIndex, itemIndex];
+				loadItem(id);
+			};
+			
+			if (takingQuiz) {
+				dialog("Abandon Quiz?", "Are you sure you want to abandon your current quiz?", ["Cancel", "Abandon Quiz"], function(r) {
+					if (r) {
+						change();
+					}
+				});
+			} else {
+				change();
+			}
 		});
 	}
 }
@@ -133,8 +147,10 @@ function loadItem(id) {
 		h2.addClass("lessonTitle");
 		h2.text(item.title);
 		h2.appendTo(content);
+		
+		takingQuiz = (item.type == "QUIZ");
 			
-		if (item.type == "ARTICLE") {
+		if (! takingQuiz) {
 			li.addClass("completed");
 			content.css("padding", "60px");
 			
@@ -151,7 +167,7 @@ function loadItem(id) {
 				loadNextItem(false);
 			});
 			
-		} else if (item.type == "QUIZ") {
+		} else if (takingQuiz) {
 			h2.addClass("quizTitle");
 			content.css("padding", "0px");
 			var p = $("<p />");
