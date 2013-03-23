@@ -32,6 +32,7 @@ function api(command, params, acceptableResponses, callback) {
 	} 
 	
 	params.temp = Math.floor(Math.random() * 10000000);
+	params.appVersion = APP_VERSION;
 
 	$.ajax({
 		url: (false ? "http://10.0.0.10:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
