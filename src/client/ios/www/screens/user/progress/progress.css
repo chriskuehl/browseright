@@ -136,6 +136,14 @@ $SCREEN .category ul.progress li.completed {
     background-image: url("$ASSETS/check.png");
 }
 
+$SCREEN .temp {
+	text-align: center;
+	font-size: 34px;
+	line-height: 1.3em;
+	padding: 40px;
+	padding-top: 100px;
+}
+
 .bold {
 	font-family: $BOLD;
 }
