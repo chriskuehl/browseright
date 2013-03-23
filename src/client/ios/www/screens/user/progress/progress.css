@@ -98,6 +98,7 @@ $SCREEN .category .title {
 	font-family: $BOLD;
 	text-align: center;
 	text-shadow: 0px 2px 2px #E2FFB5;
+    	color: rgb(60, 60, 60);
 	
 	border-top-left-radius: 16px;
 	border-top-right-radius: 16px;
@@ -113,23 +114,24 @@ $SCREEN .category ul.progress li {
 }
 
 $SCREEN .category ul.progress li.section {
-    font-size: 40px;
-    padding-left: 10px;
+    font-size: 38px;
+    padding-left: 0px;
     padding-top: 24px;
     padding-bottom: 14px;
+    font-family: $BOLD;
+    color: rgb(60, 60, 60);
 }
 
 $SCREEN .category ul.progress li {
     background-image: none;
     background-repeat: no-repeat;
-    background-position: 18px 14px;
+    background-position: 0px 14px;
     
-    padding-left: 100px;
+    padding-left: 60px;
     padding-top: 24px;
     padding-bottom: 32px;
     
     font-size: 34px;
-    font-family: $BOLD;
 }
 
 $SCREEN .category ul.progress li.completed {
