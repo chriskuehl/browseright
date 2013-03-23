@@ -25,7 +25,7 @@ class BootStrap {
         session.save(flush: true)
         
         // create school and add student
-        appInterfaceService.generateResponse(null, "school", "create", null, [token: "1" * 255, name: "Fake High School", street: "127 Lemon Drive", city: "Iowa City", zipCode: "52246", helpEmail: "help@browseright.org"])
+        appInterfaceService.generateResponse(null, "school", "create", null, [token: "1" * 255, name: "Woodford County High School", street: "180 Frankfort Street", city: "Versailles", zipCode: "40383", helpEmail: "becky.keith@woodford.kyschools.us"])
         appInterfaceService.generateResponse(null, "user", "joinSchool", null, [token: "0" * 255, school: 1])
     }
     
