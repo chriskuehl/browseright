@@ -7,7 +7,6 @@ class BootStrap {
     
     def init = { servletContext ->
         geolocationService.initZipCodeDatabase()
-        contentService.initContentDatabase()
 	}
     
     def destroy = {
