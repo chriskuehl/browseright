@@ -1,5 +1,6 @@
 var lessonSections = null;
 var currentItem = null;
+var takingQuiz = false;
 
 gui.screens["lesson/lesson"].data = {
 	id: "lesson/lesson",
@@ -88,6 +89,10 @@ function addSectionLesson(section, sectionIndex) {
 		});
 		
 		li.click(function() {
+			if ($(this).hasClass("disabled") || (currentItem[0] == $(this).data("sectionIndex") && currentItem[1] == $(this).data("itemIndex"))) {
+				return;
+			}
+			
 			var id = $(this).data("id");
 			currentItem = [$(this).data("sectionIndex"), $(this).data("itemIndex")];
 			
