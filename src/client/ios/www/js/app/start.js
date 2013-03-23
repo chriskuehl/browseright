@@ -1,4 +1,4 @@
-// first action after loading (can be overwritten by a server-loaded JS file, which is why this is separated)
+// first action after loading
 function startApp() {
 	if (isLoggedIn()) {
 		setScreen("user/login");
