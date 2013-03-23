@@ -78,6 +78,9 @@ function initTabBar() {
 				}
 				
 				if (transitioning || isLoading()) {
+					if (transitioning) log("ignore: transition");
+					if (isLoading()) log("ignore: loading");
+					
 					ignoreNextSelect = true;
 					plugins.tabBar.selectItem(oldTabBarID);
 					return;
@@ -609,11 +612,14 @@ function dialog(title, question, buttons, callback) {
 }
 
 // loading screen
+var loading = false;
+
 function isLoading() {
-	return $("#loading").is(":visible");
+	return loading;
 }
 
 function showLoading(text) {
+	loading = true;
 	var container = $("#loading");
 	container.stop(true);
 
@@ -623,6 +629,7 @@ function showLoading(text) {
 }
 
 function hideLoading(callback) {
+	loading = false;
 	$("#loading").fadeOut(250, callback);
 }
 
