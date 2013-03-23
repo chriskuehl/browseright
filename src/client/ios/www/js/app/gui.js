@@ -77,7 +77,7 @@ function initTabBar() {
 					return ignoreNextSelect = false;
 				}
 				
-				if (transitioning) {
+				if (transitioning || isLoading()) {
 					ignoreNextSelect = true;
 					plugins.tabBar.selectItem(oldTabBarID);
 					return;
@@ -609,6 +609,9 @@ function dialog(title, question, buttons, callback) {
 }
 
 // loading screen
+function isLoading() {
+	return $("#loading").is(":visible");
+}
 
 function showLoading(text) {
 	var container = $("#loading");
