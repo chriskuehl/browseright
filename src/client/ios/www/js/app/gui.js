@@ -301,7 +301,6 @@ function populateNavBar(navBarContainer, startX, width, navBarData) {
 }
 
 // WARNING: back buttons on the right side don't work (but who cares?)
-
 function addNavBarButton(position, data, container, startX, width) {
 	var button = $("<a />");
 	button.addClass("nbutton");
@@ -336,7 +335,8 @@ function addNavBarButton(position, data, container, startX, width) {
 			}
 		}, 100);
 	});
-
+	
+	// TODO: this button creation routine works but is a mess
 	var container = $("<div />").appendTo(button);
 
 	container.append($("<div />").addClass("left"));
@@ -348,7 +348,7 @@ function addNavBarButton(position, data, container, startX, width) {
 	if (data.type == "back") {
 		button.addClass("nbuttonBack");
 		leftWidth = 28;
-		textLeftWidthAdjust = 0;
+		// textLeftWidthAdjust = 0;
 	} else if (data.type == "action") {
 		button.addClass("nbuttonAction");
 	}
