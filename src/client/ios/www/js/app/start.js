@@ -5,7 +5,7 @@ function startApp() {
 		
 		loadStudentData(function(success) {
 			if (success) {
-				setScreen("lesson/category");
+				setScreen("user/progress");
 			}
 		});
 	} else {

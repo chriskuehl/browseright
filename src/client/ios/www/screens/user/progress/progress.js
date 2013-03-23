@@ -9,17 +9,22 @@ gui.screens["user/progress"].data = {
 		// TODO: incorporate JS magic tokens
 		registerScrollContainers($(".scroll"));
 		
-		//calculate category and lesson percentages
-		
-		var thresholdLesson = (userInfo.school.quizPassThreshold * 100);
-		var thresholdCat = (userInfo.school.reviewPassThreshold * 100);
-		$(".percentageLesson").text(thresholdLesson + "%");
-		$(".percentageCategory").text(thresholdCat + "%");
-		
-		//calculate and insert total progress
-		
-		var totalProgressPercent = ((0 + userInfo.totalProgress) * 100);
-		totalProgressPercent = Math.floor(totalProgressPercent);
-		$(".percent").text(totalProgressPercent + "%");
+		// load user information
+		loadStudentData(function() {
+			updateTotalProgress();
+		});
 	}
 };
+
+function updateTotalProgress() {
+	// calculate category and lesson percentages
+	var thresholdLesson = (userInfo.school.quizPassThreshold * 100);
+	var thresholdCat = (userInfo.school.reviewPassThreshold * 100);
+	$(".percentageLesson").text(thresholdLesson + "%");
+	$(".percentageCategory").text(thresholdCat + "%");
+	
+	// calculate and insert total progress
+	var totalProgressPercent = ((0 + userInfo.totalProgress) * 100);
+	totalProgressPercent = Math.floor(totalProgressPercent);
+	$(".percent").text(totalProgressPercent + "%");
+}
