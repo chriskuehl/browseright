@@ -474,6 +474,7 @@ function showNewScreen(dontSlide, callback) {
 			left: (gui.currentScreen.container.screen.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
+			callback();
 			//	unblockTouchInput();
 		});
 
@@ -510,6 +511,7 @@ function showNewScreen(dontSlide, callback) {
 			left: "-" + (gui.currentScreen.container.screen.width()) + "px"
 		}, 500, "swing", function() {
 			$(this).remove();
+			callback();
 			//	unblockTouchInput();
 		});
 
