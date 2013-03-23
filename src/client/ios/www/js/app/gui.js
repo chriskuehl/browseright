@@ -6,6 +6,7 @@ var gui = {
 
 var LEFT = 0;
 var RIGHT = 1;
+var transitioning = false;
 
 function initInterface() {
 	log("Initializing interface");
@@ -68,6 +69,10 @@ function initTabBar() {
 		
 		plugins.tabBar.createItem(id, tabBarItem.text, tabBarItem.image, {
 			onSelect: function(id) {
+				if (transitioning) {
+					return;				
+				}
+				
 				setScreen(tabBarItems[id].screen, true);
 			}
 		});
@@ -93,6 +98,12 @@ function setScreen(screenPath, dontSlide) {
 	if (gui.currentScreen && gui.currentScreen.data.data.id == screenPath) {
 		return;
 	}
+	
+	if (transitioning) {
+		return;
+	}
+	
+	transitioning = true;
 	
 	if (!dontSlide) {
 		dontSlide = false;
@@ -230,6 +241,8 @@ function setScreenWithDataLoaded(screenPath, dontSlide) {
 
 	// display the new screen
 	showNewScreen(dontSlide, function() {
+		transitioning = false;
+		
 		if (!gui.hasHiddenSplashScreen) {
 			log("Hiding splash screen for the first time.");
 
