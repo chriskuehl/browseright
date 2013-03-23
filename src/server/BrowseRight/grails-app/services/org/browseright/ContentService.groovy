@@ -43,7 +43,7 @@ class ContentService {
         section.save()
         
         directory.eachFile (FileType.FILES) { file ->
-            if (file.name != "section.json") {
+            if (file.name != "section.json" && ! file.name.startsWith("bk")) {
                 initSectionItem(file, section)
             }
         }
