@@ -86,6 +86,8 @@ $SCREEN .category .scroll {
 	margin-left: 20px;
 	border-top-left-radius: 16px;
 	border-top-right-radius: 16px;
+	
+	display: none;
 }
 
 $SCREEN .category .title {

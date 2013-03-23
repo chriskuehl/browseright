@@ -34,7 +34,7 @@ gui.screens["user/progress"].data = {
 					}
 				}
 				
-				
+				$(".scroll").hide().fadeIn(250);
 				registerScrollContainers($(".scroll"));
 				updateScrollContainers($(".scroll"));
 			});
