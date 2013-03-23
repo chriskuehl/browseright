@@ -153,6 +153,7 @@ function loadItem(id) {
 			
 		if (! takingQuiz) {
 			li.addClass("completed");
+			readyNext();
 			content.css("padding", "60px");
 			
 			var d = $("<div />");
@@ -257,6 +258,7 @@ function loadItem(id) {
 						apiWithLoading("Grading quiz...", "content/gradeQuiz", {quizID: id, quizType: "QUIZ", questions: JSON.stringify(questions)}, [RESP_OK], function(code, data) {
 							if (data.passed) {
 								addClassToItem(id, "completed");
+								readyNext();
 								dialog("Quiz Passed!", "Congratulations! You passed with a score of " + Math.floor(data.quizScore * 100) + "%!", ["Great!"], function() {
 									loadNextItem(true);
 								});
@@ -273,6 +275,24 @@ function loadItem(id) {
 		}
 		
 		updateScrollContainers($(".scroll"));
+	});
+}
+
+// TODO: this shouldn't be done in the DOM...
+function readyNext() {
+	var hasFoundIncompleted = false;
+	
+	$(".nav").find("li").each(function() {
+		if (hasFoundIncompleted) {
+			return;
+		}
+		
+		var li = $(this);
+		
+		if (! li.hasClass("completed") && ! li.hasClass("section")) {
+			li.addClass("ready");
+			hasFoundIncompleted = true;
+		}
 	});
 }
 

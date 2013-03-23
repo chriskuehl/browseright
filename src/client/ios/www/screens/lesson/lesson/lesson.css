@@ -111,6 +111,7 @@ $SCREEN .paneHolder .rightPane ul.nav li.ready div {
 }
 
 $SCREEN .paneHolder .rightPane ul.nav li.completed div {
+	opacity: 1;
 	background-image: url("$ASSETS/check.png");
 }
 
