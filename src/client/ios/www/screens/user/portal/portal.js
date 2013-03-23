@@ -11,5 +11,7 @@ gui.screens["user/portal"].data = {
 		$(".next").click(function() {
 			setScreen("lesson/category");
 		});
+		
+		$(".progress").text(Math.floor((0 + userInfo.totalProgress) * 100) + "%");
 	}
 };
