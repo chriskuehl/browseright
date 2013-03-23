@@ -343,22 +343,23 @@ function addNavBarButton(position, data, container, startX, width) {
 
 	var margin = 14;
 	var leftWidth = 10;
-	var textLeftWidthAdjust = 16;
+	var textLeftWidthAdjust = 0;
 
 	if (data.type == "back") {
 		button.addClass("nbuttonBack");
 		leftWidth = 28;
-		// textLeftWidthAdjust = 0;
+		textLeftWidthAdjust = 16;
 	} else if (data.type == "action") {
 		button.addClass("nbuttonAction");
 	}
 
 	var t = $("<div />").text(data.title).addClass("text").css("left", leftWidth + "px");
-	t.css("padding-left", textLeftWidthAdjust + "px");
+	t.css("padding-left", (16 - textLeftWidthAdjust) + "px");
+	t.css("padding-right", "8px");
 	container.append(t);
 
 	var metrics = $.textMetrics(t);
-	var w = metrics.width - (16 - textLeftWidthAdjust) + 6;
+	var w = metrics.width; // - (16) + 6;
 
 	if (position == LEFT) {
 		button.css("left", (startX + margin) + "px");
@@ -368,7 +369,7 @@ function addNavBarButton(position, data, container, startX, width) {
 
 	t.css("width", w + "px");
 
-	container.append($("<div />").addClass("right").css("left", (w + 16 + textLeftWidthAdjust + leftWidth) + "px"));
+	container.append($("<div />").addClass("right").css("left", (w + 8 + (16 - textLeftWidthAdjust) + leftWidth) + "px"));
 }
 
 function showNewScreen(dontSlide, callback) {
