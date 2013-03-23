@@ -43,7 +43,7 @@ function api(command, params, acceptableResponses, callback) {
 		
 		success: function(data) {
 			log("Received response for command \"" + command + "\".");
-
+			
 			if (acceptableResponses.indexOf(data.apiCode) > (-1)) {
 				// everything is normal
 				log("Received acceptable response for command \"" + command + "\", executing callback...");
@@ -53,6 +53,11 @@ function api(command, params, acceptableResponses, callback) {
 				log("!!!! Received unacceptable response for command \"" + command + "\", trying to recover...");
 				log("     response code: " + data.apiCode);
 				log("     error (if any): " + (data.error ? data.error : "(none)"));
+				
+				if (data.apiCode == RESP_UPGRADE_APP) {
+					dialog("Upgrade App", "To use BrowseRight, please download the latest update from the App Store.", ["Will do!"]);
+				}
+				
 				networkReset();
 			}
 		},
