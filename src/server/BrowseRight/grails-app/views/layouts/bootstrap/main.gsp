@@ -70,16 +70,16 @@
 				<li class="nav-header">${category.title}</li>
 				
 				<g:each var="section" in="${category.sections}">
-				  <li><a href="#"><i class="icon-folder-open"></i> ${section.title}</a></li>
+				  <li><g:link action="section" params="${[section: section.id]}"><i class="icon-folder-open"></i> ${section.title}</g:link></li>
 				  
 				  <g:each var="item" in="${section.items}">
 					<li><a style="padding-left: 40px" href="#"><i class="icon-file"></i> ${item.title}</a></li>
 				  </g:each>
 				  
-				  <li><a style="padding-left: 40px" href="#"><i class="icon-plus-sign"></i> Add New Item</a></li>
+				  <li><g:link controller="content" action="addItem" params="${[section: section.id]}" style="padding-left: 40px" href="#"><i class="icon-plus-sign"></i> Add New Item</g:link></li>
 				</g:each>
 				
-				<li><a href="#"><i class="icon-plus-sign"></i> Add New Section</a></li>
+				<li><g:link controller="content" action="addSection" params="${[category: category.id]}"><i class="icon-plus-sign"></i> Add New Section</g:link></li>
 			  </g:each>
             </ul>
           </div><!--/.well -->

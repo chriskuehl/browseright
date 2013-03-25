@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="layout" content="bootstrap/main">
-    <title></title>
+    <title>BrowseRight Online Content Editor</title>
   </head>
   <body>
 	<h1>BrowseRight Online Content Editor</h1>
