@@ -6,6 +6,7 @@ class UrlMappings {
         "/api/$apiCategory/$apiItem/$apiAction" (controller: "JSObjectAPI", action: "handleRequest")
 
         "/"(view:"/index")
+        "/dev/api"(view:"/dev/api")
         "500"(view:'/error')
     }
 }
