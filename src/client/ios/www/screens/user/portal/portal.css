@@ -37,7 +37,7 @@ $SCREEN .box {
 	position: relative;
 }
 
-$SCREEN .box .next {
+$SCREEN .box .nextf {
 	display: block;
 	position: absolute;
 	right: 60px;

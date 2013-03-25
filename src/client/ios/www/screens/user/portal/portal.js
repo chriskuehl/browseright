@@ -8,7 +8,7 @@ gui.screens["user/portal"].data = {
 	parents: ["user/login"],
 
 	setup: function(contentManager) {
-		$(".next").click(function() {
+		$(".nextf").click(function() {
 			setScreen("lesson/category");
 		});
 		
