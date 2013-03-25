@@ -9,7 +9,8 @@ $SCREEN .description {
     
     position: relative;
     
-    background-color: #333133;
+    background: -webkit-linear-gradient(top,  #333133 0%, #464347 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #333133 0%, #464347 100%);
     box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.2);
 }
 
