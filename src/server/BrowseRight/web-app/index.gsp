@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<rel http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="images/favicon.png">
 		
 		<title>BrowseRight: Keeping the new frontier a safe one.</title>
 		
