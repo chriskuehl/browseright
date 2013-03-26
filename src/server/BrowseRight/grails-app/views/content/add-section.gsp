@@ -21,7 +21,7 @@
 		<input type="text" name="title" placeholder="The Importance of Privacy" />
 		
 		<label>Ordering</label>
-		<input type="text" name="ordering" placeholder="3" />
+		<input type="text" name="ordering" value="0" placeholder="3" />
 		
 		<label>Description</label>
 		<textarea rows="3" name="description" placeholder="A description of privacy in today's world."></textarea>

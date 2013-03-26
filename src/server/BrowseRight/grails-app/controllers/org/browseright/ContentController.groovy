@@ -2,7 +2,7 @@ package org.browseright
 
 class ContentController {
 	def index() {
-		render(view: "index.gsp", model: [])
+		render(view: "index", model: [])
 	}
 	
 	def addSection() {
@@ -24,7 +24,7 @@ class ContentController {
 			}
 		}
 		
-		render(view: "add-section.gsp", model: [category: category])
+		render(view: "add-section", model: [category: category])
 	}
 	
 	def section() {
@@ -47,6 +47,34 @@ class ContentController {
 			}
 		}
 		
-		render(view: "section.gsp", model: [section: section])
+		render(view: "section", model: [section: section])
+	}
+	
+	def addItem() {
+		def section = Section.findById(params.section)
+		
+		if (params.submit) {
+			if (params.type == "quiz") {
+				def quiz = new Quiz(title: params.title, ordering: params.ordering.toInteger(), section: section)
+				
+				if (! quiz.validate()) {
+					render quiz.errors.allErrors
+					return
+				} else {
+					section.addToItems(quiz)
+					quiz.save()
+					section.save()
+					
+					redirect(action: "quiz", params: [quiz: quiz.id])
+				}
+			} else if (params.type == "article") {
+				
+			} else {
+				render "Choose an option!"
+				return
+			}
+		}
+		
+		render(view: "add-item", model: [section: section])
 	}
 }

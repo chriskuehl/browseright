@@ -5,27 +5,33 @@
     <title>BrowseRight Online Content Editor</title>
   </head>
   <body>
-	<h1>Edit Section: ${section.title}</h1>
+	<h1>Add Item</h1>
 	<form method="post">
 	  <fieldset>
-		<legend>Section Properties</legend>
+		<legend>Item Properties</legend>
 		
-		<label>Category</label>
-		<input type="text" disabled="disabled" value="${section.category.title}" />
+		<label>Section</label>
+		<input type="hidden" name="section" value="${section.id}" />
+		<input type="text" disabled="disabled" value="${section.title}" />
 		
-		<label>UID</label>
-		<input type="text" name="uid" value="${section.uid}" placeholder="importance-of-privacy" />
-		
-		<label>Section Title</label>
-		<input type="text" name="title" value="${section.title}" placeholder="The Importance of Privacy" />
+		<label>Title</label>
+		<input type="text" name="title" value="" placeholder="Checkpoint Quiz" />
 		
 		<label>Ordering</label>
-		<input type="text" name="ordering" value="${section.ordering}" placeholder="3" />
+		<input type="text" name="ordering" value="0" placeholder="3" />
 		
-		<label>Description</label>
-		<textarea rows="3" name="description" placeholder="A description of privacy in today's world.">${section.description}</textarea>
+		<label>Type</label>
+		<label class="radio">
+		  <input type="radio" name="type" value="article" checked>
+		  Article
+		</label>
+		<label class="radio">
+		  <input type="radio" name="type" value="quiz">
+		  Checkpoint Quiz
+		</label>
+
 		
-		<p><button type="submit" name="submit" value="1" class="btn">Update Section</button></p>
+		<p><button type="submit" name="submit" value="1" class="btn">Create Item</button></p>
 	  </fieldset>
 	</form>
   </body>
