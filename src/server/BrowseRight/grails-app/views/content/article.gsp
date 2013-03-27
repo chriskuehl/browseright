@@ -24,12 +24,33 @@
 		
 		<legend>Article Content</legend>
 		<div class="well">
-		  <textarea name="text">${article.text}</textarea>
+		  <div class="wmd-panel">
+			  <div id="wmd-button-bar"></div>
+			  <textarea class="wmd-input" name="text" id="wmd-input">${article.text.replace("\\n", "\n")}</textarea>
+		  </div>
+		  <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 		</div>
 		
 		
 		<p><button type="submit" name="submit" value="1" class="btn">Update Article</button> <button type="submit" name="delete" value="1" class="btn" onclick="return confirm('Are you SURE?');"><i class="icon-remove"></i> DELETE</button></p>
 	</fieldset>
 	</form>
+	
+	<script>
+		jQuery(document).ready(function() {
+			var converter = Markdown.getSanitizingConverter();
+			var editor = new Markdown.Editor(converter);
+			editor.run();
+
+			jQuery("#wmd-input").bind("keydown keyup keypressed", function() {
+				var v = jQuery(this).val();
+				v = v.replace(/\n/g, "\\n");
+
+				var w = JSON.stringify(v);
+
+				jQuery("#json").text(w);
+			});
+		});
+	</script>
   </body>
 </html>
