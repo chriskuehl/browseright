@@ -30,10 +30,6 @@ function addCategory(i, category) {
 	
 	var div = $("<div />").addClass("category").addClass("category-" + i).data("uid", category.uid).data("title", category.title);
 	
-	if (i > 0) {
-		div.addClass("disabled");
-	}
-	
 	var text = $("<div />").addClass("text").appendTo(div);
 	$("<h3 />").text(category.title).appendTo(text);
 	$("<p />").text(category.shortDescription).appendTo(text);
