@@ -68,7 +68,18 @@ class ContentController {
 					redirect(action: "quiz", params: [id: quiz.id])
 				}
 			} else if (params.type == "article") {
+				def article = new Article(title: params.title, ordering: params.ordering.toInteger(), section: section, text: "Lorem ipsum")
 				
+				if (! article.validate()) {
+					render article.errors.allErrors
+					return
+				} else {
+					section.addToItems(article)
+					article.save()
+					section.save()
+					
+					redirect(action: "article", params: [id: article.id])
+				}
 			} else {
 				render "Choose an option!"
 				return
@@ -105,6 +116,36 @@ class ContentController {
 		}
 		
 		render(view: "quiz", model: [quiz: quiz])
+	}
+	
+	def article() {
+		def article = Article.findById(params.id)
+		def section = article.section
+		
+		if (params.delete) {
+			section.removeFromItems(article)
+			article.delete()
+			
+			redirect(action: "section", params: [section: section.id])
+			return
+		}
+		
+		if (params.submit) {
+			article.title = params.title
+			article.ordering = params.ordering.toInteger()
+			article.text = params.text
+			
+			if (! article.validate()) {
+				render article.errors.allErrors
+				return
+			} else {
+				article.save()
+
+				redirect(action: "article", params: [id: article.id])
+			}
+		}
+		
+		render(view: "article", model: [article: article])
 	}
 	
 	def addQuestion() {
