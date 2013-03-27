@@ -73,7 +73,7 @@
 				  <li><g:link action="section" params="${[section: section.id]}"><i class="icon-folder-open"></i> ${section.title}</g:link></li>
 				  
 				  <g:each var="item" in="${section.items}">
-					<li><a style="padding-left: 40px" href="#"><i class="icon-file"></i> ${item.title}</a></li>
+					<li><g:link style="padding-left: 40px" action="${(item instanceof org.browseright.Quiz) ? "quiz" : "article"}" params="${[id: item.id]}"><i class="icon-file"></i> ${item.title}</g:link></li>
 				  </g:each>
 				  
 				  <li><g:link controller="content" action="addItem" params="${[section: section.id]}" style="padding-left: 40px" href="#"><i class="icon-plus-sign"></i> Add New Item</g:link></li>

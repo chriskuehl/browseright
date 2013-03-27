@@ -65,7 +65,7 @@ class ContentController {
 					quiz.save()
 					section.save()
 					
-					redirect(action: "quiz", params: [quiz: quiz.id])
+					redirect(action: "quiz", params: [id: quiz.id])
 				}
 			} else if (params.type == "article") {
 				
@@ -76,5 +76,87 @@ class ContentController {
 		}
 		
 		render(view: "add-item", model: [section: section])
+	}
+	
+	def quiz() {
+		def quiz = Quiz.findById(params.id)
+		render(view: "quiz", model: [quiz: quiz])
+	}
+	
+	def addQuestion() {
+		def quiz = Quiz.findById(params.quiz)
+		
+		if (params.submit) {
+			def question = new Question(quiz: quiz)
+			question.text = params.question
+			question.correctAnswer = params.correctAnswer
+			
+			(0..5).each { i ->
+				if (params["incorrectAnswer${i}"]) {
+					question.addToIncorrectAnswers(params["incorrectAnswer${i}"])
+				}
+			}
+			
+			if (params.question.size() <= 1) {
+				render "Longer question please"
+				return
+			} else if (question.incorrectAnswers == null || question.incorrectAnswers.size() <= 0) {
+				render "Please add some bad answers!"
+				return
+			} else if (! question.validate()) {
+				render question.errors.allErrors
+				return
+			} else {
+				quiz.addToQuestions(question)
+				question.save()
+				quiz.save()
+
+				redirect(action: "quiz", params: [id: quiz.id])
+			}
+		}
+		
+		render(view: "add-question", model: [quiz: quiz])
+	}
+	
+	def editQuestion() {
+		def question = Question.findById(params.question)
+		def quiz = question.quiz
+		
+		if (params.delete) {
+			quiz.removeFromQuestions(question)
+			question.delete()
+			
+			redirect(action: "quiz", params: [id: quiz.id])
+			return
+		}
+		
+		if (params.submit) {
+			question.text = params.quest
+			question.correctAnswer = params.correctAnswer
+			question.incorrectAnswers = []
+			
+			(0..5).each { i ->
+				if (params["incorrectAnswer${i}"]) {
+					question.addToIncorrectAnswers(params["incorrectAnswer${i}"])
+				}
+			}
+			
+			if (params.quest.size() <= 1) {
+				render "Longer question please"
+				return
+			} else if (question.incorrectAnswers == null || question.incorrectAnswers.size() <= 0) {
+				render "Please add some bad answers!"
+				return
+			} else if (! question.validate()) {
+				render question.errors.allErrors
+				return
+			} else {
+				question.save()
+
+				redirect(action: "quiz", params: [id: quiz.id])
+			}
+		}
+		
+		render(view: "question", model: [question: question, quiz: quiz])
 	}
 }
