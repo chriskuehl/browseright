@@ -49,6 +49,10 @@ var tabBarItems = {
 };
 
 function checkTabBarForScreen(screen) {
+	if (PLATFORM != PLATFORM_IOS) {
+		return;
+	}
+	
 	for (var id in tabBarItems) {
 		var tabBarItem = tabBarItems[id];
 		
