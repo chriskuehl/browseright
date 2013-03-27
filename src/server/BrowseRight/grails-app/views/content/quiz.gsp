@@ -22,7 +22,8 @@
 		<label>Ordering</label>
 		<input type="text" name="ordering" value="${quiz.ordering}" placeholder="3" />
 		
-		
+		<p><button type="submit" name="submit" value="1" class="btn">Update Quiz</button> <button type="submit" name="delete" value="1" class="btn" onclick="return confirm('Are you SURE?');"><i class="icon-remove"></i> DELETE</button></p>
+	  
 		<legend>Quiz Questions</legend>
 		<div class="well">
 		  <ul id="questions">
@@ -35,7 +36,8 @@
 			<g:link action="addQuestion" params="${[quiz: quiz.id]}"><i class="icon-plus-sign"></i> Add New Question</g:link>
 		  </p>
 		</div>
-	  </fieldset>
+		
+	</fieldset>
 	</form>
   </body>
 </html>

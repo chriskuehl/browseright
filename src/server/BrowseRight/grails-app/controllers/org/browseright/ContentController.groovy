@@ -80,6 +80,30 @@ class ContentController {
 	
 	def quiz() {
 		def quiz = Quiz.findById(params.id)
+		def section = quiz.section
+		
+		if (params.delete) {
+			section.removeFromItems(quiz)
+			quiz.delete()
+			
+			redirect(action: "section", params: [section: section.id])
+			return
+		}
+		
+		if (params.submit) {
+			quiz.title = params.title
+			quiz.ordering = params.ordering.toInteger()
+			
+			if (! quiz.validate()) {
+				render quiz.errors.allErrors
+				return
+			} else {
+				quiz.save()
+
+				redirect(action: "quiz", params: [id: quiz.id])
+			}
+		}
+		
 		render(view: "quiz", model: [quiz: quiz])
 	}
 	
