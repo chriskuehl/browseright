@@ -72,6 +72,7 @@ $SCREEN .field {
 }
 
 $SCREEN .floating {
+	
 	display: block;
 	float: left;
 	margin-top: 60px;
@@ -104,6 +105,7 @@ $SCREEN .title {
 }
 
 $SCREEN .holder {
+	line-height: 1.6em;
 	font-size: 40px;
 	padding-top: 60px;
 }
