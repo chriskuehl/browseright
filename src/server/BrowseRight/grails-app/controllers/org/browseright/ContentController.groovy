@@ -55,7 +55,7 @@ class ContentController {
 		
 		if (params.submit) {
 			if (params.type == "quiz") {
-				def quiz = new Quiz(title: params.title, ordering: params.ordering.toInteger(), section: section)
+				def quiz = new Quiz(title: params.title, ordering: params.ordering.toInteger(), section: section, questionsToShow: 1)
 				
 				if (! quiz.validate()) {
 					render quiz.errors.allErrors
@@ -104,6 +104,7 @@ class ContentController {
 		if (params.submit) {
 			quiz.title = params.title
 			quiz.ordering = params.ordering.toInteger()
+			quiz.questionsToShow = params.questionsToShow.toInteger()
 			
 			if (! quiz.validate()) {
 				render quiz.errors.allErrors

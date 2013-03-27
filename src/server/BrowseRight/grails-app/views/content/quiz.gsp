@@ -22,6 +22,9 @@
 		<label>Ordering</label>
 		<input type="text" name="ordering" value="${quiz.ordering}" placeholder="3" />
 		
+		<label>Number of Questions to Show</label>
+		<input type="text" name="questionsToShow" value="${quiz.questionsToShow ? quiz.questionsToShow : 0}" placeholder="3" />
+		
 		<p><button type="submit" name="submit" value="1" class="btn">Update Quiz</button> <button type="submit" name="delete" value="1" class="btn" onclick="return confirm('Are you SURE?');"><i class="icon-remove"></i> DELETE</button></p>
 	  
 		<legend>Quiz Questions</legend>
