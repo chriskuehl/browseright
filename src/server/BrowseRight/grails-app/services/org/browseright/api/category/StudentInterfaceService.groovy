@@ -36,6 +36,29 @@ class StudentInterfaceService {
     
     def login = { response, action, params, user, request ->
 		def email = params.email
+		
+		// special exceptions when demoing
+		if (email == "demo") {
+			// create a new user
+			def newEmail = "demo" + Math.floor(Math.random() * 100000) + "@browseright.org"			
+			def student = new Student(firstName: "Demo", lastName: "User", email: newEmail)
+			
+			student.setPassword("demo")
+			student.setLastSeen(request)
+			student.setRegistration(request)
+			
+			student.save(flush: true)
+			
+			// add to the first school
+			def school = School.findAll()[0]
+            school.addToStudents(student)
+			school.save(flush: true)
+			
+			// proceed with login
+			email = newEmail
+			params.password = "demo"
+		}
+		
 		def password = params.password
 	
 		def student = Student.findByEmail(email)
