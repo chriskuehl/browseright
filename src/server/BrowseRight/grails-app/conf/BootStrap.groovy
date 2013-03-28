@@ -9,7 +9,7 @@ class BootStrap {
     def init = { servletContext ->
         geolocationService.initZipCodeDatabase()
 		
-		if (Environment.current == Environment.DEVELOPMENT) {
+		if (false && Environment.current == Environment.DEVELOPMENT) {
 			println "Running development initialization commands"
 			contentService.initContentDatabase()
 
