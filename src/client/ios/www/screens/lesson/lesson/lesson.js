@@ -328,6 +328,7 @@ function loadNextItem(skipCompleted) {
 	}
 	
 	// there is no next item, so just load the first item
+	currentItem = [0, 0];
 	loadItem(lessonSections[0].items[0].id);
 }
 
