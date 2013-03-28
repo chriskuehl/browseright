@@ -9,35 +9,42 @@ gui.screens["user/progress"].data = {
 		loadStudentData(function() {
 			updateTotalProgress();
 			
-			// TODO: make this work with all categories
-			apiWithLoading("Loading progress...", "content/category", {uid: "reputation"}, [RESP_OK], function(code, data) {
-				var list = $(".progress.reputation");
-				
-				for (var i = 0; i < data.sections.length; i ++) {
-					var section = data.sections[i];
-					var li = $("<li />");
-					li.text(section.title);
-					li.addClass("section");
-					li.appendTo(list);
-					
-					for (var j = 0; j < section.items.length; j ++) {
-						var item = section.items[j];
+			// TODO: this is an absolute mess
+			var categories = ["reputation", "relationships", "etiquette"];
+			
+			for (var k = 0; k < categories.length; k ++) {
+				(function() {
+					var kk = k;
+					apiWithLoading("Loading progress...", "content/category", {uid: categories[k]}, [RESP_OK], function(code, data) {
+						var list = $($(".progress.reputation")[kk]);
 						
-						var li2 = $("<li />");
-						li2.text(item.title);
-						
-						if (item.completed) {
-							li2.addClass("completed");
+						for (var i = 0; i < data.sections.length; i ++) {
+							var section = data.sections[i];
+							var li = $("<li />");
+							li.text(section.title);
+							li.addClass("section");
+							li.appendTo(list);
+							
+							for (var j = 0; j < section.items.length; j ++) {
+								var item = section.items[j];
+								
+								var li2 = $("<li />");
+								li2.text(item.title);
+								
+								if (item.completed) {
+									li2.addClass("completed");
+								}
+								
+								li2.appendTo(list);
+							}
 						}
 						
-						li2.appendTo(list);
-					}
-				}
-				
-				$(".scroll").hide().fadeIn(250);
-				registerScrollContainers($(".scroll"));
-				updateScrollContainers($(".scroll"));
-			});
+						$(".scroll").hide().fadeIn(250);
+						registerScrollContainers($(".scroll"));
+						updateScrollContainers($(".scroll"));
+					});
+				})();
+			}
 		});
 	}
 };
