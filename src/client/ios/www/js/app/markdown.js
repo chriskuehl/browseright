@@ -8,3 +8,11 @@ function markdown(src) {
 		
 	return src;
 }
+
+function markdownLittle(src) {
+	src = src.replace("\n", "");
+	src = markdownConverter.makeHtml(src);
+	src = src.replace(/<p>(.*)<\/p>/g, "$1");
+	
+	return src;
+}

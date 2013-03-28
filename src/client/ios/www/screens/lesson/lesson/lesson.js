@@ -196,7 +196,7 @@ function loadItem(id) {
 				
 				var p = $("<p />");
 				p.addClass("title");
-				p.text(question.text);
+				p.html(markdownLittle(question.text));
 				p.appendTo(c);
 				
 				// answers
@@ -209,7 +209,7 @@ function loadItem(id) {
 						a.addClass("odd");
 					}
 					
-					a.text(displayAnswer[0]); // + " (correct=" + displayAnswer[1] + ")");
+					a.html(markdownLittle(displayAnswer[0])); // + " (correct=" + displayAnswer[1] + ")");
 					a.data("isCorrect", displayAnswer[1]);
 					a.appendTo(c);
 					
