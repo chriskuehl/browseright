@@ -35,7 +35,7 @@ function api(command, params, acceptableResponses, callback) {
 	params.appVersion = APP_VERSION;
 
 	$.ajax({
-		url: (true ? "http://10.0.1.50:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
+		url: (false ? "http://10.0.1.50:8080/BrowseRight/api/" : "https://browseright.org/api/") + command,
 		data: params,
 		crossDomain: false,
 		cache: false,
