@@ -1,5 +1,3 @@
-syntax: glob
-
 src/client/cordova/console.log
 src/client/ios/build/*
 src/client/BrowseRight.xcodeproj/project.xcworkspace/xcuserdata/*
