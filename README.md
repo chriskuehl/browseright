@@ -31,6 +31,16 @@ Download and install the version of Grails used for the server app (currently **
 additional configuration. Use `grails run-app` for testing on your machine and `grails war` to create a WAR file to
 deploy to a Java application server.
 
+When running in the `production` environment, the JDBC URL, username, and password are read from the following
+environment variabes:
+
+* `JDBC_URL`
+* `JDBC_USERNAME`
+* `JDBC_PASSWORD`
+
+(right now only MySQL is supported but it should be very simple to support other databases, potentially by moving
+the driver to an environment varible)
+
 #### Client app
 ###### iOS
 This requires you to run OS X due to the closed nature of the iOS development platform.
