@@ -1,4 +1,4 @@
-var APP_VERSION = "1.0";
+var APP_VERSION = "1.1";
 var PLATFORM; // not really a constant, but it acts like one for everyone else
 var PLATFORM_IOS = 0;
 var PLATFORM_ANDROID = 1;
