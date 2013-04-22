@@ -9,6 +9,7 @@ class UrlMappings {
         "/dev/api" (view:"/dev/api")
         "/dev/content" (controller:"content")
         "/dev/content/$action" (controller:"content")
+		"404" (view: "/error")
         "500" (view:'/error')
     }
 }
