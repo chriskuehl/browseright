@@ -41,6 +41,11 @@ environment variabes:
 (right now only MySQL is supported but it should be very simple to support other databases, potentially by moving
 the driver to an environment varible)
 
+To add admin users (users that are able to edit content via the web interface), add environment variables in the
+following format:
+
+* `BROWSERIGHT_ADMIN_CHRIS` (for user chris, case insensitive, value should be the plain-text password)
+
 #### Client app
 ###### iOS
 This requires you to run OS X due to the closed nature of the iOS development platform.
