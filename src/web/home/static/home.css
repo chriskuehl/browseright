@@ -3,10 +3,34 @@
 	padding-right: 0px;
 }
 
-#homeTopBar {
-	background-color: rgb(200, 200, 200);
-}
-
 .center {
 	text-align: center;
+}
+
+#navHolder {
+	background-image: url("graphics/navBar.png");
+	background-repeat: repeat-x;
+	background-position-y: 20px;
+}
+
+#main {
+	background-image: url("graphics/wood.png");
+	background-repeat: repeat-x;
+	background-position: 50% 0%;
+}
+
+#logo {
+	background-image: url("graphics/logo.png");
+	background-repeat: no-repeat;
+	background-position: 0% -6px;
+	height: 162px;
+}
+
+#logoText {
+	padding-left: 164px;
+	background-image: url("graphics/logoText.png");
+	background-repeat: no-repeat;
+	background-position: 164px 46px;
+	padding-top: 46px;
+	height: 104px;
 }
