@@ -35,6 +35,11 @@
 			background: none !important;
 			background-color: #333133 !important;
 			padding: 7px;
+			min-height: 0px;
+		}
+		
+		.navbar {
+			border-bottom: solid 3px #8DD724;
 		}
 		
 		.brand, .brand:hover {
@@ -43,20 +48,40 @@
 			font-size: 16px !important;
 			
 			background-image: url("static/br.png");
+			background-position: 20px 50%;
+			background-repeat: no-repeat;
+			padding-left: 60px !important;
+			padding-top: 6px !important;
+			padding-bottom: 5px !important;
 		}
 		
 		.nav > li {
 			border-left: solid 2px #8B8A8B;
+			padding-left: 20px;
+			padding-right: 20px;
 			color: #E8E9EB !important;
 		}
 		
 		.nav > li > a {
 			color: #E8E9EB !important;
-			font-weight: normal !important;
+			font-weight: 100 !important;
+			padding-top: 5px !important;
+			padding-bottom: 5px !important;
+			font-size: 16px !important;
 		}
 		
 		.nav > li > a:hover {
 			color: white !important;
+		}
+		
+		.nav p, .navbar-text {
+			margin-top: 11px !important;
+			margin-bottom: 0px !important;
+			line-height: 10px !important;
+		}
+		
+		.dropdown-toggle {
+			cursor: pointer !important;
 		}
 	</style>
   </head>
@@ -65,6 +90,8 @@
 	
 	<div class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="navbar-inner">
+	  	
+	  	
 		<div class="container">
 		  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 			<span class="icon-bar"></span>
@@ -74,11 +101,18 @@
 		  
 		  <a class="brand" href="/">Student Portal</a>
 		  
+		  <p class="navbar-text pull-right dropdown-toggle" data-toggle="dropdown">Chris Kuehl
+    <b class="caret"></b></p>
+		  
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li>Test</li>
+  </ul>
+		  
 		  <div class="nav-collapse collapse">
 			<ul class="nav">
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#about">About</a></li>
-			  <li><a href="#contact">Contact</a></li>
+			  <li><a href="#">Lessons</a></li>
+			  <li><a href="#about">Progress</a></li>
+			  <li><a href="#contact">Account</a></li>
 			</ul>
 		  </div>
 		</div>
