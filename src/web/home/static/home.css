@@ -1,0 +1,12 @@
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#homeTopBar {
+	background-color: rgb(200, 200, 200);
+}
+
+.center {
+	text-align: center;
+}
