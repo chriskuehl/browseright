@@ -25,6 +25,40 @@
 <![endif]-->
 	
 	<link rel="shortcut icon" href="static/bootstrap/ico/favicon.png">
+	
+	<style>
+		body, * {
+			font-family: Helvetica, Arial, sans-serif !important;
+		}
+		
+		.navbar-inner {
+			background: none !important;
+			background-color: #333133 !important;
+			padding: 7px;
+		}
+		
+		.brand, .brand:hover {
+			color: #E8E9EB !important;
+			font-weight: 400 !important;
+			font-size: 16px !important;
+			
+			background-image: url("static/br.png");
+		}
+		
+		.nav > li {
+			border-left: solid 2px #8B8A8B;
+			color: #E8E9EB !important;
+		}
+		
+		.nav > li > a {
+			color: #E8E9EB !important;
+			font-weight: normal !important;
+		}
+		
+		.nav > li > a:hover {
+			color: white !important;
+		}
+	</style>
   </head>
   
   <body>
@@ -37,27 +71,16 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
+		  
 		  <a class="brand" href="/">Student Portal</a>
+		  
 		  <div class="nav-collapse collapse">
 			<ul class="nav">
-			  <li class="active">
-				<a href="#">
-				  Home
-				</a>
-			  </li>
-			  <li>
-				<a href="#about">
-				  About
-				</a>
-			  </li>
-			  <li>
-				<a href="#contact">
-				  Contact
-				</a>
-			  </li>
+			  <li><a href="#">Home</a></li>
+			  <li><a href="#about">About</a></li>
+			  <li><a href="#contact">Contact</a></li>
 			</ul>
 		  </div>
-		  <!--/.nav-collapse -->
 		</div>
 	  </div>
 	</div>
