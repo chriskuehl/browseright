@@ -35,6 +35,7 @@
 			background: none !important;
 			background-color: #333133 !important;
 			padding: 7px;
+			padding-bottom: 5px !important;
 			min-height: 0px;
 		}
 		
@@ -83,6 +84,29 @@
 		.dropdown-toggle {
 			cursor: pointer !important;
 		}
+		
+		.navbar-inverse .navbar-text:hover {
+			color: white !important;
+		}
+		
+		.navbar-inverse .navbar-text:hover .white-caret {
+			border-top-color: white !important;
+			border-bottom-color: white !important;
+		}
+		
+		.navbar-inverse .navbar-text {
+			color: #E8E9EB !important;
+			font-size: 16px !important;
+			font-weight: 100 !important;
+		}
+		
+		.white-caret {
+			border-top-color: #E8E9EB !important;
+			border-bottom-color: #E8E9EB !important;
+			margin-bottom: 3px !important;
+			vertical-align: bottom !important;
+			margin-left: 5px;
+		}
 	</style>
   </head>
   
@@ -102,7 +126,7 @@
 		  <a class="brand" href="/">Student Portal</a>
 		  
 		  <p class="navbar-text pull-right dropdown-toggle" data-toggle="dropdown">Chris Kuehl
-    <b class="caret"></b></p>
+    <b class="caret white-caret"></b></p>
 		  
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     <li>Test</li>
