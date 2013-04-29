@@ -24,13 +24,64 @@
 	background-repeat: no-repeat;
 	background-position: 0% -6px;
 	height: 162px;
+	position: relative;
 }
 
 #logoText {
 	padding-left: 164px;
 	background-image: url("graphics/logoText.png");
 	background-repeat: no-repeat;
-	background-position: 164px 46px;
-	padding-top: 46px;
+	background-position: 164px 42px;
 	height: 104px;
+	width: 676px;
+}
+
+#homeTopBar h1 {
+	color: white;
+	font-size: 36px;
+	text-shadow: 0px 3px 4px black;
+	text-align: center;
+	padding-left: 80px;
+	padding-right: 80px;
+	margin-top: -20px;
+}
+
+.navButton {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+	font-size: 16px;
+	text-decoration: none;
+	color: #333133;
+	
+	border-radius: 10px;
+	border: 1px solid #A6E24F;
+	background-color: #8BCE2E;
+	position: absolute;
+}
+
+#teacher {
+	left: 560px;
+	top: 52px;
+}
+
+#student {
+	left: 720px;
+	top: 52px;
+}
+
+.navButton:hover {
+	color: #333133;
+	background-color: #7EBE2A;
+	text-decoration: none;
+}
+
+#ipad {
+	margin-top: 30px;
+	background-image: url("graphics/ipadFrame.png");
+	width: 580px;
+	height: 454px;
+	background-repeat: no-repeat;
 }
