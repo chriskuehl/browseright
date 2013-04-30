@@ -3,6 +3,10 @@
 	padding-right: 0px;
 }
 
+body, * {
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "Comic Sans MS", "Papyrus", sans-serif;
+}
+
 .center {
 	text-align: center;
 }
@@ -43,7 +47,8 @@
 	text-align: center;
 	padding-left: 80px;
 	padding-right: 80px;
-	margin-top: -20px;
+	margin-top: -10px;
+	margin-bottom: -10px;
 }
 
 .navButton {
@@ -84,4 +89,45 @@
 	width: 580px;
 	height: 454px;
 	background-repeat: no-repeat;
+	display: block;
+	margin-right: auto;
+	float: left;
+	margin-bottom: 140px;
+}
+
+#videoText {
+	display: block;
+	width: 286px;
+	float: left;
+	font-size: 28px;
+	font-weight: normal;
+	color: white;
+	margin-top: 60px;
+	margin-left: 20px;
+	line-height: 1.2em;
+}
+
+#videoText p {
+	padding-top: 10px;
+	font-size: 18px;
+	line-height: 1.1em;
+	font-weight: 300;
+}
+
+#app {
+	margin-top: 10px;
+	width: 214px;
+	height: 64px;
+	float: left;
+	background-image: url("graphics/appstoreBadge.png");
+}
+
+#desc {
+	width: 408px;
+	float: left;
+	margin-left: 20px;
+}
+
+img {
+	float: left;
 }
