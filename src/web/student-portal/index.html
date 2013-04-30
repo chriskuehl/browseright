@@ -8,11 +8,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="Chris Kuehl, Caleb Dotson">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,300,800' rel='stylesheet' type='text/css' />
 	
 	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<style>
 	  body {
-		padding-top: 60px;
+		padding-top: 47px;
 		/* 60px to make the container go all the way to the bottom of the topbar */
 	  }
 	</style>
@@ -27,8 +28,16 @@
 	<link rel="shortcut icon" href="static/bootstrap/ico/favicon.png">
 	
 	<style>
+		body {
+			background-color: #F4F4F4;
+		}
+		
+		body > .container {
+			background-color: white;
+		}
+		
 		body, * {
-			font-family: Helvetica, Arial, sans-serif !important;
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Comic Sans MS", "Papyrus", sans-serif !important;
 		}
 		
 		.navbar-inner {
@@ -44,7 +53,7 @@
 		}
 		
 		.brand, .brand:hover {
-			color: #E8E9EB !important;
+			color: white !important;
 			font-weight: 400 !important;
 			font-size: 16px !important;
 			
@@ -73,6 +82,8 @@
 		
 		.nav > li > a:hover {
 			color: white !important;
+			/* font-weight: bold !important; */
+			text-shadow: 0px 0px 1px rgba(255, 255, 255, 1);
 		}
 		
 		.nav p, .navbar-text {
@@ -87,6 +98,7 @@
 		
 		.navbar-inverse .navbar-text:hover {
 			color: white !important;
+			text-shadow: 0px 0px 1px rgba(255, 255, 255, 1);
 		}
 		
 		.navbar-inverse .navbar-text:hover .white-caret {
@@ -158,15 +170,12 @@
 	</div>
 	
 	<div class="container">
-	  <h1>
-		Bootstrap starter template
-	  </h1>
-	  <p>
-		Use this document as a way to quick start any new project.
-		<br>
-		All you get is this message and a barebones HTML document.
-	  </p>
-	  
+	 <!-- 3-columns, 1/3 each -->
+		<div class="row">
+		  <div class="span4">1/3 width</div>
+		  <div class="span4">1/3 width</div>
+		  <div class="span4">1/3 width</div> 
+		</div>  
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
