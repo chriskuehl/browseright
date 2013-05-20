@@ -39,7 +39,7 @@ function api(command, params, acceptableResponses, callback) {
 		data: params,
 		crossDomain: false,
 		cache: false,
-		timeout: 5000,
+		timeout: 10000,
 		type: "POST",
 		
 		success: function(data) {
