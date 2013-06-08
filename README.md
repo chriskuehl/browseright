@@ -39,7 +39,7 @@ environment variabes:
 * `JDBC_PASSWORD`
 
 (right now only MySQL is supported but it should be very simple to support other databases, potentially by moving
-the driver to an environment varible)
+the driver to an environment variable)
 
 To add admin users (users that are able to edit content via the web interface), add environment variables in the
 following format:
