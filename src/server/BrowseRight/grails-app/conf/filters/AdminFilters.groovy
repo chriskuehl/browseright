@@ -24,7 +24,7 @@ class AdminFilters {
 						if (parts.size() == 2 && parts[0].length() > 0 && parts[1].length() > 0) {
 							def hash = System.env["BROWSERIGHT_ADMIN_" + parts[0].toUpperCase()]
 							
-							if (hash && hash.length > 0 && hashingService.matches(hash, parts[1])) {
+							if (hash && hash.length() > 0 && hashingService.matches(hash, parts[1])) {
 								success = true
 							}
 						}
