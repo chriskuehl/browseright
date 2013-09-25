@@ -39,13 +39,13 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        runtime 'mysql:mysql-connector-java:5.1.23'
+        runtime 'mysql:mysql-connector-java:5.1.26'
         runtime "net.sf.opencsv:opencsv:2.3"
     }
 
     plugins {
-        runtime ":hibernate:$grailsVersion"
-        runtime ":resources:1.1.6"
-        build ":tomcat:$grailsVersion"
+        runtime ":hibernate:3.6.10.1"
+        runtime ":resources:1.2"
+        build ":tomcat:7.0.42"
     }
 }
