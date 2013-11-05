@@ -44,7 +44,7 @@ the driver to an environment variable)
 To add admin users (users that are able to edit content via the web interface), add environment variables in the
 following format:
 
-* `BROWSERIGHT_ADMIN_CHRIS` (for user chris, case insensitive, value should be the plain-text password)
+* `BROWSERIGHT_ADMIN_CHRIS` (for user chris, case insensitive, value should be the bcrypt-hashed password)
 
 #### Client app
 ###### iOS
