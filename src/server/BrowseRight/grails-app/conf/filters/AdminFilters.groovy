@@ -11,7 +11,7 @@ class AdminFilters {
     def filters = {
         adminFilter(uri: "/dev/**") {
             before = {
-                if (true || GrailsUtil.getEnvironment().equals(GrailsApplication.ENV_PRODUCTION)) {
+                if (GrailsUtil.getEnvironment().equals(GrailsApplication.ENV_PRODUCTION)) {
                     // check the provided username and password
 					def success = false
 					def auth = request.getHeader("Authorization")
