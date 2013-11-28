@@ -27,7 +27,7 @@ jQuery Mobile). Many others are also used (see the `js/lib` folder).
 
 ### Building BrowseRight
 #### Server app
-Download and install the version of Grails used for the server app (currently **2.3.2**). It should build without any
+Download and install the version of Grails used for the server app (currently **2.3.3**). It should build without any
 additional configuration. Use `grails run-app` for testing on your machine and `grails war` to create a WAR file to
 deploy to a Java application server.
 
