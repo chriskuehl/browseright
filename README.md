@@ -58,8 +58,6 @@ You can, however, test with the iOS simulator.
 We can't share our developer certificates/keys, but will use them to build all official releases of BrowseRight, so
 feel free to make changes and submit a pull request.
 
-The version of PhoneGap in use is contained in the repository so you shouldn't need to install it.
-
 ### Content
 BrowseRight contains a number of articles and quizzes. These are all available under the MIT license (as is our code),
 but are not currently in the repository.
