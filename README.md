@@ -44,7 +44,7 @@ the driver to an environment variable)
 To add admin users (users that are able to edit content via the web interface), add environment variables in the
 following format:
 
-    export NINETEEN_ADMIN_TEST='$2a$10$W5oU6LKLmvY6EVcJrrpryuQyWVlxUmc/KZ4tGwc7zm9tNL81laPNS'
+    export BROWSERIGHT_ADMIN_TEST='$2a$10$W5oU6LKLmvY6EVcJrrpryuQyWVlxUmc/KZ4tGwc7zm9tNL81laPNS'
     
 (for user "test", case insensitive, value is the bcrypt-hashed password, in this case "test")
 
